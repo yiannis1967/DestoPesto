@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+             x:Class="DestoPesto.Views.CategoryButton">
+    <ContentView.Content>
+        <Grid  Grid.Row="1"
+            Grid.Column="0"
+            HeightRequest="40"
+            HorizontalOptions="Fill"
+            IsClippedToBounds="True"
+            VerticalOptions="Center">
+            <!--<Button x:Name="button" x:FieldModifier="public"></Button>-->
+
+            <Button  x:Name="button" x:FieldModifier="public">
+                <!--<Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="-4,-6,-4,-5" />
+                        <On Platform="iOS" Value="0" />
+                    </OnPlatform>
+                </Button.Margin>-->
+            </Button>
+
+            <!--  Text Label  -->
+            <Grid InputTransparent="True"   VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1"  x:Name="label" x:FieldModifier="public"    FontSize="Small" HorizontalOptions="CenterAndExpand"  LineBreakMode="TailTruncation"  InputTransparent="True"    VerticalTextAlignment="Center" />
+                <!--  Icon Image  -->
+
+
+
+                <!--<Image    x:FieldModifier="public" Grid.Column="2" Margin="0,0,0,0" HeightRequest="20" WidthRequest="20" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.ButtonCircleBig.png}" 
+                                                           VerticalOptions="End"
+                                                            HorizontalOptions="Center"
+                          
+                                                           AbsoluteLayout.LayoutFlags="All" />-->
+
+                <!--<Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2" Text="20"></Label>-->
+                <Image   x:Name="image" x:FieldModifier="public" Grid.Column="2"  HeightRequest="20" WidthRequest="20" InputTransparent="True" Source="{Binding Path=IconUrl}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+
+            </Grid>
+
+
+
+            <!--<Label Margin="3" x:Name="label" x:FieldModifier="public"></Label>-->
+            <!--<Image WidthRequest="24" HeightRequest="24" x:Name="img" x:FieldModifier="public"></Image>-->
+        </Grid>
+    </ContentView.Content>
+</ContentView>

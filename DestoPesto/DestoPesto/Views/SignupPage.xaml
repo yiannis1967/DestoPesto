@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
+             mc:Ignorable="d"
+             x:Class="DestoPesto.Views.SignupPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+
+    <StackLayout BackgroundColor="#89BB29">
+        <Grid>
+            <StackLayout Padding="0" Margin="10,60,10,0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="608" HasShadow="True" Padding="0" Margin="0">
+                    <ScrollView>
+                        <StackLayout>
+
+                        <Image Source="{AppThemeBinding Light=icon.png, Dark=icon.png}" HeightRequest="90" VerticalOptions="EndAndExpand"/>
+
+                        <StackLayout Margin="0">
+                            <Label Text="TOPOS MOU" TextColor="#89BB29" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Medium"/>
+                        </StackLayout>
+                        
+                        <StackLayout Padding="0" Margin="15,10">
+
+
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail"  PlaceholderColor="Gray" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}" x:Name="txtPassword"  PlaceholderColor="Gray"  IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Entry Placeholder="{x:Static resources:Properties.Resources.RePasswordPlaceHolder}" x:Name="txtReTypePassword"  PlaceholderColor="Gray"  IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Entry Placeholder="{x:Static resources:Properties.Resources.DobText}" x:Name="txtDOB"  PlaceholderColor="Gray"  TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="Select Gender" TextColor="#89BB29" MinimumWidthRequest="50" FontSize="Medium"/>
+                                <RadioButton Content="Male"  TextColor="#89BB29"/>
+                                <RadioButton Content="Female"  TextColor="#89BB29"/>
+                                <RadioButton Content="Other" TextColor="#89BB29"  />
+                            </StackLayout>
+
+                            <Button Text="{x:Static resources:Properties.Resources.SignUpText}" BackgroundColor="#89BB29" TextColor="White" CornerRadius="30" Clicked="Button_Clicked" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" FontSize="Small"/>
+                                <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#89BB29" FontAttributes="Bold" FontSize="Small"/>
+                            </StackLayout>
+
+                           
+                            <Image Source="logoback.png" HeightRequest="30" Margin="10,0,0,0" VerticalOptions="EndAndExpand"/>
+
+                        </StackLayout>
+
+                        
+                    </StackLayout>
+                    </ScrollView>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

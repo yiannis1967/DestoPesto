@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:map="clr-namespace:Maps;assembly=Map"
+             x:Class="DestoPesto.Views.AboutPage"
+             xmlns:vm="clr-namespace:DestoPesto.ViewModels">
+    <!--Title="{x:Static resources:Properties.Resources.MapHeaderText}">-->
+
+    <!--<ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+-->
+
+    <Shell.TitleView>
+        <Grid InputTransparent="True"   VerticalOptions="Center">
+            
+            <Image HeightRequest="32"  HorizontalOptions="Start" InputTransparent="True" Source="logo_landscape_blue_back.png" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+            
+        </Grid>
+
+
+
+        <!--<Image HeightRequest="32" WidthRequest="80"  HorizontalOptions="Start" InputTransparent="True" Source="logo_landscape_blue_back.png" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All"/>-->
+    </Shell.TitleView>
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Name="destopesto"  >
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" iOS="settings.png"   Android="destopesto_logo_square_solo_white.png"/>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>-->
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Cancle">#ff0000</Color>
+            <Color x:Key="Primary">#039ece</Color>
+            <Color x:Key="Ok">#215f21</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid x:Name="GridMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <AbsoluteLayout Grid.Row="0">
+            <ContentView  
+               AbsoluteLayout.LayoutBounds="0,0,1,1"
+               AbsoluteLayout.LayoutFlags="All" 
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" >
+                <map:MapEx x:Name="map" MapClicked="map_MapClicked"  HasScrollEnabled="True" MapType="Street" HasZoomEnabled="True" IsShowingUser="true" PropertyChanged="map_PropertyChangedAsync"></map:MapEx>
+            </ContentView>
+            <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
+        </AbsoluteLayout>
+
+        <ScrollView Grid.Row="1">
+            <Grid   x:Name="GridBtn" BackgroundColor="White"></Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

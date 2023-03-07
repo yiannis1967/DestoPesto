@@ -1,0 +1,78 @@
+{
+  "project_info": {
+    "project_number": "959003601559",
+    "project_id": "toposmougr",
+    "storage_bucket": "toposmougr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959003601559:android:263c01ceb8bd7d1b0cd7d2",
+        "android_client_info": {
+          "package_name": "com.arionsoftware.destopesto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959003601559-9d98hdquuvmtf3e83420cuoondj7008p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arionsoftware.destopesto",
+            "certificate_hash": "218cfb26b5d809b9bff1fe25cf4c0c96db27b7a8"
+          }
+        },
+        {
+          "client_id": "959003601559-cmqm2e25us0fo3ihucsvdpmsievov3bs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arionsoftware.destopesto",
+            "certificate_hash": "44befd14466e01cc77bcc8103ba4d339bb1aa275"
+          }
+        },
+        {
+          "client_id": "959003601559-ebhlcu1scbrh68ntro06msdbb98lr805.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arionsoftware.destopesto",
+            "certificate_hash": "9fdecfc66b22aaa379f217d90f02a86be21dee5d"
+          }
+        },
+        {
+          "client_id": "959003601559-kmqlcpif6u5gsors2vilmpiqge1pu65u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arionsoftware.destopesto",
+            "certificate_hash": "a011336852488579aad4b45274ae2f89599db0d3"
+          }
+        },
+        {
+          "client_id": "959003601559-9ljm2ph745o1s8h78p1luiq3fioham75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5dzcW_icc6hcSKwrQCGV6kAuYKYMb6nA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959003601559-9ljm2ph745o1s8h78p1luiq3fioham75.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "959003601559-v7ft2g3pr4augp8jus4k61bmoooe37h4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arion.destopesto.ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

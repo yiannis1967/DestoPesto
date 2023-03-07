@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DestoPesto.Views.SubmisionsListPageDetail"
+             xmlns:controls="clr-namespace:DestoPesto.Controls"
+             xmlns:hl="clr-namespace:Hyperlink"
+             Title="Detail">
+    <Grid>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <controls:RepeaterView ItemsSource="{Binding Path=Damages}">
+
+                    <controls:RepeaterView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Frame Margin="10" CornerRadius="5"  BackgroundColor="Coral"
+                                        HorizontalOptions="Fill" 
+                                   VerticalOptions="Fill"
+                                   HasShadow="True"
+                                   IsClippedToBounds="True"
+                                   Padding="0">
+                                    <Grid Padding="15" BackgroundColor="WhiteSmoke">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="80"/>
+                                        </Grid.RowDefinitions>
+                                        <Label FontSize="Caption" Text="{Binding Path=CategoryName}"></Label>
+                                        <Label Grid.Row="1" FontSize="Subtitle" Text="{Binding Path=fullAddress}"></Label>
+
+                                        <Grid  Grid.Row="2" >
+                                            <Image HeightRequest="330" x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
+                                        </Grid>
+                                        <Grid Grid.Row="3">
+
+                                            <Grid Grid.Row="1" Grid.Column="0" HeightRequest="40" HorizontalOptions="Fill" IsClippedToBounds="True" VerticalOptions="Center">
+
+                                                <!--  Button Control  -->
+                                                <Button BackgroundColor="#2196F3">
+                                                    <Button.Margin>
+                                                        <OnPlatform x:TypeArguments="Thickness">
+                                                            <On Platform="Android" Value="-4,-6,-4,-5" />
+                                                            <On Platform="iOS" Value="0" />
+                                                        </OnPlatform>
+                                                    </Button.Margin>
+                                                </Button>
+
+                                                <!--  Text Label  -->
+                                                <Label Margin="10,0,0,0" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" HorizontalTextAlignment="Center" InputTransparent="True" Text="go next" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" />
+
+                                                <!--  Icon Image  -->
+                                                <Image Margin="0,0,5,0" HeightRequest="30" InputTransparent="True" Source="https://asfameazure.blob.core.windows.net/destopesto/images/icons/icons_TrafficSign.png" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" WidthRequest="30" />
+                                            </Grid>
+
+
+
+
+                                            <!--<Grid >
+
+                                                <Button HorizontalOptions="FillAndExpand" Text="Επιδιορθώθηκε" Background="#198754"  CornerRadius="5" ></Button>
+                                                
+
+                                            </Grid>-->
+                                        </Grid>
+                                    </Grid>
+
+
+                                </Frame>
+                                <!--<Frame Margin="10" CornerRadius="5" 
+           HorizontalOptions="Fill" 
+           VerticalOptions="Center"
+           HasShadow="True"
+           IsClippedToBounds="True"
+           Padding="0">
+                            <Grid Padding="15" BackgroundColor="OrangeRed">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Location"></Label>
+                                <Grid  Grid.Row="1" >
+                                    <Image x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <hl:HyperlinkLabel x:Name="IsRepairedHyperlink"   Text="Φτιάχτηκε" ></hl:HyperlinkLabel>
+
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Frame>-->
+                            </Grid>
+
+
+                        </DataTemplate>
+                    </controls:RepeaterView.ItemTemplate>
+                </controls:RepeaterView>
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

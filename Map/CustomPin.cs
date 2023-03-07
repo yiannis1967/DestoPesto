@@ -1,0 +1,10 @@
+﻿using Xamarin.Forms.Maps;
+
+namespace Maps
+{
+    public class PinEx : Pin
+    {
+        public string Name { get; set; }
+        public string Url { get; set; }
+    }
+}

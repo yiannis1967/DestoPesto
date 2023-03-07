@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk" ProjectGUID="9204df9e-27c1-42b3-bc63-3783f247892f">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <UserSecretsId>2dc659f5-c16d-4c10-a438-4fd16c08c79e</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
+  </ItemGroup>
+</Project>
