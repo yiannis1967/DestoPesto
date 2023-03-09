@@ -65,7 +65,7 @@ namespace DestoPesto.Services
                 fileName = DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss");
                 IFile file = await folder.CreateFileAsync(fileName + ".txt", CreationCollisionOption.ReplaceExisting);
                 IFile imgFile = await folder.CreateFileAsync(fileName + ".jpg", CreationCollisionOption.ReplaceExisting);
-                
+
                 var imgFileStream = await imgFile.OpenAsync(PCLStorage.FileAccess.ReadAndWrite);
                 image.Position = 0;
                 image.CopyTo(imgFileStream);
@@ -74,7 +74,7 @@ namespace DestoPesto.Services
                 string data = JsonConvert.SerializeObject(post);
                 await file.WriteAllTextAsync(data);
                 SubmitTripFilesTask();
-                
+
             }
             catch (Exception e)
             {
@@ -86,6 +86,7 @@ namespace DestoPesto.Services
         static bool Exit = false;
 
         static public bool SuspendBKService;
+
         public static async Task SubmitTripFilesTask()
         {
             var device = Xamarin.Forms.DependencyService.Get<IDevice>();
@@ -98,7 +99,7 @@ namespace DestoPesto.Services
 
                 var dataFiles = files.Where(x => x.Name.Split('.')[1] == "txt").ToList();
 
-                if (dataFiles.Count > 0 && !SuspendBKService)
+                if (dataFiles.Count > 0&& !SuspendBKService)
                 {
                     device.RunInBackground(new Action(() =>
                     {
@@ -107,7 +108,7 @@ namespace DestoPesto.Services
                         {
                             do
                             {
-                                
+
                                 files = await folder.GetFilesAsync();
                                 dataFiles = files.Where(x => x.Name.Split('.')[1] == "txt").ToList();
                                 try
@@ -126,59 +127,8 @@ namespace DestoPesto.Services
                                             {
                                                 try
                                                 {
-                                                    string fileName = dataFile.Name.Split('.')[0];
-                                                    var imageFile = files.Where(x => x.Name.Split('.')[1] == "jpg" && x.Name.Split('.')[0] == fileName).FirstOrDefault();
-                                                    if (imageFile != null)
-                                                    {
-                                                        PostSubmission damage = null;
-                                                        Stream imageStream = null;
-                                                        try
-                                                        {
-                                                            String text = await dataFile.ReadAllTextAsync();
-                                                            damage = JsonConvert.DeserializeObject<PostSubmission>(text);
-                                                            imageStream = await imageFile.OpenAsync(PCLStorage.FileAccess.Read);
-                                                            imageStream.Position = 0;
+                                                    _continue=await UploadDamage(files, dataFile);
 
-                                                            if (JsonHandler.PostSubmissionWithImageSync(damage, imageStream))
-                                                            {
-                                                                await DeleteTripFile(dataFile.Name);
-                                                                await DeleteTripFile(imageFile.Name);
-                                                            }
-                                                            else
-                                                            {
-
-                                                            }
-
-                                                        }
-                                                        catch (Exception error)
-                                                        {
-
-                                                        }
-                                                        if (damage == null || imageStream == null)
-                                                        {
-                                                            try
-                                                            {
-                                                                await DeleteTripFile(dataFile.Name);
-                                                            }
-                                                            catch (Exception ierror)
-                                                            {
-
-
-                                                            }
-                                                            try
-                                                            {
-                                                                await DeleteTripFile(imageFile.Name);
-                                                            }
-                                                            catch (Exception ierror)
-                                                            {
-
-
-                                                            }
-
-                                                        }
-
-
-                                                    }
                                                     break;
                                                     //await JsonHandler.PostSubmission(Damages);
 
@@ -243,6 +193,94 @@ namespace DestoPesto.Services
 
 
         }
+
+        public static bool HasTripDamages()
+        {
+            return true;
+            //Directory.Exists(PCLStorage.FileSystem.Current.LocalStorage.Path+@"\SubFolder");
+
+            //IFolder folder = await rootFolder.CreateFolderAsync("SubFolder", CreationCollisionOption.OpenIfExists);
+            //IList<IFile> files = await folder.GetFilesAsync();
+            //var dataFiles = files.Where(x => x.Name.Split('.')[1] == "txt").ToList();
+            //return dataFiles.Count>0;
+        }
+        public static async Task<bool> SubmitNextTripDamage()
+        {
+            BackgroundServiceState serviceState = new BackgroundServiceState();
+            IFolder rootFolder = PCLStorage.FileSystem.Current.LocalStorage;
+            IFolder folder = await rootFolder.CreateFolderAsync("SubFolder", CreationCollisionOption.OpenIfExists);
+            IList<IFile> files = await folder.GetFilesAsync();
+
+            var dataFiles = files.Where(x => x.Name.Split('.')[1] == "txt").ToList();
+            if (dataFiles.Count>0)
+            {
+                await UploadDamage(files, dataFiles[0]);
+                return true;
+            }
+            return false;
+
+        }
+        private static async Task<bool> UploadDamage(IList<IFile> files, IFile dataFile)
+        {
+            bool _continue = true;
+            string fileName = dataFile.Name.Split('.')[0];
+            var imageFile = files.Where(x => x.Name.Split('.')[1] == "jpg" && x.Name.Split('.')[0] == fileName).FirstOrDefault();
+            if (imageFile != null)
+            {
+                PostSubmission damage = null;
+                Stream imageStream = null;
+                try
+                {
+                    String text = await dataFile.ReadAllTextAsync();
+                    damage = JsonConvert.DeserializeObject<PostSubmission>(text);
+                    imageStream = await imageFile.OpenAsync(PCLStorage.FileAccess.Read);
+                    imageStream.Position = 0;
+
+                    if (JsonHandler.PostSubmissionWithImageSync(damage, imageStream))
+                    {
+                        _continue = false;
+                        //await DeleteTripFile(dataFile.Name);
+                        //await DeleteTripFile(imageFile.Name);
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+                catch (Exception error)
+                {
+
+                }
+                if (damage == null || imageStream == null)
+                {
+                    try
+                    {
+                        await DeleteTripFile(dataFile.Name);
+                    }
+                    catch (Exception ierror)
+                    {
+
+
+                    }
+                    try
+                    {
+                        await DeleteTripFile(imageFile.Name);
+                    }
+                    catch (Exception ierror)
+                    {
+
+
+                    }
+
+                }
+
+
+            }
+
+            return _continue;
+        }
+
         public static async Task DeleteTripFile(String FileName)
         {
             try
@@ -284,7 +322,7 @@ namespace DestoPesto.Services
 
         static string _Uri;
 
-        static string getUri()
+        internal static string getUri()
         {
             if (_Uri == null)
             {
@@ -293,7 +331,7 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if _DEBUG
+#if DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://10.0.0.13:5005/";

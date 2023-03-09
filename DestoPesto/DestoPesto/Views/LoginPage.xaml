@@ -55,9 +55,6 @@
 
                                 <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
-
-
-
                             </StackLayout>
 
                             <Button Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" />

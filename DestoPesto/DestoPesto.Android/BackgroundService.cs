@@ -26,7 +26,7 @@ using Xamarin.Forms;
 
 namespace DestoPesto.Droid
 {
-    [Service(Label = "BackgroundService", Exported = true)]
+    [Service(Label = "BackgroundService")]
     class BackgroundService : Service
 
     {

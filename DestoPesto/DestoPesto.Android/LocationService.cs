@@ -13,7 +13,7 @@ namespace DestoPesto.Droid
 {
 
     /// <MetaDataID>{7826d101-0eb3-406a-99ce-9ac4e7aea326}</MetaDataID>
-    [Service(Name = "com.companyname.DestoPesto.LocationService", Exported = true)]
+    [Service(Name = "com.companyname.DestoPesto.LocationService")]
     public class LocationService: ForegroundService
     {
     }

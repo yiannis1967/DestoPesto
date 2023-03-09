@@ -20,6 +20,8 @@ using System.Windows.Input;
 using Maps;
 using Rg.Plugins.Popup.Services;
 using System.Reflection;
+using PCLStorage;
+using System.Xml.Linq;
 //using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto.Views
@@ -89,13 +91,13 @@ namespace DestoPesto.Views
 
         private async void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            SetCatagoryButtons();
-            var profiles = Connectivity.ConnectionProfiles;
-            //if (profiles.Contains(ConnectionProfile.WiFi))
-            //{
-            //    await JsonHandler.SubmitTripFiles();
+            //SetCatagoryButtons();
+            //var profiles = Connectivity.ConnectionProfiles;
+            ////if (profiles.Contains(ConnectionProfile.WiFi))
+            ////{
+            ////    await JsonHandler.SubmitTripFiles();
 
-            //}
+            ////}
 
 
             if (e.NetworkAccess == NetworkAccess.Internet)
@@ -325,8 +327,11 @@ namespace DestoPesto.Views
 
         void DrawPinsOnMap(ObservableCollection<DamageData> _pinLoc)
         {
+
             MainThread.BeginInvokeOnMainThread(() =>
             {
+                // Code to run on the main thread
+
                 try
                 {
                     if (map.CustomPins == null)
@@ -360,7 +365,6 @@ namespace DestoPesto.Views
                 }
             });
 
-
         }
 
 
@@ -379,9 +383,16 @@ namespace DestoPesto.Views
                 {
                     if (entry.Key == "MessageID")
                     {
-                        DisplayAlert("Notification", $"{entry.Key} : {entry.Value}", "OK");
+
+                        string description;
+                        (App.Current as App).IntentExtras.TryGetValue("Description", out description);
+                        string submisionThumb;
+                        (App.Current as App).IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
+                        string comments;
+                        (App.Current as App).IntentExtras.TryGetValue("Comments", out comments);
+
                         (App.Current as App).IntentExtras.Clear();
-                        await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage());
+                        await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description,submisionThumb,comments));
 
                         break;
                     }
@@ -486,8 +497,34 @@ namespace DestoPesto.Views
         }
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
+            try
+            {
+                IUploadData uploadData = DependencyService.Get<IUploadData>();
+                var names = typeof(JsonHandler).Assembly.GetManifestResourceNames();
+             var   image = typeof(JsonHandler).Assembly.GetManifestResourceStream("DestoPesto.TestPhoto.JPG");
 
 
+                IFolder rootFolder = PCLStorage.FileSystem.Current.LocalStorage;
+                IFolder folder = await rootFolder.CreateFolderAsync("SubFolder", CreationCollisionOption.OpenIfExists);
+                string fileName = DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss");
+                IFile imgFile = await folder.CreateFileAsync(fileName + ".jpg", CreationCollisionOption.ReplaceExisting);
+
+                var imgFileStream = await imgFile.OpenAsync(PCLStorage.FileAccess.ReadAndWrite);
+                image.Position = 0;
+                image.CopyTo(imgFileStream);
+                fileName = imgFile.Path;
+                imgFileStream.Close();
+
+
+
+                uploadData.PostSubmissionWithImage(JsonHandler.getUri()+"api/Submissions/iOSUploadImage/", fileName, image);
+                return;
+            }
+            catch (Exception error)
+            {
+
+                return;
+            }
             //await getUserData();
             if (Authentication.DeviceAuthentication.AuthUser == null)
             {
@@ -505,25 +542,31 @@ namespace DestoPesto.Views
             Stream stream = null;
 
 
-            FileResult result = await MediaPicker.CapturePhotoAsync();
+            ////FileResult result = await MediaPicker.CapturePhotoAsync();
             //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
 
-            if (result != null)
+            //if (result != null)
+            //{
+            //    string base64 = "";
+            //    stream = await result.OpenReadAsync();
+            //    //if (stream != null)
+            //    //{
+            //    //    using (MemoryStream memory = new MemoryStream())
+            //    //    {
+            //    //        stream.CopyTo(memory);
+            //    //        byte[] bytes = memory.ToArray();
+            //    //        //byte[] resizedImage = await ImageResizer.ResizeImage(bytes, 1200, 1200);
+            //    //        //base64 = System.Convert.ToBase64String(resizedImage);
+            //    //        base64 = System.Convert.ToBase64String(bytes);
+            //    //    }
+            //    //}
+            //}
+
             {
-                string base64 = "";
-                stream = await result.OpenReadAsync();
-                //if (stream != null)
-                //{
-                //    using (MemoryStream memory = new MemoryStream())
-                //    {
-                //        stream.CopyTo(memory);
-                //        byte[] bytes = memory.ToArray();
-                //        //byte[] resizedImage = await ImageResizer.ResizeImage(bytes, 1200, 1200);
-                //        //base64 = System.Convert.ToBase64String(resizedImage);
-                //        base64 = System.Convert.ToBase64String(bytes);
-                //    }
-                //}
+                var names = typeof(JsonHandler).Assembly.GetManifestResourceNames();
+                stream = typeof(JsonHandler).Assembly.GetManifestResourceStream("DestoPesto.TestPhoto.JPG");
             }
+
 
             if (stream != null)
             {

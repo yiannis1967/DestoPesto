@@ -154,11 +154,14 @@ namespace Maps.Droid
         PinEx GetCustomPin(Marker annotation)
         {
             var position = new Position(annotation.Position.Latitude, annotation.Position.Longitude);
-            foreach (var pin in customPins)
+            if (position!=null)
             {
-                if (pin.Position == position)
+                foreach (var pin in customPins)
                 {
-                    return pin;
+                    if (pin.Position == position)
+                    {
+                        return pin;
+                    }
                 }
             }
             return null;

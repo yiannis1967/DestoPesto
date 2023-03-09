@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "55203842287",
+    "project_id": "destopesto-89a4a",
+    "storage_bucket": "destopesto-89a4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55203842287:android:8c9e82e1249f58858d731a",
+        "android_client_info": {
+          "package_name": "com.arionsoftware.destopesto"
+        }
+      },
+      "oauth_client": [
+        {
+          
+          "client_id": "55203842287-9gd38icugh8o7s67cujm46ov1i6s99sc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arionsoftware.destopesto",
+            "certificate_hash": "9fdecfc66b22aaa379f217d90f02a86be21dee5d"
+          }
+        },
+        {
+          "client_id": "55203842287-q2tjmbnms21j13r9qfoplja1e40sccdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJYAOoXmn-tBFF_XVm1qxH4UX7Mef6C6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "55203842287-q2tjmbnms21j13r9qfoplja1e40sccdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

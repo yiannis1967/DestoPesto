@@ -361,42 +361,12 @@ Global
 		SolutionGuid = {27B3504E-C18A-4016-8211-ED8ED286A1D5}
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 12
+		SccNumberOfProjects = 2
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://arion.visualstudio.com/
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = DestoPesto\\DestoPesto.UWP\\DestoPesto.UWP.csproj
 		SccProjectName1 = DestoPesto/DestoPesto.UWP
 		SccLocalPath1 = DestoPesto\\DestoPesto.UWP
-		SccProjectUniqueName2 = DestoPesto\\DestoPesto.Android\\DestoPesto.Android.csproj
-		SccProjectName2 = DestoPesto/DestoPesto.Android
-		SccLocalPath2 = DestoPesto\\DestoPesto.Android
-		SccProjectUniqueName3 = DestoPesto\\DestoPesto.iOS\\DestoPesto.iOS.csproj
-		SccProjectName3 = DestoPesto/DestoPesto.iOS
-		SccLocalPath3 = DestoPesto\\DestoPesto.iOS
-		SccProjectUniqueName4 = Authentication.Android\\Authentication.Android.csproj
-		SccProjectName4 = Authentication.Android
-		SccLocalPath4 = Authentication.Android
-		SccProjectUniqueName5 = Authentication.iOS\\Authentication.iOS.csproj
-		SccProjectName5 = Authentication.iOS
-		SccLocalPath5 = Authentication.iOS
-		SccProjectUniqueName6 = DestoPesto\\DestoPesto\\DestoPesto.csproj
-		SccProjectName6 = DestoPesto/DestoPesto
-		SccLocalPath6 = DestoPesto\\DestoPesto
-		SccProjectUniqueName7 = Authentication\\Authentication.csproj
-		SccProjectName7 = Authentication
-		SccLocalPath7 = Authentication
-		SccProjectUniqueName8 = Map.Android\\Map.Android.csproj
-		SccProjectName8 = Map.Android
-		SccLocalPath8 = Map.Android
-		SccProjectUniqueName9 = Map.iOS\\Map.iOS.csproj
-		SccProjectName9 = Map.iOS
-		SccLocalPath9 = Map.iOS
-		SccProjectUniqueName10 = Map\\Map.csproj
-		SccProjectName10 = Map
-		SccLocalPath10 = Map
-		SccProjectUniqueName11 = FCMTest\\FCMTest.csproj
-		SccProjectName11 = FCMTest
-		SccLocalPath11 = FCMTest
 	EndGlobalSection
 EndGlobal

@@ -28,6 +28,19 @@ namespace FCMTest
                 client_x509_cert_url = "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-s8pj1%40toposmougr.iam.gserviceaccount.com"
             };
 
+            //Credential credential = new Credential()
+            //{
+            //    type = "service_account",
+            //    project_id = "demomicroneme",
+            //    private_key_id = "def7e2ba0e082086400e2953cf65fc6dfe5216d0",
+            //    private_key = "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDDvR7eRsEgyHRh\nJbSzbygIwbjGbEfAKb3gyicjiceyZuaV7ss/IGOCFhmR1f9rrjZmjOt642s/81hk\nYKLni2ap7VgT+GWIaMF7g4kUu87plk4d3zV89Tih52s2ppSsj7nLmVdqsE4QjBmN\nVpKQ2nZEYxPJfefHE8B5V+EO7/Tiv3Q3qNDAbWVlpNfb1LTq79YDU7iLD9U2PUIL\nwdN3/fU6SChjz6cyb+3kWwtTaarUPBN54bCAG1ka5w8ol3guINOb9U4hmCvE+Cvz\ngPbmgiHxgNoRMzHmMTGM9Ycr+uC0Zja5KhHUPLKTaF/CHIOOE+eHdfSpngduRoW1\n8InGK1WlAgMBAAECggEAMmNyGdhvCShxRTz2qqZ30OFF1tazFdXpCoAf2Tcz0EpL\nG9fQPJzy4N8dj/xd93Nuj7HBQO5ggqL7Y0O5TBAHysDNxr5QLPCCtnAjDtJWLq3B\nyFDYrSVXgd5YLEZvyYhqVO5RoaZnQj0+qrLZoi6K+Ynj4x/lVctQ5ivoRPcivGgH\njXkEERmIsZsSvmuLx6RwncMAdkZAyLRbz+mPGGWFrZR4b0IegBGItAR9LbZE4PPl\npgRGy78uNxqXZP0zsZfPTpWoPKBiivIcuIsyM9+N6zMAK/x5HBkK6mg1E8EBHqFb\nRvqQs3nvBtcY34QkWP1WRGq/cgrna5XiVQ27rEGsFQKBgQDm1grkihaEQeFYChF5\nNlSdbseUTKpRfUJ2VdVdh0GG6FaJ+79zTmO4ogg8u8dMWkav5XWDA4N9q3HFlaSe\nHOD0IUCK1U9zBvYFJ3GeDaQlM4AFcqEYlO296+OYMjZRPVpMoJ5G9nojV89OHJv3\nxY+WPWNhJXNdEJ4AJSCXGvefXwKBgQDZE50zixePxldRm294StNFDNo5Md3+tU4v\nHHa16hxf8uRPnLlGUweRemNrZaT4UmdGkYaFxLsH77I/s77mplN6sBayyM6wpkQx\nl00jqUzpgV6KEeXy42bSbebNPph/Q8gadySZYiDIPq0mACqWaxCwIWAxczoqkDK6\nPEbyQlwdewKBgQCPnJjYSITrsaUFxfXLCJ8p9xLZ07yeyCRCRPJiptSAnym/3Mzm\nat2lr8EaL+U1PnD92+75HIWA+NnmiEwLRoI5wDpMZZtxP+JtoHWSVIBL2LeMLB3H\nklg6sXg+ZvbeIiJ8y+zMz2l7dZT2ztvGEbZcTUL33Hnia4UxJ+gXumJWVwKBgD7G\nNUeaiY3CRa4LzQh0WvQ060Zu7UujEqD9Ejc5JEt66hs7rzhu+llPk0CTfElzSvpV\nSxmT8qIw5tMVH7eDkdCA6494Eo1zB3Vv05bkdqFwD+7NjjnXGPzxWzUvTNpAt7Uv\njx3sCp7dwSSkF6y3+XN1s2OZdtCoMoM4uyuDlS/RAoGAUvjqDDD/3GWiYDtQdY9Y\nEh2fzyf8C0nsNngkseWOmsPFPxZ66tJTxxTqCihAD6CaXPFnEUiSdlrgG8KG+lO6\nrebFITC6riiripgKO9Ss2yx7wfpbCAYzpysbY0vVjPYS28lhrq3gk1eg5pQ1Ol1j\nnpwIXbvgpr83/rjNxP9VM9E=\n-----END PRIVATE KEY-----\n",
+            //    client_email = "firebase-adminsdk-ggc6a@demomicroneme.iam.gserviceaccount.com",
+            //    client_id = "112667768908373030776",
+            //    auth_uri = "https://accounts.google.com/o/oauth2/auth",
+            //    token_uri = "https://oauth2.googleapis.com/token",
+            //    auth_provider_x509_cert_url = "https://www.googleapis.com/oauth2/v1/certs",
+            //    client_x509_cert_url = "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ggc6a%40demomicroneme.iam.gserviceaccount.com"
+            //};
 
 
             FirebaseApp = FirebaseApp.Create(new AppOptions()
@@ -43,6 +56,7 @@ namespace FCMTest
         {
             //Documantation
             //https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message
+            imageUrl="https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg";
             var fireBaseMessage = new Message()
             {
                 Data = new Dictionary<string, string>()
@@ -50,20 +64,33 @@ namespace FCMTest
 
                     { "MessageID", messageID }
                     ,{"ImageUrl", imageUrl}
+                    ,{"Description","Lamprou Spirou 7, Pireas 185 37, Greece"}
+                    ,{"SubmisionThumb","https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg"}
+                    ,{"Comments","Οι πινακίδες πρέπει να είναι ευανάγνωστες γιατί αφορούν την ασφάλεια μας και δεν ξέρω εάν έχει ήδη διορθωθεί αυτή που είχες δηλώσει στην Τσαμαδού"}
+                    ,{"MessageTimestamp",DateTime.UtcNow.ToString("u")}
+                    ,{"ServicesContextIdentity","7f9bde62e6da45dc8c5661ee2220a7b0"}
+
                 },
-                Notification = new Notification() { Title = title , Body = body},
+                Notification = new Notification() { Title = title, Body=body },
                 Token = deviceFirebaseToken,
-                Android = new AndroidConfig() {
+                Android = new AndroidConfig()
+                {
                     Priority = Priority.High,
                     Notification=new AndroidNotification { ImageUrl=imageUrl }
                 },
-                Apns=new ApnsConfig() {
-
-
+                Apns=new ApnsConfig()
+                {
                     FcmOptions=new ApnsFcmOptions() { ImageUrl=imageUrl },
-                    Headers=new Dictionary<string, string>() { { "image", imageUrl } }
+                    Headers=new Dictionary<string, string>() { { "image", imageUrl } },
+                    Aps=new Aps
+                    {
+                        AlertString="Something new has happened in your app!",
+                        ContentAvailable=true
+                    }
+
+
                 }
-                
+
             };
             //B_5D44abEZbnfQXU8MoOo:APA91bEtP_iQlkOaW0lajFfF2hTNStvyxqrM6MC4q5vYfAAxxoHctVhZB95TeTPcETe8WZpud4vdOgzrA_54XJMLHgHBpxykDq91MyJNTp-cAb05vkMh1-uAJreSXd-h2yT3z6CpNLF9
             //if (message.Notification != null)

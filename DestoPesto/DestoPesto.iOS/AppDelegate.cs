@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using BackgroundTasks;
+using DestoPesto.Services;
 using Firebase.CloudMessaging;
 using Foundation;
 using UIKit;
@@ -27,14 +32,25 @@ namespace DestoPesto.iOS
 
             Maps.iOS.CustomMapRenderer.Init();
             Firebase.Core.App.Configure();
-            Dictionary<string,object> m_options= new Dictionary<string,object>();
-            foreach(var key in options.Keys)
-            {
-                m_options[key.ToString()]=options[key];
-            }
-            
-            var formsApp = new App();
-            formsApp.Options=m_options;
+
+
+
+            Dictionary<string, object> m_options = new Dictionary<string, object>();
+            //if (options != null)
+            //{
+            //    foreach (var key in options.Keys)
+            //    {
+            //        m_options[key.ToString()] = options[key];
+            //    }
+            //}
+
+            string text = DeviceApplication.Current.ReadLog();
+            System.Diagnostics.Debug.Write(text);
+
+
+            var formsApp = new App("");
+            formsApp.Options = m_options;
+            BGTaskScheduler.Shared.Register(UploadTaskId, null, task => HandleUpload(task as BGAppRefreshTask));
 
             LoadApplication(formsApp);
             RegisterForRemoteNotifications();
@@ -92,6 +108,158 @@ namespace DestoPesto.iOS
 
             // TODO: If necessary send token to application server.
             // Note: This callback is fired at each app startup and whenever a new token is generated.
+        }
+        public static string UploadTaskId { get; } = "com.arion.destopesto.ios.upload";
+        public static NSString RefreshSuccessNotificationName { get; } = new NSString($"{UploadTaskId}.success");
+
+
+        public override void DidEnterBackground(UIApplication application)
+        {
+            if (JsonHandler.HasTripDamages())
+                ScheduleUploadTask();
+        }
+
+        void HandleUpload(BGAppRefreshTask task)
+        {
+            DeviceApplication.Current.Log(new List<string> { "HandleUpload" });
+            if (JsonHandler.HasTripDamages())
+                ScheduleUploadTask();
+
+            //JsonHandler.SubmitNextTripDamage();
+
+            //task.ExpirationHandler = () => operations.CancelOperations();
+
+            //operations.FetchLatestPosts(task);
+        }
+
+
+        void ScheduleUploadTask()
+        {
+            DeviceApplication.Current.Log(new List<string> { "ScheduleUploadTask" });
+            NSNotificationCenter.DefaultCenter.AddObserver(RefreshSuccessNotificationName, UploadSuccess);
+
+            var request = new BGAppRefreshTaskRequest(UploadTaskId)
+            {
+                EarliestBeginDate = (NSDate)DateTime.Now.AddMinutes(10) // Fetch no earlier than 15 minutes from now
+            };
+
+            BGTaskScheduler.Shared.Submit(request, out NSError error);
+
+            if (error != null)
+                Debug.WriteLine($"Could not schedule app refresh: {error}");
+        }
+        void UploadSuccess(NSNotification notification)
+        {
+            NSNotificationCenter.DefaultCenter.RemoveObserver(RefreshSuccessNotificationName);
+            var task = notification.Object as BGAppRefreshTask;
+            task?.SetTaskCompleted(true);
+        }
+
+        public override void WillTerminate(UIApplication uiApplication)
+        {
+            var notification = new UILocalNotification();
+
+            // set the fire date (the date time in which it will fire)
+            notification.FireDate = NSDate.FromTimeIntervalSinceNow(5);
+
+            // configure the alert
+            notification.AlertAction = "View Alert";
+            notification.AlertBody = "Your one minute alert has fired!";
+
+            // modify the badge
+            notification.ApplicationIconBadgeNumber = 1;
+
+            // set the sound to be the default sound
+            notification.SoundName = UILocalNotification.DefaultSoundName;
+
+            // schedule it
+            UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+
+
+
+
+            base.WillTerminate(uiApplication);
+        }
+
+    }
+
+
+    public class DeviceApplication
+    {
+
+
+
+        static DeviceApplication _Current = new DeviceApplication();
+        public static DeviceApplication Current
+        {
+            get
+            {
+                return _Current;
+            }
+        }
+
+        List<string> CachedLines = new List<string>();
+
+
+        public void Log(List<string> lines)
+        {
+            foreach (var line in lines.ToList())
+            {
+                var index = lines.IndexOf(line);
+                lines[index]=DateTime.Now.ToString()+" : "+line;
+            }
+            lock (this)
+            {
+
+                CachedLines.AddRange(lines);
+                int count = 5;
+                //do
+                //{
+                try
+                {
+
+                    const string errorFileName = "Common.log";
+                    var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
+                    var errorFilePath = Path.Combine(libraryPath, errorFileName);
+                    File.AppendAllLines(errorFilePath, CachedLines);
+
+                    var liness = File.ReadAllLines(errorFilePath);
+                    CachedLines.Clear();
+                    return;
+                }
+                catch (Exception error)
+                {
+                    // System.Threading.Thread.Sleep(200);
+
+                }
+                //    count--;
+                //} while (count>0);     
+            }
+        }
+
+        public string ReadLog()
+        {
+            lock (this)
+            {
+                const string errorFileName = "Common.log";
+                var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
+                var errorFilePath = Path.Combine(libraryPath, errorFileName);
+                if (File.Exists(errorFilePath))
+                    return File.ReadAllText(errorFilePath);
+                else
+                    return "";
+            }
+        }
+
+        public void ClearLog()
+        {
+            lock (this)
+            {
+                const string errorFileName = "Common.log";
+                var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
+                var errorFilePath = Path.Combine(libraryPath, errorFileName);
+                File.Delete(errorFilePath);
+            }
         }
 
     }
