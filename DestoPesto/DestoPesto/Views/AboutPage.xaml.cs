@@ -542,6 +542,9 @@ namespace DestoPesto.Views
             Stream stream = null;
 
 
+
+
+
             ////FileResult result = await MediaPicker.CapturePhotoAsync();
             //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
 
