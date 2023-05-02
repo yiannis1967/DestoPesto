@@ -41,6 +41,7 @@ namespace DestoPesto.Views
         public AboutPage()
         {
             InitializeComponent();
+            map.IsVisible=false;
             JsonHandler.CreateFolder();
             //    location_tap.Tapped += Location_tap_Tapped;
             // imgpin.GestureRecognizers.Add(location_tap);
@@ -49,7 +50,7 @@ namespace DestoPesto.Views
 
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
 
-
+            
             SetCatagoryButtons();
             MessagingCenter.Send<string>("1", "backgroundService");
             MessagingCenter.Subscribe<App, ObservableCollection<DamageData>>(App.Current, "LocList", (snd, arg) =>
@@ -374,7 +375,32 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+            var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermisions==PermissionStatus.Granted)
+            {
+                try
+                {
+                    var location = await Geolocation.GetLocationAsync();
+                    if (location != null)
+                    {
+                        map.HasZoomEnabled = true;
+                        
 
+                        var zoomLevel = 15; // between 1 and 18
+                        var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                        MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
+                        var h = map.Height;
+                        var w = map.Width;
+                        map.MoveToRegion(mapSpan);
+                        map.IsVisible=true;
+                    }
+                }
+                catch (Exception error)
+                {
+
+                    throw;
+                }
+            }
 
 
             if ((App.Current as App).IntentExtras != null)
