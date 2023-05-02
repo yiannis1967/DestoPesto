@@ -392,7 +392,7 @@ namespace DestoPesto.Views
                         (App.Current as App).IntentExtras.TryGetValue("Comments", out comments);
 
                         (App.Current as App).IntentExtras.Clear();
-                        await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description,submisionThumb,comments));
+                        await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
 
                         break;
                     }
@@ -497,34 +497,34 @@ namespace DestoPesto.Views
         }
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
-            try
-            {
-                IUploadData uploadData = DependencyService.Get<IUploadData>();
-                var names = typeof(JsonHandler).Assembly.GetManifestResourceNames();
-             var   image = typeof(JsonHandler).Assembly.GetManifestResourceStream("DestoPesto.TestPhoto.JPG");
+            //try
+            //{
+            //    IUploadData uploadData = DependencyService.Get<IUploadData>();
+            //    var names = typeof(JsonHandler).Assembly.GetManifestResourceNames();
+            //    var image = typeof(JsonHandler).Assembly.GetManifestResourceStream("DestoPesto.TestPhoto.JPG");
 
 
-                IFolder rootFolder = PCLStorage.FileSystem.Current.LocalStorage;
-                IFolder folder = await rootFolder.CreateFolderAsync("SubFolder", CreationCollisionOption.OpenIfExists);
-                string fileName = DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss");
-                IFile imgFile = await folder.CreateFileAsync(fileName + ".jpg", CreationCollisionOption.ReplaceExisting);
+            //    IFolder rootFolder = PCLStorage.FileSystem.Current.LocalStorage;
+            //    IFolder folder = await rootFolder.CreateFolderAsync("SubFolder", CreationCollisionOption.OpenIfExists);
+            //    string fileName = DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss");
+            //    IFile imgFile = await folder.CreateFileAsync(fileName + ".jpg", CreationCollisionOption.ReplaceExisting);
 
-                var imgFileStream = await imgFile.OpenAsync(PCLStorage.FileAccess.ReadAndWrite);
-                image.Position = 0;
-                image.CopyTo(imgFileStream);
-                fileName = imgFile.Path;
-                imgFileStream.Close();
+            //    var imgFileStream = await imgFile.OpenAsync(PCLStorage.FileAccess.ReadAndWrite);
+            //    image.Position = 0;
+            //    image.CopyTo(imgFileStream);
+            //    fileName = imgFile.Path;
+            //    imgFileStream.Close();
 
 
 
-                uploadData.PostSubmissionWithImage(JsonHandler.getUri()+"api/Submissions/iOSUploadImage/", fileName, image);
-                return;
-            }
-            catch (Exception error)
-            {
+            //    uploadData.PostSubmissionWithImage(JsonHandler.getUri() + "api/Submissions/iOSUploadImage/", fileName, image);
+            //    return;
+            //}
+            //catch (Exception error)
+            //{
 
-                return;
-            }
+            //    return;
+            //}
             //await getUserData();
             if (Authentication.DeviceAuthentication.AuthUser == null)
             {
