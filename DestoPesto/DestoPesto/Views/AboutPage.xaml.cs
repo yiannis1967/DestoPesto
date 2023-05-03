@@ -523,6 +523,17 @@ namespace DestoPesto.Views
         }
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
+
+            //var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
+            //if(locationInUsePermisions==PermissionStatus.Denied)
+            //{
+            //  var resulht=   await Permissions.RequestAsync<Permissions.StorageWrite>();
+
+            //    return;
+            //}
+
+
+
             //try
             //{
             //    IUploadData uploadData = DependencyService.Get<IUploadData>();
@@ -569,7 +580,7 @@ namespace DestoPesto.Views
 
 
 
-            ////FileResult result = await MediaPicker.CapturePhotoAsync();
+            FileResult result = await MediaPicker.CapturePhotoAsync();
             //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
 
             //if (result != null)
