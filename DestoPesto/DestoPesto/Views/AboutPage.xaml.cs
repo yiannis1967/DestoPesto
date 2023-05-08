@@ -38,8 +38,15 @@ namespace DestoPesto.Views
         public ICommand SettingCommand { protected set; get; }
         public bool LocationPermisionsChecked { get; private set; }
 
+        protected override void OnDisappearing()
+        {
+            AboutPage.LatVisibleRegion= map.VisibleRegion;
+            base.OnDisappearing();
+        }
+
         public AboutPage()
         {
+
             InitializeComponent();
             map.IsVisible=false;
             JsonHandler.CreateFolder();
@@ -127,6 +134,7 @@ namespace DestoPesto.Views
             }
         }
 
+        public static MapSpan LatVisibleRegion { get; private set; }
 
         Dictionary<Button, Catagories> CatagoriesDictionry = new Dictionary<Button, Catagories>();
         async void SetCatagoryButtons()
@@ -303,13 +311,19 @@ namespace DestoPesto.Views
 
                     var zoomLevel = 15; // between 1 and 18
                     var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                    if (LatVisibleRegion!=null)
+                        latlongdegrees=LatVisibleRegion.LatitudeDegrees;
 
                     MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
 
 
                     var h = map.Height;
                     var w = map.Width;
-                    map.MoveToRegion(mapSpan);
+                    
+                    //if (LatVisibleRegion!=null)
+                    //    map.MoveToRegion(LatVisibleRegion);
+                    //else
+                        map.MoveToRegion(mapSpan);
                 }
             }
             catch (Exception ex)
@@ -344,7 +358,7 @@ namespace DestoPesto.Views
                         var date = _pinLoc[i].firstDateReported.Split('T');
                         PinEx pin = new PinEx
                         {
-                            Label = _pinLoc[i].category,
+                            Label = _pinLoc[i].CategoryName,
                             Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
                             Address = _pinLoc[i].numberOfUsers + " since " + date[0],
                             StyleId = _pinLoc[i].id,
@@ -388,10 +402,16 @@ namespace DestoPesto.Views
 
                         var zoomLevel = 15; // between 1 and 18
                         var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                        if (LatVisibleRegion!=null)
+                            latlongdegrees=LatVisibleRegion.LatitudeDegrees;
+
                         MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
                         var h = map.Height;
                         var w = map.Width;
-                        map.MoveToRegion(mapSpan);
+                     
+                        //    map.MoveToRegion(LatVisibleRegion);
+                        //else
+                            map.MoveToRegion(mapSpan);
                         map.IsVisible=true;
                     }
                 }
@@ -524,6 +544,9 @@ namespace DestoPesto.Views
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
 
+            JsonHandler.ShowNotification("Arion", "Hello World");
+            return; 
+            
             //var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
             //if(locationInUsePermisions==PermissionStatus.Denied)
             //{
@@ -722,6 +745,7 @@ namespace DestoPesto.Views
 
         private async void map_PropertyChangedAsync(object sender, PropertyChangedEventArgs e)
         {
+            
             //var location = await Geolocation.GetLastKnownLocationAsync();
             //Position position = new Position(location.Latitude, -location.Latitude);
             //MapSpan mapSpan = new MapSpan(position, 0.01, 0.01);
