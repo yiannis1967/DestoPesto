@@ -5,7 +5,9 @@
              xmlns:controls="clr-namespace:DestoPesto.Controls"
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              xmlns:hl="clr-namespace:Hyperlink"
-             Title="Detail">
+             xmlns:resources="clr-namespace:DestoPesto"
+            Title="{x:Static resources:Properties.Resources.SubmisionsText}">
+             
     <Grid>
         <ScrollView>
             <StackLayout Padding="10">
@@ -16,30 +18,27 @@
 
 
                             <Grid >
-                                <Frame Margin="10" CornerRadius="5"  BackgroundColor="Coral"
-                                        HorizontalOptions="Fill" 
-                                   VerticalOptions="Fill"
-                                   HasShadow="True"
-                                   IsClippedToBounds="True"
-                                   Padding="0">
-                                    <Grid Padding="15" BackgroundColor="WhiteSmoke">
-
-
+                                <Frame Margin="5" CornerRadius="5"  BackgroundColor="Coral" HorizontalOptions="Fill"  VerticalOptions="Fill" HasShadow="True" IsClippedToBounds="True" Padding="0">
+                                    <Grid Padding="5" BackgroundColor="WhiteSmoke">
 
                                         <xct:Expander>
                                             <xct:Expander.Header>
                                                 <Grid >
-                                           
-                                                        <Grid Padding="15" BackgroundColor="WhiteSmoke">
-                                                            <Grid.RowDefinitions>
-                                                                <RowDefinition Height="30"/>
-                                                                <RowDefinition Height="20"/>
 
-                                                            </Grid.RowDefinitions>
-                                                            <Label FontSize="Caption" Text="{Binding Path=CategoryName}"></Label>
-                                                            <Label Grid.Row="1" FontSize="Subtitle" Text="{Binding Path=fullAddress}"></Label>
-                                                        </Grid>
-                                                    
+                                                    <Grid Padding="5" BackgroundColor="WhiteSmoke">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="20*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Grid.Column="1" FontSize="Subtitle"  Text="{Binding Path=CategoryName}"></Label>
+                                                        <Label Grid.Column="1" Grid.Row="1" FontSize="Caption" Text="{Binding Path=fullAddress}"></Label>
+                                                        <Label  Text="=" />
+                                                    </Grid>
+
                                                 </Grid>
                                             </xct:Expander.Header>
                                             <xct:Expander.ContentTemplate>
@@ -47,11 +46,11 @@
 
                                                     <Grid>
                                                         <Grid.RowDefinitions>
-                                                            
+
                                                             <RowDefinition Height="*"/>
                                                             <RowDefinition Height="80"/>
                                                         </Grid.RowDefinitions>
-                                                     
+
                                                         <Grid   >
                                                             <Image HeightRequest="330" x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
                                                         </Grid>
@@ -60,7 +59,7 @@
                                                             <Grid Grid.Row="1" Grid.Column="0" HeightRequest="40" HorizontalOptions="Fill" IsClippedToBounds="True" VerticalOptions="Center">
 
                                                                 <!--  Button Control  -->
-                                                                <Button BackgroundColor="#2196F3" Text="Φτιάχτηκε" Command="{Binding FixedCommand}">
+                                                                <Button BackgroundColor="#2196F3" Text="{x:Static resources:Properties.Resources.Fixed}"  Command="{Binding FixedCommand}">
                                                                     <Button.Margin>
                                                                         <OnPlatform x:TypeArguments="Thickness">
                                                                             <On Platform="Android" Value="-4,-6,-4,-5" />
@@ -107,7 +106,7 @@
 
 
 
-                                     
+
                                     </Grid>
 
 

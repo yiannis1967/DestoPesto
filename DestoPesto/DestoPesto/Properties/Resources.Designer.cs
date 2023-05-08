@@ -160,6 +160,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This has been fixed.
+        /// </summary>
+        public static string Fixed {
+            get {
+                return ResourceManager.GetString("Fixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot Password.
         /// </summary>
         public static string ForgetPasswordText {
@@ -439,7 +448,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Submisions.
+        ///   Looks up a localized string similar to My submisions.
         /// </summary>
         public static string SubmisionsText {
             get {

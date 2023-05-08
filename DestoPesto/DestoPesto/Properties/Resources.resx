@@ -238,7 +238,7 @@
     <value>SIGN UP</value>
   </data>
   <data name="SubmisionsText" xml:space="preserve">
-    <value>My Submisions</value>
+    <value>My submisions</value>
   </data>
   <data name="TurnOff" xml:space="preserve">
     <value>I disagree</value>
@@ -257,5 +257,8 @@
   </data>
   <data name="StopServiceCommandTitle" xml:space="preserve">
     <value>Quit 'Δες το Πες το' now</value>
+  </data>
+  <data name="Fixed" xml:space="preserve">
+    <value>This has been fixed</value>
   </data>
 </root>
