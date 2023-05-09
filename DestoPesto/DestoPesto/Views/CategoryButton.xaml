@@ -29,7 +29,7 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="1"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="1"  x:Name="label" x:FieldModifier="public" FontSize="Small" LineBreakMode="WordWrap"  InputTransparent="True"    VerticalTextAlignment="Center" />
+                <Label Grid.Column="1"  x:Name="label" x:FieldModifier="public" FontSize="Micro" LineBreakMode="WordWrap"  InputTransparent="True"    VerticalTextAlignment="Center" />
                 <!--  Icon Image  -->
 
 
