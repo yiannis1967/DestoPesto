@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="202305081" package="com.arionsoftware.destopesto" android:installLocation="preferExternal" android:versionName="MAY23">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="202305102" package="com.arionsoftware.destopesto" android:installLocation="preferExternal" android:versionName="MAY23.2">
 	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33" />
 	<application android:label="DestoPesto.Android" android:theme="@style/MainTheme" android:usesCleartextTraffic="true" android:icon="@drawable/ic_launcher">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDJKku7UEvOakL0DEzayNAB_KBp2yIXTP4" />
