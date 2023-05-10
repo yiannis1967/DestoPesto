@@ -616,27 +616,27 @@ namespace DestoPesto.Views
             FileResult result = await MediaPicker.CapturePhotoAsync();
             //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
 
-            //if (result != null)
-            //{
-            //    string base64 = "";
-            //    stream = await result.OpenReadAsync();
-            //    //if (stream != null)
-            //    //{
-            //    //    using (MemoryStream memory = new MemoryStream())
-            //    //    {
-            //    //        stream.CopyTo(memory);
-            //    //        byte[] bytes = memory.ToArray();
-            //    //        //byte[] resizedImage = await ImageResizer.ResizeImage(bytes, 1200, 1200);
-            //    //        //base64 = System.Convert.ToBase64String(resizedImage);
-            //    //        base64 = System.Convert.ToBase64String(bytes);
-            //    //    }
-            //    //}
-            //}
-
+            if (result != null)
             {
-                var names = typeof(JsonHandler).Assembly.GetManifestResourceNames();
-                stream = typeof(JsonHandler).Assembly.GetManifestResourceStream("DestoPesto.TestPhoto.JPG");
+                string base64 = "";
+                stream = await result.OpenReadAsync();
+                //if (stream != null)
+                //{
+                //    using (MemoryStream memory = new MemoryStream())
+                //    {
+                //        stream.CopyTo(memory);
+                //        byte[] bytes = memory.ToArray();
+                //        //byte[] resizedImage = await ImageResizer.ResizeImage(bytes, 1200, 1200);
+                //        //base64 = System.Convert.ToBase64String(resizedImage);
+                //        base64 = System.Convert.ToBase64String(bytes);
+                //    }
+                //}
             }
+
+            //{
+            //    var names = typeof(JsonHandler).Assembly.GetManifestResourceNames();
+            //    stream = typeof(JsonHandler).Assembly.GetManifestResourceStream("DestoPesto.TestPhoto.JPG");
+            //}
 
 
             if (stream != null)
