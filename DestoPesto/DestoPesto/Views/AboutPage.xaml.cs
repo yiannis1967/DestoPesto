@@ -355,22 +355,32 @@ namespace DestoPesto.Views
                     map.Pins.Clear();
                     for (int i = 0; i < ReportedDamagePins.Count; i++)
                     {
-                        var date = _pinLoc[i].firstDateReported.Split('T');
-                        PinEx pin = new PinEx
+                        try
                         {
-                            Label = _pinLoc[i].CategoryName,
-                            Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
-                            Address = _pinLoc[i].numberOfUsers + " since " + date[0],
-                            StyleId = _pinLoc[i].id,
-                            Type = PinType.Generic,
-                            Position = new Position(_pinLoc[i].lat, _pinLoc[i].lng),
-                            Name = _pinLoc[i].numberOfUsers + " since " + date[0]
+                            var date = _pinLoc[i].firstDateReported.Split('T');
+                            PinEx pin = new PinEx
+                            {
+                                Label = _pinLoc[i].CategoryName,
+                                Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
+                                Address = _pinLoc[i].numberOfUsers + " since " + date[0],
+                                StyleId = _pinLoc[i].id,
+                                Type = PinType.Generic,
+                                Position = new Position(_pinLoc[i].lat, _pinLoc[i].lng),
+                                Name = _pinLoc[i].numberOfUsers + " since " + date[0]
 
 
-                        };
-                        pin.InfoWindowClicked += Pin_MarkerClicked;
-                        map.CustomPins.Add(pin);
-                        map.Pins.Add(pin);
+                            };
+                            if (pin.Label == null)
+                                continue;
+                            pin.InfoWindowClicked += Pin_MarkerClicked;
+                            map.CustomPins.Add(pin);
+                            map.Pins.Add(pin);
+                        }
+                        catch (Exception error)
+                        {
+
+                            
+                        }
                     }
 
                 }
@@ -544,8 +554,8 @@ namespace DestoPesto.Views
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
 
-            JsonHandler.ShowNotification("Arion", "Hello World");
-            return; 
+            //JsonHandler.ShowNotification("Arion", "Hello World");
+            //return; 
             
             //var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
             //if(locationInUsePermisions==PermissionStatus.Denied)
