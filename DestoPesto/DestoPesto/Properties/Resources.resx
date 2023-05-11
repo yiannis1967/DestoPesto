@@ -214,7 +214,7 @@
     <value>Damage Reported Successfully</value>
   </data>
   <data name="sendDataWifi" xml:space="preserve">
-    <value>Transfer data on Wifi only?</value>
+    <value>Upload photos only over Wifi</value>
   </data>
   <data name="seprationSignupText" xml:space="preserve">
     <value>OR Sign Up With</value>

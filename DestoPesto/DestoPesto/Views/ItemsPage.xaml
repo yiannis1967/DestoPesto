@@ -17,20 +17,22 @@
         <Grid.RowDefinitions>
 
             <RowDefinition Height="*" />
-            
-            <RowDefinition Height="*" />
-            <RowDefinition Height="10*" />
+
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="8*" />
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="10*" />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Image   Grid.Column="0" Grid.Row="1"    Source="wifi.png" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"></Image>
-        <Label Grid.Column="1" Grid.Row="1" Text="{x:Static resources:Properties.Resources.sendDataWifi}" TextColor="#0D6EFD" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
-        <Switch Grid.Column="2" Grid.Row="1" x:Name="toggle" VerticalOptions="CenterAndExpand" IsToggled="true" AnchorY="1" WidthRequest="100" HeightRequest="70" HorizontalOptions="End" Toggled="Switch_Toggled" />
+        <Image   Grid.Column="1" Grid.Row="1"    Source="wifi.png" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"></Image>
+        <Label Grid.Column="2" Grid.Row="1" Text="{x:Static resources:Properties.Resources.sendDataWifi}" TextColor="#0D6EFD" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+        <Switch Grid.Column="3" Grid.Row="1" x:Name="toggle" VerticalOptions="CenterAndExpand" Scale="1.5" IsToggled="true" AnchorY="1" HorizontalOptions="EndAndExpand" Toggled="Switch_Toggled" />
 
     </Grid>
 

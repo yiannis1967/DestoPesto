@@ -367,7 +367,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transfer data on Wifi only?.
+        ///   Looks up a localized string similar to Upload photos only over Wifi.
         /// </summary>
         public static string sendDataWifi {
             get {
