@@ -370,7 +370,7 @@ namespace DestoPesto
         protected override void OnResume()
         {
         }
-
+         
         public void StartFGService()
         {
             JsonHandler.SubmitTripFilesTask();
