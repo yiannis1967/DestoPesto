@@ -27,7 +27,8 @@ namespace DestoPesto.Droid
 
             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
         {
-            App.Current.MainPage.DisplayAlert("OnMessageReceived", "OnMessageReceived", "OK");
+            (App.Current as App).DispayMessage(message.Data); 
+            //App.Current.MainPage.DisplayAlert("OnMessageReceived", "OnMessageReceived", "OK");
         });
 
 

@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using System.Collections.Generic;
 using System.Globalization;
 using PCLStorage;
+using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto
 {
@@ -375,5 +376,16 @@ namespace DestoPesto
             JsonHandler.SubmitTripFilesTask();
         }
 
+        public async void DispayMessage(IDictionary<string, string> data)
+        {
+            string description;
+            data.TryGetValue("Description", out description);
+            string submisionThumb;
+            data.TryGetValue("SubmisionThumb", out submisionThumb);
+            string comments;
+            data.TryGetValue("Comments", out comments);
+            
+            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+        }
     }
 }
