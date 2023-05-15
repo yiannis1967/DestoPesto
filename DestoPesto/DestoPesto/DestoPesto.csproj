@@ -65,11 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ButtonCircleBig.png" />
-    <None Remove="TestPhoto.JPG" />
     <None Remove="Xamarin.Forms.Maps" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ButtonCircleBig.png" />
-    <EmbeddedResource Include="TestPhoto.JPG" />
   </ItemGroup>
 </Project>
