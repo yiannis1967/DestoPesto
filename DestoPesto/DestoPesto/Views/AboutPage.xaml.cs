@@ -398,6 +398,7 @@ namespace DestoPesto.Views
         {
             //(App.Current as App).getLocation();
             base.OnAppearing();
+           
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions==PermissionStatus.Granted)
@@ -455,6 +456,12 @@ namespace DestoPesto.Views
                     //DisplayAlert("Notification", $"{entry.Key} : {entry.Value}", "OK");
                 }
             }
+            if (Authentication.DeviceAuthentication.AuthUser == null)
+            {
+                await Shell.Current.Navigation.PushAsync(new LoginPage());
+                return;
+            }
+
         }
 
         private async void Pin_MarkerClicked(object sender, PinClickedEventArgs e)
