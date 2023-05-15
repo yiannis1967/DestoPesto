@@ -114,7 +114,6 @@ namespace DestoPesto.Services
                                 try
                                 {
 
-                                    
                                     var onlyWifi = Preferences.Get("onlyWifi", false);
                                     var profiles = Connectivity.ConnectionProfiles;
                                     if (dataFiles.Count == 0)
