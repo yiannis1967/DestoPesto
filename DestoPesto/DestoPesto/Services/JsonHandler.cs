@@ -114,6 +114,7 @@ namespace DestoPesto.Services
                                 try
                                 {
 
+                                    
                                     var onlyWifi = Preferences.Get("onlyWifi", false);
                                     var profiles = Connectivity.ConnectionProfiles;
                                     if (dataFiles.Count == 0)
@@ -140,6 +141,7 @@ namespace DestoPesto.Services
                                                 }
                                             }
                                         }
+                                        _continue = dataFiles.Count > 0;
                                     }
                                     //try
                                     //{
@@ -239,8 +241,8 @@ namespace DestoPesto.Services
                     if (JsonHandler.PostSubmissionWithImageSync(damage, imageStream))
                     {
                         _continue = false;
-                        //await DeleteTripFile(dataFile.Name);
-                        //await DeleteTripFile(imageFile.Name);
+                        await DeleteTripFile(dataFile.Name);
+                        await DeleteTripFile(imageFile.Name);
                     }
                     else
                     {
@@ -331,7 +333,7 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if DEBUG
+#if _DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://10.0.0.13:5005/";
