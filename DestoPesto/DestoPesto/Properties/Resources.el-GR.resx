@@ -120,6 +120,9 @@
   <data name="AlertText" xml:space="preserve">
     <value>Alert</value>
   </data>
+  <data name="AppleLogin" xml:space="preserve">
+    <value>Συνέχεια με Apple</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Δες το Πες το</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="EnableBGToast" xml:space="preserve">
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
   </data>
+  <data name="FacebookLogin" xml:space="preserve">
+    <value>Συνέχεια με Facebook</value>
+  </data>
   <data name="Fixed" xml:space="preserve">
     <value>Φτιάχτηκε</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="GetCatagoryText" xml:space="preserve">
     <value>Λήψη κατηγοριών</value>
+  </data>
+  <data name="GoogleLogin" xml:space="preserve">
+    <value>Συνέχεια με Google</value>
   </data>
   <data name="HaveAccountText" xml:space="preserve">
     <value>Έχετε ήδη λογαριασμο?</value>

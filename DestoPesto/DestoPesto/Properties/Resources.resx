@@ -261,4 +261,13 @@
   <data name="Fixed" xml:space="preserve">
     <value>This has been fixed</value>
   </data>
+  <data name="AppleLogin" xml:space="preserve">
+    <value>Continue with Apple</value>
+  </data>
+  <data name="FacebookLogin" xml:space="preserve">
+    <value>Continue with Facebook</value>
+  </data>
+  <data name="GoogleLogin" xml:space="preserve">
+    <value>Continue with Google</value>
+  </data>
 </root>

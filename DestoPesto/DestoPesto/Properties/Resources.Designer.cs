@@ -70,6 +70,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Continue with Apple.
+        /// </summary>
+        public static string AppleLogin {
+            get {
+                return ResourceManager.GetString("AppleLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Δες το Πες το.
         /// </summary>
         public static string ApplicationName {
@@ -160,6 +169,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Continue with Facebook.
+        /// </summary>
+        public static string FacebookLogin {
+            get {
+                return ResourceManager.GetString("FacebookLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This has been fixed.
         /// </summary>
         public static string Fixed {
@@ -192,6 +210,15 @@ namespace DestoPesto.Properties {
         public static string GetCatagoryText {
             get {
                 return ResourceManager.GetString("GetCatagoryText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue with Google.
+        /// </summary>
+        public static string GoogleLogin {
+            get {
+                return ResourceManager.GetString("GoogleLogin", resourceCulture);
             }
         }
         
