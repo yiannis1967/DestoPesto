@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlertText" xml:space="preserve">
-    <value>Alert</value>
+    <value>Προσοχή</value>
   </data>
   <data name="AppleLogin" xml:space="preserve">
     <value>Συνέχεια με Apple</value>
@@ -143,6 +143,9 @@
   </data>
   <data name="DobText" xml:space="preserve">
     <value>Ημερομηνία Γέννησης</value>
+  </data>
+  <data name="EmailLogin" xml:space="preserve">
+    <value>Σύνδεση / Εγγραφή με email</value>
   </data>
   <data name="EmailPlaceHolder" xml:space="preserve">
     <value>Email</value>
@@ -177,11 +180,17 @@
   <data name="HomeItemText" xml:space="preserve">
     <value>Αρχή</value>
   </data>
+  <data name="LetsRegisterLineOneText" xml:space="preserve">
+    <value>Καλώς όρισες </value>
+  </data>
+  <data name="LetsRegisterLineTwoText" xml:space="preserve">
+    <value>Κάνε εγγραφή</value>
+  </data>
   <data name="LocalNotificationDec" xml:space="preserve">
     <value>Υπάρχει κοντά σας δηλωμένη εγγραφή. Παρακαλώ ελέγξτε</value>
   </data>
   <data name="LocalNotificationTitle" xml:space="preserve">
-    <value>Damage Report Alert</value>
+    <value>Μήνυμα από "Δες το πες το" </value>
   </data>
   <data name="LocationPrompt" xml:space="preserve">
     <value>Το «Δες το Πες το» μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. 
@@ -230,7 +239,7 @@
     <value>Μεταφορά δεδομένων μόνο μέσω WiFi</value>
   </data>
   <data name="seprationSignupText" xml:space="preserve">
-    <value>OR Sign Up With</value>
+    <value>ή Εγγραφή με</value>
   </data>
   <data name="seprationSimpleText" xml:space="preserve">
     <value>Ή</value>

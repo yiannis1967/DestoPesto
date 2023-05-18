@@ -151,6 +151,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connect / Register with email.
+        /// </summary>
+        public static string EmailLogin {
+            get {
+                return ResourceManager.GetString("EmailLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string EmailPlaceHolder {
@@ -246,6 +255,24 @@ namespace DestoPesto.Properties {
         public static string HomeItemText {
             get {
                 return ResourceManager.GetString("HomeItemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s nice to see you here .
+        /// </summary>
+        public static string LetsRegisterLineOneText {
+            get {
+                return ResourceManager.GetString("LetsRegisterLineOneText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s register your account.
+        /// </summary>
+        public static string LetsRegisterLineTwoText {
+            get {
+                return ResourceManager.GetString("LetsRegisterLineTwoText", resourceCulture);
             }
         }
         

@@ -187,6 +187,24 @@ namespace DestoPesto {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        public static string LetsRegisterLineOneText {
+            get {
+                return ResourceManager.GetString("LetsRegisterLineOneText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let&apos;s register.
+        /// </summary>
+        public static string LetsRegisterLineTwoText {
+            get {
+                return ResourceManager.GetString("LetsRegisterLineTwoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Damage is Reported Nearby Please Check.
         /// </summary>
         public static string LocalNotificationDec {

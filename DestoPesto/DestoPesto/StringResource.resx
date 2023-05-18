@@ -159,6 +159,12 @@
   <data name="HomeItemText" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="LetsRegisterLineOneText" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="LetsRegisterLineTwoText" xml:space="preserve">
+    <value>Let's register</value>
+  </data>
   <data name="LocalNotificationDec" xml:space="preserve">
     <value>Damage is Reported Nearby Please Check</value>
   </data>

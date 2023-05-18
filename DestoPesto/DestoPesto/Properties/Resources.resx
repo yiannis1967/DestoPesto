@@ -264,10 +264,19 @@
   <data name="AppleLogin" xml:space="preserve">
     <value>Continue with Apple</value>
   </data>
+  <data name="EmailLogin" xml:space="preserve">
+    <value>Connect / Register with email</value>
+  </data>
   <data name="FacebookLogin" xml:space="preserve">
     <value>Continue with Facebook</value>
   </data>
   <data name="GoogleLogin" xml:space="preserve">
     <value>Continue with Google</value>
+  </data>
+  <data name="LetsRegisterLineOneText" xml:space="preserve">
+    <value>It's nice to see you here </value>
+  </data>
+  <data name="LetsRegisterLineTwoText" xml:space="preserve">
+    <value>Let's register your account</value>
   </data>
 </root>

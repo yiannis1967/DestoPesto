@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-              xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:resources="clr-namespace:DestoPesto"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
              mc:Ignorable="d"
              Shell.NavBarIsVisible="False"
@@ -81,6 +81,7 @@
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
 
 
@@ -88,31 +89,62 @@
                             <!--<Frame BackgroundColor="#1877F2" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="End" Padding="0">-->
                             <Frame  CornerRadius="10" >
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="fbSignin" >
-                                    <Image Source="facebook.png" />
-                                    <Label Text="{x:Static resources:Properties.Resources.FacebookLogin}" TextColor="#3b5998" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="facebook.png" />
+                                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.FacebookLogin}" TextColor="#3b5998" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                    </Grid>
                                 </StackLayout>
                             </Frame>
 
                             <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
                             <Frame Grid.Row="1" CornerRadius="10">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="gogleSignin" >
-                                    <Image Source="google_logo.png"  />
-                                    <Label Text="{x:Static resources:Properties.Resources.GoogleLogin}"  FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="google_logo.png"  />
+                                        <Label Grid.Column="1"  Text="{x:Static resources:Properties.Resources.GoogleLogin}"  FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                    </Grid>
                                 </StackLayout>
                                 <!--<Button  Command="{Binding gogleSignin}" ContentLayout="Top,0" Text="mytext" ImageSource="google_logo.png" />-->
                             </Frame>
                             <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
                             <Frame Grid.Row="2" CornerRadius="10">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="appleSignin" >
-                                    <Image Source="applelogo.png"  />
-                                    <Label Text="{x:Static resources:Properties.Resources.AppleLogin}"  FontAttributes="Bold"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="applelogo.png"  />
+                                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.AppleLogin}"  FontAttributes="Bold"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                    </Grid>
                                 </StackLayout>
                             </Frame>
+                            <Frame Grid.Row="3" CornerRadius="10">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="emailSignin" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="10*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="email.png"  />
+                                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.EmailLogin}"  FontAttributes="Bold"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+
                         </Grid>
 
 
                     </StackLayout>
-                    <Image Source="logoback.png" HeightRequest="30" Margin="10,0,0,0" VerticalOptions="EndAndExpand"/>
+                    <Image Source="logoback.png" HeightRequest="30"  HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
 
                 </StackLayout>
 
