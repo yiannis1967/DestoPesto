@@ -142,7 +142,7 @@
     <value>Επιτυχής αποστολή </value>
   </data>
   <data name="DobText" xml:space="preserve">
-    <value>Ημερομηνία Γέννησης</value>
+    <value>Ημερομηνία γέννησης</value>
   </data>
   <data name="EmailLogin" xml:space="preserve">
     <value>Σύνδεση / Εγγραφή με email</value>
@@ -270,6 +270,9 @@
   </data>
   <data name="TurnOn" xml:space="preserve">
     <value>Συμφωνώ</value>
+  </data>
+  <data name="UserNameText" xml:space="preserve">
+    <value>Ονοματεπώνυμο</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>v</value>

@@ -199,7 +199,7 @@
     <value>Password</value>
   </data>
   <data name="RePasswordPlaceHolder" xml:space="preserve">
-    <value>ReType Password</value>
+    <value>Retype Password</value>
   </data>
   <data name="ReportDamageClick" xml:space="preserve">
     <value>Tap to Report a Damage</value>
@@ -277,6 +277,9 @@
     <value>It's nice to see you here </value>
   </data>
   <data name="LetsRegisterLineTwoText" xml:space="preserve">
-    <value>Let's register your account</value>
+    <value>Let's create an account</value>
+  </data>
+  <data name="UserNameText" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>

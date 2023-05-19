@@ -268,7 +268,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Let&apos;s register your account.
+        ///   Looks up a localized string similar to Let&apos;s create an account.
         /// </summary>
         public static string LetsRegisterLineTwoText {
             get {
@@ -376,7 +376,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReType Password.
+        ///   Looks up a localized string similar to Retype Password.
         /// </summary>
         public static string RePasswordPlaceHolder {
             get {
@@ -525,6 +525,15 @@ namespace DestoPesto.Properties {
         public static string TurnOn {
             get {
                 return ResourceManager.GetString("TurnOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string UserNameText {
+            get {
+                return ResourceManager.GetString("UserNameText", resourceCulture);
             }
         }
         
