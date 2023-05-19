@@ -6,7 +6,7 @@
     <ContentView.Content>
         <Grid  Grid.Row="1"
             Grid.Column="0"
-            HeightRequest="40"
+            HeightRequest="80"
             HorizontalOptions="Fill"
             IsClippedToBounds="True"
             VerticalOptions="Center">
@@ -24,12 +24,12 @@
             <!--  Text Label  -->
             <Grid InputTransparent="True"   VerticalOptions="Center">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1"/>
+                    <!--<ColumnDefinition Width="1"/>-->
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="1"/>
+                    <!--<ColumnDefinition Width="1"/>-->
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="1"  x:Name="label" x:FieldModifier="public" FontSize="Micro" LineBreakMode="WordWrap"  InputTransparent="True"    VerticalTextAlignment="Center" />
+                <Label Grid.Column="1"  x:Name="label" x:FieldModifier="public" FontSize="Small" LineBreakMode="WordWrap" Margin="0,0,2,0" HorizontalOptions="StartAndExpand" />
                 <!--  Icon Image  -->
 
 
@@ -41,7 +41,7 @@
                                                            AbsoluteLayout.LayoutFlags="All" />-->
 
                 <!--<Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2" Text="20"></Label>-->
-                <Image   x:Name="image" x:FieldModifier="public" Grid.Column="2"  HeightRequest="20" WidthRequest="20" InputTransparent="True" Source="{Binding Path=IconUrl}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+                <Image   x:Name="image" x:FieldModifier="public" Grid.Column="0"  Margin="2,0,0,0" HeightRequest="20" WidthRequest="20" InputTransparent="True" HorizontalOptions="End" Source="{Binding Path=IconUrl}" VerticalOptions="Center"  />
 
             </Grid>
 

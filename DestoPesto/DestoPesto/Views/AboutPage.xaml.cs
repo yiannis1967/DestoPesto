@@ -203,7 +203,7 @@ namespace DestoPesto.Views
 
                     cb.label.TextColor = Color.White;
                     b.IsVisible = false;
-                    b.CornerRadius = 20;
+                    b.CornerRadius = 10;
                     grid.Children.Add(cb, y, x);
                     CategoryButtons.Add(cb);
                 }
@@ -224,7 +224,8 @@ namespace DestoPesto.Views
                 CategoryButtons[i].BindingContext = catagories[i];
                 CatagoriesDictionry[CategoryButtons[i].button] = catagories[i];
                 CategoryButtons[i].button.IsVisible = true;
-                CategoryButtons[i].button.CornerRadius = 20;
+                CategoryButtons[i].button.CornerRadius = 5;
+                //CategoryButtons[i].VerticalOptions = LayoutOptions.CenterAndExpand;
                 //CategoryButtons[i].button.ImageSource=Xamarin.Forms.Svg.SvgImageSource.FromSvgResource(svg);
                 //CategoryButtons[i].img.Source=Xamarin.Forms.Svg.SvgImageSource.FromSvgResource(svg);
 
