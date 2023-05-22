@@ -650,7 +650,7 @@ namespace DestoPesto.Services
 
         public static string GetCatagory(int id)
         {
-            return catagories.Where(x => x.id == id).FirstOrDefault()?.description;
+            return catagories.Where(x => x.code == id.ToString()).FirstOrDefault()?.description;
         }
 
         public static string GetCatagoryMarkIconUri(int id)
