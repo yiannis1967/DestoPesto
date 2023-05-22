@@ -331,6 +331,10 @@ namespace DestoPesto.Views
 
                     if (Authentication.DeviceAuthentication.AuthUser != null)
                         MessagingCenter.Send<string>("1", "GetData");
+
+
+
+
                 }
             }
             catch (Exception ex)
