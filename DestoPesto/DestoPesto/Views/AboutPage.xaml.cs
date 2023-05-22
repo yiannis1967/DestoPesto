@@ -93,6 +93,8 @@ namespace DestoPesto.Views
         private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
             getLocation();
+        
+                
         }
 
 
@@ -321,10 +323,14 @@ namespace DestoPesto.Views
                     var h = map.Height;
                     var w = map.Width;
                     
+
                     //if (LatVisibleRegion!=null)
                     //    map.MoveToRegion(LatVisibleRegion);
                     //else
                         map.MoveToRegion(mapSpan);
+
+                    if (Authentication.DeviceAuthentication.AuthUser != null)
+                        MessagingCenter.Send<string>("1", "GetData");
                 }
             }
             catch (Exception ex)

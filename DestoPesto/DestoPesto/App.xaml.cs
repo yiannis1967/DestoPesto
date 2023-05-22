@@ -50,21 +50,18 @@ namespace DestoPesto
 
         public async Task getLocation()
         {
-            if (MainPage == null)
-                return;
-
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-            //else
-
-            if (locationInUsePermisions != PermissionStatus.Granted)
-                return;
-
-
             MessagingCenter.Unsubscribe<string>(this, "GetData");
             MessagingCenter.Subscribe<string>(this, "GetData", async (value) =>
             {
                 if (value == "1")
                 {
+                     locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+                    //else
+
+                    if (locationInUsePermisions != PermissionStatus.Granted)
+                        return;
+
                     var req = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                     cts = new CancellationTokenSource();
                     var loc = await Geolocation.GetLocationAsync(req, cts.Token);
@@ -97,6 +94,18 @@ namespace DestoPesto
                     MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
                 }
             });
+
+            if (MainPage == null)
+                return;
+
+             locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            //else
+
+            if (locationInUsePermisions != PermissionStatus.Granted)
+                return;
+
+
+         
             try
             {
 
