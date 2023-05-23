@@ -235,7 +235,7 @@
     <value>Signup Sucessfull</value>
   </data>
   <data name="SignUpText" xml:space="preserve">
-    <value>SIGN UP</value>
+    <value>Register</value>
   </data>
   <data name="SubmisionsText" xml:space="preserve">
     <value>My submisions</value>
@@ -256,7 +256,7 @@
     <value>Not all photos are uploaded to server so "Δες το Πες το" will keep running in the background untill all photos are properly uploaded</value>
   </data>
   <data name="StopServiceCommandTitle" xml:space="preserve">
-    <value>Quit 'Δες το Πες το' now</value>
+    <value>Quit app now</value>
   </data>
   <data name="Fixed" xml:space="preserve">
     <value>This has been fixed</value>

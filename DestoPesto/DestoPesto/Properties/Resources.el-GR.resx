@@ -257,7 +257,7 @@
     <value>Επιτυχής είσοδος</value>
   </data>
   <data name="SignUpText" xml:space="preserve">
-    <value>Νέος λογαριασμός</value>
+    <value>Εγγραφή</value>
   </data>
   <data name="StopServiceCommandTitle" xml:space="preserve">
     <value>Κλείσιμο τώρα</value>

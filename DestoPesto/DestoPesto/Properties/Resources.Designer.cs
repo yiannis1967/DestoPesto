@@ -484,7 +484,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SIGN UP.
+        ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string SignUpText {
             get {
@@ -493,7 +493,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quit &apos;Δες το Πες το&apos; now.
+        ///   Looks up a localized string similar to Quit app now.
         /// </summary>
         public static string StopServiceCommandTitle {
             get {
