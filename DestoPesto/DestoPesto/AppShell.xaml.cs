@@ -18,7 +18,10 @@ namespace DestoPesto
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//LoginPage");
+            Shell.Current.FlyoutIsPresented = false;
+            Authentication.DeviceAuthentication.SignedOut();
+            
+
         }
 
         private async void OnSubmisionsClicked(object sender, EventArgs e)

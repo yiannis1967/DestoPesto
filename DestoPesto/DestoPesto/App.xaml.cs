@@ -69,8 +69,8 @@ namespace DestoPesto
                     {
 
 
-
-                        SubmittedDamage = await JsonHandler.GetDamages(false, loc.Latitude, loc.Longitude, 20000.0);
+                        if(SubmittedDamage==null)
+                            SubmittedDamage = await JsonHandler.GetDamages(false, loc.Latitude, loc.Longitude, 20000.0);
                         LastSubmittedLocation = loc;
 
                     }
@@ -83,8 +83,8 @@ namespace DestoPesto
                     //Call GetUserSubmission
                     try
                     {
-
-                        SubmittedDamageUser = await JsonHandler.GetDamages(true, loc.Latitude, loc.Longitude, 20000.0);
+                        if (SubmittedDamageUser == null)
+                            SubmittedDamageUser = await JsonHandler.GetDamages(true, loc.Latitude, loc.Longitude, 20000.0);
                     }
                     catch (Exception ex)
                     {
@@ -141,7 +141,8 @@ namespace DestoPesto
                         //Call GetSubmission
                         try
                         {
-                            SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, 20000.0);
+                            if(SubmittedDamage==null)
+                                SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, 20000.0);
                         }
                         catch (Exception ex)
                         {
@@ -153,8 +154,8 @@ namespace DestoPesto
                         //Call GetUserSubmission
                         try
                         {
-
-                            SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 20000.0);
+                            if (SubmittedDamageUser == null)
+                                SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 20000.0);
                         }
                         catch (Exception ex)
                         {

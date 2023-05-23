@@ -22,6 +22,7 @@ using Rg.Plugins.Popup.Services;
 using System.Reflection;
 using PCLStorage;
 using System.Xml.Linq;
+using Authentication;
 //using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto.Views
@@ -40,7 +41,7 @@ namespace DestoPesto.Views
 
         protected override void OnDisappearing()
         {
-            AboutPage.LatVisibleRegion= map.VisibleRegion;
+            AboutPage.LatVisibleRegion = map.VisibleRegion;
             base.OnDisappearing();
         }
 
@@ -48,7 +49,7 @@ namespace DestoPesto.Views
         {
 
             InitializeComponent();
-            map.IsVisible=false;
+            map.IsVisible = false;
             JsonHandler.CreateFolder();
             //    location_tap.Tapped += Location_tap_Tapped;
             // imgpin.GestureRecognizers.Add(location_tap);
@@ -57,7 +58,7 @@ namespace DestoPesto.Views
 
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
 
-            
+
             SetCatagoryButtons();
             MessagingCenter.Send<string>("1", "backgroundService");
             MessagingCenter.Subscribe<App, ObservableCollection<DamageData>>(App.Current, "LocList", (snd, arg) =>
@@ -90,11 +91,22 @@ namespace DestoPesto.Views
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
         }
 
-        private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
+        private async void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
-            getLocation();
-        
-                
+
+            if (CurrentUser != null && Authentication.DeviceAuthentication.AuthUser == null)
+            {
+
+                CurrentUser = null;
+                await Shell.Current.Navigation.PushAsync(new LoginPage());
+
+                return;
+
+            }
+            else
+                getLocation();
+
+
         }
 
 
@@ -137,6 +149,7 @@ namespace DestoPesto.Views
         }
 
         public static MapSpan LatVisibleRegion { get; private set; }
+        public AuthUser CurrentUser { get; private set; }
 
         Dictionary<Button, Catagories> CatagoriesDictionry = new Dictionary<Button, Catagories>();
         async void SetCatagoryButtons()
@@ -314,20 +327,20 @@ namespace DestoPesto.Views
 
                     var zoomLevel = 15; // between 1 and 18
                     var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                    if (LatVisibleRegion!=null)
-                        latlongdegrees=LatVisibleRegion.LatitudeDegrees;
+                    if (LatVisibleRegion != null)
+                        latlongdegrees = LatVisibleRegion.LatitudeDegrees;
 
                     MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
 
 
                     var h = map.Height;
                     var w = map.Width;
-                    
+
 
                     //if (LatVisibleRegion!=null)
                     //    map.MoveToRegion(LatVisibleRegion);
                     //else
-                        map.MoveToRegion(mapSpan);
+                    map.MoveToRegion(mapSpan);
 
                     if (Authentication.DeviceAuthentication.AuthUser != null)
                         MessagingCenter.Send<string>("1", "GetData");
@@ -390,7 +403,7 @@ namespace DestoPesto.Views
                         catch (Exception error)
                         {
 
-                            
+
                         }
                     }
 
@@ -409,10 +422,10 @@ namespace DestoPesto.Views
         {
             //(App.Current as App).getLocation();
             base.OnAppearing();
-           
+
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-            if (locationInUsePermisions==PermissionStatus.Granted)
+            if (locationInUsePermisions == PermissionStatus.Granted)
             {
                 try
                 {
@@ -420,21 +433,21 @@ namespace DestoPesto.Views
                     if (location != null)
                     {
                         map.HasZoomEnabled = true;
-                        
+
 
                         var zoomLevel = 15; // between 1 and 18
                         var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                        if (LatVisibleRegion!=null)
-                            latlongdegrees=LatVisibleRegion.LatitudeDegrees;
+                        if (LatVisibleRegion != null)
+                            latlongdegrees = LatVisibleRegion.LatitudeDegrees;
 
                         MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
                         var h = map.Height;
                         var w = map.Width;
-                     
+
                         //    map.MoveToRegion(LatVisibleRegion);
                         //else
-                            map.MoveToRegion(mapSpan);
-                        map.IsVisible=true;
+                        map.MoveToRegion(mapSpan);
+                        map.IsVisible = true;
                     }
                 }
                 catch (Exception error)
@@ -472,6 +485,8 @@ namespace DestoPesto.Views
                 await Shell.Current.Navigation.PushAsync(new LoginPage());
                 return;
             }
+            else
+                CurrentUser = Authentication.DeviceAuthentication.AuthUser;
 
         }
 
@@ -574,7 +589,7 @@ namespace DestoPesto.Views
 
             //JsonHandler.ShowNotification("Arion", "Hello World");
             //return; 
-            
+
             //var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
             //if(locationInUsePermisions==PermissionStatus.Denied)
             //{
@@ -773,7 +788,7 @@ namespace DestoPesto.Views
 
         private async void map_PropertyChangedAsync(object sender, PropertyChangedEventArgs e)
         {
-            
+
             //var location = await Geolocation.GetLastKnownLocationAsync();
             //Position position = new Position(location.Latitude, -location.Latitude);
             //MapSpan mapSpan = new MapSpan(position, 0.01, 0.01);
