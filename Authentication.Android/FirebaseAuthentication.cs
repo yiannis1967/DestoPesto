@@ -207,6 +207,11 @@ namespace Authentication.Android
                 idToken = token.Token;
 
                 var firebaseUser = FirebaseAuth.CurrentUser;
+                string providerId = firebaseUser.ProviderData?.Where(x => x.ProviderId!="firebase").Select(x => x.ProviderId).FirstOrDefault();
+                if (providerId == null)
+                    providerId=firebaseUser.ProviderId;
+
+
                 lock (AuthenticationTokenLock)
                 {
                     CurrenTokenResult = token;
@@ -220,7 +225,7 @@ namespace Authentication.Android
                     IsEmailVerified = firebaseUser.IsEmailVerified,
                     PhoneNumber = firebaseUser.PhoneNumber,
                     PhotoUrl = firebaseUser.PhotoUrl?.ToString(),
-                    ProviderId = firebaseUser.ProviderId,
+                    ProviderId = providerId,
                     Uid = firebaseUser.Uid,
                     //Providers = firebaseUser.ProviderData.
                 };
@@ -358,10 +363,10 @@ namespace Authentication.Android
 
             if (FirebaseAuth != null && FirebaseAuth.CurrentUser != null)
             {
-                if (DeviceAuthentication.AuthUser.Firebase_Sign_in_Provider.ToLower() == "google.com")
+                if (DeviceAuthentication.AuthUser?.Firebase_Sign_in_Provider.ToLower() == "google.com")
                     GoogleSignOut();
 
-                if (DeviceAuthentication.AuthUser.Firebase_Sign_in_Provider.ToLower() == "facebook.com")
+                if (DeviceAuthentication.AuthUser?.Firebase_Sign_in_Provider.ToLower() == "facebook.com")
                 {
                     FacebookLoginService.CurrentFacebookLoginService.SignOut();
 
