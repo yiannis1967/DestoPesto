@@ -702,7 +702,7 @@ namespace DestoPesto.Services
 
             using (httpClient = new HttpClient())
             {
-                String Parameters = "?lat=" + lat + "&lng=" + lng + "&rad=" + rad;
+                String Parameters = "?lat=" + lat.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) + "&lng=" + lng.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) + "&rad=" + rad;
 
                 Uri uri = new Uri(getUri() + "api/Submissions" + Parameters);
                 await getUserData();
