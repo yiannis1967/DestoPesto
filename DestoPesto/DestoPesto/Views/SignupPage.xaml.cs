@@ -30,7 +30,8 @@ namespace DestoPesto.Views
         {
 
             //await Shell.Current.Navigation.PushAsync(new LoginPage());
-            await Shell.Current.GoToAsync("//LoginPage");
+            //await Shell.Current.GoToAsync("//LoginPage");
+            await Navigation.PopAsync();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
