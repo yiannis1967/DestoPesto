@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:DestoPesto"
+             Shell.NavBarIsVisible="False"
+             x:Class="DestoPesto.Views.SignInPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />
+
+            <StackLayout Padding="0" Margin="15,10">
+
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
+                            <Image Source="mail.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+
+                        <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
+                            <Image Source="key.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+
+                        <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" PlaceholderColor="Gray"  IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout  Orientation="Horizontal">
+
+                    <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                </StackLayout>
+
+                <Button Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" FontSize="Small"/>
+                    <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Margin="0,25,0,0" Padding="0">
+                    <Grid>
+                        <BoxView BackgroundColor="#828282" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+
+                            <Label Text="{x:Static resources:Properties.Resources.seprationSimpleText}" TextColor="DarkGray" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -20,6 +20,7 @@ namespace DestoPesto.Views
     public partial class LoginPage : ContentPage
     {
         public TapGestureRecognizer Signup_tap = new TapGestureRecognizer();
+        public TapGestureRecognizer Signin_tap = new TapGestureRecognizer();
         public TapGestureRecognizer google_signin = new TapGestureRecognizer();
         public TapGestureRecognizer fb_signin = new TapGestureRecognizer();
         public TapGestureRecognizer apple_signin = new TapGestureRecognizer();
@@ -37,7 +38,7 @@ namespace DestoPesto.Views
             this.BindingContext = new LoginViewModel(Navigation);
             // Your label tap event
             Signup_tap.Tapped += Signup_tap_Tapped;
-
+            Signin_tap.Tapped+=Signin_tap_Tapped;
             google_signin.Tapped += Google_signin_Tapped;
             fb_signin.Tapped += Fb_signin_Tapped;
             apple_signin.Tapped += apple_signin_Tapped;
@@ -47,7 +48,10 @@ namespace DestoPesto.Views
             appleSignin.GestureRecognizers.Add(apple_signin);
 
             lblSignup.GestureRecognizers.Add(Signup_tap);
+
+            emailSignin.GestureRecognizers.Add(Signin_tap);
             DeviceAuthentication.SignedOut();
+
         }
 
         private async void DeviceAuthentication_AuthStateChanged(object sender, AuthUser e)
@@ -57,7 +61,7 @@ namespace DestoPesto.Views
                 Device.BeginInvokeOnMainThread(
             async () =>
             {
-                if(Navigation.NavigationStack.Count==1)
+                if (Navigation.NavigationStack.Count==1)
                     await Shell.Current.GoToAsync("//AboutPage");
                 else
                     await Navigation.PopAsync();
@@ -313,7 +317,11 @@ namespace DestoPesto.Views
 
             await Shell.Current.Navigation.PushAsync(new SignupPage());
 
-            
+
+        }
+        private async void Signin_tap_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushAsync(new SignInPage());
         }
 
         private async void btnSignIn_Clicked(object sender, EventArgs e)
