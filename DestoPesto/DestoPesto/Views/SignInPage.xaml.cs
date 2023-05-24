@@ -1,9 +1,11 @@
 ﻿using Authentication;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,7 +39,11 @@ namespace DestoPesto.Views
             {
                 string error = await DeviceAuthentication.EmailSignIn(txtEmail.Text, txtPassword.Text);
                 if (!string.IsNullOrWhiteSpace(error))
-                    await App.Current.MainPage.DisplayAlert("Alert", error, "OK");
+                {
+                    await PopupNavigation.Instance.PushAsync(new SignInMessagePopUp(error));
+
+                    //await App.Current.MainPage.DisplayAlert("Alert", error, "OK");
+                }
 
                 //    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
                 //    try
