@@ -12,7 +12,7 @@
             VerticalOptions="Center">
             <!--<Button x:Name="button" x:FieldModifier="public"></Button>-->
 
-            <Button  x:Name="button" x:FieldModifier="public">
+            <Button  x:Name="button" x:FieldModifier="public" >
                 <!--<Button.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="Android" Value="-4,-6,-4,-5" />

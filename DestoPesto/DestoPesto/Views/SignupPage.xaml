@@ -86,7 +86,7 @@
                                     <RadioButton Content="Other" TextColor="#89BB29"  />
                                 </StackLayout>-->
 
-                                <Button Text="{x:Static resources:Properties.Resources.SignUpText}" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="30" Clicked="Button_Clicked" />
+                                <Button Text="{x:Static resources:Properties.Resources.SignUpText}" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" Clicked="Button_Clicked" />
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                     <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" FontSize="Small"/>
                                     <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#0D6EFD" FontAttributes="Bold" FontSize="Small"/>

@@ -277,6 +277,12 @@
   <data name="Version" xml:space="preserve">
     <value>v</value>
   </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Καλώς ήρθες </value>
+  </data>
+  <data name="WelcomeText_2" xml:space="preserve">
+    <value>Διάλεξε πως θα συνεχίσεις </value>
+  </data>
   <data name="YesText" xml:space="preserve">
     <value>Ναι</value>
   </data>
