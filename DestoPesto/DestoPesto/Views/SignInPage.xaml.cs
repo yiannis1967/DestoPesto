@@ -35,6 +35,7 @@ namespace DestoPesto.Views
 
         private async void btnSignIn_Clicked(object sender, EventArgs e)
         {
+            //Xamarin.CommunityToolkit.Effects.TouchEffect
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 string error = await DeviceAuthentication.EmailSignIn(txtEmail.Text, txtPassword.Text);
