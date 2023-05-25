@@ -35,7 +35,7 @@ namespace DestoPesto.Views
                 Shell.Current.GoToAsync("//AboutPage");
             InitializeComponent();
             store = AccountStore.Create();
-            this.BindingContext = this;// new LoginViewModel(Navigation);
+            
             // Your label tap event
 
             SignupCommand = new Command(OnSignUp);
@@ -43,6 +43,8 @@ namespace DestoPesto.Views
             GoogleSigninCommand = new Command(OnGoogleSignIn);
             FacebookSigninCommand = new Command(OnFacebookSignIn);
             AppleSigninCommand = new Command(OnAppleSignIn);
+
+            this.BindingContext = this;// new LoginViewModel(Navigation);
 
             Signup_tap.Tapped += Signup_tap_Tapped;
             Signin_tap.Tapped+=Signin_tap_Tapped;
@@ -64,7 +66,7 @@ namespace DestoPesto.Views
         private void OnAppleSignIn()
         {
             apple_signin_Tapped(this, EventArgs.Empty);
-
+            
 
         }
 
