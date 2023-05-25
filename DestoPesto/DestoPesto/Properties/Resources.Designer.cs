@@ -259,6 +259,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InvalidEntryStyle.
+        /// </summary>
+        public static string InvalidEntryStyle {
+            get {
+                return ResourceManager.GetString("InvalidEntryStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to It&apos;s nice to see you here .
         /// </summary>
         public static string LetsRegisterLineOneText {
@@ -489,6 +498,24 @@ namespace DestoPesto.Properties {
         public static string SignUpText {
             get {
                 return ResourceManager.GetString("SignUpText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something is wrong with the email address.
+        /// </summary>
+        public static string SomethingIsNotRightEmail {
+            get {
+                return ResourceManager.GetString("SomethingIsNotRightEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something is wrong password.
+        /// </summary>
+        public static string SomethingIsNotRightPassword {
+            get {
+                return ResourceManager.GetString("SomethingIsNotRightPassword", resourceCulture);
             }
         }
         

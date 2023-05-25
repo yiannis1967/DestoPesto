@@ -288,4 +288,13 @@
   <data name="WelcomeText_2" xml:space="preserve">
     <value>Choose how to continue</value>
   </data>
+  <data name="InvalidEntryStyle" xml:space="preserve">
+    <value>InvalidEntryStyle</value>
+  </data>
+  <data name="SomethingIsNotRightEmail" xml:space="preserve">
+    <value>Something is wrong with the email address</value>
+  </data>
+  <data name="SomethingIsNotRightPassword" xml:space="preserve">
+    <value>Something is wrong password</value>
+  </data>
 </root>

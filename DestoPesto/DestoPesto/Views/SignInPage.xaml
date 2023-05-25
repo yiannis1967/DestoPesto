@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Shell.NavBarIsVisible="False"
              x:Class="DestoPesto.Views.SignInPage">
     <ContentPage.Content>
@@ -17,19 +18,32 @@
                             <Image Source="mail.png" Aspect="AspectFill" Margin="0"/>
                         </Frame>
 
-                        <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                        <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" Keyboard="Email" TextChanged="txtEmail_TextChanged">
+                            <!--<Entry.Behaviors>
+                                <xct:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" InvalidStyle="{x:Static resources:Properties.Resources.InvalidEntryStyle}"/>
+                            </Entry.Behaviors>-->
+                        </Entry>
                     </StackLayout>
                 </Frame>
+                <StackLayout  Orientation="Horizontal">
+
+                    <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightEmail}" x:Name="txtWrongEmail" IsVisible="false" TextColor="Red" FontSize="Micro" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                </StackLayout>
+
 
                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
                             <Image Source="key.png" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-
-                        <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" PlaceholderColor="Gray"  IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                        <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" PlaceholderColor="Gray"  IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TextChanged="txtPassword_TextChanged"/>
                     </StackLayout>
                 </Frame>
+                <StackLayout  Orientation="Horizontal">
+                    <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightPassword}" x:Name="txtWrongPass" IsVisible="false" TextColor="Red" FontSize="Micro" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
 
                 <StackLayout  Orientation="Horizontal">
 

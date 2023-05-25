@@ -105,9 +105,16 @@ namespace Authentication.Android
                     await FirebaseAuth.SignInWithEmailAndPassword(email, password).AsAsync();
                     return null;
                 }
-                catch (Exception err)
+                catch ( Firebase.Auth.FirebaseAuthInvalidCredentialsException err)
                 {
+                    
+                    
+
                     return err.Message;
+                }
+                catch (Java.Lang.IllegalArgumentException errr)
+                {
+                    return errr.Message;
                 }
             });
 
