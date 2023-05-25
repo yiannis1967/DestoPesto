@@ -35,8 +35,15 @@ namespace DestoPesto.Views
                 Shell.Current.GoToAsync("//AboutPage");
             InitializeComponent();
             store = AccountStore.Create();
-            this.BindingContext = new LoginViewModel(Navigation);
+            this.BindingContext = this;// new LoginViewModel(Navigation);
             // Your label tap event
+
+            SignupCommand = new Command(OnSignUp);
+            SigninCommand = new Command(OnSignIn);
+            GoogleSigninCommand = new Command(OnGoogleSignIn);
+            FacebookSigninCommand = new Command(OnFacebookSignIn);
+            AppleSigninCommand = new Command(OnAppleSignIn);
+
             Signup_tap.Tapped += Signup_tap_Tapped;
             Signin_tap.Tapped+=Signin_tap_Tapped;
             google_signin.Tapped += Google_signin_Tapped;
@@ -52,6 +59,38 @@ namespace DestoPesto.Views
             emailSignin.GestureRecognizers.Add(Signin_tap);
             DeviceAuthentication.SignedOut();
 
+        }
+
+        private void OnAppleSignIn()
+        {
+            apple_signin_Tapped(this, EventArgs.Empty);
+
+
+        }
+
+        private void OnFacebookSignIn(object obj)
+        {
+            Fb_signin_Tapped(this, EventArgs.Empty);
+
+        }
+
+        private void OnSignIn(object obj)
+        {
+            Signin_tap_Tapped(this, EventArgs.Empty);
+
+        }
+
+        private void OnGoogleSignIn(object obj)
+        {
+            Google_signin_Tapped(this, EventArgs.Empty);
+
+        }
+
+     
+
+        private void OnSignUp()
+        {
+            Signup_tap_Tapped(this, EventArgs.Empty);
         }
 
         private async void DeviceAuthentication_AuthStateChanged(object sender, AuthUser e)
@@ -107,6 +146,12 @@ namespace DestoPesto.Views
 
         Account account;
         AccountStore store;
+
+        public Command SignupCommand { get; }
+        public Command SigninCommand { get; }
+        public Command GoogleSigninCommand { get; }
+        public Command FacebookSigninCommand { get; }
+        public Command AppleSigninCommand { get; }
 
         private async void Google_signin_Tapped(object sender, EventArgs e)
         {

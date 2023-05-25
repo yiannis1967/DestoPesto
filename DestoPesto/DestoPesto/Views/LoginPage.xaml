@@ -101,7 +101,10 @@
 
 
                                 <!--<Frame BackgroundColor="#1877F2" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="End" Padding="0">-->
-                                <Frame  CornerRadius="10" >
+                                <Frame  CornerRadius="10"  
+                                         xct:TouchEffect.PressedScale="1.01"
+                                        xct:TouchEffect.PressedOpacity=".8"
+                                        xct:TouchEffect.Command="{Binding FacebookSigninCommand}">
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="fbSignin" >
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -116,14 +119,9 @@
 
                                 <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
                                 <Frame Grid.Row="1" CornerRadius="10"
-                                         xct:TouchEffect.PressedScale="1.2"
-            xct:TouchEffect.PressedOpacity=".8"
-            xct:TouchEffect.AnimationDuration="500"
-            xct:TouchEffect.PulseCount="2"
-            xct:TouchEffect.Command="{Binding LearnMoreCommand, Source={x:Reference Root}}"
-
-                                       
-                                       >
+                                         xct:TouchEffect.PressedScale="1.01"
+                                        xct:TouchEffect.PressedOpacity=".8"
+                                        xct:TouchEffect.Command="{Binding GoogleSigninCommand}">
                                     
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="gogleSignin" >
                                         <Grid>
@@ -138,7 +136,10 @@
                                     <!--<Button  Command="{Binding gogleSignin}" ContentLayout="Top,0" Text="mytext" ImageSource="google_logo.png" />-->
                                 </Frame>
                                 <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
-                                <Frame Grid.Row="2" CornerRadius="10">
+                                <Frame Grid.Row="2" CornerRadius="10" 
+                                         xct:TouchEffect.PressedScale="1.01"
+                                        xct:TouchEffect.PressedOpacity=".8"
+                                        xct:TouchEffect.Command="{Binding AppleSigninCommand}">
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="appleSignin" >
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -150,7 +151,9 @@
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
-                                <Frame Grid.Row="3" CornerRadius="10">
+                                <Frame Grid.Row="3" CornerRadius="10" xct:TouchEffect.PressedScale="1.01"
+                                        xct:TouchEffect.PressedOpacity=".8"
+                                        xct:TouchEffect.Command="{Binding SigninCommand}">
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="emailSignin" >
                                         <Grid>
                                             <Grid.ColumnDefinitions>
