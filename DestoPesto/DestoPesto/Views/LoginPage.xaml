@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:resources="clr-namespace:DestoPesto"
-             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+             
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
              mc:Ignorable="d"
@@ -116,13 +116,6 @@
 
                                 <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
                                 <Frame Grid.Row="1" CornerRadius="10"
-                                         xct:TouchEffect.PressedScale="1.2"
-            xct:TouchEffect.PressedOpacity=".8"
-            xct:TouchEffect.AnimationDuration="500"
-            xct:TouchEffect.PulseCount="2"
-            xct:TouchEffect.Command="{Binding LearnMoreCommand, Source={x:Reference Root}}"
-
-                                       
                                        >
                                     
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="gogleSignin" >
