@@ -63,10 +63,13 @@ namespace DestoPesto.Views
 
         }
 
-        private void OnAppleSignIn()
+        private async void OnAppleSignIn()
         {
-            apple_signin_Tapped(this, EventArgs.Empty);
-            
+            //apple_signin_Tapped(this, EventArgs.Empty);
+            await SignInMessagePopUp.DisplayPopUp();
+            await DisplayAlert("Hello", "hello", "ok");
+
+
 
         }
 

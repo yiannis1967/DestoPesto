@@ -272,6 +272,7 @@ namespace DestoPesto.Views
 
         private async Task getLocation()
         {
+          
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             //else
             //var locationPermisions = await Permissions.CheckStatusAsync<Permissions.LocationAlways>();
