@@ -34,10 +34,17 @@ namespace DestoPesto.Views
             await Navigation.PopAsync();
         }
 
+        private bool IsValidInfo 
+        {
+            get
+            {
+                return EmailMultiValidator.IsValid && PasswordValidator.IsValid && UserValidator.IsValid;
+            }
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
 
-            
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 string error = await Authentication.DeviceAuthentication.EmailSignUp(txtEmail.Text, txtPassword.Text);

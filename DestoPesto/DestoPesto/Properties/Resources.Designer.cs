@@ -502,7 +502,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something is wrong with the email address.
+        ///   Looks up a localized string similar to Empty email is forbitten.
         /// </summary>
         public static string SomethingIsNotRightEmail {
             get {
@@ -511,7 +511,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something is wrong password.
+        ///   Looks up a localized string similar to Your password cannot be null.
         /// </summary>
         public static string SomethingIsNotRightPassword {
             get {

@@ -292,9 +292,9 @@
     <value>InvalidEntryStyle</value>
   </data>
   <data name="SomethingIsNotRightEmail" xml:space="preserve">
-    <value>Something is wrong with the email address</value>
+    <value>Empty email is forbitten</value>
   </data>
   <data name="SomethingIsNotRightPassword" xml:space="preserve">
-    <value>Something is wrong password</value>
+    <value>Your password cannot be null</value>
   </data>
 </root>

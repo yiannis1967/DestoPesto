@@ -263,10 +263,10 @@
     <value>Εγγραφή</value>
   </data>
   <data name="SomethingIsNotRightEmail" xml:space="preserve">
-    <value>Κάτι λάθος έχει το email </value>
+    <value>Δεν έχεις συμπληρώσει το email σου</value>
   </data>
   <data name="SomethingIsNotRightPassword" xml:space="preserve">
-    <value>Κάτι λάθος έχει o κωδικός</value>
+    <value>Δεν έχεις συμπληρώσει τον κωδικό σου</value>
   </data>
   <data name="StopServiceCommandTitle" xml:space="preserve">
     <value>Κλείσιμο τώρα</value>

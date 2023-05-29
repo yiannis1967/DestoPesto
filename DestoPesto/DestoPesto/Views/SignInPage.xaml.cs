@@ -96,5 +96,6 @@ namespace DestoPesto.Views
         {
             txtWrongPass.IsVisible = false;
         }
+    
     }
 }
