@@ -417,7 +417,7 @@ namespace DestoPesto.Views
 
         }
 
-
+        static bool FirstTime=true;
 
         protected override async void OnAppearing()
         {
@@ -487,7 +487,22 @@ namespace DestoPesto.Views
                 return;
             }
             else
+            {
+                if (FirstTime)
+                {
+                    FirstTime=false;
+                    bool DontShowAgainIntroPage = Preferences.Get("DontShowAgainIntroPage", false);
+                    if (!DontShowAgainIntroPage)
+                    {
+                        DontShowAgainIntroPage= await IntroPage.DisplayPopUp();
+                        Preferences.Set("DontShowAgainIntroPage", DontShowAgainIntroPage);
+                    }
+                }
+
+
                 CurrentUser = Authentication.DeviceAuthentication.AuthUser;
+
+            }
 
         }
 
