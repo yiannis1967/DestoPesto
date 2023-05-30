@@ -124,7 +124,7 @@
     <value>Συνέχεια με Apple</value>
   </data>
   <data name="ApplicationName" xml:space="preserve">
-    <value>Δες το Πες το</value>
+    <value>Δες το, Πες το</value>
   </data>
   <data name="CancelText" xml:space="preserve">
     <value>Ακύρωση</value>
@@ -203,7 +203,7 @@
     <value>Έξοδος </value>
   </data>
   <data name="MapHeaderText" xml:space="preserve">
-    <value>Δες το Πες το</value>
+    <value>Δες το, Πες το</value>
   </data>
   <data name="NoInternetText" xml:space="preserve">
     <value>Δεν υπάρχει σύνδεση internet</value>
