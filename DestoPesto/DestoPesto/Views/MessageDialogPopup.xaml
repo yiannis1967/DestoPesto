@@ -27,6 +27,7 @@
            BackgroundColor="WhiteSmoke" Padding="10,20,10,20">
 
         <StackLayout >
+            <Image HeightRequest="40" Grid.Column="1" HorizontalOptions="CenterAndExpand" InputTransparent="True" Source="logo_landscape_blue_back.png" VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="SizeProportional" />
             <Label Text="{Binding MessageDialogTitle}" FontSize="Title" FontAttributes="Bold"></Label>
             <Label Padding="10,0,10,0" Text="{Binding MessageDialogMessage}" HorizontalOptions="Center"></Label>
             <Grid HorizontalOptions="Fill" Padding="10,15,10,0">
