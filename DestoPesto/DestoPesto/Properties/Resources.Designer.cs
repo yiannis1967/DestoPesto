@@ -79,7 +79,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Δες το Πες το.
+        ///   Looks up a localized string similar to Δες το, Πες το.
         /// </summary>
         public static string ApplicationName {
             get {
@@ -322,7 +322,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Δες το Πες το.
+        ///   Looks up a localized string similar to Δες το, Πες το.
         /// </summary>
         public static string MapHeaderText {
             get {

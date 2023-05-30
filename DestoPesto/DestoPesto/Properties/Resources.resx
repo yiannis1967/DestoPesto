@@ -121,7 +121,7 @@
     <value>Alert</value>
   </data>
   <data name="ApplicationName" xml:space="preserve">
-    <value>Δες το Πες το</value>
+    <value>Δες το, Πες το</value>
   </data>
   <data name="CancelText" xml:space="preserve">
     <value>Cancle</value>
@@ -181,7 +181,7 @@
     <value>Logout</value>
   </data>
   <data name="MapHeaderText" xml:space="preserve">
-    <value>Δες το Πες το</value>
+    <value>Δες το, Πες το</value>
   </data>
   <data name="NoInternetText" xml:space="preserve">
     <value>No Internet Connection !!!</value>

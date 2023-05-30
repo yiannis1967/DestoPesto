@@ -22,8 +22,8 @@ namespace DestoPesto.Views
             
             MessageDialogTitle=title;
             MessageDialogMessage=message;
-            RightBtnText=cancel;
-            LeftBtnText=accept;
+            RightBtnText=accept;
+            LeftBtnText=cancel;
             BindingContext=this;
         }
 
@@ -34,7 +34,7 @@ namespace DestoPesto.Views
             
             MessageDialogTitle=title;
             MessageDialogMessage=message;
-            RightBtnText=cancel;
+            LeftBtnText=cancel;
             LeftBtn.IsVisible=false;
             BindingContext=this;
         }
@@ -75,14 +75,14 @@ namespace DestoPesto.Views
 
         private void RightBtn_Clicked(object sender, EventArgs e)
         {
-            DialogResult=false;
+            DialogResult=true;
             PopupNavigation.Instance.PopAsync();
         }
 
         private void LeftBtn_Clicked(object sender, EventArgs e)
         {
             
-            DialogResult=true;
+            DialogResult=false;
             PopupNavigation.Instance.PopAsync();
         }
         

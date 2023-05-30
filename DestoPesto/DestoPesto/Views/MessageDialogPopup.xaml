@@ -17,25 +17,45 @@
                                    ScaleIn="1.2"
                                    ScaleOut="0.8" />
     </pages:PopupPage.Animation>
-    <Frame Margin="10" 
-           CornerRadius="5"
-           HorizontalOptions="Fill" 
+    <Frame CornerRadius="20"
+           HorizontalOptions="Center" 
            VerticalOptions="Center"
            HasShadow="True"
-           MinimumHeightRequest="500"
-           IsClippedToBounds="True"
-           BackgroundColor="WhiteSmoke" Padding="10,20,10,20">
+           HeightRequest="300"
+           
+           BackgroundColor="WhiteSmoke"
+           >
 
         <StackLayout >
-            <Label Text="{Binding MessageDialogTitle}" FontSize="Title" FontAttributes="Bold"></Label>
-            <Label Padding="10,0,10,0" Text="{Binding MessageDialogMessage}" HorizontalOptions="Center"></Label>
-            <Grid HorizontalOptions="Fill" Padding="10,15,10,0">
+            <Grid HorizontalOptions="Fill" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Text="{Binding LeftBtnText}" x:Name="LeftBtn" Clicked="LeftBtn_Clicked" HorizontalOptions="Start"  BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None"/>
-                <Button Text="{Binding RightBtnText}" Grid.Column="1"  x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None"/>
+                <StackLayout Grid.ColumnSpan="4" Orientation="Horizontal"  >
+                    <!--<Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>-->
+                    <Frame  HorizontalOptions="Center" VerticalOptions="Center" HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
+                        <Image  HorizontalOptions="Center" InputTransparent="True" Source="ic_launcher.png" VerticalOptions="Center" />
+                    </Frame>
+                    <Label Grid.Column="1" Text="{Binding MessageDialogTitle}" FontSize="Title" FontAttributes="Bold"  HorizontalTextAlignment="Center"  TextColor="#0D6EFD" VerticalOptions="Center"></Label>
+                </StackLayout>
+
+                <Label Grid.Row="1" Grid.ColumnSpan="4" Text="{Binding MessageDialogMessage}" LineBreakMode="WordWrap" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+
+                <Button Grid.Row="2" Grid.Column="1" HeightRequest="30" Text="{Binding LeftBtnText}" x:Name="LeftBtn" Clicked="LeftBtn_Clicked"  HorizontalOptions="Start"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
+                <Button Grid.Row="2" Grid.Column="2" HeightRequest="30" Text="{Binding RightBtnText}" x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
             </Grid>
         </StackLayout>
     </Frame>
