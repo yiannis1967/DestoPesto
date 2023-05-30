@@ -66,8 +66,9 @@ namespace DestoPesto.Views
         private async void OnAppleSignIn()
         {
             //apple_signin_Tapped(this, EventArgs.Empty);
-            await SignInMessagePopUp.DisplayPopUp();
-            await DisplayAlert("Hello", "hello", "ok");
+            //await SignInMessagePopUp.DisplayPopUp();
+            await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationPrompt, DestoPesto.Properties.Resources.TurnOn, DestoPesto.Properties.Resources.TurnOff);
+            await MessageDialogPopup.DisplayPopUp("Hello", "hello", "ok");
 
 
 
@@ -359,7 +360,7 @@ namespace DestoPesto.Views
                 authenticator.Error -= OnAuthErrorfb;
             }
 
-            App.Current.MainPage.DisplayAlert("Alert", e.Message, "OK");
+            MessageDialogPopup.DisplayPopUp("Alert", e.Message, "OK");
         }
 
         private async void Signup_tap_Tapped(object sender, EventArgs e)
@@ -382,7 +383,7 @@ namespace DestoPesto.Views
             {
                 string error = await DeviceAuthentication.EmailSignIn(txtEmail.Text, txtPassword.Text);
                 if (!string.IsNullOrWhiteSpace(error))
-                    await App.Current.MainPage.DisplayAlert("Alert", error, "OK");
+                    await MessageDialogPopup.DisplayPopUp("Alert", error, "OK");
 
                 //    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
                 //    try
@@ -403,12 +404,12 @@ namespace DestoPesto.Views
                 //    }
                 //    catch (Exception ex)
                 //    {
-                //        await App.Current.MainPage.DisplayAlert("Alert", "Invalid useremail or password", "OK");
+                //        await App.Current.MainPage.MessageDialogPopup.DisplayPopUp("Alert", "Invalid useremail or password", "OK");
                 //    }
             }
             else
             {
-                await App.Current.MainPage.DisplayAlert("Alert", Properties.Resources.NoInternetText, "OK");
+                await MessageDialogPopup.DisplayPopUp("Alert", Properties.Resources.NoInternetText, "OK");
             }
 
 

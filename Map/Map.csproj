@@ -1,20 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk" ProjectGUID="515f5c88-ccde-4560-a752-7cff6324f4af">
   <PropertyGroup Label="Globals">
-    <SccProjectName></SccProjectName>
-    <SccProvider></SccProvider>
-    <SccAuxPath></SccAuxPath>
-    <SccLocalPath></SccLocalPath>
+    <SccProjectName>
+    </SccProjectName>
+    <SccProvider>
+    </SccProvider>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
   </PropertyGroup>
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <UserSecretsId>2d3ea050-c964-4bf5-9007-7f5dcd1aa59a</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2545" />
   </ItemGroup>
-
 </Project>

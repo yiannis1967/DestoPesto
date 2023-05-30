@@ -280,7 +280,7 @@ namespace DestoPesto.Views
             {
                 LocationPermisionsChecked = true;
                 //if (!App.Settings.DontAskmeforLocationAgain)
-                if (await DisplayAlert(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationPrompt, DestoPesto.Properties.Resources.TurnOn, DestoPesto.Properties.Resources.TurnOff))
+                if (await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationPrompt, DestoPesto.Properties.Resources.TurnOn, DestoPesto.Properties.Resources.TurnOff))
                 {
                     try
                     {
@@ -496,7 +496,7 @@ namespace DestoPesto.Views
             e.HideInfoWindow = true;
             string pinName = ((Pin)sender).Label;
             string pinid = ((Pin)sender).StyleId;
-            bool res = await DisplayAlert(Properties.Resources.ReportFix, $":{pinName}", StringResource.YesText, StringResource.NoText);
+            bool res = await MessageDialogPopup.DisplayPopUp(Properties.Resources.ReportFix, $":{pinName}", StringResource.YesText, StringResource.NoText);
 
 
             if (res)
@@ -582,7 +582,7 @@ namespace DestoPesto.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                await App.Current.MainPage.DisplayAlert("Alert", "Oh no !  Token expired", "OK");
+                await MessageDialogPopup.DisplayPopUp("Alert", "Oh no !  Token expired", "OK");
             }
         }
         private async void Location_tap_Tapped(Catagories selectedCatagory)
