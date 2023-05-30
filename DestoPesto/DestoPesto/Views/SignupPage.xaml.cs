@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -13,7 +14,7 @@ using Xamarin.Forms.Xaml;
 namespace DestoPesto.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignupPage : ContentPage
+    public partial class SignupPage : ContentPage, System.ComponentModel.INotifyPropertyChanged
     {
 
         public string WebAPIkey = "AIzaSyCH9F_m6KO7_1BB3NN0eiSjN9_d99bRjsk";
@@ -22,6 +23,8 @@ namespace DestoPesto.Views
         {
             InitializeComponent();
             Signin_tap.Tapped += Signin_tap_Tapped;
+
+            BindingContext = this;
 
             lblSignin.GestureRecognizers.Add(Signin_tap);
         }
@@ -34,17 +37,25 @@ namespace DestoPesto.Views
             await Navigation.PopAsync();
         }
 
+        public bool IsValidInfo
+        {
+            get
+            {
+
+                return EmailMultiValidator.IsValid && PasswordValidator.IsValid && UserValidator.IsValid && RePasswordValidator.IsValid;
+            }
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
 
-            
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 string error = await Authentication.DeviceAuthentication.EmailSignUp(txtEmail.Text, txtPassword.Text);
                 if (!string.IsNullOrWhiteSpace(error))
                     await App.Current.MainPage.DisplayAlert("Alert", error, "OK");
 
-                
+
                 //    try
                 //    {
                 //        var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
@@ -66,6 +77,11 @@ namespace DestoPesto.Views
 
 
             //await JsonHandler.GetCatagories();
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsValidInfo)));
         }
     }
 }

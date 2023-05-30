@@ -23,10 +23,7 @@
            IsClippedToBounds="True"
            Padding="10">
         <StackLayout  >
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-
+            <Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
             <Label Text="{Binding Message}"></Label>
         </StackLayout>
     </Frame>

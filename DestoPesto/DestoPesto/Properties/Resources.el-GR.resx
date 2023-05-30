@@ -180,6 +180,9 @@
   <data name="HomeItemText" xml:space="preserve">
     <value>Αρχή</value>
   </data>
+  <data name="InvalidEntryStyle" xml:space="preserve">
+    <value>InvalidEntryStyle</value>
+  </data>
   <data name="LetsRegisterLineOneText" xml:space="preserve">
     <value>Καλώς όρισες </value>
   </data>
@@ -258,6 +261,12 @@
   </data>
   <data name="SignUpText" xml:space="preserve">
     <value>Εγγραφή</value>
+  </data>
+  <data name="SomethingIsNotRightEmail" xml:space="preserve">
+    <value>Δεν έχεις συμπληρώσει το email σου</value>
+  </data>
+  <data name="SomethingIsNotRightPassword" xml:space="preserve">
+    <value>Δεν έχεις συμπληρώσει τον κωδικό σου</value>
   </data>
   <data name="StopServiceCommandTitle" xml:space="preserve">
     <value>Κλείσιμο τώρα</value>

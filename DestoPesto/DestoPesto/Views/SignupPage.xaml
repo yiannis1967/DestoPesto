@@ -2,11 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resources="clr-namespace:DestoPesto"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
              mc:Ignorable="d"
              x:Class="DestoPesto.Views.SignupPage"
              Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0,20,0,0" />
@@ -15,70 +21,90 @@
 
 
     <!--<StackLayout BackgroundColor="White">-->
-        <Grid BackgroundColor="White">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="15*" />
-                <RowDefinition Height="*"/>
-                
-            </Grid.RowDefinitions>
-            <StackLayout >
-                <Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />
-                <!--<Frame  BackgroundColor="White" >-->
-                    
-                        <StackLayout>
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="*"/>
 
-                            <!--<Image Source="{AppThemeBinding Light=icon.png, Dark=icon.png}" HeightRequest="90" VerticalOptions="EndAndExpand"/>-->
+        </Grid.RowDefinitions>
+        <StackLayout >
+            <Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />
+            <!--<Frame  BackgroundColor="White" >-->
 
-                            <StackLayout Margin="0">
-                                <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineOneText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Large"/>
-                                <Label  Text="{x:Static resources:Properties.Resources.LetsRegisterLineTwoText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Header"/>
+            <StackLayout>
 
-                            </StackLayout>
+                <!--<Image Source="{AppThemeBinding Light=icon.png, Dark=icon.png}" HeightRequest="90" VerticalOptions="EndAndExpand"/>-->
 
-                            <StackLayout Padding="0" Margin="15,10">
+                <StackLayout Margin="0">
+                    <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineOneText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Large"/>
+                    <Label  Text="{x:Static resources:Properties.Resources.LetsRegisterLineTwoText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Header"/>
 
+                </StackLayout>
 
-
-                                <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
-                                            <Image Source="email.png" />
-                                        </Frame>
-
-                                        <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail"  TextColor="#0D6EFD" HorizontalOptions="FillAndExpand" />
-                                    </StackLayout>
-                                </Frame>
+                <StackLayout Padding="0" Margin="15,10">
 
 
-                                <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                            <Image Source="password.png" />
-                                        </Frame>
-                                        <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}" x:Name="txtPassword"  IsPassword="True" TextColor="#0D6EFD" HorizontalOptions="FillAndExpand" />
-                                    </StackLayout>
-                                </Frame>
 
-                                <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                            <Image Source="password.png" />
-                                        </Frame>
-                                        <Entry Placeholder="{x:Static resources:Properties.Resources.RePasswordPlaceHolder}" x:Name="txtReTypePassword"  IsPassword="True" TextColor="#0D6EFD" HorizontalOptions="FillAndExpand" />
-                                    </StackLayout>
-                                </Frame>
+                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
+                                <Image Source="email.png" />
+                            </Frame>
 
-                                <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                            <Image Source="user.png" />
-                                        </Frame>
 
-                                        <Entry Placeholder="{x:Static resources:Properties.Resources.UserNameText}" x:Name="txtDOB"  PlaceholderColor="Gray"  TextColor="#0D6EFD" HorizontalOptions="FillAndExpand" />
-                                    </StackLayout>
-                                </Frame>
+                            <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail"  HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                                <Entry.Behaviors>
+                                    <xct:MultiValidationBehavior x:Name="EmailMultiValidator" InvalidStyle="{StaticResource  InvalidEntryStyle}"  Flags="ValidateOnValueChanging">
+                                        <xct:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" />
+                                        <xct:TextValidationBehavior x:Name="EmailTextLenghtValidator" MinimumLength="1" DecorationFlags="Trim"/>
+                                    </xct:MultiValidationBehavior>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
 
-                                <!--<StackLayout Orientation="Horizontal">
+
+                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
+                                <Image Source="password.png" />
+                            </Frame>
+                            <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}" x:Name="txtPassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                                <Entry.Behaviors>
+                                    <xct:TextValidationBehavior x:Name="PasswordValidator" MinimumLength="6" InvalidStyle="{StaticResource InvalidEntryStyle}"  Flags="ValidateOnValueChanging"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
+                                <Image Source="password.png" />
+                            </Frame>
+                            <Entry Placeholder="{x:Static resources:Properties.Resources.RePasswordPlaceHolder}" x:Name="txtReTypePassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                                <Entry.Behaviors>
+                                    <xct:RequiredStringValidationBehavior x:Name="RePasswordValidator" InvalidStyle="{StaticResource InvalidEntryStyle}"   RequiredString="{Binding Source={x:Reference txtPassword}, Path=Text}" Flags="ValidateOnValueChanging"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
+                                <Image Source="user.png" />
+                            </Frame>
+
+                            <Entry Placeholder="{x:Static resources:Properties.Resources.UserNameText}" x:Name="txtDOB"  PlaceholderColor="Gray"  HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                                <Entry.Behaviors >
+                                    <xct:TextValidationBehavior x:Name="UserValidator" MinimumLength="1"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--<StackLayout Orientation="Horizontal">
 
                                     <Label Text="Select Gender" TextColor="#89BB29" MinimumWidthRequest="50" FontSize="Medium"/>
                                     <RadioButton Content="Male"  TextColor="#89BB29"/>
@@ -86,24 +112,24 @@
                                     <RadioButton Content="Other" TextColor="#89BB29"  />
                                 </StackLayout>-->
 
-                                <Button Text="{x:Static resources:Properties.Resources.SignUpText}" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" Clicked="Button_Clicked" />
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                    <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" FontSize="Small"/>
-                                    <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#0D6EFD" FontAttributes="Bold" FontSize="Small"/>
-                                </StackLayout>
+                    <Button Text="{x:Static resources:Properties.Resources.SignUpText}" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None" Clicked="Button_Clicked" IsEnabled="{Binding IsValidInfo}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" FontSize="Small"/>
+                        <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#0D6EFD" FontAttributes="Bold" FontSize="Small"/>
+                    </StackLayout>
 
 
-                                <!--<Image Source="logoback.png" HeightRequest="30" VerticalOptions="EndAndExpand"/>-->
+                    <!--<Image Source="logoback.png" HeightRequest="30" VerticalOptions="EndAndExpand"/>-->
 
-                            </StackLayout>
+                </StackLayout>
 
 
-                        </StackLayout>
-                    
-                <!--</Frame>-->
             </StackLayout>
+
+            <!--</Frame>-->
+        </StackLayout>
         <Image Grid.Row="1" Source="logoback.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-        </Grid>
+    </Grid>
     <!--</StackLayout>-->
 
 </ContentPage>

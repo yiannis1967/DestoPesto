@@ -38,6 +38,19 @@ namespace DestoPesto.Views
             //Xamarin.CommunityToolkit.Effects.TouchEffect
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+                if (string.IsNullOrWhiteSpace(txtEmail.Text))
+                {
+                    txtWrongEmail.IsVisible = true;
+                    if (string.IsNullOrWhiteSpace(txtPassword.Text))
+                    {
+                        txtWrongPass.IsVisible = true;
+                        return;
+
+                    }
+                    return;
+                }
+
+
                 string error = await DeviceAuthentication.EmailSignIn(txtEmail.Text, txtPassword.Text);
                 if (!string.IsNullOrWhiteSpace(error))
                 {
@@ -73,5 +86,16 @@ namespace DestoPesto.Views
                 await MessageDialogPopup.DisplayPopUp("Alert", Properties.Resources.NoInternetText, "OK");
             }
         }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtWrongEmail.IsVisible = false;
+        }
+
+        private void txtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtWrongPass.IsVisible = false;
+        }
+    
     }
 }
