@@ -22,8 +22,8 @@ namespace DestoPesto.Views
             
             MessageDialogTitle=title;
             MessageDialogMessage=message;
-            RightBtnText=cancel; 
-            LeftBtnText=accept
+            RightBtnText=cancel;
+            LeftBtnText=accept;
             BindingContext=this;
         }
 
