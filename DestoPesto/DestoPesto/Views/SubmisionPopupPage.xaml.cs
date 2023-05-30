@@ -25,8 +25,8 @@ namespace DestoPesto.Views
 
 
         }
-
-       async void OnImageNameTapped(object sender, EventArgs args)
+    
+        async void OnImageNameTapped(object sender, EventArgs args)
         {
             try
             {

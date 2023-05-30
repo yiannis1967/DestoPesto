@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  x:Class="DestoPesto.Views.MessageDialogPopup"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:pages="http://rotorgames.com" 
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                  CloseWhenBackgroundIsClicked="False" >
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame Margin="10" 
+           CornerRadius="5"
+           HorizontalOptions="Fill" 
+           VerticalOptions="Center"
+           HasShadow="True"
+           MinimumHeightRequest="500"
+           IsClippedToBounds="True"
+           BackgroundColor="WhiteSmoke" Padding="10,20,10,20">
+
+        <StackLayout >
+            <Label Text="{Binding MessageDialogTitle}" FontSize="Title" FontAttributes="Bold"></Label>
+            <Label Padding="10,0,10,0" Text="{Binding MessageDialogMessage}" HorizontalOptions="Center"></Label>
+            <Grid HorizontalOptions="Fill" Padding="10,15,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Text="{Binding LeftBtnText}" x:Name="LeftBtn" Clicked="LeftBtn_Clicked" HorizontalOptions="Start"  BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None"/>
+                <Button Text="{Binding RightBtnText}" Grid.Column="1"  x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None"/>
+            </Grid>
+        </StackLayout>
+    </Frame>
+
+</pages:PopupPage>
