@@ -24,18 +24,19 @@
 
     <Shell.FlyoutFooterTemplate>
         <DataTemplate>
-            <!--<Grid BackgroundColor="AliceBlue" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
+            
+            <Grid >
 
-            </Grid>-->
-            <Label  Text="{Binding AppVersion}" FontSize="Micro"  HorizontalTextAlignment="End" ></Label>
-
+                <Grid.ColumnDefinitions>
+                    
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="logoback.png" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="5,5,5,5"/>
+                <Label Grid.Column="1" Text="{Binding AppVersion}" FontSize="Micro" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>
+            </Grid>
         </DataTemplate>
-        
+
     </Shell.FlyoutFooterTemplate>
 
 
