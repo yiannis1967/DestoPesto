@@ -144,6 +144,9 @@
   <data name="DobText" xml:space="preserve">
     <value>Ημερομηνία γέννησης</value>
   </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>Να μην εμφανίζεται το μήνυμα</value>
+  </data>
   <data name="EmailLogin" xml:space="preserve">
     <value>Σύνδεση / Εγγραφή με email</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="HomeItemText" xml:space="preserve">
     <value>Αρχή</value>
+  </data>
+  <data name="InstructionsMessage" xml:space="preserve">
+    <value>Είναι εύκολο. Διάλεξε από τις κατηγορίες που φαίνονται παρακάτω τι θέλεις να καταγγείλεις πατώντας το αντίστοιχο κουμπί, φωτογράφισε το και στείλε το</value>
   </data>
   <data name="InvalidEntryStyle" xml:space="preserve">
     <value>InvalidEntryStyle</value>
@@ -285,6 +291,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>v</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Οδηγίες χρήσης</value>
   </data>
   <data name="WelcomeText" xml:space="preserve">
     <value>Καλώς ήρθες </value>

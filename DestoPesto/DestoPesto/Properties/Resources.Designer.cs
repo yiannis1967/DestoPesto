@@ -151,6 +151,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Skip this message next time.
+        /// </summary>
+        public static string DontShowAgain {
+            get {
+                return ResourceManager.GetString("DontShowAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connect / Register with email.
         /// </summary>
         public static string EmailLogin {
@@ -255,6 +264,15 @@ namespace DestoPesto.Properties {
         public static string HomeItemText {
             get {
                 return ResourceManager.GetString("HomeItemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It’s easy. Choose the category be pressing the appropriate button below, take a photo and send it.
+        /// </summary>
+        public static string InstructionsMessage {
+            get {
+                return ResourceManager.GetString("InstructionsMessage", resourceCulture);
             }
         }
         
@@ -570,6 +588,15 @@ namespace DestoPesto.Properties {
         public static string Version {
             get {
                 return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to the app.
+        /// </summary>
+        public static string WelcomeMessage {
+            get {
+                return ResourceManager.GetString("WelcomeMessage", resourceCulture);
             }
         }
         

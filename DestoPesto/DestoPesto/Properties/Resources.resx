@@ -297,4 +297,13 @@
   <data name="SomethingIsNotRightPassword" xml:space="preserve">
     <value>Your password cannot be null</value>
   </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>Skip this message next time</value>
+  </data>
+  <data name="InstructionsMessage" xml:space="preserve">
+    <value>It’s easy. Choose the category be pressing the appropriate button below, take a photo and send it</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome to the app</value>
+  </data>
 </root>
