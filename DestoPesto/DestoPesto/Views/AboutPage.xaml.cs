@@ -742,60 +742,59 @@ namespace DestoPesto.Views
                 post.DeviceIdiom = Xamarin.Essentials.DeviceInfo.Idiom.ToString();
 
 
-                var onlyWifi = Preferences.Get("onlyWifi", false);
+                //var onlyWifi = Preferences.Get("onlyWifi", false);
 
-                if (!onlyWifi)
-                {
-                    try
-                    {
-                        JsonHandler.SuspendBKService = true;
-                        string fileName = await JsonHandler.BuildTripFile(post, stream);
-                        if (await JsonHandler.PostSubmissionWithImage(post, stream))
-                        {
-                            await JsonHandler.DeleteTripFile(fileName);
-                            await JsonHandler.DeleteTripFile(fileName.Replace(".jpg", ".txt"));
+                //if (!onlyWifi)
+                //{
+                //    try
+                //    {
+                //        JsonHandler.SuspendBKService = true;
+                //        string fileName = await JsonHandler.BuildTripFile(post, stream);
+                //        if (await JsonHandler.PostSubmissionWithImage(post, stream))
+                //        {
+                //            await JsonHandler.DeleteTripFile(fileName);
+                //            await JsonHandler.DeleteTripFile(fileName.Replace(".jpg", ".txt"));
 
-                        }
-                    }
-                    finally
-                    {
-                        JsonHandler.SuspendBKService = false;
-                    }
+                //        }
+                //    }
+                //    finally
+                //    {
+                //        JsonHandler.SuspendBKService = false;
+                //    }
 
-                }
-                else
-                {
-                    var profiles = Connectivity.ConnectionProfiles;
-                    if (profiles.Contains(ConnectionProfile.WiFi))
-                    {
-                        try
-                        {
-                            JsonHandler.SuspendBKService = true;
-                            string fileName = await JsonHandler.BuildTripFile(post, stream);
+                //}
+                //else
+                //{
+                //    var profiles = Connectivity.ConnectionProfiles;
+                //    if (profiles.Contains(ConnectionProfile.WiFi))
+                //    {
+                //        try
+                //        {
+                //            JsonHandler.SuspendBKService = true;
+                //            string fileName = await JsonHandler.BuildTripFile(post, stream);
 
-                            if (await JsonHandler.PostSubmissionWithImage(post, stream))
-                            {
-                                await JsonHandler.DeleteTripFile(fileName);
-                                await JsonHandler.DeleteTripFile(fileName.Replace(".jpg", ".txt"));
+                //            if (await JsonHandler.PostSubmissionWithImage(post, stream))
+                //            {
+                //                await JsonHandler.DeleteTripFile(fileName);
+                //                await JsonHandler.DeleteTripFile(fileName.Replace(".jpg", ".txt"));
 
-                            }
-                        }
-                        finally
-                        {
-                            JsonHandler.SuspendBKService = false;
-                        }
+                //            }
+                //        }
+                //        finally
+                //        {
+                //            JsonHandler.SuspendBKService = false;
+                //        }
 
-                    }
-                    else
-                    {
-                        await JsonHandler.BuildTripFile(post, stream);
-                    }
+                //    }
+                //    else
+                //    {
+                //        await JsonHandler.BuildTripFile(post, stream);
+                //    }
+                //}
 
+                await JsonHandler.BuildTripFile(post, stream);
 
-                }
-
-
-                //  await App.Current.MainPage.DisplayAlert("Alert", action, "Ok");
+                
 
             }
 
