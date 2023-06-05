@@ -207,6 +207,7 @@ namespace DestoPesto.Droid
                 .SetContentIntent(BuildIntentToShowMainActivity())
                 .SetOngoing(true)
                 .AddAction(BuildStopServiceAction(notificationData))
+                .SetSilent(true)
                 .Build();
 
             StopCommands.Add(notificationData.StopActionID);
