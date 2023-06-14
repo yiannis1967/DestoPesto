@@ -79,8 +79,8 @@
 
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
                         <StackLayout >
                             <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"/>
@@ -112,7 +112,7 @@
                                                 <ColumnDefinition Width="10*"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Source="facebook.png" />
-                                            <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.FacebookLogin}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                            <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.FacebookLogin}" TextColor="Black" FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
@@ -130,7 +130,7 @@
                                                 <ColumnDefinition Width="10*"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Source="google_logo.png"  />
-                                            <Label Grid.Column="1"  Text="{x:Static resources:Properties.Resources.GoogleLogin}" TextColor="Black"  FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                            <Label Grid.Column="1"  Text="{x:Static resources:Properties.Resources.GoogleLogin}" TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>
                                     <!--<Button  Command="{Binding gogleSignin}" ContentLayout="Top,0" Text="mytext" ImageSource="google_logo.png" />-->
@@ -147,7 +147,7 @@
                                                 <ColumnDefinition Width="10*"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Source="applelogo.png"  />
-                                            <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.AppleLogin}"  TextColor="Black"  FontAttributes="Bold"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                            <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.AppleLogin}"  TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
@@ -161,7 +161,7 @@
                                                 <ColumnDefinition Width="10*"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Source="email.png"  />
-                                            <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.EmailLogin}" TextColor="Black"  FontAttributes="Bold"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                            <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.EmailLogin}" TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
