@@ -311,7 +311,7 @@ namespace DestoPesto
         public string FileData = "";
 
         public bool LocationPermisionsChecked { get; private set; }
-        public Dictionary<string, string> IntentExtras { get; set; }
+        public static Dictionary<string, string> IntentExtras { get; set; }
         public Dictionary<string, object> Options { get; set; }
 
 

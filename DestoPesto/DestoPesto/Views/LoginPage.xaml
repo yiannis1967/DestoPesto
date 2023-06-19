@@ -83,8 +83,8 @@
                             <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
                         <StackLayout >
-                            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"/>
-                            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
+                            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
+                            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
 
                         </StackLayout>
 

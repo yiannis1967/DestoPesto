@@ -459,21 +459,21 @@ namespace DestoPesto.Views
             }
 
 
-            if ((App.Current as App).IntentExtras != null)
+            if (/*(App.Current as App)*/App.IntentExtras != null)
             {
-                foreach (var entry in (App.Current as App).IntentExtras)
+                foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
                 {
                     if (entry.Key == "MessageID")
                     {
 
                         string description;
-                        (App.Current as App).IntentExtras.TryGetValue("Description", out description);
+                        /*(App.Current as App)*/App.IntentExtras.TryGetValue("Description", out description);
                         string submisionThumb;
-                        (App.Current as App).IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
+                        /*(App.Current as App)*/App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
                         string comments;
-                        (App.Current as App).IntentExtras.TryGetValue("Comments", out comments);
+                        /*(App.Current as App)*/App.IntentExtras.TryGetValue("Comments", out comments);
 
-                        (App.Current as App).IntentExtras.Clear();
+                        /*(App.Current as App)*/App.IntentExtras.Clear();
                         await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
 
                         break;
