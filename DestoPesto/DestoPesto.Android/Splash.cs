@@ -21,7 +21,19 @@ namespace DestoPesto.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            MainActivity.mainLauncher=this;
+            if (Intent?.Extras?.KeySet() != null)
+            {
+                if (App.IntentExtras == null)
+                    App.IntentExtras = new Dictionary<string, string>();
+                foreach (var key in Intent.Extras.KeySet())
+                {
+                    var value = Intent.Extras.GetString(key);
+                    App.IntentExtras[key] = value;
+
+                }
+            }
+
+
             // Create your application here
             StartActivity(typeof(MainActivity));
         }
