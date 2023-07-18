@@ -123,6 +123,7 @@
   <ItemGroup>
     <Compile Include="AlarmHandler.cs" />
     <Compile Include="AndroidNotificationManager.cs" />
+    <Compile Include="AppTerminate.cs" />
     <Compile Include="BackgroundService.cs" />
     <Compile Include="BrodcastHandler.cs" />
     <Compile Include="ForeGroundService.cs" />

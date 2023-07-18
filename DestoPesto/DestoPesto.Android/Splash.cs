@@ -21,8 +21,10 @@ namespace DestoPesto.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            MainActivity.mainLauncher=this;
             // Create your application here
             StartActivity(typeof(MainActivity));
         }
+
     }
 }

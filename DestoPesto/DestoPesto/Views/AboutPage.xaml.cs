@@ -424,6 +424,21 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                
+                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, "OK");
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    // Code to run on the main thread
+                });
+                
+                //var closer = DependencyService.Get<ICloseApplication>();
+                //closer?.closeApplication();
+
+
+            }
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions == PermissionStatus.Granted)
