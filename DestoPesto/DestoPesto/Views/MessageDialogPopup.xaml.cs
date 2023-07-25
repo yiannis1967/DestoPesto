@@ -34,7 +34,9 @@ namespace DestoPesto.Views
             
             MessageDialogTitle=title;
             MessageDialogMessage=message;
-            LeftBtnText=cancel;
+            RightBtnText=cancel;
+            if(cancel==null)
+                RightBtn.IsVisible = false;
             LeftBtn.IsVisible=false;
             BindingContext=this;
         }

@@ -160,7 +160,7 @@ namespace DestoPesto.Droid
                 // LogDebug.Current.Log(new List<string>() { error.Message, error.StackTrace });
             }
         }
-
+        public static Activity mainLauncher=null;
         protected override void OnNewIntent(Intent intent)
         {
             CreateNotificationFromIntent(intent);

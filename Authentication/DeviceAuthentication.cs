@@ -4,15 +4,18 @@ using System.Collections.Generic;
 
 using System.Linq;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using Xamarin.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace Authentication
 {
 
 
     /// <MetaDataID>{44ed95c5-3794-4f1a-bec3-3664e0b7c529}</MetaDataID>
-    public class DeviceAuthentication 
+    public class DeviceAuthentication
     {
 
         public static void FacebookSignIn()
@@ -33,14 +36,14 @@ namespace Authentication
         public static System.Threading.Tasks.Task<string> EmailSignIn(string email, string password)
         {
             IAuthentication authentication = DependencyService.Get<IAuthentication>();
-           
+
             return authentication.EmailSignIn(email, password);
         }
 
         public static void SendPasswordResetEmail(string email)
         {
             IAuthentication authentication = DependencyService.Get<IAuthentication>();
-             authentication.SendPasswordResetEmail(email);
+            authentication.SendPasswordResetEmail(email);
         }
 
 
@@ -63,13 +66,13 @@ namespace Authentication
             {
                 if (_Current == null)
                     _Current = new DeviceAuthentication();
-                
+
                 return _Current;
                 //return DeviceAuthentication.GetInstance(typeof(DeviceAuthentication), true) as DeviceAuthentication;
             }
         }
 
-      
+
         static System.Threading.Timer Timer;
 
         static DeviceAuthentication()
@@ -79,13 +82,13 @@ namespace Authentication
         }
         static void OnTimer(object state)
         {
-            if(_AuthUser!=null)
+            if (_AuthUser!=null)
             {
-                if(_AuthUser.ExpirationTime<DateTime.Now)
+                if (_AuthUser.ExpirationTime<DateTime.Now)
                 {
 
                 }
-                if(((_AuthUser.ExpirationTime- DateTime.Now).TotalMinutes<2))
+                if (((_AuthUser.ExpirationTime- DateTime.Now).TotalMinutes<2))
                 {
 
                 }
@@ -95,7 +98,7 @@ namespace Authentication
 
 
 
-      
+
 
         public static event EventHandler<AuthUser> AuthStateChanged;
 
@@ -134,7 +137,6 @@ namespace Authentication
                     IDToken = idToken;
                     _UnInitialized = false;
                     AuthStateChanged?.Invoke(this, _AuthUser);
-
                     return true;
 
                 }
@@ -170,7 +172,7 @@ namespace Authentication
         public static string IDToken;
 
         /// <MetaDataID>{4d9077fe-5041-4ef2-9bcc-fd1d5008970e}</MetaDataID>
-        
+
         public bool AuthIDTokenChanged(string idToken, AuthUser authUserData)
         {
             //System.Reflection.di
@@ -273,7 +275,7 @@ namespace Authentication
         {
             get
             {
-                
+
                 return _AuthUser;
             }
         }
@@ -287,7 +289,7 @@ namespace Authentication
         }
         public static void SignedOut()
         {
-            
+
             IAuthentication authentication = DependencyService.Get<IAuthentication>();
             authentication.SignOut();
             _AuthUser = null;
@@ -322,7 +324,7 @@ namespace Authentication
         private static readonly DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
 
-    
+
 
     }
 

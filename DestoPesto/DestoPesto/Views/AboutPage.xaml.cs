@@ -125,6 +125,23 @@ namespace DestoPesto.Views
             if (e.NetworkAccess == NetworkAccess.Internet)
             {
                 MessagingCenter.Send<string>("1", "GetData");
+
+                if (this.NoInternetConnection)
+                {
+
+                    PopupNavigation.Instance.PopAsync();
+                    this.NoInternetConnection=false;
+                }
+
+            }
+            else
+            {
+                if (!this.NoInternetConnection)
+                {
+                    this.NoInternetConnection=true;
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
+                    this.NoInternetConnection=false;
+                }
             }
         }
 
@@ -163,14 +180,21 @@ namespace DestoPesto.Views
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-                gridMain.RowDefinitions[0].Height = new GridLength(7, GridUnitType.Star);
-                Label lbl = new Label();
-                lbl.TextColor = Color.FromHex("#89BB29");
-                lbl.Text = "No Internet Connection!!!";
-                lbl.FontSize = 30;
-                grid.Children.Add(lbl, 0, 0);
+                if (!this.NoInternetConnection)
+                {
+                    this.NoInternetConnection=true;
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
+                    this.NoInternetConnection=false;
+                }
+
+                //grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                //grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+                //gridMain.RowDefinitions[0].Height = new GridLength(7, GridUnitType.Star);
+                //Label lbl = new Label();
+                //lbl.TextColor = Color.FromHex("#89BB29");
+                //lbl.Text = "No Internet Connection!!!";
+                //lbl.FontSize = 30;
+                //grid.Children.Add(lbl, 0, 0);
 
                 return;
 
@@ -419,11 +443,32 @@ namespace DestoPesto.Views
 
         static bool FirstTime=true;
 
+        bool NoInternetConnection = false;
+
         protected override async void OnAppearing()
         {
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                if (!this.NoInternetConnection)
+                {
+                    this.NoInternetConnection=true;
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
+                    this.NoInternetConnection=false;
+                }
+                //MainThread.BeginInvokeOnMainThread(() =>
+                //{
+                //    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                //    // Code to run on the main thread
+                //});
+
+                //var closer = DependencyService.Get<ICloseApplication>();
+                //closer?.closeApplication();
+
+
+            }
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions == PermissionStatus.Granted)

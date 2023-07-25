@@ -37,5 +37,6 @@ namespace DestoPesto.Droid
             // Create your application here
             StartActivity(typeof(MainActivity));
         }
+
     }
 }

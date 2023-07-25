@@ -68,7 +68,7 @@ namespace DestoPesto.Views
             //apple_signin_Tapped(this, EventArgs.Empty);
             //await SignInMessagePopUp.DisplayPopUp();
             await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationPrompt, DestoPesto.Properties.Resources.TurnOn, DestoPesto.Properties.Resources.TurnOff);
-            await MessageDialogPopup.DisplayPopUp("Hello", "hello", "ok");
+            //await MessageDialogPopup.DisplayPopUp("Hello", "hello", "ok");
 
 
 
