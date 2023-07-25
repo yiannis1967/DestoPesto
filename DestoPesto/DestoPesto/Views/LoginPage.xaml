@@ -6,6 +6,7 @@
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"             
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
              mc:Ignorable="d"
              Shell.NavBarIsVisible="False"
              x:Class="DestoPesto.Views.LoginPage">
@@ -24,7 +25,7 @@
 
             <StackLayout>
 
-                <Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />
+                <Image  Source="{extensions:ImageResource DestoPesto.Images.login_header.png}"  />
 
                 <!--<StackLayout Margin="0">
                             -->
@@ -38,7 +39,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="False">
                         <StackLayout Orientation="Horizontal">
                             <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
-                                <Image Source="mail.png" Aspect="AspectFill" Margin="0"/>
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.mail.png}" Aspect="AspectFill" Margin="0"/>
                             </Frame>
 
                             <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
@@ -110,8 +111,9 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="10*"/>
+                                                
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="facebook.png" />
+                                            <Image Source="{extensions:ImageResource DestoPesto.Images.facebook.png}" />
                                             <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.FacebookLogin}" TextColor="Black" FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using PCLStorage;
 using Rg.Plugins.Popup.Services;
+using System.Reflection;
 
 namespace DestoPesto
 {
@@ -27,6 +28,8 @@ namespace DestoPesto
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
+            //DestoPesto.Images.iconSplash.png
+            var names = typeof(App).Assembly.GetManifestResourceNames();
         }
 
         private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
