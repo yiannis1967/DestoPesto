@@ -46,7 +46,7 @@ namespace DestoPesto.iOS
 
             string text = DeviceApplication.Current.ReadLog();
             System.Diagnostics.Debug.Write(text);
-
+             
 
             var formsApp = new App("");
             formsApp.Options = m_options;
