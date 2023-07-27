@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
              mc:Ignorable="d"
              x:Class="DestoPesto.Views.SignupPage"
@@ -23,12 +24,15 @@
     <!--<StackLayout BackgroundColor="White">-->
     <Grid BackgroundColor="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*" />
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*" />
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-        <StackLayout >
-            <Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />
+        <Image Source="{extensions:ImageResource DestoPesto.Images.login_header.png}" BackgroundColor="#0D6EFD"  />
+        <StackLayout Grid.Row="1" VerticalOptions="Center">
+            <!--<Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />-->
+            
             <!--<Frame  BackgroundColor="White" >-->
 
             <StackLayout>
@@ -48,7 +52,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
-                                <Image Source="email.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
                             </Frame>
 
 
@@ -67,7 +71,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                <Image Source="password.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
                             </Frame>
                             <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}" x:Name="txtPassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
                                 <Entry.Behaviors>
@@ -80,7 +84,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                <Image Source="password.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
                             </Frame>
                             <Entry Placeholder="{x:Static resources:Properties.Resources.RePasswordPlaceHolder}" x:Name="txtReTypePassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
                                 <Entry.Behaviors>
@@ -93,7 +97,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                <Image Source="user.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.user.png}" />
                             </Frame>
 
                             <Entry Placeholder="{x:Static resources:Properties.Resources.UserNameText}" x:Name="txtDOB"  PlaceholderColor="Gray"  HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
@@ -128,7 +132,7 @@
 
             <!--</Frame>-->
         </StackLayout>
-        <Image Grid.Row="1" Source="logoback.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+        <Image Grid.Row="2" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
     </Grid>
     <!--</StackLayout>-->
 

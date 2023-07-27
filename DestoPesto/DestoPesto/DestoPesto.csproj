@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" ProjectGUID="24702fca-6d87-43e7-867f-01960a610f02">
+﻿<Project Sdk="Microsoft.NET.Sdk" ProjectGUID="24702fca-6d87-43e7-867f-01960a610f02">
   <PropertyGroup Label="Globals">
     <SccProjectName></SccProjectName>
     <SccProvider></SccProvider>
@@ -85,7 +85,9 @@
     <None Remove="Images\facebook.png" />
     <None Remove="Images\google_logo.png" />
     <None Remove="Images\icon.png" />
+    <None Remove="Images\icon1.png" />
     <None Remove="Images\iconDark.png" />
+    <None Remove="Images\iconDark1.png" />
     <None Remove="Images\iconSplash.png" />
     <None Remove="Images\icon_about.png" />
     <None Remove="Images\icon_feed.png" />
@@ -96,6 +98,7 @@
     <None Remove="Images\logoback.png" />
     <None Remove="Images\logout.png" />
     <None Remove="Images\logo_landscape_blue_back.png" />
+    <None Remove="Images\logo_landscape_blue_back1.png" />
     <None Remove="Images\mail.png" />
     <None Remove="Images\map.png" />
     <None Remove="Images\password.png" />
@@ -118,7 +121,6 @@
     <EmbeddedResource Include="Images\facebook.png" />
     <EmbeddedResource Include="Images\google_logo.png" />
     <EmbeddedResource Include="Images\icon.png" />
-    <EmbeddedResource Include="Images\iconDark.png" />
     <EmbeddedResource Include="Images\iconSplash.png" />
     <EmbeddedResource Include="Images\icon_about.png" />
     <EmbeddedResource Include="Images\icon_feed.png" />

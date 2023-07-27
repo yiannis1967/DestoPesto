@@ -32,9 +32,9 @@ namespace DestoPesto.Droid
             {
                 NotificationTitle = Properties.Resources.ApplicationName,
                 NotificationContentText = Properties.Resources.NotificationContentText,
-                NotificationSmallIcon = Resource.Drawable.icon,
+                NotificationSmallIcon = Resource.Drawable.iconForeground,
                 StopServiceCommandTitle = Properties.Resources.StopServiceCommandTitle,
-                StopServiceCommandIcon = Resource.Drawable.icon,
+                StopServiceCommandIcon = Resource.Drawable.iconForeground,
                 StopActionID = "destopesto.action.STOP_SERVICE",
                 DelayBetweenLogMessage = 5000, // milliseconds,
                 ServiceRunningNotificationID = 10000,

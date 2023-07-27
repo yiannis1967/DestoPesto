@@ -132,6 +132,9 @@
   <data name="CatagoryText" xml:space="preserve">
     <value>Κατηγορία</value>
   </data>
+  <data name="CookiesPolicy" xml:space="preserve">
+    <value>Πολιτική Cookies</value>
+  </data>
   <data name="CreateAccountText" xml:space="preserve">
     <value>Δεν έχετε λογαριασμό?</value>
   </data>
@@ -183,6 +186,9 @@
   <data name="HomeItemText" xml:space="preserve">
     <value>Αρχή</value>
   </data>
+  <data name="HowItWorks" xml:space="preserve">
+    <value>Πως λειτουργεί</value>
+  </data>
   <data name="InstructionsMessage" xml:space="preserve">
     <value>Είναι εύκολο και εντελώς ανώνυμο. Διάλεξε από τις κατηγορίες που φαίνονται παρακάτω τι θέλεις να αναφέρεις πατώντας το αντίστοιχο κουμπί, φωτογράφισέ το και ανάρτησέ το. Τα στοιχεία σου δεν θα εμφανιστούν πουθενά</value>
   </data>
@@ -228,6 +234,9 @@
   </data>
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Κωδικός</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Πολιτική απορρήτου</value>
   </data>
   <data name="RePasswordPlaceHolder" xml:space="preserve">
     <value>Επανάληψη κωδικού</value>
@@ -280,6 +289,9 @@
   <data name="SubmisionsText" xml:space="preserve">
     <value>Οι αναρτήσεις μου</value>
   </data>
+  <data name="TermsConditions" xml:space="preserve">
+    <value>Όροι και προϋποθέσεις</value>
+  </data>
   <data name="TurnOff" xml:space="preserve">
     <value>Δεν συμφωνώ</value>
   </data>
@@ -291,6 +303,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>v</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>Όραμα</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Οδηγίες χρήσης</value>

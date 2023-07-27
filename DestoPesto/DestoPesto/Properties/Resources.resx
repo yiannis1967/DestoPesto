@@ -306,4 +306,19 @@
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Welcome to the app</value>
   </data>
+  <data name="CookiesPolicy" xml:space="preserve">
+    <value>Cookies Policy</value>
+  </data>
+  <data name="HowItWorks" xml:space="preserve">
+    <value>How it works</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="TermsConditions" xml:space="preserve">
+    <value>Terms and conditions</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>Vision</value>
+  </data>
 </root>

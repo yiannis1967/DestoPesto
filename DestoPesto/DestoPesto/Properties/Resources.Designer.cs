@@ -115,6 +115,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cookies Policy.
+        /// </summary>
+        public static string CookiesPolicy {
+            get {
+                return ResourceManager.GetString("CookiesPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Still Not Connected ?.
         /// </summary>
         public static string CreateAccountText {
@@ -268,6 +277,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How it works.
+        /// </summary>
+        public static string HowItWorks {
+            get {
+                return ResourceManager.GetString("HowItWorks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to It’s easy. Choose the category be pressing the appropriate button below, take a photo and send it.
         /// </summary>
         public static string InstructionsMessage {
@@ -399,6 +417,15 @@ namespace DestoPesto.Properties {
         public static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy policy.
+        /// </summary>
+        public static string PrivacyPolicy {
+            get {
+                return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
             }
         }
         
@@ -556,6 +583,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Terms and conditions.
+        /// </summary>
+        public static string TermsConditions {
+            get {
+                return ResourceManager.GetString("TermsConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I disagree.
         /// </summary>
         public static string TurnOff {
@@ -588,6 +624,15 @@ namespace DestoPesto.Properties {
         public static string Version {
             get {
                 return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vision.
+        /// </summary>
+        public static string Vision {
+            get {
+                return ResourceManager.GetString("Vision", resourceCulture);
             }
         }
         

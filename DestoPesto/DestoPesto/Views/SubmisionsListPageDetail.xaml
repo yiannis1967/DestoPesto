@@ -6,6 +6,7 @@
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              xmlns:hl="clr-namespace:Hyperlink"
              xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
             Title="{x:Static resources:Properties.Resources.SubmisionsText}">
              
     <Grid>

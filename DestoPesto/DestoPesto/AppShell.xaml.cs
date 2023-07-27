@@ -2,6 +2,8 @@
 using DestoPesto.Views;
 using System;
 using System.Collections.Generic;
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace DestoPesto
@@ -15,6 +17,8 @@ namespace DestoPesto
             //Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
+
+        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
