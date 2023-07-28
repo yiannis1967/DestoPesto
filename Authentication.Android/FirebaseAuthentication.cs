@@ -200,48 +200,56 @@ namespace Authentication.Android
         private static async void IdTokenChanged(object sender, FirebaseAuth.IdTokenEventArgs e)
         {
 
-
-            if (FirebaseAuth.CurrentUser != null)
+            try
             {
-                var email = FirebaseAuth.CurrentUser.Email;
-                var data = FirebaseAuth.CurrentUser.ProviderData.ToList().Select(x => new { x.ProviderId, x.Email }).ToArray();
 
-                GetTokenResult token = await FirebaseAuth.CurrentUser.GetIdToken(false).AsAsync<GetTokenResult>();
-
-                authTimestamp = DeviceAuthentication.FromUnixTime(token.AuthTimestamp);
-                issuedAtTimestamp = DeviceAuthentication.FromUnixTime(token.IssuedAtTimestamp);
-                expirationTimestamp = DeviceAuthentication.FromUnixTime(token.ExpirationTimestamp);
-                idToken = token.Token;
-
-                var firebaseUser = FirebaseAuth.CurrentUser;
-                string providerId = firebaseUser.ProviderData?.Where(x => x.ProviderId!="firebase").Select(x => x.ProviderId).FirstOrDefault();
-                if (providerId == null)
-                    providerId=firebaseUser.ProviderId;
-
-
-                lock (AuthenticationTokenLock)
+                if (FirebaseAuth.CurrentUser != null)
                 {
-                    CurrenTokenResult = token;
+                    var email = FirebaseAuth.CurrentUser.Email;
+                    var data = FirebaseAuth.CurrentUser.ProviderData.ToList().Select(x => new { x.ProviderId, x.Email }).ToArray();
+
+                    GetTokenResult token = await FirebaseAuth.CurrentUser.GetIdToken(false).AsAsync<GetTokenResult>();
+
+                    authTimestamp = DeviceAuthentication.FromUnixTime(token.AuthTimestamp);
+                    issuedAtTimestamp = DeviceAuthentication.FromUnixTime(token.IssuedAtTimestamp);
+                    expirationTimestamp = DeviceAuthentication.FromUnixTime(token.ExpirationTimestamp);
+                    idToken = token.Token;
+
+                    var firebaseUser = FirebaseAuth.CurrentUser;
+                    string providerId = firebaseUser.ProviderData?.Where(x => x.ProviderId!="firebase").Select(x => x.ProviderId).FirstOrDefault();
+                    if (providerId == null)
+                        providerId=firebaseUser.ProviderId;
+
+
+                    lock (AuthenticationTokenLock)
+                    {
+                        CurrenTokenResult = token;
+                    }
+
+                    var authUser = new Authentication.AuthUser()
+                    {
+                        DisplayName = firebaseUser.DisplayName,
+                        Email = firebaseUser.Email,
+                        IsAnonymous = firebaseUser.IsAnonymous,
+                        IsEmailVerified = firebaseUser.IsEmailVerified,
+                        PhoneNumber = firebaseUser.PhoneNumber,
+                        PhotoUrl = firebaseUser.PhotoUrl?.ToString(),
+                        ProviderId = providerId,
+                        Uid = firebaseUser.Uid,
+                        //Providers = firebaseUser.ProviderData.
+                    };
+
+                    DeviceAuthentication.Current.AuthIDTokenChanged(idToken, expirationTimestamp, authUser);
                 }
-
-                var authUser = new Authentication.AuthUser()
+                else
                 {
-                    DisplayName = firebaseUser.DisplayName,
-                    Email = firebaseUser.Email,
-                    IsAnonymous = firebaseUser.IsAnonymous,
-                    IsEmailVerified = firebaseUser.IsEmailVerified,
-                    PhoneNumber = firebaseUser.PhoneNumber,
-                    PhotoUrl = firebaseUser.PhotoUrl?.ToString(),
-                    ProviderId = providerId,
-                    Uid = firebaseUser.Uid,
-                    //Providers = firebaseUser.ProviderData.
-                };
-
-                DeviceAuthentication.Current.AuthIDTokenChanged(idToken, expirationTimestamp, authUser);
+                    DeviceAuthentication.Current.AuthIDTokenChanged(null, expirationTimestamp, null);
+                }
             }
-            else
+            catch (Exception error)
             {
-                DeviceAuthentication.Current.AuthIDTokenChanged(null, expirationTimestamp, null);
+
+                
             }
 
 

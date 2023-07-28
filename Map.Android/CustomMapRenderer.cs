@@ -11,6 +11,7 @@ using Maps.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.Android;
+using System.Linq;
 
 [assembly: ExportRenderer(typeof(MapEx), typeof(CustomMapRenderer))]
 namespace Maps.Droid
@@ -156,13 +157,15 @@ namespace Maps.Droid
             var position = new Position(annotation.Position.Latitude, annotation.Position.Longitude);
             if (position!=null)
             {
-                foreach (var pin in customPins)
-                {
-                    if (pin.Position == position)
+                var pins = this.MapEx?.CustomPins?.ToList();
+                if (pins != null)
+                    foreach (var pin in pins)
                     {
-                        return pin;
+                        if (pin.Position == position)
+                        {
+                            return pin;
+                        }
                     }
-                }
             }
             return null;
         }

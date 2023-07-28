@@ -406,16 +406,16 @@ namespace DestoPesto.Views
                     {
                         try
                         {
-                            var date = _pinLoc[i].firstDateReported.Split('T');
+                            var date = _pinLoc[i].firstDateReported.ToShortDateString();
                             PinEx pin = new PinEx
                             {
                                 Label = _pinLoc[i].CategoryName,
                                 Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
-                                Address = _pinLoc[i].numberOfUsers + " since " + date[0],
+                                Address = _pinLoc[i].numberOfUsers + " since " + date,
                                 StyleId = _pinLoc[i].id,
                                 Type = PinType.Generic,
                                 Position = new Position(_pinLoc[i].lat, _pinLoc[i].lng),
-                                Name = _pinLoc[i].numberOfUsers + " since " + date[0]
+                                Name = _pinLoc[i].numberOfUsers + " since " + date
 
 
                             };
