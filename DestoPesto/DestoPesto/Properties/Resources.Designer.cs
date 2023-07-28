@@ -70,7 +70,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue with Apple.
+        ///   Looks up a localized string similar to With Apple.
         /// </summary>
         public static string AppleLogin {
             get {
@@ -169,7 +169,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connect / Register with email.
+        ///   Looks up a localized string similar to With email / password.
         /// </summary>
         public static string EmailLogin {
             get {
@@ -196,7 +196,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue with Facebook.
+        ///   Looks up a localized string similar to With Facebook.
         /// </summary>
         public static string FacebookLogin {
             get {
@@ -241,7 +241,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue with Google.
+        ///   Looks up a localized string similar to With Google.
         /// </summary>
         public static string GoogleLogin {
             get {

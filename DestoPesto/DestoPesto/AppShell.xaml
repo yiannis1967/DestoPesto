@@ -36,11 +36,11 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 
-                <Label FontSize="Micro" Margin="5,0,0,0">
+                <Label Margin="5,0,0,0" Grid.ColumnSpan="2">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.HowItWorks}">
@@ -51,7 +51,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label  FontSize="Micro" Grid.Row="1" Margin="5,0,0,0">
+                <Label Grid.Row="1" Margin="5,0,0,0" Grid.ColumnSpan="2">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.Vision}" >
@@ -62,7 +62,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label FontSize="Micro" Grid.Row="2" Margin="5,0,0,0" >
+                <Label Grid.Row="2" Margin="5,0,0,0" Grid.ColumnSpan="2">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.TermsConditions}">
@@ -73,7 +73,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label FontSize="Micro" Grid.Row="3" Margin="5,0,0,0">
+                <Label Grid.Row="3" Margin="5,0,0,0" Grid.ColumnSpan="2">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.PrivacyPolicy}" >
@@ -84,7 +84,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label FontSize="Micro" Grid.Row="4" Margin="5,0,0,0">
+                <Label Grid.Row="4" Margin="5,0,0,0" Grid.ColumnSpan="2">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.CookiesPolicy}" >
@@ -96,7 +96,7 @@
                     </Label.FormattedText>
                 </Label>
                 <Image Grid.Row="5" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="5,5,5,5"/>
-                <Label Grid.Row="5" Grid.Column="1" Text="{Binding AppVersion}" FontSize="Micro" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding AppVersion}" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>
             </Grid>
         </DataTemplate>
 

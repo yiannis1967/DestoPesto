@@ -58,14 +58,14 @@
 
                     <StackLayout  Orientation="Horizontal" IsVisible="False">
 
-                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
                     </StackLayout>
 
                     <Button Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" IsVisible="False"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="False">
-                        <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" FontSize="Small"/>
-                        <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" FontSize="Small"/>
+                        <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" />
+                        <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" />
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0" Padding="0" IsVisible="False">
@@ -80,17 +80,20 @@
 
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="2*"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="6*"/>
                         </Grid.RowDefinitions>
-                        <StackLayout >
-                            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
-                            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
+                        <StackLayout VerticalOptions="End" >
+                            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title" />
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" VerticalOptions="Start">
+                            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Header" />
 
                         </StackLayout>
 
 
-                        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"></RowDefinition>

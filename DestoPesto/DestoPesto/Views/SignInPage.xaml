@@ -44,7 +44,7 @@
                     </Frame>
                     <StackLayout  Orientation="Horizontal">
 
-                        <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightEmail}" x:Name="txtWrongEmail" IsVisible="false" TextColor="Red" FontSize="Micro" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                        <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightEmail}" x:Name="txtWrongEmail" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
                     </StackLayout>
 
@@ -62,20 +62,22 @@
                         </StackLayout>
                     </Frame>
                     <StackLayout  Orientation="Horizontal">
-                        <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightPassword}" x:Name="txtWrongPass" IsVisible="false" TextColor="Red" FontSize="Micro" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                        <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightPassword}" x:Name="txtWrongPass" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                     </StackLayout>
 
 
                     <StackLayout  Orientation="Horizontal">
 
-                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
                     </StackLayout>
 
                     <Button Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None" IsEnabled="{Binding IsValid, Source={x:Reference  EmailMultiValidator}}" />
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" FontSize="Small"/>
-                        <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" FontSize="Small"/>
+                        <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" />
                     </StackLayout>
 
                     <!--<StackLayout Margin="0,25,0,0" Padding="0">

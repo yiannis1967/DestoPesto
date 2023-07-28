@@ -262,16 +262,16 @@
     <value>This has been fixed</value>
   </data>
   <data name="AppleLogin" xml:space="preserve">
-    <value>Continue with Apple</value>
+    <value>With Apple</value>
   </data>
   <data name="EmailLogin" xml:space="preserve">
-    <value>Connect / Register with email</value>
+    <value>With email / password</value>
   </data>
   <data name="FacebookLogin" xml:space="preserve">
-    <value>Continue with Facebook</value>
+    <value>With Facebook</value>
   </data>
   <data name="GoogleLogin" xml:space="preserve">
-    <value>Continue with Google</value>
+    <value>With Google</value>
   </data>
   <data name="LetsRegisterLineOneText" xml:space="preserve">
     <value>It's nice to see you here </value>

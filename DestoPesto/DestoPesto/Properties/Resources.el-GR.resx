@@ -121,7 +121,7 @@
     <value>Προσοχή</value>
   </data>
   <data name="AppleLogin" xml:space="preserve">
-    <value>Συνέχεια με Apple</value>
+    <value>Με Apple</value>
   </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Δες το, Πες το</value>
@@ -151,7 +151,7 @@
     <value>Να μην εμφανίζεται το μήνυμα</value>
   </data>
   <data name="EmailLogin" xml:space="preserve">
-    <value>Σύνδεση / Εγγραφή με email</value>
+    <value>Mε email και κωδικό</value>
   </data>
   <data name="EmailPlaceHolder" xml:space="preserve">
     <value>Email</value>
@@ -160,7 +160,7 @@
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
   </data>
   <data name="FacebookLogin" xml:space="preserve">
-    <value>Συνέχεια με Facebook</value>
+    <value>Με Facebook</value>
   </data>
   <data name="Fixed" xml:space="preserve">
     <value>Φτιάχτηκε</value>
@@ -175,7 +175,7 @@
     <value>Λήψη κατηγοριών</value>
   </data>
   <data name="GoogleLogin" xml:space="preserve">
-    <value>Συνέχεια με Google</value>
+    <value>Με Google</value>
   </data>
   <data name="HaveAccountText" xml:space="preserve">
     <value>Έχετε ήδη λογαριασμο?</value>

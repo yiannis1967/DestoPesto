@@ -33,7 +33,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -43,7 +43,7 @@
             <StackLayout BackgroundColor="#0D6EFD" Grid.ColumnSpan="3">
                 <Image HeightRequest="40" Grid.Column="1" HorizontalOptions="StartAndExpand" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="SizeProportional" />
             </StackLayout>
-            <Label Grid.Row="1"  Grid.Column="1" Text="{Binding Description}" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="Header" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
+            <Label Grid.Row="1"  Grid.Column="1" Text="{Binding Description}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
             <!--<Grid Padding="10,20,10,20" Grid.Row="1">-->
 
             <Image Grid.Row="2" Grid.Column="1" x:Name="backgroundImage" Source="{Binding SubmisionThumb}" AbsoluteLayout.LayoutFlags="PositionProportional"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill">

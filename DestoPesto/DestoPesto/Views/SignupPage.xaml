@@ -32,19 +32,25 @@
         <Image Source="{extensions:ImageResource DestoPesto.Images.login_header.png}" BackgroundColor="#0D6EFD"  />
         <StackLayout Grid.Row="1" VerticalOptions="Center">
             <!--<Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />-->
-            
+
             <!--<Frame  BackgroundColor="White" >-->
 
             <StackLayout>
 
                 <!--<Image Source="{AppThemeBinding Light=icon.png, Dark=icon.png}" HeightRequest="90" VerticalOptions="EndAndExpand"/>-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackLayout Margin="0">
-                    <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineOneText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Large"/>
-                    <Label  Text="{x:Static resources:Properties.Resources.LetsRegisterLineTwoText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Header"/>
+                    <StackLayout Orientation="Vertical" Grid.Column="1">
 
-                </StackLayout>
+                        <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineOneText}" TextColor="#0D6EFD" HorizontalOptions="StartAndExpand" FontSize="Title"/>
+                        <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineTwoText}" TextColor="#0D6EFD" HorizontalOptions="StartAndExpand" FontSize="Header"/>
 
+                    </StackLayout>
+                </Grid>
                 <StackLayout Padding="0" Margin="15,10">
 
 
@@ -118,8 +124,10 @@
 
                     <Button Text="{x:Static resources:Properties.Resources.SignUpText}" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None" Clicked="Button_Clicked" IsEnabled="{Binding IsValidInfo}"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" FontSize="Small"/>
-                        <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#0D6EFD" FontAttributes="Bold" FontSize="Small"/>
+                        <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#0D6EFD" FontAttributes="Bold" />
                     </StackLayout>
 
 
