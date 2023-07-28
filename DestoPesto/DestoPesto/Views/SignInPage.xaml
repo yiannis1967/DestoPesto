@@ -68,7 +68,12 @@
 
                     <StackLayout  Orientation="Horizontal">
 
-                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}" TextColor="Blue" TextDecorations="Underline" x:Name="forgoPass">
+                            
+                        </Label>
+                        
+
+                        <!--<Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />-->
 
                     </StackLayout>
 
