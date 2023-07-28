@@ -71,7 +71,8 @@ namespace DestoPesto.Models
         public double lng { get; set; }
         public string category { get; set; }
         public int numberOfUsers { get; set; }
-        public string firstDateReported { get; set; }
+        public DateTime firstDateReported { get; set; }
+        public DateTime lastDateReported{ get; set; }
         public string photoUrl { get; set; }
 
         public string fullAddress { get; set; }
