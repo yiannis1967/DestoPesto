@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
              mc:Ignorable="d"
              x:Class="DestoPesto.Views.SignupPage"
@@ -23,24 +24,33 @@
     <!--<StackLayout BackgroundColor="White">-->
     <Grid BackgroundColor="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*" />
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*" />
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-        <StackLayout >
-            <Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />
+        <Image Source="{extensions:ImageResource DestoPesto.Images.login_header.png}" BackgroundColor="#0D6EFD"  />
+        <StackLayout Grid.Row="1" VerticalOptions="Center">
+            <!--<Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />-->
+
             <!--<Frame  BackgroundColor="White" >-->
 
             <StackLayout>
 
                 <!--<Image Source="{AppThemeBinding Light=icon.png, Dark=icon.png}" HeightRequest="90" VerticalOptions="EndAndExpand"/>-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackLayout Margin="0">
-                    <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineOneText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Large"/>
-                    <Label  Text="{x:Static resources:Properties.Resources.LetsRegisterLineTwoText}" TextColor="#0D6EFD" Margin="30,0,0,0" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Header"/>
+                    <StackLayout Orientation="Vertical" Grid.Column="1">
 
-                </StackLayout>
+                        <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineOneText}" TextColor="#0D6EFD" HorizontalOptions="StartAndExpand" FontSize="Title"/>
+                        <Label Text="{x:Static resources:Properties.Resources.LetsRegisterLineTwoText}" TextColor="#0D6EFD" HorizontalOptions="StartAndExpand" FontSize="Header"/>
 
+                    </StackLayout>
+                </Grid>
                 <StackLayout Padding="0" Margin="15,10">
 
 
@@ -48,7 +58,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
-                                <Image Source="email.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
                             </Frame>
 
 
@@ -67,7 +77,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                <Image Source="password.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
                             </Frame>
                             <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}" x:Name="txtPassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
                                 <Entry.Behaviors>
@@ -80,7 +90,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                <Image Source="password.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
                             </Frame>
                             <Entry Placeholder="{x:Static resources:Properties.Resources.RePasswordPlaceHolder}" x:Name="txtReTypePassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
                                 <Entry.Behaviors>
@@ -93,7 +103,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
-                                <Image Source="user.png" />
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.user.png}" />
                             </Frame>
 
                             <Entry Placeholder="{x:Static resources:Properties.Resources.UserNameText}" x:Name="txtDOB"  PlaceholderColor="Gray"  HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
@@ -114,8 +124,10 @@
 
                     <Button Text="{x:Static resources:Properties.Resources.SignUpText}" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None" Clicked="Button_Clicked" IsEnabled="{Binding IsValidInfo}"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" FontSize="Small"/>
-                        <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#0D6EFD" FontAttributes="Bold" FontSize="Small"/>
+                        <Label Text="{x:Static resources:Properties.Resources.HaveAccountText}" TextColor="DarkGray" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="lblSignin" TextColor="#0D6EFD" FontAttributes="Bold" />
                     </StackLayout>
 
 
@@ -128,7 +140,7 @@
 
             <!--</Frame>-->
         </StackLayout>
-        <Image Grid.Row="1" Source="logoback.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+        <Image Grid.Row="2" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
     </Grid>
     <!--</StackLayout>-->
 

@@ -25,7 +25,7 @@
 
             <StackLayout>
 
-                <Image  Source="{extensions:ImageResource DestoPesto.Images.login_header.png}"  />
+                <Image  Source="{extensions:ImageResource DestoPesto.Images.login_header.png}" BackgroundColor="#0D6EFD" HeightRequest="120" />
 
                 <!--<StackLayout Margin="0">
                             -->
@@ -49,7 +49,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="False">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
-                                <Image Source="key.png" Aspect="AspectFill" Margin="0"/>
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.key.png}" Aspect="AspectFill" Margin="0"/>
                             </Frame>
 
                             <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" PlaceholderColor="Gray"  IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
@@ -58,14 +58,14 @@
 
                     <StackLayout  Orientation="Horizontal" IsVisible="False">
 
-                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
                     </StackLayout>
 
                     <Button Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" IsVisible="False"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="False">
-                        <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" FontSize="Small"/>
-                        <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" FontSize="Small"/>
+                        <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" />
+                        <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" />
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0" Padding="0" IsVisible="False">
@@ -80,17 +80,20 @@
 
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="2*"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="6*"/>
                         </Grid.RowDefinitions>
-                        <StackLayout >
-                            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
-                            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Header"/>
+                        <StackLayout VerticalOptions="End" >
+                            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title" />
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" VerticalOptions="Start">
+                            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Header" />
 
                         </StackLayout>
 
 
-                        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"></RowDefinition>
@@ -131,7 +134,8 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="10*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="google_logo.png"  />
+                                            <Image Source="{extensions:ImageResource DestoPesto.Images.google_logo.png}" />
+                                            <!--<Image Source="google_logo.png"  />-->
                                             <Label Grid.Column="1"  Text="{x:Static resources:Properties.Resources.GoogleLogin}" TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>
@@ -148,7 +152,8 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="10*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="applelogo.png"  />
+                                            <!--<Image Source="applelogo.png"  />-->
+                                            <Image Source="{extensions:ImageResource DestoPesto.Images.applelogo.png}" />
                                             <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.AppleLogin}"  TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>
@@ -162,7 +167,8 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="10*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="email.png"  />
+                                            <!--<Image Source="email.png"  />-->
+                                            <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
                                             <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.EmailLogin}" TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                         </Grid>
                                     </StackLayout>
@@ -173,7 +179,7 @@
 
                         </StackLayout>
                     </Grid>
-                    <Image Source="logoback.png" HeightRequest="30"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                    <Image Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HeightRequest="30"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
 
                 </StackLayout>
 

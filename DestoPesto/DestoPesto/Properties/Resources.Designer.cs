@@ -70,7 +70,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue with Apple.
+        ///   Looks up a localized string similar to With Apple.
         /// </summary>
         public static string AppleLogin {
             get {
@@ -111,6 +111,15 @@ namespace DestoPesto.Properties {
         public static string CatagoryText {
             get {
                 return ResourceManager.GetString("CatagoryText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cookies Policy.
+        /// </summary>
+        public static string CookiesPolicy {
+            get {
+                return ResourceManager.GetString("CookiesPolicy", resourceCulture);
             }
         }
         
@@ -160,7 +169,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connect / Register with email.
+        ///   Looks up a localized string similar to With email / password.
         /// </summary>
         public static string EmailLogin {
             get {
@@ -187,7 +196,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue with Facebook.
+        ///   Looks up a localized string similar to With Facebook.
         /// </summary>
         public static string FacebookLogin {
             get {
@@ -232,7 +241,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Continue with Google.
+        ///   Looks up a localized string similar to With Google.
         /// </summary>
         public static string GoogleLogin {
             get {
@@ -264,6 +273,15 @@ namespace DestoPesto.Properties {
         public static string HomeItemText {
             get {
                 return ResourceManager.GetString("HomeItemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How it works.
+        /// </summary>
+        public static string HowItWorks {
+            get {
+                return ResourceManager.GetString("HowItWorks", resourceCulture);
             }
         }
         
@@ -399,6 +417,15 @@ namespace DestoPesto.Properties {
         public static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy policy.
+        /// </summary>
+        public static string PrivacyPolicy {
+            get {
+                return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
             }
         }
         
@@ -556,6 +583,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Terms and conditions.
+        /// </summary>
+        public static string TermsConditions {
+            get {
+                return ResourceManager.GetString("TermsConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I disagree.
         /// </summary>
         public static string TurnOff {
@@ -588,6 +624,15 @@ namespace DestoPesto.Properties {
         public static string Version {
             get {
                 return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vision.
+        /// </summary>
+        public static string Vision {
+            get {
+                return ResourceManager.GetString("Vision", resourceCulture);
             }
         }
         

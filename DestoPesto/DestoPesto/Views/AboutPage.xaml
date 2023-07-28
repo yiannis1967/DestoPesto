@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
              xmlns:map="clr-namespace:Maps;assembly=Map"
              x:Class="DestoPesto.Views.AboutPage"
              xmlns:vm="clr-namespace:DestoPesto.ViewModels">
@@ -14,8 +15,8 @@
 
     <Shell.TitleView>
         <Grid InputTransparent="True"   VerticalOptions="Center">
-            
-            <Image HeightRequest="32"  HorizontalOptions="Start" InputTransparent="True" Source="logo_landscape_blue_back.png" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+
+            <Image HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
             
         </Grid>
 

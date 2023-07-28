@@ -5,6 +5,7 @@
        Title="DestoPesto"
        BackgroundColor="#0D6EFD"
        xmlns:resources="clr-namespace:DestoPesto"
+       xmlns:extensions="clr-namespace:DestoPesto.Extensions"
        x:Class="DestoPesto.AppShell">
 
     <Shell.FlyoutHeaderTemplate>
@@ -18,7 +19,7 @@
                 
 
             </Grid>-->
-            <Image   Source="destopesto_logo_square_blue.jpg"/>
+            <Image HeightRequest="50"  HorizontalOptions="Start" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" BackgroundColor="#0D6EFD"/>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
@@ -26,14 +27,76 @@
         <DataTemplate>
             
             <Grid >
-
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    
-                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                <Image Source="logoback.png" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="5,5,5,5"/>
-                <Label Grid.Column="1" Text="{Binding AppVersion}" FontSize="Micro" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>
+                
+                <Label Margin="5,0,0,0" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{x:Static resources:Properties.Resources.HowItWorks}">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/how_it_works"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="1" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{x:Static resources:Properties.Resources.Vision}" >
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/vision"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="2" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{x:Static resources:Properties.Resources.TermsConditions}">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/Accuracy_disclaimer"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="3" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{x:Static resources:Properties.Resources.PrivacyPolicy}" >
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/PrivacyPolicy"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="4" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{x:Static resources:Properties.Resources.CookiesPolicy}" >
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/cookies_policy"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Image Grid.Row="5" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="5,5,5,5"/>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding AppVersion}" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>
             </Grid>
         </DataTemplate>
 

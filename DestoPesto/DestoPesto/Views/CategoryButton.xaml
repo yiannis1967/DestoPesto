@@ -44,7 +44,7 @@
 
                 <!--<Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2" Text="20"></Label>-->
                 <Image   x:Name="image" x:FieldModifier="public" HeightRequest="20" WidthRequest="20" InputTransparent="True"  HorizontalOptions="Center" Source="{Binding Path=IconUrl}" VerticalOptions="Center"  />
-                <Label Grid.Row="1" x:Name="label" x:FieldModifier="public" FontSize="Small" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Grid.Row="1" x:Name="label" x:FieldModifier="public" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             </Grid>
 
 
