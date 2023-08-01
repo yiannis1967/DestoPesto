@@ -78,6 +78,7 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DeviceCore.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ImageResizer.cs" />
     <Compile Include="UploadData.cs" />
