@@ -83,7 +83,7 @@ namespace DestoPesto.Views
             }
             else
             {
-                await MessageDialogPopup.DisplayPopUp("Alert", Properties.Resources.NoInternetText, "OK");
+                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, Properties.Resources.NoInternetText, DestoPesto.Properties.Resources.Oktext);
             }
         }
 

@@ -175,7 +175,7 @@
     <value>Cancle</value>
   </data>
   <data name="LocationPrompt" xml:space="preserve">
-    <value>The application "Δες το Πες το" uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</value>
+    <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</value>
   </data>
   <data name="LogoutItemText" xml:space="preserve">
     <value>Logout</value>
@@ -184,7 +184,7 @@
     <value>Δες το, Πες το</value>
   </data>
   <data name="NoInternetText" xml:space="preserve">
-    <value>No Internet Connection !!!</value>
+    <value>The application is not responding because the internet connection is lost</value>
   </data>
   <data name="NoText" xml:space="preserve">
     <value>No</value>

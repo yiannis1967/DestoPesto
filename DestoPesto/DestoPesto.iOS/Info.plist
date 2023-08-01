@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Δες το Πες το</string>
+	<string>Δες το - Πες το</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.arion.destopesto.ios</string>
 	<key>CFBundleVersion</key>

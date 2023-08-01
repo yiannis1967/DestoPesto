@@ -642,7 +642,7 @@ namespace DestoPesto.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                await MessageDialogPopup.DisplayPopUp("Alert", "Oh no !  Token expired", "OK");
+                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, "Oh no !  Token expired", DestoPesto.Properties.Resources.Oktext);
             }
         }
         private async void Location_tap_Tapped(Catagories selectedCatagory)

@@ -360,7 +360,7 @@ namespace DestoPesto.Views
                 authenticator.Error -= OnAuthErrorfb;
             }
 
-            MessageDialogPopup.DisplayPopUp("Alert", e.Message, "OK");
+            MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, e.Message, DestoPesto.Properties.Resources.Oktext);
         }
 
         private async void Signup_tap_Tapped(object sender, EventArgs e)
@@ -383,7 +383,7 @@ namespace DestoPesto.Views
             {
                 string error = await DeviceAuthentication.EmailSignIn(txtEmail.Text, txtPassword.Text);
                 if (!string.IsNullOrWhiteSpace(error))
-                    await MessageDialogPopup.DisplayPopUp("Alert", error, "OK");
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, error, DestoPesto.Properties.Resources.Oktext);
 
                 //    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
                 //    try
@@ -409,7 +409,7 @@ namespace DestoPesto.Views
             }
             else
             {
-                await MessageDialogPopup.DisplayPopUp("Alert", Properties.Resources.NoInternetText, "OK");
+                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, Properties.Resources.NoInternetText, DestoPesto.Properties.Resources.Oktext);
             }
 
 

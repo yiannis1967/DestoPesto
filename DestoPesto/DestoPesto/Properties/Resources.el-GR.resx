@@ -208,7 +208,7 @@
     <value>Μήνυμα από "Δες το πες το" </value>
   </data>
   <data name="LocationPrompt" xml:space="preserve">
-    <value>Το «Δες το Πες το» μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. 
+    <value>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. 
 Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας</value>
   </data>
   <data name="LogoutItemText" xml:space="preserve">
@@ -218,7 +218,7 @@
     <value>Δες το, Πες το</value>
   </data>
   <data name="NoInternetText" xml:space="preserve">
-    <value>Δεν υπάρχει σύνδεση internet</value>
+    <value>Η εφαρμογή δεν ανταποκρίνεται γιατί έχει χαθεί η σύνδεση με το Internet</value>
   </data>
   <data name="NoText" xml:space="preserve">
     <value>Όχι</value>

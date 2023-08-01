@@ -17,20 +17,19 @@ namespace DestoPesto.Views
         public MessageDialogPopup(string title, string message, string accept, string cancel)
         {
             InitializeComponent();
-
-            
-            
             MessageDialogTitle=title;
             MessageDialogMessage=message;
             RightBtnText=accept;
             LeftBtnText=cancel;
+
             BindingContext=this;
         }
+
+  
 
         public MessageDialogPopup(string title, string message, string cancel)
         {
             InitializeComponent();
-
             
             MessageDialogTitle=title;
             MessageDialogMessage=message;
@@ -72,8 +71,6 @@ namespace DestoPesto.Views
             base.OnDisappearing();
             task.SetResult(DialogResult);
         }
-
-
 
         private void RightBtn_Clicked(object sender, EventArgs e)
         {
