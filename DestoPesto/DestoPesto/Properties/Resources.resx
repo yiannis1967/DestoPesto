@@ -321,4 +321,7 @@
   <data name="Vision" xml:space="preserve">
     <value>Vision</value>
   </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset password</value>
+  </data>
 </root>

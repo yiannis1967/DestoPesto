@@ -22,10 +22,27 @@ namespace DestoPesto.Views
             lblSignup.GestureRecognizers.Add(Signup_tap);
 
             Signup_tap.Tapped += Signup_tap_Tapped;
+            Forgot_Password_tap.Tapped+=Forgot_Password_tap_Tapped;
+            forgoPass.GestureRecognizers.Add(Forgot_Password_tap);
+            this.BindingContext = this;
+
+            //ForgotPassword = new Command(OnForgotPassword);
         }
+
+        private async void Forgot_Password_tap_Tapped(object sender, EventArgs e)
+        {
+            
+            await Shell.Current.Navigation.PushAsync(new ForgotPasswordPage(txtEmail.Text));
+        }
+
+      
         public TapGestureRecognizer Signup_tap = new TapGestureRecognizer();
         public TapGestureRecognizer Signin_tap = new TapGestureRecognizer();
+        public TapGestureRecognizer Forgot_Password_tap= new TapGestureRecognizer();
 
+        
+
+        public Command ForgotPassword { get; }
 
         private async void Signup_tap_Tapped(object sender, EventArgs e)
         {
