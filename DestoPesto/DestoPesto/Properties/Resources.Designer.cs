@@ -340,7 +340,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The application &quot;Δες το Πες το&quot; uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken.
+        ///   Looks up a localized string similar to The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken.
         /// </summary>
         public static string LocationPrompt {
             get {
@@ -367,7 +367,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Internet Connection !!!.
+        ///   Looks up a localized string similar to The application is not responding because the internet connection is lost.
         /// </summary>
         public static string NoInternetText {
             get {
