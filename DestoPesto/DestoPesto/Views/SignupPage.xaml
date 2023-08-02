@@ -14,11 +14,11 @@
             <Setter Property="TextColor" Value="Red" />
         </Style>
     </ContentPage.Resources>
-    <ContentPage.Padding>
+    <!--<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0,20,0,0" />
         </OnPlatform>
-    </ContentPage.Padding>
+    </ContentPage.Padding>-->
 
 
     <!--<StackLayout BackgroundColor="White">-->
@@ -29,7 +29,7 @@
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-        <Image Source="{extensions:ImageResource DestoPesto.Images.login_header.png}" BackgroundColor="#0D6EFD"  />
+        <Image Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" BackgroundColor="#0D6EFD"  />
         <StackLayout Grid.Row="1" VerticalOptions="Center">
             <!--<Image Source="{AppThemeBinding Light=login_header.png, Dark=login_header.png}"  />-->
 
@@ -52,12 +52,9 @@
                     </StackLayout>
                 </Grid>
                 <StackLayout Padding="0" Margin="15,10">
-
-
-
-                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
-                            <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
+                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5">
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
                             </Frame>
 
@@ -74,9 +71,9 @@
                     </Frame>
 
 
-                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <Frame BackgroundColor="Transparent" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
-                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
+                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0"  Margin="5">
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
                             </Frame>
                             <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}" x:Name="txtPassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
@@ -87,9 +84,9 @@
                         </StackLayout>
                     </Frame>
 
-                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
-                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
+                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0"  Margin="5">
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
                             </Frame>
                             <Entry Placeholder="{x:Static resources:Properties.Resources.RePasswordPlaceHolder}" x:Name="txtReTypePassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
@@ -100,9 +97,9 @@
                         </StackLayout>
                     </Frame>
 
-                    <Frame BackgroundColor="Transparent" BorderColor="#0D6EFD" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <Frame BackgroundColor="Transparent" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
-                            <Frame HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0"  Margin="5">
+                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0"  Margin="5">
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.user.png}" />
                             </Frame>
 

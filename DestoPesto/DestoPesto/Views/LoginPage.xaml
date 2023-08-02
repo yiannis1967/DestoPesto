@@ -10,11 +10,11 @@
              mc:Ignorable="d"
              Shell.NavBarIsVisible="False"
              x:Class="DestoPesto.Views.LoginPage">
-    <ContentPage.Padding>
+    <!--<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0,20,0,0" />
         </OnPlatform>
-    </ContentPage.Padding>
+    </ContentPage.Padding>-->
 
 
 
@@ -25,7 +25,7 @@
 
             <StackLayout>
 
-                <Image  Source="{extensions:ImageResource DestoPesto.Images.login_header.png}" BackgroundColor="#0D6EFD" HeightRequest="120" />
+                <Image  Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" BackgroundColor="#0D6EFD" HeightRequest="120" />
 
                 <!--<StackLayout Margin="0">
                             -->
@@ -39,7 +39,7 @@
                     <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="False">
                         <StackLayout Orientation="Horizontal">
                             <Frame BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="6" Padding="0" Margin="5">
-                                <Image Source="{extensions:ImageResource DestoPesto.Images.mail.png}" Aspect="AspectFill" Margin="0"/>
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" Aspect="AspectFill" Margin="0"/>
                             </Frame>
 
                             <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>

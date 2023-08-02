@@ -21,9 +21,15 @@ namespace Authentication
         public static void FacebookSignIn()
         {
 
-            IAuthentication authentication = DependencyService.Get<IAuthentication>();
-
-            authentication.FacebookSignIn();
+            try
+            {
+                IAuthentication authentication = DependencyService.Get<IAuthentication>();
+                authentication.FacebookSignIn();
+            }
+            catch (Exception error)
+            {
+                
+            }
 
         }
 
@@ -49,8 +55,14 @@ namespace Authentication
 
         public static void GoogleSignIn()
         {
-            IAuthentication authentication = DependencyService.Get<IAuthentication>();
-            authentication.GoogleSignIn();
+            try
+            {
+                IAuthentication authentication = DependencyService.Get<IAuthentication>();
+                authentication.GoogleSignIn();
+            }
+            catch (Exception error)
+            {
+            }
         }
 
 
