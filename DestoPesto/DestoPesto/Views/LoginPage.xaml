@@ -8,8 +8,20 @@
              xmlns:local="clr-namespace:DestoPesto.CustomRenderer"
              xmlns:extensions="clr-namespace:DestoPesto.Extensions"
              mc:Ignorable="d"
-             Shell.NavBarIsVisible="False"
+             Shell.BackgroundColor="#0D6EFD"
+             
+             
              x:Class="DestoPesto.Views.LoginPage">
+
+    <Shell.TitleView >
+        <Grid InputTransparent="True"   VerticalOptions="Center">
+            <Image HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+        </Grid>
+    </Shell.TitleView>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding BackCommand}"/>
+    </Shell.BackButtonBehavior>
+    
     <!--<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0,20,0,0" />
@@ -23,11 +35,7 @@
             <!--<StackLayout Padding="0" HorizontalOptions="FillAndExpand">-->
             <!--<Frame  BackgroundColor="White"   Padding="0" Margin="0">-->
 
-            <StackLayout>
-
-                
-                <Image  Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" BackgroundColor="#0D6EFD" HeightRequest="120" />
-
+          
                 <!--<StackLayout Margin="0">
                             -->
                 <!--<Label Text="Δες το Πες το" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Medium"/>-->
@@ -185,7 +193,7 @@
                 </StackLayout>
 
 
-            </StackLayout>
+            
 
             <!--</Frame>-->
             <!--</StackLayout>-->
