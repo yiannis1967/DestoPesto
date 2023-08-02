@@ -25,6 +25,7 @@
 
             <StackLayout>
 
+                
                 <Image  Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" BackgroundColor="#0D6EFD" HeightRequest="120" />
 
                 <!--<StackLayout Margin="0">

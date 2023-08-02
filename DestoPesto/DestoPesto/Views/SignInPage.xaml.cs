@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Xml.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -28,6 +29,7 @@ namespace DestoPesto.Views
 
             //ForgotPassword = new Command(OnForgotPassword);
         }
+        public ICommand BackCommand => new Command<string>(async (url) => await Shell.Current.Navigation.PopAsync());
 
         private async void Forgot_Password_tap_Tapped(object sender, EventArgs e)
         {

@@ -30,6 +30,7 @@ namespace DestoPesto.iOS
         {
             global::Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
+            Facebook.CoreKit.ApplicationDelegate.SharedInstance.FinishedLaunching(app, options);
 
             Maps.iOS.CustomMapRenderer.Init();
             Firebase.Core.App.Configure();

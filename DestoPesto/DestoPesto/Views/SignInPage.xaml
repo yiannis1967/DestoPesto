@@ -19,7 +19,22 @@
                 <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
-            <Image Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" BackgroundColor="#0D6EFD"  />
+            <Grid BackgroundColor="#0D6EFD"  Padding="10,10,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid WidthRequest="18">
+
+                    <Image Source="{extensions:ImageResource DestoPesto.Images.back_arrow.png}" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Image Grid.Column="1" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" BackgroundColor="#0D6EFD"  />
+            </Grid>
+            
             <StackLayout Grid.Row="1" VerticalOptions="Center">
 
                 <!--<Image Source="{AppThemeBinding Light={extensions:ImageResource DestoPesto.Images.login_header.png}, Dark={extensions:ImageResource DestoPesto.Images.login_header.png}}"  />-->

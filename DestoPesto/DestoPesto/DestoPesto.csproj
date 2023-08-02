@@ -84,6 +84,7 @@
   <ItemGroup>
     <None Remove="ButtonCircleBig.png" />
     <None Remove="Images\applelogo.png" />
+    <None Remove="Images\back_arrow.png" />
     <None Remove="Images\destopesto_icon.png" />
     <None Remove="Images\destopesto_logo_square_blue.png" />
     <None Remove="Images\destopesto_logo_square_solo_white.png" />
@@ -120,6 +121,7 @@
   <ItemGroup>
     <EmbeddedResource Include="ButtonCircleBig.png" />
     <EmbeddedResource Include="Images\applelogo.png" />
+    <EmbeddedResource Include="Images\back_arrow.png" />
     <EmbeddedResource Include="Images\destopesto_icon.png" />
     <EmbeddedResource Include="Images\destopesto_logo_square_blue.png" />
     <EmbeddedResource Include="Images\destopesto_logo_square_solo_white.png" />
