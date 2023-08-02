@@ -27,7 +27,9 @@ namespace DestoPesto.Views
         public TapGestureRecognizer apple_signin = new TapGestureRecognizer();
         public string WebAPIkey = "AIzaSyCH9F_m6KO7_1BB3NN0eiSjN9_d99bRjsk";
 
-        public ICommand BackCommand => new Command<string>(async (url) => await Shell.Current.Navigation.PopAsync());
+        public ICommand BackCommand => new Command<string>(async (url) => {
+            //await Shell.Current.Navigation.PopAsync();
+            });
         
         public LoginPage()
         {
