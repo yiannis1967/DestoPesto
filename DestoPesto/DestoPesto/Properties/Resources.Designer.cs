@@ -223,6 +223,33 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The exact password recovery instructions will be sent to your email. Follow them and in no time you will be back in the app.
+        /// </summary>
+        public static string ForgotPasswordPage {
+            get {
+                return ResourceManager.GetString("ForgotPasswordPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string ForgotPasswordPageText1 {
+            get {
+                return ResourceManager.GetString("ForgotPasswordPageText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your email .
+        /// </summary>
+        public static string ForgotPasswordPageText2 {
+            get {
+                return ResourceManager.GetString("ForgotPasswordPageText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
         public static string GenderText {
@@ -475,7 +502,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset password.
+        ///   Looks up a localized string similar to Continue.
         /// </summary>
         public static string ResetPassword {
             get {
