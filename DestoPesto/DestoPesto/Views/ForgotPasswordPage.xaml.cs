@@ -15,18 +15,18 @@ namespace DestoPesto.Views
     {
         public ForgotPasswordPage()
         {
-            
+
             InitializeComponent();
 
-          
-            reset_password.Tapped +=Reset_password_Tapped;
+
+            reset_password.Tapped += Reset_password_Tapped;
             ForgotPasswordCommand = new Command(Reset_password);
         }
-        async void  Reset_password()
+        async void Reset_password()
         {
             try
             {
-                DeviceAuthentication.SendPasswordResetEmail("lora");
+                DeviceAuthentication.SendPasswordResetEmail(Email);
             }
             catch (Exception error)
             {
@@ -38,21 +38,29 @@ namespace DestoPesto.Views
         public ForgotPasswordPage(string email) : this()
         {
 
-            Email = email;
+            txtEmail.Text = Email = email;
         }
-        public  string Email;
-        private async void  Reset_password_Tapped(object sender, EventArgs e)
+        public string Email;
+        private async void Reset_password_Tapped(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Email))
+            {
+                Email = txtEmail.Text;
+            }
+            if (string.IsNullOrWhiteSpace(Email))
+            {
+                return;
+            }
             try
             {
-                DeviceAuthentication.SendPasswordResetEmail("lora");
+                DeviceAuthentication.SendPasswordResetEmail(Email);
             }
             catch (Exception error)
             {
 
-                
+
             }
-            await Shell.Current.Navigation.PushAsync(new PasswordResetPage());
+            await Shell.Current.Navigation.PushAsync(new LoginPage());
 
         }
 

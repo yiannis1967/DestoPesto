@@ -169,7 +169,7 @@
     <value>Ξέχασα τον κωδικό μου</value>
   </data>
   <data name="ForgotPasswordPage" xml:space="preserve">
-    <value>Οι ακριβείς οδηγίες ανάκτησης του κωδικού θα αποσταλλούν στο email σου. Ακολούθησε τις και σε χρόνο μηδέν θα είσαι πάλι στο παιχνίδι</value>
+    <value>Οι ακριβείς οδηγίες ανάκτησης του κωδικού θα αποσταλλούν στο email σου. Ακολούθησέ τις και σε χρόνο μηδέν θα είσαι πάλι στο παιχνίδι</value>
   </data>
   <data name="ForgotPasswordPageText1" xml:space="preserve">
     <value>Ξέχασες τον κωδικό σου?</value>
