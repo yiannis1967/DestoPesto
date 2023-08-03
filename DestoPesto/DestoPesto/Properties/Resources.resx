@@ -322,6 +322,15 @@
     <value>Vision</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
-    <value>Reset password</value>
+    <value>Continue</value>
+  </data>
+  <data name="ForgotPasswordPage" xml:space="preserve">
+    <value>The exact password recovery instructions will be sent to your email. Follow them and in no time you will be back in the app</value>
+  </data>
+  <data name="ForgotPasswordPageText1" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="ForgotPasswordPageText2" xml:space="preserve">
+    <value>Enter your email </value>
   </data>
 </root>

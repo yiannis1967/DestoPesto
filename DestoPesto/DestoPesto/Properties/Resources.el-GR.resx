@@ -168,6 +168,15 @@
   <data name="ForgetPasswordText" xml:space="preserve">
     <value>Ξέχασα τον κωδικό μου</value>
   </data>
+  <data name="ForgotPasswordPage" xml:space="preserve">
+    <value>Οι ακριβείς οδηγίες ανάκτησης του κωδικού θα αποσταλλούν στο email σου. Ακολούθησε τις και σε χρόνο μηδέν θα είσαι πάλι στο παιχνίδι</value>
+  </data>
+  <data name="ForgotPasswordPageText1" xml:space="preserve">
+    <value>Ξέχασες τον κωδικό σου?</value>
+  </data>
+  <data name="ForgotPasswordPageText2" xml:space="preserve">
+    <value>Συμπλήρωσε το email σου</value>
+  </data>
   <data name="GenderText" xml:space="preserve">
     <value>Φύλο</value>
   </data>
@@ -252,6 +261,9 @@
   </data>
   <data name="ReportSuccess" xml:space="preserve">
     <value>Η δήλωση έγινε επιτυχώς</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Συνέχεια</value>
   </data>
   <data name="sendDataWifi" xml:space="preserve">
     <value>Μεταφορά δεδομένων μόνο μέσω WiFi</value>
