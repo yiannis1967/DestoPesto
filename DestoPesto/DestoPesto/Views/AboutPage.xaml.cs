@@ -528,6 +528,10 @@ namespace DestoPesto.Views
             }
             if (Authentication.DeviceAuthentication.AuthUser == null)
             {
+
+                if (Shell.Current.Navigation?.NavigationStack?.Last()?.GetType()==typeof(LoginPage))
+                    return;
+                var count = Shell.Current.Navigation.NavigationStack.Count;
                 await Shell.Current.Navigation.PushAsync(new LoginPage());
                 return;
             }
