@@ -93,6 +93,8 @@ namespace DestoPesto.iOS
         {
             var esnn = Firebase.Core.App.DefaultInstance;
             Console.WriteLine($"Firebase registration token: {fcmToken}");
+            if (App.Current is App)
+                (App.Current as App).FirbaseMessgesToken = fcmToken;
 
 
             string webClientID = "959003601559-v7ft2g3pr4augp8jus4k61bmoooe37h4.apps.googleusercontent.com";
