@@ -16,13 +16,14 @@ namespace DestoPesto.IOS
 {
     /// <MetaDataID>{9197f2b7-0392-426b-b818-566c2f0fa1b9}</MetaDataID>
 
+    
     public class DeviceCore : IDevice
     {
-
+         
         public bool IsBackgroundServiceStarted
         {
             get
-            {
+            { 
                 if (Background!=null&&Background.Status==TaskStatus.Running)
                     return true;
 

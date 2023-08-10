@@ -29,7 +29,7 @@ namespace DestoPesto.Services.ios
       public  Task<byte[]> ResizeImage(byte[] imageData, float width, float height)
         {
 #if __IOS__
-            return Task.FromResult<byte[]>(ResizeImageIOS(imageData, width, height));
+            return Task.FromResult<byte[]>(ResizeImageIOS(imageData, width, height)); 
 #endif
 #if __ANDROID__
 			return ResizeImageAndroid ( imageData, width, height );

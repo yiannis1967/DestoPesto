@@ -20,6 +20,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	</array>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
@@ -27,13 +31,17 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.arion.destopesto.ios</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.4.4</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>DestoPesto</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>New Entry</string>
+	<string>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</string>
+<key>NSLocationAlwaysUsageDescription</key>
+	<string>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -52,17 +60,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>MKDirectionsRequest</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.apple.maps.directionsrequest</string>
-			</array>
-		</dict>
-	</array>
 	<key>FacebookAppID</key>
 	<string>1710976555958732</string>
 	<key>FacebookClientToken</key>
@@ -74,10 +71,7 @@
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
 	</array>
-	<key>MKDirectionsApplicationSupportedModes</key>
-	<array>
-		<string>MKDirectionsModeCar</string>
-	</array>
+	
 	<key>NSCameraUsageDescription</key>
 	<string>New Entry</string>
 	<key>XSAppIconAssets</key>
