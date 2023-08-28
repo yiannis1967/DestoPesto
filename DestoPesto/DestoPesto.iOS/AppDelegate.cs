@@ -28,6 +28,14 @@ namespace DestoPesto.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+            TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
+
+           // Errorlog.Current.ClearLog();
+
+        
+
             global::Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             Facebook.CoreKit.ApplicationDelegate.SharedInstance.FinishedLaunching(app, options);
@@ -60,7 +68,23 @@ namespace DestoPesto.iOS
             //formsApp.StartFGService();
             return base.FinishedLaunching(app, options);
         }
+        private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
+        {
+            
+            if( unobservedTaskExceptionEventArgs.Exception is Exception)
+               Errorlog.Current.Log(new System.Collections.Generic.List<string>() { "Unobserved Task Exception:"+ (unobservedTaskExceptionEventArgs.Exception as Exception).Message, (unobservedTaskExceptionEventArgs.Exception as Exception).StackTrace });
+            var error = new Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
+            Errorlog.Current.Log(new System.Collections.Generic.List<string>() { "Unobserved Task Exception:"+ error.Message, error.StackTrace });
+        }
 
+        private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
+        {
+            if (unhandledExceptionEventArgs.ExceptionObject is Exception)
+                Errorlog.Current.Log(new System.Collections.Generic.List<string>() { "Unobserved Task Exception:"+ (unhandledExceptionEventArgs.ExceptionObject as Exception).Message, (unhandledExceptionEventArgs.ExceptionObject as Exception).StackTrace });
+
+            var error = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
+            Errorlog.Current.Log(new System.Collections.Generic.List<string>() { "Unhandled Exception:"+ error.Message, error.StackTrace });
+        }
         private void RegisterForRemoteNotifications()
         {
             // Register your app for remote notifications.

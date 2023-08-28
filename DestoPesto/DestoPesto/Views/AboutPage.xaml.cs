@@ -103,7 +103,7 @@ namespace DestoPesto.Views
                 return;
 
             }
-            else
+            if (CurrentUser != null)
                 getLocation();
 
 
@@ -130,7 +130,7 @@ namespace DestoPesto.Views
                 {
 
                     PopupNavigation.Instance.PopAsync();
-                    this.NoInternetConnection=false;
+                    this.NoInternetConnection = false;
                 }
 
             }
@@ -138,9 +138,9 @@ namespace DestoPesto.Views
             {
                 if (!this.NoInternetConnection)
                 {
-                    this.NoInternetConnection=true;
+                    this.NoInternetConnection = true;
                     await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
-                    this.NoInternetConnection=false;
+                    this.NoInternetConnection = false;
                 }
             }
         }
@@ -182,9 +182,9 @@ namespace DestoPesto.Views
             {
                 if (!this.NoInternetConnection)
                 {
-                    this.NoInternetConnection=true;
+                    this.NoInternetConnection = true;
                     await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
-                    this.NoInternetConnection=false;
+                    this.NoInternetConnection = false;
                 }
 
                 //grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
@@ -441,7 +441,11 @@ namespace DestoPesto.Views
 
         }
 
-        static bool FirstTime=true;
+
+       
+
+
+        static bool FirstTime = true;
 
         bool NoInternetConnection = false;
 
@@ -454,9 +458,9 @@ namespace DestoPesto.Views
             {
                 if (!this.NoInternetConnection)
                 {
-                    this.NoInternetConnection=true;
+                    this.NoInternetConnection = true;
                     await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
-                    this.NoInternetConnection=false;
+                    this.NoInternetConnection = false;
                 }
                 //MainThread.BeginInvokeOnMainThread(() =>
                 //{
@@ -470,40 +474,8 @@ namespace DestoPesto.Views
 
             }
 
-            var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-            if (locationInUsePermisions == PermissionStatus.Granted)
-            {
-                try
-                {
-                    var location = await Geolocation.GetLocationAsync();
-                    if (location != null)
-                    {
-                        map.HasZoomEnabled = true;
 
-
-                        var zoomLevel = 15; // between 1 and 18
-                        var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                        if (LatVisibleRegion != null)
-                            latlongdegrees = LatVisibleRegion.LatitudeDegrees;
-
-                        MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
-                        var h = map.Height;
-                        var w = map.Width;
-
-                        //    map.MoveToRegion(LatVisibleRegion);
-                        //else
-                        map.MoveToRegion(mapSpan);
-                        map.IsVisible = true;
-                    }
-                }
-                catch (Exception error)
-                {
-
-                    throw;
-                }
-            }
-
-
+            
             if (/*(App.Current as App)*/App.IntentExtras != null)
             {
                 foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
@@ -512,13 +484,17 @@ namespace DestoPesto.Views
                     {
 
                         string description;
-                        /*(App.Current as App)*/App.IntentExtras.TryGetValue("Description", out description);
+                        /*(App.Current as App)*/
+                        App.IntentExtras.TryGetValue("Description", out description);
                         string submisionThumb;
-                        /*(App.Current as App)*/App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
+                        /*(App.Current as App)*/
+                        App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
                         string comments;
-                        /*(App.Current as App)*/App.IntentExtras.TryGetValue("Comments", out comments);
+                        /*(App.Current as App)*/
+                        App.IntentExtras.TryGetValue("Comments", out comments);
 
-                        /*(App.Current as App)*/App.IntentExtras.Clear();
+                        /*(App.Current as App)*/
+                        App.IntentExtras.Clear();
                         await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
 
                         break;
@@ -529,7 +505,7 @@ namespace DestoPesto.Views
             if (Authentication.DeviceAuthentication.AuthUser == null)
             {
 
-                if (Shell.Current.Navigation?.NavigationStack?.Last()?.GetType()==typeof(LoginPage))
+                if (Shell.Current.Navigation?.NavigationStack?.Last()?.GetType() == typeof(LoginPage))
                     return;
                 var count = Shell.Current.Navigation.NavigationStack.Count;
                 await Shell.Current.Navigation.PushAsync(new LoginPage());
@@ -537,13 +513,47 @@ namespace DestoPesto.Views
             }
             else
             {
+                var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+                if (locationInUsePermisions == PermissionStatus.Granted)
+                {
+                    try
+                    {
+                        var location = await Geolocation.GetLocationAsync();
+                        if (location != null)
+                        {
+                            map.HasZoomEnabled = true;
+
+
+                            var zoomLevel = 15; // between 1 and 18
+                            var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                            if (LatVisibleRegion != null)
+                                latlongdegrees = LatVisibleRegion.LatitudeDegrees;
+
+                            MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
+                            var h = map.Height;
+                            var w = map.Width;
+
+                            //    map.MoveToRegion(LatVisibleRegion);
+                            //else
+                            map.MoveToRegion(mapSpan);
+                            map.IsVisible = true;
+                        }
+                    }
+                    catch (Exception error)
+                    {
+
+                        throw;
+                    }
+                }
+
+
                 if (FirstTime)
                 {
-                    FirstTime=false;
+                    FirstTime = false;
                     bool DontShowAgainIntroPage = Preferences.Get("DontShowAgainIntroPage", false);
                     if (!DontShowAgainIntroPage)
                     {
-                        DontShowAgainIntroPage= await IntroPage.DisplayPopUp();
+                        DontShowAgainIntroPage = await IntroPage.DisplayPopUp();
                         Preferences.Set("DontShowAgainIntroPage", DontShowAgainIntroPage);
                     }
                 }
@@ -843,7 +853,7 @@ namespace DestoPesto.Views
 
                 await JsonHandler.BuildTripFile(post, stream);
 
-                
+
 
             }
 

@@ -14,6 +14,19 @@ namespace DestoPesto
         {
             InitializeComponent();
             BindingContext= this;
+
+
+      
+
+
+
+
+
+
+            //if (Authentication.DeviceAuthentication.AuthUser==null)
+
+            // this.CurrentItem = this.PermissionsPage;
+
             //Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }

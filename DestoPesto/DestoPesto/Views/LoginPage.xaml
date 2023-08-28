@@ -132,7 +132,7 @@
                                 </Frame>
 
                                 <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
-                                <Frame Grid.Row="1" CornerRadius="10"
+                                <Frame IsVisible="{Binding GoogleSignInVisible}" Grid.Row="1" CornerRadius="10"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding GoogleSigninCommand}">
@@ -151,7 +151,7 @@
                                     <!--<Button  Command="{Binding gogleSignin}" ContentLayout="Top,0" Text="mytext" ImageSource="google_logo.png" />-->
                                 </Frame>
                                 <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
-                                <Frame Grid.Row="2" CornerRadius="10" 
+                                <Frame IsVisible="{Binding AppleSignInVisible}" Grid.Row="2" CornerRadius="10" 
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding AppleSigninCommand}">
