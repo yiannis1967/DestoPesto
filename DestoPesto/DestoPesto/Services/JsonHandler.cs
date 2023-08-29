@@ -128,6 +128,8 @@ namespace DestoPesto.Services
                                     if (dataFiles.Count == 0)
                                         _continue = false;
 
+                                    var m_files = dataFiles.Count;
+
                                     if (Authentication.DeviceAuthentication.IDToken != null&&!SuspendBKService)
                                     {
                                         if (onlyWifi == false || profiles.Contains(ConnectionProfile.WiFi))

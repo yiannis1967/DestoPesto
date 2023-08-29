@@ -61,5 +61,34 @@ namespace Authentication.iOS
                 DeviceAuthentication.Current.AuthIDTokenChanged(null, DateTime.Now + TimeSpan.FromHours(2), null);
 
         }
+
+
+        //public static void SignOut()
+        //{
+
+
+        //    if (FirebaseAuth != null && FirebaseAuth.CurrentUser != null)
+        //    {
+        //        if (DeviceAuthentication.AuthUser?.Firebase_Sign_in_Provider.ToLower() == "google.com")
+        //            GoogleSignOut();
+
+        //        if (DeviceAuthentication.AuthUser?.Firebase_Sign_in_Provider.ToLower() == "facebook.com")
+        //        {
+        //            FacebookLoginService.CurrentFacebookLoginService.SignOut();
+
+        //        }
+
+
+        //        FirebaseAuth.SignOut();
+        //    }
+        //}
+
+        //public static void GoogleSignOut()
+        //{
+        //    googleApiClient.SignOut();
+
+
+        //}
+
     }
 }

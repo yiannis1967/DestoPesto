@@ -27,10 +27,11 @@ namespace DestoPesto.Views
         public TapGestureRecognizer apple_signin = new TapGestureRecognizer();
         public string WebAPIkey = "AIzaSyCH9F_m6KO7_1BB3NN0eiSjN9_d99bRjsk";
 
-        public ICommand BackCommand => new Command<string>(async (url) => {
+        public ICommand BackCommand => new Command<string>(async (url) =>
+        {
             //await Shell.Current.Navigation.PopAsync();
-            });
-        
+        });
+
         public LoginPage()
         {
 
@@ -39,7 +40,9 @@ namespace DestoPesto.Views
                 Shell.Current.GoToAsync("//AboutPage");
             InitializeComponent();
             store = AccountStore.Create();
-            
+
+
+
             // Your label tap event
 
             SignupCommand = new Command(OnSignUp);
@@ -51,7 +54,7 @@ namespace DestoPesto.Views
             this.BindingContext = this;// new LoginViewModel(Navigation);
 
             Signup_tap.Tapped += Signup_tap_Tapped;
-            Signin_tap.Tapped+=Signin_tap_Tapped;
+            Signin_tap.Tapped += Signin_tap_Tapped;
             google_signin.Tapped += Google_signin_Tapped;
             fb_signin.Tapped += Fb_signin_Tapped;
             apple_signin.Tapped += apple_signin_Tapped;
@@ -63,7 +66,7 @@ namespace DestoPesto.Views
             lblSignup.GestureRecognizers.Add(Signup_tap);
 
             emailSignin.GestureRecognizers.Add(Signin_tap);
-            DeviceAuthentication.SignedOut();
+            //DeviceAuthentication.SignedOut();
 
         }
 
@@ -71,11 +74,34 @@ namespace DestoPesto.Views
         {
             apple_signin_Tapped(this, EventArgs.Empty);
             //await SignInMessagePopUp.DisplayPopUp();
-           // await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationPrompt, DestoPesto.Properties.Resources.TurnOn, DestoPesto.Properties.Resources.TurnOff);
+            // await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationPrompt, DestoPesto.Properties.Resources.TurnOn, DestoPesto.Properties.Resources.TurnOff);
             //await MessageDialogPopup.DisplayPopUp("Hello", "hello", "ok");
 
 
 
+        }
+
+
+        public bool GoogleSignInVisible
+        {
+            get
+            {
+                if (Xamarin.Essentials.DeviceInfo.Platform.ToString() == "iOS")
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        public bool AppleSignInVisible
+        {
+            get
+            {
+                if (Xamarin.Essentials.DeviceInfo.Platform.ToString() == "iOS")
+                    return true;
+                else
+                    return false;
+            }
         }
 
         private void OnFacebookSignIn(object obj)
@@ -96,7 +122,7 @@ namespace DestoPesto.Views
 
         }
 
-     
+
 
         private void OnSignUp()
         {
@@ -110,7 +136,7 @@ namespace DestoPesto.Views
                 Device.BeginInvokeOnMainThread(
             async () =>
             {
-                if (Navigation.NavigationStack.Count==1)
+                if (Navigation.NavigationStack.Count == 1)
                     await Shell.Current.GoToAsync("//AboutPage");
                 else
                     await Navigation.PopAsync();
@@ -370,7 +396,7 @@ namespace DestoPesto.Views
         private async void Signup_tap_Tapped(object sender, EventArgs e)
         {
 
-            
+
             await Shell.Current.Navigation.PushAsync(new SignupPage());
 
 

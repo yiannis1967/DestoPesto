@@ -26,8 +26,16 @@ namespace DestoPesto
             InitializeComponent();
             Version = version;
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
+            var locationInUsePermisionstask = Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            locationInUsePermisionstask.Wait();
+            var locationInUsePermisions = locationInUsePermisionstask.Result;
+            if (locationInUsePermisions!=PermissionStatus.Granted)
+                MainPage = new PermissionsPage();
+            else
+                MainPage = new AppShell();
+
+
             //DestoPesto.Images.iconSplash.png
             var names = typeof(App).Assembly.GetManifestResourceNames();
         }
@@ -218,7 +226,7 @@ namespace DestoPesto
                 //  locationList.Add(new Tuple<double, double>(position.Latitude, position.Longitude));
                 //
 
-
+                 
             }
             catch
             {
