@@ -50,6 +50,16 @@ namespace DestoPesto.Droid
                 ForegroundServiceManager.Stop();
         }
 
+        public Task<PermissionStatus> iOSRegisterForRemoteNotifications()
+        {
+            return Task.FromResult(PermissionStatus.Granted);
+        }
+
+        public Task<PermissionStatus> iOSRemoteNotification()
+        {
+           return Task.FromResult(PermissionStatus.Granted);
+        }
+
         static internal string m_androidId;
 
         static internal string m_OldandroidId="";

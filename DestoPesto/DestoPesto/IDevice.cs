@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace DestoPesto
 {
@@ -10,6 +12,10 @@ namespace DestoPesto
         //  Task<string> SendMessage(string xmlMessage);
 
 
+
+        Task<PermissionStatus> iOSRegisterForRemoteNotifications();
+
+        Task<PermissionStatus> iOSRemoteNotification();
 
 
         bool IsBackgroundServiceStarted { get; }
