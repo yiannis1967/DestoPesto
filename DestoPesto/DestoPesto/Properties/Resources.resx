@@ -175,7 +175,7 @@
     <value>Cancle</value>
   </data>
   <data name="LocationPrompt" xml:space="preserve">
-    <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</value>
+    <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken. </value>
   </data>
   <data name="LogoutItemText" xml:space="preserve">
     <value>Logout</value>
@@ -332,5 +332,32 @@
   </data>
   <data name="ForgotPasswordPageText2" xml:space="preserve">
     <value>Enter your email </value>
+  </data>
+  <data name="CameraDetails" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow' so that the app can use camera</value>
+  </data>
+  <data name="CameraTitle" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="LocationPermission" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow While Using App' so that your app can work flawlessly</value>
+  </data>
+  <data name="LocationTitle" xml:space="preserve">
+    <value>Location Access</value>
+  </data>
+  <data name="NotificationDetails" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow' so that the app can notify you at important updates, such as successful uploads</value>
+  </data>
+  <data name="NotificationsTitle" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="PermissionsTitle" xml:space="preserve">
+    <value>Enable Notifications, Camera and Location Access</value>
+  </data>
+  <data name="PermissionTitleDetails" xml:space="preserve">
+    <value>The app needs your permission to access all three in order to be fully functional</value>
+  </data>
+  <data name="ContinueText" xml:space="preserve">
+    <value>Continue</value>
   </data>
 </root>
