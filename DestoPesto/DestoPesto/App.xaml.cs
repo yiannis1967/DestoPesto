@@ -30,10 +30,14 @@ namespace DestoPesto
             var locationInUsePermisionstask = Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             locationInUsePermisionstask.Wait();
             var locationInUsePermisions = locationInUsePermisionstask.Result;
-            if (locationInUsePermisions!=PermissionStatus.Granted)
+            if (locationInUsePermisions != PermissionStatus.Granted)
                 MainPage = new PermissionsPage();
             else
+            {
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                device.PermissionsGranted();
                 MainPage = new AppShell();
+            }
 
 
             //DestoPesto.Images.iconSplash.png

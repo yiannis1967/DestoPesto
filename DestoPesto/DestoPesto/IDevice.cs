@@ -25,6 +25,9 @@ namespace DestoPesto
 
         void StopBackgroundService();
 
+        void PermissionsGranted();
+
+
 
     }
 }

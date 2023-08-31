@@ -134,6 +134,11 @@ namespace DestoPesto.IOS
 
         }
 
+        public void PermissionsGranted()
+        {
+            
+        }
+
         static internal string m_androidId;
 
         static internal string m_OldandroidId = "";

@@ -35,11 +35,15 @@ namespace DestoPesto.Views
 
                     if (await device.iOSRemoteNotification() == PermissionStatus.Denied)
                     {
-                        if (await device.iOSRegisterForRemoteNotifications() == PermissionStatus.Disabled)
+                        var result = await device.iOSRegisterForRemoteNotifications();
+                        if (result == PermissionStatus.Disabled)
                         {
                             await MessageDialogPopup.DisplayPopUp("Exit", "Oh no !  Token expired", DestoPesto.Properties.Resources.Oktext);
                             return;
                         }
+                        if (result == PermissionStatus.Denied)
+                            return;
+
                     }
                     else if (await device.iOSRemoteNotification() == PermissionStatus.Disabled)
                     {
@@ -72,12 +76,18 @@ namespace DestoPesto.Views
                     {
                         var cameraPermisions = await Permissions.CheckStatusAsync<Permissions.Camera>();
                         if (cameraPermisions == PermissionStatus.Granted)
+                        {
+                            device.PermissionsGranted();
                             App.Current.MainPage = new AppShell();
+                        }
                         else
                         {
                             cameraPermisions = await Permissions.RequestAsync<Permissions.Camera>();
                             if (cameraPermisions == PermissionStatus.Granted)
+                            {
+                                device.PermissionsGranted();
                                 App.Current.MainPage = new AppShell();
+                            }
 
                         }
                     }

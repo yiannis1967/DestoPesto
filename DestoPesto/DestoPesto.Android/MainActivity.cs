@@ -92,9 +92,8 @@ namespace DestoPesto.Droid
 
                 // LogDebug.Current.Log(new List<string>() { "Step 4" });
 
-                IsPlayServicesAvailable();
-                CreateNotificationChannel();
-                //  LogDebug.Current.Log(new List<string>() { "Step 5" });
+                DeviceCore.MainActivity = this;
+                //InitAfterPermissionsRequest();//  LogDebug.Current.Log(new List<string>() { "Step 5" });
                 //var token = await Task<string>.Run(() =>
                 //{
                 //    return FirebaseInstanceId.Instance.GetToken("959003601559", "FCM");
@@ -151,15 +150,22 @@ namespace DestoPesto.Droid
 
                 LoadApplication(App);
 
-                App.StartFGService();
-
-                CreateNotificationFromIntent(Intent);
+               
             }
             catch (Exception error)
             {
                 // LogDebug.Current.Log(new List<string>() { error.Message, error.StackTrace });
             }
         }
+
+        public void InitAfterPermissionsGranted()
+        {
+            IsPlayServicesAvailable();
+            CreateNotificationChannel();
+            App.StartFGService();
+            CreateNotificationFromIntent(Intent);
+        }
+
         public static Activity mainLauncher=null;
         protected override void OnNewIntent(Intent intent)
         {
@@ -168,19 +174,9 @@ namespace DestoPesto.Droid
         protected override void OnStart()
         {
             base.OnStart();
-            const int requestLocationId = 0;
+           
 
-            string[] notiPermission =
-            {
-                Android.Manifest.Permission.PostNotifications
-            };
-
-            if ((int)Build.VERSION.SdkInt < 33) return;
-
-            if (this.CheckSelfPermission(Android.Manifest.Permission.PostNotifications) != Android.Content.PM.Permission.Granted)
-            {
-                this.RequestPermissions(notiPermission, requestLocationId);
-            }
+           
         }
 
         void CreateNotificationFromIntent(Intent intent)

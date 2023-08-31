@@ -1,4 +1,5 @@
 ﻿using Android.Media;
+using Android.OS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace DestoPesto.Droid
         {
             get
             {
-                
+
                 if (ForegroundServiceManager == null)
                     return false;
                 else
@@ -52,21 +53,56 @@ namespace DestoPesto.Droid
 
         public Task<PermissionStatus> iOSRegisterForRemoteNotifications()
         {
-            return Task.FromResult(PermissionStatus.Granted);
+            string[] notiPermission =
+           {
+                Android.Manifest.Permission.PostNotifications
+            };
+
+            if ((int)Build.VERSION.SdkInt < 33)
+                return Task.FromResult(PermissionStatus.Granted);
+            const int requestLocationId = 0;
+            if (MainActivity.CheckSelfPermission(Android.Manifest.Permission.PostNotifications) != Android.Content.PM.Permission.Granted)
+            {
+                MainActivity.RequestPermissions(notiPermission, requestLocationId);
+                return iOSRemoteNotification();
+            }
+            else
+                return Task.FromResult(PermissionStatus.Granted);
+
+
         }
 
         public Task<PermissionStatus> iOSRemoteNotification()
         {
-           return Task.FromResult(PermissionStatus.Granted);
+
+
+            string[] notiPermission =
+           {
+                Android.Manifest.Permission.PostNotifications
+            };
+
+            if ((int)Build.VERSION.SdkInt < 33)
+                return Task.FromResult(PermissionStatus.Granted); 
+
+            if (MainActivity.CheckSelfPermission(Android.Manifest.Permission.PostNotifications) == Android.Content.PM.Permission.Granted)
+                return Task.FromResult(PermissionStatus.Granted);
+            else
+                return Task.FromResult(PermissionStatus.Denied);
+
+
+        }
+
+        public void PermissionsGranted()
+        {
+            MainActivity?.InitAfterPermissionsGranted();
         }
 
         static internal string m_androidId;
 
-        static internal string m_OldandroidId="";
+        static internal string m_OldandroidId = "";
 
         public static MyForeGroundService ForegroundServiceManager { get; internal set; }
-
-     
+        public static MainActivity MainActivity { get; internal set; }
     }
 
 
