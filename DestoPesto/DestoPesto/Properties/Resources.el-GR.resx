@@ -130,7 +130,7 @@
     <value>Στην ειδοποίηση πατήστε 'Κατά την χρήση της εφαρμογής' ώστε να επιτρέψετε την λειτουργία της κάμερας</value>
   </data>
   <data name="CameraTitle" xml:space="preserve">
-    <value>Κάμερα</value>
+    <value>Κάμερα για λήψη φωτογραφιών</value>
   </data>
   <data name="CancelText" xml:space="preserve">
     <value>Ακύρωση</value>
@@ -167,6 +167,9 @@
   </data>
   <data name="EnableBGToast" xml:space="preserve">
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
+  </data>
+  <data name="ExitText" xml:space="preserve">
+    <value>Έξοδος</value>
   </data>
   <data name="FacebookLogin" xml:space="preserve">
     <value>Με Facebook</value>
@@ -232,7 +235,7 @@
     <value>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </value>
   </data>
   <data name="LocationTitle" xml:space="preserve">
-    <value>Τοποθεσία</value>
+    <value>Λήψη τοποθεσίας</value>
   </data>
   <data name="LogoutItemText" xml:space="preserve">
     <value>Έξοδος </value>
@@ -264,11 +267,14 @@
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Κωδικός</value>
   </data>
+  <data name="PermissionsNotGrandedText" xml:space="preserve">
+    <value>Εάν δεν ενεργοποιηθούν οι "Ειδοποιήσεις" δεν θα μπορέσει να λειτουργήσει η εφαρμογή</value>
+  </data>
   <data name="PermissionsTitle" xml:space="preserve">
-    <value>Ενεργοποίηση ειδοποιήσεων, κάμερας και λήψης τοποθεσίας</value>
+    <value>Ενεργοποίηση ειδοποιήσεων, λήψης τοποθεσίας και κάμερας για λήψη φωτογραφιών</value>
   </data>
   <data name="PermissionTitleDetails" xml:space="preserve">
-    <value>Η εφαρμογή χρειάζεται την άδεια σας για την ενεργοποίηση όλων ώστε να είναι πλήρως λειτουργική</value>
+    <value>Η εφαρμογή χρειάζεται την άδεια σας για την ενεργοποίηση όλων των παρακάτω ώστε να είναι πλήρως λειτουργική</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Πολιτική απορρήτου</value>
@@ -329,6 +335,9 @@
   </data>
   <data name="TermsConditions" xml:space="preserve">
     <value>Όροι και προϋποθέσεις</value>
+  </data>
+  <data name="TokenExpiredText" xml:space="preserve">
+    <value>Ο κωδικός έχει λήξει</value>
   </data>
   <data name="TurnOff" xml:space="preserve">
     <value>Δεν συμφωνώ</value>

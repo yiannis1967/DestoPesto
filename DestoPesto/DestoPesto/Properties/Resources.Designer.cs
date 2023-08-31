@@ -223,6 +223,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string ExitText {
+            get {
+                return ResourceManager.GetString("ExitText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to With Facebook.
         /// </summary>
         public static string FacebookLogin {
@@ -511,6 +520,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If notifications are not allowed the app will not run .
+        /// </summary>
+        public static string PermissionsNotGrandedText {
+            get {
+                return ResourceManager.GetString("PermissionsNotGrandedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable Notifications, Camera and Location Access.
         /// </summary>
         public static string PermissionsTitle {
@@ -705,6 +723,15 @@ namespace DestoPesto.Properties {
         public static string TermsConditions {
             get {
                 return ResourceManager.GetString("TermsConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Token Expired.
+        /// </summary>
+        public static string TokenExpiredText {
+            get {
+                return ResourceManager.GetString("TokenExpiredText", resourceCulture);
             }
         }
         

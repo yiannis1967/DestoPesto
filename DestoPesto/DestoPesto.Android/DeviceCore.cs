@@ -82,7 +82,7 @@ namespace DestoPesto.Droid
             };
 
             if ((int)Build.VERSION.SdkInt < 33)
-                return Task.FromResult(PermissionStatus.Granted); 
+                return Task.FromResult(PermissionStatus.Granted);
 
             if (MainActivity.CheckSelfPermission(Android.Manifest.Permission.PostNotifications) == Android.Content.PM.Permission.Granted)
                 return Task.FromResult(PermissionStatus.Granted);

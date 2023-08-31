@@ -38,16 +38,15 @@ namespace DestoPesto.Views
                         var result = await device.iOSRegisterForRemoteNotifications();
                         if (result == PermissionStatus.Disabled)
                         {
-                            await MessageDialogPopup.DisplayPopUp("Exit", "Oh no !  Token expired", DestoPesto.Properties.Resources.Oktext);
+                            await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
                             return;
                         }
-                        if (result == PermissionStatus.Denied)
-                            return;
+                            
 
                     }
                     else if (await device.iOSRemoteNotification() == PermissionStatus.Disabled)
                     {
-                        await MessageDialogPopup.DisplayPopUp("Exit", "Oh no !  Token expired", DestoPesto.Properties.Resources.Oktext);
+                        await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
                         return;
                     }
 

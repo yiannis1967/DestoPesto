@@ -30,7 +30,12 @@ namespace DestoPesto
             var locationInUsePermisionstask = Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             locationInUsePermisionstask.Wait();
             var locationInUsePermisions = locationInUsePermisionstask.Result;
-            if (locationInUsePermisions != PermissionStatus.Granted)
+
+            var cameraInUsePermisionstask = Permissions.CheckStatusAsync<Permissions.Camera>();
+            cameraInUsePermisionstask.Wait();
+            var cameraInUsePermisions = cameraInUsePermisionstask.Result;
+
+            if (locationInUsePermisions != PermissionStatus.Granted|| cameraInUsePermisions != PermissionStatus.Granted)
                 MainPage = new PermissionsPage();
             else
             {
