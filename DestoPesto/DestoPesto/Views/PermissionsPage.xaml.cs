@@ -76,21 +76,22 @@ namespace DestoPesto.Views
                         var cameraPermisions = await Permissions.CheckStatusAsync<Permissions.Camera>();
                         if (cameraPermisions == PermissionStatus.Granted)
                         {
-                            device.PermissionsGranted();
-                            App.Current.MainPage = new AppShell();
+                            
                         }
                         else
                         {
                             cameraPermisions = await Permissions.RequestAsync<Permissions.Camera>();
-                            if (cameraPermisions == PermissionStatus.Granted)
-                            {
-                                device.PermissionsGranted();
-                                App.Current.MainPage = new AppShell();
-                            }
 
                         }
                     }
+                    if (await device.iOSRemoteNotification() == PermissionStatus.Granted && 
+                        await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>()==PermissionStatus.Granted &&
+                        await Permissions.CheckStatusAsync<Permissions.Camera>()==PermissionStatus.Granted)
+                    {
+                        device.PermissionsGranted();
+                        App.Current.MainPage = new AppShell();
 
+                    }
 
                 }
                 finally

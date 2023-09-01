@@ -53,33 +53,17 @@ namespace DestoPesto.Droid
 
         public Task<PermissionStatus> iOSRegisterForRemoteNotifications()
         {
-            string[] notiPermission =
-           {
-                Android.Manifest.Permission.PostNotifications
-            };
-
-            if ((int)Build.VERSION.SdkInt < 33)
-                return Task.FromResult(PermissionStatus.Granted);
-            const int requestLocationId = 0;
-            if (MainActivity.CheckSelfPermission(Android.Manifest.Permission.PostNotifications) != Android.Content.PM.Permission.Granted)
-            {
-                MainActivity.RequestPermissions(notiPermission, requestLocationId);
-                return iOSRemoteNotification();
-            }
-            else
-                return Task.FromResult(PermissionStatus.Granted);
-
+            return MainActivity.NotificationPermissionsRequest();
+      
 
         }
+
 
         public Task<PermissionStatus> iOSRemoteNotification()
         {
 
 
-            string[] notiPermission =
-           {
-                Android.Manifest.Permission.PostNotifications
-            };
+
 
             if ((int)Build.VERSION.SdkInt < 33)
                 return Task.FromResult(PermissionStatus.Granted);

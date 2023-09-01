@@ -24,7 +24,7 @@ using static Android.Content.PM.PackageManager;
 using Firebase.Iid;
 using LocalNotifications;
 using Firebase.Messaging;
-
+using System.Linq;
 
 namespace DestoPesto.Droid
 {
@@ -150,7 +150,7 @@ namespace DestoPesto.Droid
 
                 LoadApplication(App);
 
-               
+
             }
             catch (Exception error)
             {
@@ -166,7 +166,7 @@ namespace DestoPesto.Droid
             CreateNotificationFromIntent(Intent);
         }
 
-        public static Activity mainLauncher=null;
+        public static Activity mainLauncher = null;
         protected override void OnNewIntent(Intent intent)
         {
             CreateNotificationFromIntent(intent);
@@ -174,9 +174,9 @@ namespace DestoPesto.Droid
         protected override void OnStart()
         {
             base.OnStart();
-           
 
-           
+
+
         }
 
         void CreateNotificationFromIntent(Intent intent)
@@ -485,12 +485,7 @@ namespace DestoPesto.Droid
                 string a = e.Message;
             }
         }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
+     
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Android.Content.Intent data)
         {
@@ -551,6 +546,95 @@ namespace DestoPesto.Droid
             //}
         }
 
+        internal const int requestCodeStart = 12000;
 
+        static int requestCode = requestCodeStart;
+
+        internal static int NextRequestCode()
+        {
+            if (++requestCode >= 12999)
+                requestCode = requestCodeStart;
+
+            return requestCode;
+        }
+        static readonly Dictionary<int, TaskCompletionSource<PermissionStatus>> requests =
+                  new Dictionary<int, TaskCompletionSource<PermissionStatus>>();
+
+        static readonly object locker = new object();
+        internal Task<PermissionStatus> NotificationPermissionsRequest()
+        {
+
+            string[] notiPermission =
+     {
+                Android.Manifest.Permission.PostNotifications
+            };
+
+            //if ((int)Build.VERSION.SdkInt < 33)
+            //    return Task.FromResult(PermissionStatus.Granted);
+            
+            if (CheckSelfPermission(Android.Manifest.Permission.PostNotifications) != Android.Content.PM.Permission.Granted)
+            {
+
+                TaskCompletionSource<PermissionStatus> tcs;
+
+                int notificationRequestCode = 0;
+                lock (locker)
+                {
+                    tcs = new TaskCompletionSource<PermissionStatus>();
+
+                    notificationRequestCode = NextRequestCode();
+
+                    requests.Add(notificationRequestCode, tcs);
+                }
+
+                if (!MainThread.IsMainThread)
+                    throw new PermissionException("Permission request must be invoked on main thread.");
+
+                RequestPermissions(notiPermission, notificationRequestCode);
+                return tcs.Task;
+                
+            }
+            else
+                return Task.FromResult(PermissionStatus.Granted);
+
+
+        }
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            if(permissions.Contains( Android.Manifest.Permission.PostNotifications))
+            {
+                lock (locker)
+                {
+                    if (requests.ContainsKey(requestCode))
+                    {
+                        if (grantResults.Any(g => g == Android.Content.PM.Permission.Denied))
+                            requests[requestCode].TrySetResult(PermissionStatus.Denied);
+                        else
+                            requests[requestCode].TrySetResult(PermissionStatus.Granted);
+                        
+                        requests.Remove(requestCode);
+                    }
+                }
+            }
+            else
+            {
+                Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
+            
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+        //internal static void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        //{
+        //    lock (locker)
+        //    {
+        //        if (requests.ContainsKey(requestCode))
+        //        {
+        //            var result = new PermissionResult(permissions, grantResults);
+        //            requests[requestCode].TrySetResult(result);
+        //            requests.Remove(requestCode);
+        //        }
+        //    }
+        //}
     }
 }
