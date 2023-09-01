@@ -54,7 +54,8 @@
                 <Label Text="{x:Static resources:Properties.Resources.CameraDetails}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
             </StackLayout>
 
-            <Button Grid.Row="5"   Grid.Column="1" x:Name="continueBtn" Clicked="continueBtn_Clicked" Text="{x:Static resources:Properties.Resources.ContinueText}"></Button>
+            <Button Grid.Row="5"   Grid.Column="1" x:Name="continueBtn" Clicked="continueBtn_Clicked" Text="{x:Static resources:Properties.Resources.ContinueText}"/>
+            <Button Grid.Row="5"   Grid.Column="1" x:Name="GoToSettings" Clicked="GoToSettings_Clicked" Text="{x:Static resources:Properties.Resources.GoToSetttingsText}" IsVisible="false"/>
 
         </Grid>
 

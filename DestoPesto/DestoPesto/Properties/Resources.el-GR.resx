@@ -198,6 +198,9 @@
   <data name="GoogleLogin" xml:space="preserve">
     <value>Με Google</value>
   </data>
+  <data name="GoToSetttingsText" xml:space="preserve">
+    <value>Συνέχεια στις Ρυθμίσεις</value>
+  </data>
   <data name="HaveAccountText" xml:space="preserve">
     <value>Έχετε ήδη λογαριασμο?</value>
   </data>

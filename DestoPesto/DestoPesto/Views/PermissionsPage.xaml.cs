@@ -32,6 +32,8 @@ namespace DestoPesto.Views
                 {
                     //AppInfo.ShowSettingsUI()
 
+                    DateTime dateTime = DateTime.Now;
+
                     var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
                     if (await device.iOSRemoteNotification() == PermissionStatus.Denied)
@@ -93,6 +95,15 @@ namespace DestoPesto.Views
                         App.Current.MainPage = new AppShell();
 
                     }
+                    else
+                    {
+                        if ((DateTime.Now - dateTime).TotalSeconds < 2)
+                        {
+                            GoToSettings.IsVisible = true;
+                            continueBtn.IsVisible = false;
+                        }
+
+                    }
 
                 }
                 finally
@@ -102,6 +113,11 @@ namespace DestoPesto.Views
 
 
 
+        }
+
+        private void GoToSettings_Clicked(object sender, EventArgs e)
+        {
+            AppInfo.ShowSettingsUI();
         }
     }
 }

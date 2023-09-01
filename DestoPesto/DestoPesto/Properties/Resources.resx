@@ -363,6 +363,9 @@
   <data name="ExitText" xml:space="preserve">
     <value>Exit</value>
   </data>
+  <data name="GoToSetttingsText" xml:space="preserve">
+    <value>Go to Settings</value>
+  </data>
   <data name="PermissionsNotGrandedText" xml:space="preserve">
     <value>If notifications are not allowed the app will not run </value>
   </data>

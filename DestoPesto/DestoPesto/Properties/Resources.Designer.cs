@@ -313,6 +313,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Go to Settings.
+        /// </summary>
+        public static string GoToSetttingsText {
+            get {
+                return ResourceManager.GetString("GoToSetttingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Already Have An Account ?.
         /// </summary>
         public static string HaveAccountText {
