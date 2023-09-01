@@ -12,52 +12,62 @@
 
 
     <ContentPage.Content>
-
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <StackLayout x:Name="TitleBar" Orientation="Vertical" Grid.Column="0" BackgroundColor="#0D6EFD" Grid.ColumnSpan="3" VerticalOptions="CenterAndExpand">
+            <StackLayout x:Name="TitleBar" Orientation="Vertical" Grid.Column="0" BackgroundColor="#0D6EFD" VerticalOptions="CenterAndExpand">
                 <Image HorizontalOptions="Start" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
             </StackLayout>
+            <ScrollView Grid.Row="1"  HorizontalScrollBarVisibility="Never" HorizontalOptions="FillAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
 
-            <StackLayout Grid.Column="1"  Grid.Row="1">
-                <Label Text="{x:Static resources:Properties.Resources.PermissionsTitle}" FontSize="Title"  LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-                <Label Text="{x:Static resources:Properties.Resources.PermissionTitleDetails}" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
-            <StackLayout Orientation="Vertical" Grid.Row="2" Grid.Column="1" VerticalOptions="CenterAndExpand">
-                <Label Text="{x:Static resources:Properties.Resources.NotificationsTitle}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontAttributes="Bold" />
-                <Label Text="{x:Static resources:Properties.Resources.NotificationDetails}" VerticalOptions="CenterAndExpand"  HorizontalOptions="StartAndExpand" />
-            </StackLayout>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-            <StackLayout Orientation="Vertical" Grid.Row="3" Grid.Column="1">
-                <Label  Text="{x:Static resources:Properties.Resources.LocationTitle}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold"/>
-                <Label Text="{x:Static resources:Properties.Resources.LocationPrompt}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
-                <Label Text="{x:Static resources:Properties.Resources.LocationPermission}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
-            </StackLayout>
 
-            <StackLayout Orientation="Vertical" Grid.Row="4" Grid.Column="1">
-                <Label  Text="{x:Static resources:Properties.Resources.CameraTitle}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold"/>
-                <Label Text="{x:Static resources:Properties.Resources.CameraDetails}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
-            </StackLayout>
+                    <StackLayout Grid.Column="1"  Grid.Row="1">
+                        <Label Text="{x:Static resources:Properties.Resources.PermissionsTitle}" FontSize="Title"  LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{x:Static resources:Properties.Resources.PermissionTitleDetails}" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Grid.Row="2" Grid.Column="1" VerticalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resources:Properties.Resources.NotificationsTitle}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                        <Label Text="{x:Static resources:Properties.Resources.NotificationDetails}" VerticalOptions="CenterAndExpand"  HorizontalOptions="StartAndExpand" />
+                    </StackLayout>
 
-            <Button Grid.Row="5"   Grid.Column="1" x:Name="continueBtn" Clicked="continueBtn_Clicked" Text="{x:Static resources:Properties.Resources.ContinueText}"/>
-            <Button Grid.Row="5"   Grid.Column="1" x:Name="GoToSettings" Clicked="GoToSettings_Clicked" Text="{x:Static resources:Properties.Resources.GoToSetttingsText}" IsVisible="false"/>
+                    <StackLayout Orientation="Vertical" Grid.Row="3" Grid.Column="1">
+                        <Label  Text="{x:Static resources:Properties.Resources.LocationTitle}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold"/>
+                        <Label Text="{x:Static resources:Properties.Resources.LocationPrompt}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                        <Label Text="{x:Static resources:Properties.Resources.LocationPermission}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                    </StackLayout>
 
+                    <StackLayout Orientation="Vertical" Grid.Row="4" Grid.Column="1">
+                        <Label  Text="{x:Static resources:Properties.Resources.CameraTitle}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold"/>
+                        <Label Text="{x:Static resources:Properties.Resources.CameraDetails}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                    </StackLayout>
+
+                    <Button Grid.Row="5"   Grid.Column="1" x:Name="continueBtn" Clicked="continueBtn_Clicked" Text="{x:Static resources:Properties.Resources.ContinueText}"/>
+                    <Button Grid.Row="5"   Grid.Column="1" x:Name="GoToSettings" Clicked="GoToSettings_Clicked" Text="{x:Static resources:Properties.Resources.GoToSetttingsText}" IsVisible="false"/>
+
+
+                </Grid>
+            </ScrollView>
         </Grid>
+
+       
 
 
 
