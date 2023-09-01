@@ -63,9 +63,9 @@ namespace DestoPesto.iOS
             BGTaskScheduler.Shared.Register(UploadTaskId, null, task => HandleUpload(task as BGAppRefreshTask));
 
             LoadApplication(formsApp);
-            RegisterForRemoteNotifications();
+            //RegisterForRemoteNotifications();
 
-            //formsApp.StartFGService();
+            formsApp.StartFGService();
             return base.FinishedLaunching(app, options);
         }
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
@@ -90,6 +90,8 @@ namespace DestoPesto.iOS
             // Register your app for remote notifications.
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
+
+                
                 // iOS 10 or later
                 var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
                 UNUserNotificationCenter.Current.RequestAuthorization(authOptions, (granted, error) =>
@@ -97,11 +99,20 @@ namespace DestoPesto.iOS
                     Console.WriteLine(granted);
                 });
 
-                // For iOS 10 display notification (sent via APNS)
-                UNUserNotificationCenter.Current.Delegate = this;
+                UNUserNotificationCenter.Current.GetNotificationSettings((UNNotificationSettings settings) =>
+                {
+                    if(settings.AlertSetting==UNNotificationSetting.Enabled)
+                    {
 
-                // For iOS 10 data message (sent via FCM)
-                Messaging.SharedInstance.Delegate = this;
+                    }
+
+                });
+
+                //// For iOS 10 display notification (sent via APNS)
+                //UNUserNotificationCenter.Current.Delegate = this;
+
+                //// For iOS 10 data message (sent via FCM)
+                //Messaging.SharedInstance.Delegate = this;
             }
             else
             {

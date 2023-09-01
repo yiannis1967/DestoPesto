@@ -175,7 +175,7 @@
     <value>Cancle</value>
   </data>
   <data name="LocationPrompt" xml:space="preserve">
-    <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</value>
+    <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken. </value>
   </data>
   <data name="LogoutItemText" xml:space="preserve">
     <value>Logout</value>
@@ -301,7 +301,7 @@
     <value>Skip this message next time</value>
   </data>
   <data name="InstructionsMessage" xml:space="preserve">
-    <value>It’s easy. Choose the category be pressing the appropriate button below, take a photo and send it</value>
+    <value>It’s easy. Choose the category by pressing the appropriate button below, take a photo and send it</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Welcome to the app</value>
@@ -332,5 +332,41 @@
   </data>
   <data name="ForgotPasswordPageText2" xml:space="preserve">
     <value>Enter your email </value>
+  </data>
+  <data name="CameraDetails" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow' so that the app can use camera</value>
+  </data>
+  <data name="CameraTitle" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="LocationPermission" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow While Using App' so that your app can work flawlessly</value>
+  </data>
+  <data name="LocationTitle" xml:space="preserve">
+    <value>Location Access</value>
+  </data>
+  <data name="NotificationDetails" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow' so that the app can notify you at important updates, such as successful uploads</value>
+  </data>
+  <data name="NotificationsTitle" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="PermissionsTitle" xml:space="preserve">
+    <value>Enable Notifications, Camera and Location Access</value>
+  </data>
+  <data name="PermissionTitleDetails" xml:space="preserve">
+    <value>The app needs your permission to access all three in order to be fully functional</value>
+  </data>
+  <data name="ContinueText" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ExitText" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="PermissionsNotGrandedText" xml:space="preserve">
+    <value>If notifications are not allowed the app will not run </value>
+  </data>
+  <data name="TokenExpiredText" xml:space="preserve">
+    <value>Token Expired</value>
   </data>
 </root>

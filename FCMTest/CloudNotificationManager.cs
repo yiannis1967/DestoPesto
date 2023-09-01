@@ -56,7 +56,7 @@ namespace FCMTest
         {
             //Documantation
             //https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message
-            imageUrl="https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg";
+            imageUrl = "https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg";
             var fireBaseMessage = new Message()
             {
                 Data = new Dictionary<string, string>()
@@ -71,21 +71,21 @@ namespace FCMTest
                     ,{"ServicesContextIdentity","7f9bde62e6da45dc8c5661ee2220a7b0"}
 
                 },
-                Notification = new Notification() { Title = title, Body=body },
+                Notification = new Notification() { Title = title, Body = body },
                 Token = deviceFirebaseToken,
                 Android = new AndroidConfig()
                 {
                     Priority = Priority.High,
-                    Notification=new AndroidNotification { ImageUrl=imageUrl }
+                    Notification = new AndroidNotification { ImageUrl = imageUrl }
                 },
-                Apns=new ApnsConfig()
+                Apns = new ApnsConfig()
                 {
-                    FcmOptions=new ApnsFcmOptions() { ImageUrl=imageUrl },
-                    Headers=new Dictionary<string, string>() { { "image", imageUrl } },
-                    Aps=new Aps
+                    FcmOptions = new ApnsFcmOptions() { ImageUrl = imageUrl },
+                    Headers = new Dictionary<string, string>() { { "image", imageUrl } },
+                    Aps = new Aps
                     {
-                        AlertString="Something new has happened in your app!",
-                        ContentAvailable=true
+                        AlertString = body,
+                        ContentAvailable = true
                     }
 
 

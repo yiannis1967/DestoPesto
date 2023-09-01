@@ -17,6 +17,11 @@ namespace DestoPesto.Views
         public PermissionsPage()
         {
             InitializeComponent();
+
+            if(Xamarin.Essentials.DeviceInfo.Platform== DevicePlatform.iOS)
+            {
+                this.TitleBar.Padding = new Thickness(20, 30, 20, 0);
+            }
         }
 
         private async void continueBtn_Clicked(object sender, EventArgs e)
@@ -25,6 +30,29 @@ namespace DestoPesto.Views
             {
                 try
                 {
+
+                    var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+
+                    if (await device.iOSRemoteNotification() == PermissionStatus.Denied)
+                    {
+                        var result = await device.iOSRegisterForRemoteNotifications();
+                        if (result == PermissionStatus.Disabled)
+                        {
+                            await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                            return;
+                        }
+                            
+
+                    }
+                    else if (await device.iOSRemoteNotification() == PermissionStatus.Disabled)
+                    {
+                        await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                        return;
+                    }
+
+
+
+
                     var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationAlways>();
                     if (locationInUsePermisions != PermissionStatus.Granted)
                     {
@@ -39,7 +67,7 @@ namespace DestoPesto.Views
                         //    LocationPermisionsChecked = true;
 
                         //if (locationInUsePermisions == PermissionStatus.Granted)
-                            locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
+                        locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
                     }
 
                     locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
@@ -47,16 +75,22 @@ namespace DestoPesto.Views
                     {
                         var cameraPermisions = await Permissions.CheckStatusAsync<Permissions.Camera>();
                         if (cameraPermisions == PermissionStatus.Granted)
-                            App.Current.MainPage=new AppShell();
+                        {
+                            device.PermissionsGranted();
+                            App.Current.MainPage = new AppShell();
+                        }
                         else
                         {
                             cameraPermisions = await Permissions.RequestAsync<Permissions.Camera>();
                             if (cameraPermisions == PermissionStatus.Granted)
+                            {
+                                device.PermissionsGranted();
                                 App.Current.MainPage = new AppShell();
+                            }
 
                         }
                     }
-                        
+
 
                 }
                 finally
