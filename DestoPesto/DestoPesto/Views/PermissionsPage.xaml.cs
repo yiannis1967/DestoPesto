@@ -30,6 +30,7 @@ namespace DestoPesto.Views
             {
                 try
                 {
+                    //AppInfo.ShowSettingsUI()
 
                     var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
