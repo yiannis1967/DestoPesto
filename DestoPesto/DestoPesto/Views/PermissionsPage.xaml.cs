@@ -36,9 +36,9 @@ namespace DestoPesto.Views
 
                     var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
-                    if (await device.iOSRemoteNotification() == PermissionStatus.Denied)
+                    if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
                     {
-                        var result = await device.iOSRegisterForRemoteNotifications();
+                        var result = await device.RemoteNotificationsPermissionsRequest();
                         if (result == PermissionStatus.Disabled)
                         {
                             await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
@@ -47,7 +47,7 @@ namespace DestoPesto.Views
                             
 
                     }
-                    else if (await device.iOSRemoteNotification() == PermissionStatus.Disabled)
+                    else if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Disabled)
                     {
                         await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
                         return;
@@ -87,7 +87,7 @@ namespace DestoPesto.Views
 
                         }
                     }
-                    if (await device.iOSRemoteNotification() == PermissionStatus.Granted && 
+                    if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Granted && 
                         await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>()==PermissionStatus.Granted &&
                         await Permissions.CheckStatusAsync<Permissions.Camera>()==PermissionStatus.Granted)
                     {

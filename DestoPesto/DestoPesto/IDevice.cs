@@ -13,9 +13,10 @@ namespace DestoPesto
 
 
 
-        Task<PermissionStatus> iOSRegisterForRemoteNotifications();
+        Task<PermissionStatus> RemoteNotificationsPermissionsRequest();
 
-        Task<PermissionStatus> iOSRemoteNotification();
+        
+        Task<PermissionStatus> RemoteNotificationsPermissionsCheck();
 
 
         bool IsBackgroundServiceStarted { get; }

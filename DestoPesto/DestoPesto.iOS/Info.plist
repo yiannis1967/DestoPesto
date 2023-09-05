@@ -31,16 +31,16 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.arion.destopesto.ios</string>
 	<key>CFBundleVersion</key>
-	<string>1.4.4</string>
+	<string>1.4.13</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>DestoPesto</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</string>
-<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</string>
-<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken</string>
 	<key>UIBackgroundModes</key>
 	<array>
@@ -71,7 +71,6 @@
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
 	</array>
-	
 	<key>NSCameraUsageDescription</key>
 	<string>New Entry</string>
 	<key>XSAppIconAssets</key>

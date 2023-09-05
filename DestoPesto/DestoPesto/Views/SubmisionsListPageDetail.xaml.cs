@@ -26,6 +26,8 @@ namespace DestoPesto.Views
         {
             get
             {
+                if ((App.Current as App).SubmittedDamageUser == null)
+                    return new List<DamageData>();
                 return (App.Current as App).SubmittedDamageUser.ToList();
             }
         }

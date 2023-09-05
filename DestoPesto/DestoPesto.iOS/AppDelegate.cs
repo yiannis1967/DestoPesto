@@ -8,6 +8,7 @@ using BackgroundTasks;
 using DestoPesto.Services;
 using Firebase.CloudMessaging;
 using Foundation;
+using ObjCRuntime;
 using UIKit;
 using UserNotifications;
 
@@ -42,6 +43,8 @@ namespace DestoPesto.iOS
 
             Maps.iOS.CustomMapRenderer.Init();
             Firebase.Core.App.Configure();
+
+            DeviceCore.AppDelegate = this;
 
 
 
@@ -85,7 +88,7 @@ namespace DestoPesto.iOS
             var error = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
             Errorlog.Current.Log(new System.Collections.Generic.List<string>() { "Unhandled Exception:"+ error.Message, error.StackTrace });
         }
-        private void RegisterForRemoteNotifications()
+        internal void RegisterForRemoteNotifications()
         {
             // Register your app for remote notifications.
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
@@ -108,11 +111,11 @@ namespace DestoPesto.iOS
 
                 });
 
-                //// For iOS 10 display notification (sent via APNS)
-                //UNUserNotificationCenter.Current.Delegate = this;
+                // For iOS 10 display notification (sent via APNS)
+                UNUserNotificationCenter.Current.Delegate = this;
 
-                //// For iOS 10 data message (sent via FCM)
-                //Messaging.SharedInstance.Delegate = this;
+                // For iOS 10 data message (sent via FCM)
+                Messaging.SharedInstance.Delegate = this;
             }
             else
             {
@@ -123,7 +126,52 @@ namespace DestoPesto.iOS
             }
 
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+            /*
+            var fcmToken = Messaging.SharedInstance.FcmToken ?? "";
+            if (!string.IsNullOrWhiteSpace(fcmToken))
+            {
+
+
+                if (App.Current is App)
+                    (App.Current as App).FirbaseMessgesToken = fcmToken;
+
+
+                string webClientID = "959003601559-v7ft2g3pr4augp8jus4k61bmoooe37h4.apps.googleusercontent.com";
+
+                if (!FirebaseAuthInitilized)
+                {
+                    Authentication.iOS.Authentication.Init(webClientID);
+                    FirebaseAuthInitilized = true;
+                }
+            }*/
+
+
         }
+
+
+        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        {
+
+
+            try
+            {
+
+                Dictionary<string, string> messageProperties = userInfo.ToDictionary<KeyValuePair<NSObject, NSObject>, string, string>(item => item.Key as NSString, item => item.Value.ToString());
+                (App.Current as App).DispayMessage(messageProperties);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            //base.DidReceiveRemoteNotification(application, userInfo, completionHandler);
+
+
+        }
+
+        bool FirebaseAuthInitilized = false;
 
         [Export("messaging:didReceiveRegistrationToken:")]
         public void DidReceiveRegistrationToken(Firebase.CloudMessaging.Messaging messaging, string fcmToken)
@@ -135,8 +183,14 @@ namespace DestoPesto.iOS
 
 
             string webClientID = "959003601559-v7ft2g3pr4augp8jus4k61bmoooe37h4.apps.googleusercontent.com";
+            if (!FirebaseAuthInitilized)
+            {
+                Authentication.iOS.Authentication.Init(webClientID);
+                FirebaseAuthInitilized = true;
 
-            Authentication.iOS.Authentication.Init(webClientID);
+            }
+            
+
             //"apps.googleusercontent.com.241222885422-bquei744e1i8q3h0r82k7fm31fbuej7m"
 
 
@@ -200,12 +254,12 @@ namespace DestoPesto.iOS
         {
 
             var device = Xamarin.Forms.DependencyService.Get<IDevice>();
-            //if (device.IsBackgroundServiceStarted)
+            if (device.IsBackgroundServiceStarted)
             {
                 var notification = new UILocalNotification();
 
                 // set the fire date (the date time in which it will fire)
-                notification.FireDate = NSDate.FromTimeIntervalSinceNow(1);
+                notification.FireDate = NSDate.FromTimeIntervalSinceNow(3);
 
                 // configure the alert
                 notification.AlertAction = "View Alert";
@@ -219,6 +273,7 @@ namespace DestoPesto.iOS
 
                 // schedule it
                 UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+                System.Threading.Thread.Sleep(1000);
             }
 
 

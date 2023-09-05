@@ -14,9 +14,9 @@ using UserNotifications;
 using Xamarin.Essentials;
 
 
-[assembly: Xamarin.Forms.Dependency(typeof(DestoPesto.IOS.DeviceCore))]
+[assembly: Xamarin.Forms.Dependency(typeof(DestoPesto.iOS.DeviceCore))]
 
-namespace DestoPesto.IOS
+namespace DestoPesto.iOS
 {
     /// <MetaDataID>{9197f2b7-0392-426b-b818-566c2f0fa1b9}</MetaDataID>
 
@@ -57,7 +57,7 @@ namespace DestoPesto.IOS
             return false;
         }
 
-        public Task<PermissionStatus> iOSRemoteNotification()
+        public Task<PermissionStatus> RemoteNotificationsPermissionsCheck()
         {
             TaskCompletionSource<PermissionStatus> taskCompletionSource = new TaskCompletionSource<PermissionStatus>();
             UNUserNotificationCenter.Current.GetNotificationSettings((UNNotificationSettings settings) =>
@@ -86,7 +86,7 @@ namespace DestoPesto.IOS
 
         }
 
-        public Task<PermissionStatus> iOSRegisterForRemoteNotifications()
+        public Task<PermissionStatus> RemoteNotificationsPermissionsRequest()
         {
             TaskCompletionSource<PermissionStatus> taskCompletionSource = new TaskCompletionSource<PermissionStatus>();
             // Register your app for remote notifications.
@@ -110,13 +110,15 @@ namespace DestoPesto.IOS
 
 
                 // For iOS 10 display notification (sent via APNS)
-                UNUserNotificationCenter.Current.Delegate = AppDelegate;
+                //UNUserNotificationCenter.Current.Delegate = AppDelegate;
 
                 // For iOS 10 data message (sent via FCM)
-                Messaging.SharedInstance.Delegate = AppDelegate;
+                //Messaging.SharedInstance.Delegate = AppDelegate;
             }
             else
             {
+                taskCompletionSource.SetResult(PermissionStatus.Granted);
+
                 // iOS 9 or before
                 var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
                 var settings = UIUserNotificationSettings.GetSettingsForTypes(allNotificationTypes, null);
@@ -136,7 +138,11 @@ namespace DestoPesto.IOS
 
         public void PermissionsGranted()
         {
+
+            DeviceCore.AppDelegate.RegisterForRemoteNotifications();
             
+   
+
         }
 
         static internal string m_androidId;

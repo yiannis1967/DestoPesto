@@ -51,7 +51,7 @@ namespace DestoPesto.Droid
                 ForegroundServiceManager.Stop();
         }
 
-        public Task<PermissionStatus> iOSRegisterForRemoteNotifications()
+        public Task<PermissionStatus> RemoteNotificationsPermissionsRequest()
         {
             return MainActivity.NotificationPermissionsRequest();
       
@@ -59,7 +59,7 @@ namespace DestoPesto.Droid
         }
 
 
-        public Task<PermissionStatus> iOSRemoteNotification()
+        public Task<PermissionStatus> RemoteNotificationsPermissionsCheck()
         {
 
 
