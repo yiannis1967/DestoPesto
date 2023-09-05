@@ -475,7 +475,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not all photos are uploaded to server so &quot;Δες το Πες το&quot; will keep running in the background untill all photos are properly uploaded.
+        ///   Looks up a localized string similar to It is strongly recommened to keep the app running as there are still pending photos to be uploaded.
         /// </summary>
         public static string NotificationContentText {
             get {

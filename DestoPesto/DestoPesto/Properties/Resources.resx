@@ -253,7 +253,7 @@
     <value>v</value>
   </data>
   <data name="NotificationContentText" xml:space="preserve">
-    <value>Not all photos are uploaded to server so "Δες το Πες το" will keep running in the background untill all photos are properly uploaded</value>
+    <value>It is strongly recommened to keep the app running as there are still pending photos to be uploaded</value>
   </data>
   <data name="StopServiceCommandTitle" xml:space="preserve">
     <value>Quit app now</value>
