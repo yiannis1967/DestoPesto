@@ -91,7 +91,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*"/>
                             <RowDefinition Height="2*"/>
-                            <RowDefinition Height="6*"/>
+                            <RowDefinition Height="7*"/>
                         </Grid.RowDefinitions>
                         <StackLayout VerticalOptions="End" >
                             <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title" />
@@ -108,7 +108,7 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
+                                    <!--<RowDefinition Height="*"></RowDefinition>-->
                                 </Grid.RowDefinitions>
 
 
@@ -151,7 +151,7 @@
                                     <!--<Button  Command="{Binding gogleSignin}" ContentLayout="Top,0" Text="mytext" ImageSource="google_logo.png" />-->
                                 </Frame>
                                 <!--<Frame BackgroundColor="White" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">-->
-                                <Frame IsVisible="{Binding AppleSignInVisible}" Grid.Row="2" CornerRadius="10" 
+                                <Frame IsVisible="{Binding AppleSignInVisible}" Grid.Row="1" CornerRadius="10" 
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding AppleSigninCommand}">
@@ -167,7 +167,7 @@
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
-                                <Frame Grid.Row="3" CornerRadius="10" xct:TouchEffect.PressedScale="1.01"
+                                <Frame Grid.Row="2" CornerRadius="10" xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding SigninCommand}">
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="emailSignin" >
