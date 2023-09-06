@@ -168,8 +168,62 @@
   <data name="EnableBGToast" xml:space="preserve">
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
   </data>
+  <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
+    <value>Υπάρχει άλλος λογιαριασμός με αυτά τα στοιχεία</value>
+  </data>
+  <data name="ERROR_CUSTOM_TOKEN_MISMATCH" xml:space="preserve">
+    <value>Γενικό λάθος custom toekn mismatch</value>
+  </data>
+  <data name="ERROR_DISABLED" xml:space="preserve">
+    <value>Ο λογαριασμός είναι ανενεργός</value>
+  </data>
+  <data name="ERROR_EMAIL_ALREADY_IN_USE" xml:space="preserve">
+    <value>Το email ήδη χρησιμοποιείται</value>
+  </data>
+  <data name="ERROR_INVALID" xml:space="preserve">
+    <value>Το email δεν είναι σωστό</value>
+  </data>
+  <data name="ERROR_INVALID_ACTION_CODE" xml:space="preserve">
+    <value>Ο κωδικός token είναι παλαιός ή χρησιμοποιείται ήδη</value>
+  </data>
+  <data name="ERROR_INVALID_CREDENTIAL" xml:space="preserve">
+    <value>Λάθος στοιχεία χρήστη</value>
+  </data>
+  <data name="ERROR_INVALID_CUSTOM_TOKEN" xml:space="preserve">
+    <value>Κάποιο λάθος υπάρχει με τον κωδικό token. Επικοινωνήστε με τον διαχειριστή</value>
+  </data>
+  <data name="ERROR_INVALID_EMAIL" xml:space="preserve">
+    <value>Το email δεν είναι σωστό</value>
+  </data>
+  <data name="ERROR_INVALID_VERIFICATION_CODE" xml:space="preserve">
+    <value>Ο κωδικός δεν είναι αποδεκτός</value>
+  </data>
+  <data name="ERROR_NOT_ALLOWED" xml:space="preserve">
+    <value>Δεν επιτρέπεται</value>
+  </data>
+  <data name="ERROR_OPERATION_NOT_ALLOWED" xml:space="preserve">
+    <value>Δεν επιτρέπεται αυτή η ενέργεια</value>
+  </data>
+  <data name="ERROR_TOO_MANY_REQUESTS" xml:space="preserve">
+    <value>Έχετε κάνει πάρα πολλές προσπάθειες να κάνετε ενεργοποίηση με αυτόν τον λογαριασμό</value>
+  </data>
+  <data name="ERROR_USER_DISABLED" xml:space="preserve">
+    <value>Ο λογαριασμός είναι ανενεργός</value>
+  </data>
+  <data name="ERROR_USER_NOT_FOUND" xml:space="preserve">
+    <value>Δεν υπάρχει λογαριασμός με αυτά τα στοιχεία ή ο λογαριασμός είναι ανενεργός</value>
+  </data>
+  <data name="ERROR_WEAK_PASSWORD" xml:space="preserve">
+    <value>Αδύναμος κωδικός</value>
+  </data>
+  <data name="ERROR_WRONG_PASSWORD" xml:space="preserve">
+    <value>Ο κωδικός δεν είναι σωστός</value>
+  </data>
   <data name="ExitText" xml:space="preserve">
     <value>Έξοδος</value>
+  </data>
+  <data name="EXPIRED_ACTION_CODE" xml:space="preserve">
+    <value>Έχει λήξει ο χρόνος ανάκτησης του κωδικού</value>
   </data>
   <data name="FacebookLogin" xml:space="preserve">
     <value>Με Facebook</value>
@@ -218,6 +272,9 @@
   </data>
   <data name="InvalidEntryStyle" xml:space="preserve">
     <value>InvalidEntryStyle</value>
+  </data>
+  <data name="INVALID_ACTION_CODE" xml:space="preserve">
+    <value>Ο κωδικός δεν είναι καλός ή έχει ξανά χρησιμοποιηθεί στο παρελθόν</value>
   </data>
   <data name="LetsRegisterLineOneText" xml:space="preserve">
     <value>Καλώς όρισες </value>
@@ -351,11 +408,20 @@
   <data name="UserNameText" xml:space="preserve">
     <value>Ονοματεπώνυμο</value>
   </data>
+  <data name="USER_DISABLED" xml:space="preserve">
+    <value>Έχει απενεργοποιηθεί ο λογαριασμός. Επικοινωνήστε με τον διαχειριστή</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>Δεν βρέθηκε ο λογαριασμός</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>v</value>
   </data>
   <data name="Vision" xml:space="preserve">
     <value>Όραμα</value>
+  </data>
+  <data name="WEAK_PASSWORD" xml:space="preserve">
+    <value>Αδύναμος κωδικός</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Οδηγίες χρήσης</value>

@@ -372,4 +372,70 @@
   <data name="TokenExpiredText" xml:space="preserve">
     <value>Token Expired</value>
   </data>
+  <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
+    <value>Τhere already exists an account with the email address asserted by Google</value>
+  </data>
+  <data name="ERROR_CUSTOM_TOKEN_MISMATCH" xml:space="preserve">
+    <value>Invalid configuration</value>
+  </data>
+  <data name="ERROR_DISABLED" xml:space="preserve">
+    <value>The user's account is disabled</value>
+  </data>
+  <data name="ERROR_EMAIL_ALREADY_IN_USE" xml:space="preserve">
+    <value>The email is already in use by a different account</value>
+  </data>
+  <data name="ERROR_INVALID" xml:space="preserve">
+    <value>The email address is invalid</value>
+  </data>
+  <data name="ERROR_INVALID_ACTION_CODE" xml:space="preserve">
+    <value>Τhe password reset code is invalid. This can happen if the code is malformed or has already been used</value>
+  </data>
+  <data name="ERROR_INVALID_CREDENTIAL" xml:space="preserve">
+    <value>The [email] address is malformed</value>
+  </data>
+  <data name="ERROR_INVALID_CUSTOM_TOKEN" xml:space="preserve">
+    <value>The custom token format is incorrect</value>
+  </data>
+  <data name="ERROR_INVALID_EMAIL" xml:space="preserve">
+    <value>The email address is malformed</value>
+  </data>
+  <data name="ERROR_INVALID_VERIFICATION_CODE" xml:space="preserve">
+    <value>The code is invalid</value>
+  </data>
+  <data name="ERROR_NOT_ALLOWED" xml:space="preserve">
+    <value>Email and email sign-in link accounts are not enabled</value>
+  </data>
+  <data name="ERROR_OPERATION_NOT_ALLOWED" xml:space="preserve">
+    <value>Anonymous accounts are not enabled</value>
+  </data>
+  <data name="ERROR_TOO_MANY_REQUESTS" xml:space="preserve">
+    <value>There was too many attempts to sign in as this user</value>
+  </data>
+  <data name="ERROR_USER_DISABLED" xml:space="preserve">
+    <value>The user has been disabled</value>
+  </data>
+  <data name="ERROR_USER_NOT_FOUND" xml:space="preserve">
+    <value>There is no user corresponding to the given [email] address, or the user has been deleted</value>
+  </data>
+  <data name="ERROR_WEAK_PASSWORD" xml:space="preserve">
+    <value>The password is not strong enough</value>
+  </data>
+  <data name="ERROR_WRONG_PASSWORD" xml:space="preserve">
+    <value>The password is wrongp</value>
+  </data>
+  <data name="EXPIRED_ACTION_CODE" xml:space="preserve">
+    <value>Τhe password reset code has expired</value>
+  </data>
+  <data name="INVALID_ACTION_CODE" xml:space="preserve">
+    <value>Τhe password reset code is invalid. This can happen if the code is malformed or has already been used</value>
+  </data>
+  <data name="USER_DISABLED" xml:space="preserve">
+    <value>Τhe user corresponding to the given password reset code has been disabled</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>Τhere is no user corresponding to the password reset cod</value>
+  </data>
+  <data name="WEAK_PASSWORD" xml:space="preserve">
+    <value>Τhe new password is not strong enough</value>
+  </data>
 </root>

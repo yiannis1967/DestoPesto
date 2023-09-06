@@ -223,11 +223,173 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Τhere already exists an account with the email address asserted by Google.
+        /// </summary>
+        public static string ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL {
+            get {
+                return ResourceManager.GetString("ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid configuration.
+        /// </summary>
+        public static string ERROR_CUSTOM_TOKEN_MISMATCH {
+            get {
+                return ResourceManager.GetString("ERROR_CUSTOM_TOKEN_MISMATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user&apos;s account is disabled.
+        /// </summary>
+        public static string ERROR_DISABLED {
+            get {
+                return ResourceManager.GetString("ERROR_DISABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The email is already in use by a different account.
+        /// </summary>
+        public static string ERROR_EMAIL_ALREADY_IN_USE {
+            get {
+                return ResourceManager.GetString("ERROR_EMAIL_ALREADY_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The email address is invalid.
+        /// </summary>
+        public static string ERROR_INVALID {
+            get {
+                return ResourceManager.GetString("ERROR_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Τhe password reset code is invalid. This can happen if the code is malformed or has already been used.
+        /// </summary>
+        public static string ERROR_INVALID_ACTION_CODE {
+            get {
+                return ResourceManager.GetString("ERROR_INVALID_ACTION_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The [email] address is malformed.
+        /// </summary>
+        public static string ERROR_INVALID_CREDENTIAL {
+            get {
+                return ResourceManager.GetString("ERROR_INVALID_CREDENTIAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The custom token format is incorrect.
+        /// </summary>
+        public static string ERROR_INVALID_CUSTOM_TOKEN {
+            get {
+                return ResourceManager.GetString("ERROR_INVALID_CUSTOM_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The email address is malformed.
+        /// </summary>
+        public static string ERROR_INVALID_EMAIL {
+            get {
+                return ResourceManager.GetString("ERROR_INVALID_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The code is invalid.
+        /// </summary>
+        public static string ERROR_INVALID_VERIFICATION_CODE {
+            get {
+                return ResourceManager.GetString("ERROR_INVALID_VERIFICATION_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email and email sign-in link accounts are not enabled.
+        /// </summary>
+        public static string ERROR_NOT_ALLOWED {
+            get {
+                return ResourceManager.GetString("ERROR_NOT_ALLOWED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anonymous accounts are not enabled.
+        /// </summary>
+        public static string ERROR_OPERATION_NOT_ALLOWED {
+            get {
+                return ResourceManager.GetString("ERROR_OPERATION_NOT_ALLOWED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was too many attempts to sign in as this user.
+        /// </summary>
+        public static string ERROR_TOO_MANY_REQUESTS {
+            get {
+                return ResourceManager.GetString("ERROR_TOO_MANY_REQUESTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user has been disabled.
+        /// </summary>
+        public static string ERROR_USER_DISABLED {
+            get {
+                return ResourceManager.GetString("ERROR_USER_DISABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no user corresponding to the given [email] address, or the user has been deleted.
+        /// </summary>
+        public static string ERROR_USER_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("ERROR_USER_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password is not strong enough.
+        /// </summary>
+        public static string ERROR_WEAK_PASSWORD {
+            get {
+                return ResourceManager.GetString("ERROR_WEAK_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password is wrongp.
+        /// </summary>
+        public static string ERROR_WRONG_PASSWORD {
+            get {
+                return ResourceManager.GetString("ERROR_WRONG_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         public static string ExitText {
             get {
                 return ResourceManager.GetString("ExitText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Τhe password reset code has expired.
+        /// </summary>
+        public static string EXPIRED_ACTION_CODE {
+            get {
+                return ResourceManager.GetString("EXPIRED_ACTION_CODE", resourceCulture);
             }
         }
         
@@ -363,6 +525,15 @@ namespace DestoPesto.Properties {
         public static string InstructionsMessage {
             get {
                 return ResourceManager.GetString("InstructionsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Τhe password reset code is invalid. This can happen if the code is malformed or has already been used.
+        /// </summary>
+        public static string INVALID_ACTION_CODE {
+            get {
+                return ResourceManager.GetString("INVALID_ACTION_CODE", resourceCulture);
             }
         }
         
@@ -763,6 +934,24 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Τhe user corresponding to the given password reset code has been disabled.
+        /// </summary>
+        public static string USER_DISABLED {
+            get {
+                return ResourceManager.GetString("USER_DISABLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Τhere is no user corresponding to the password reset cod.
+        /// </summary>
+        public static string USER_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("USER_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string UserNameText {
@@ -786,6 +975,15 @@ namespace DestoPesto.Properties {
         public static string Vision {
             get {
                 return ResourceManager.GetString("Vision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Τhe new password is not strong enough.
+        /// </summary>
+        public static string WEAK_PASSWORD {
+            get {
+                return ResourceManager.GetString("WEAK_PASSWORD", resourceCulture);
             }
         }
         
