@@ -25,8 +25,9 @@
            Padding="10">
         <StackLayout  >
             <Frame   HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
-                <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" />
+                <!--<Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" />-->
                 <!--<Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />-->
+                <Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />
             </Frame>
 
             <!--<Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />-->
