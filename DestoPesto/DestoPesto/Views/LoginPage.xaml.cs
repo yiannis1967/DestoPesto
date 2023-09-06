@@ -14,6 +14,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Authentication;
 using System.Windows.Input;
+using Xamarin.Forms.Internals;
 
 namespace DestoPesto.Views
 {
@@ -136,10 +137,16 @@ namespace DestoPesto.Views
                 Device.BeginInvokeOnMainThread(
             async () =>
             {
+                int backStep = Navigation.NavigationStack.Count- Navigation.NavigationStack.IndexOf(this);
+
                 if (Navigation.NavigationStack.Count == 1)
                     await Shell.Current.GoToAsync("//AboutPage");
                 else
-                    await Navigation.PopAsync();
+                    while (backStep>0)
+                    {
+                        backStep--;
+                        await Navigation.PopAsync();
+                    }
             });
             }
         }

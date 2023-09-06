@@ -196,9 +196,22 @@ namespace Authentication.iOS
             }
         }
 
-        public Task<string> EmailSignIn(string email, string password)
+        public async Task<string> EmailSignIn(string email, string password)
         {
-            throw new NotImplementedException();
+
+
+            try
+            {
+                AuthDataResult res =  await  FirebaseAuth.CreateUserAsync(email, password);
+                return null;
+                
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+            
         }
 
         public Task<string> EmailSignUp(string email, string password)
