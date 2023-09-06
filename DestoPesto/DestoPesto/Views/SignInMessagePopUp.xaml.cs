@@ -24,7 +24,7 @@ namespace DestoPesto.Views
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            task.SetResult(true);
+            task?.SetResult(true);
         }
 
         public string Message { get; private set; }

@@ -105,10 +105,8 @@ namespace Authentication.Android
                     await FirebaseAuth.SignInWithEmailAndPassword(email, password).AsAsync();
                     return null;
                 }
-                catch ( Firebase.Auth.FirebaseAuthInvalidCredentialsException err)
+                catch (Firebase.Auth.FirebaseAuthInvalidCredentialsException err)
                 {
-                    
-                    
 
                     return err.Message;
                 }
@@ -116,6 +114,11 @@ namespace Authentication.Android
                 {
                     return errr.Message;
                 }
+                catch (Java.Lang.Exception errrr)
+                {
+                    return errrr.Message;
+                }
+
             });
 
 
@@ -249,7 +252,7 @@ namespace Authentication.Android
             catch (Exception error)
             {
 
-                
+
             }
 
 

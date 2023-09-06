@@ -38,7 +38,15 @@ namespace Authentication.Android
 
         public System.Threading.Tasks.Task<string> EmailSignIn(string email, string password)
         {
-            return Authentication.Android.FirebaseAuthentication.EmailSignIn(email, password);
+            try
+            {
+                return Authentication.Android.FirebaseAuthentication.EmailSignIn(email, password);
+            }
+            catch (Exception error)
+            {
+
+                throw;
+            }
             
         }
 
