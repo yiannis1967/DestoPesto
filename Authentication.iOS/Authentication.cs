@@ -1,5 +1,6 @@
 ﻿using Authentication.Facebook.Services;
 using Firebase.Auth;
+using Firebase.CloudMessaging;
 using Foundation;
 using Google.SignIn;
 using System;
@@ -199,24 +200,44 @@ namespace Authentication.iOS
         public async Task<string> EmailSignIn(string email, string password)
         {
 
-
             try
             {
-                AuthDataResult res =  await  FirebaseAuth.CreateUserAsync(email, password);
+                AuthDataResult authDataResult = await FirebaseAuth.SignInWithPasswordAsync(email, password);
                 return null;
+            }
+            catch (Foundation.NSErrorException error)
+            {
+
+               var errorCode= error.UserInfo["FIRAuthErrorUserInfoNameKey"]?.ToString();
+
                 
+                //FIRAuthErrorUserInfoNameKey
+                return errorCode;
+            }
+
+         
+            
+        }
+
+        public async Task<string> EmailSignUp(string email, string password)
+        {
+            try
+            {
+                AuthDataResult res = await FirebaseAuth.CreateUserAsync(email, password);
+                return null;
+
+            }
+            catch (Foundation.NSErrorException error)
+            {
+                var errorCode = error.UserInfo["FIRAuthErrorUserInfoNameKey"]?.ToString();
+                //FIRAuthErrorUserInfoNameKey
+                return errorCode;
             }
             catch (Exception error)
             {
 
                 return error.Message;
             }
-            
-        }
-
-        public Task<string> EmailSignUp(string email, string password)
-        {
-            throw new NotImplementedException();
         }
 
         public void FacebookSignIn()
@@ -243,7 +264,20 @@ namespace Authentication.iOS
 
         public void SendPasswordResetEmail(string email)
         {
-            throw new NotImplementedException();
+            try
+            {
+                FirebaseAuth.SendPasswordReset(email, null);
+                
+            }
+            catch (Foundation.NSErrorException error)
+            {
+
+                //var errorCode = error.UserInfo["FIRAuthErrorUserInfoNameKey"]?.ToString();
+
+
+                //FIRAuthErrorUserInfoNameKey
+                //return errorCode;
+            }
         }
     }
 }
