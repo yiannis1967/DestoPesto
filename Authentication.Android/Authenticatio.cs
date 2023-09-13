@@ -32,7 +32,7 @@ namespace Authentication.Android
 
         public System.Threading.Tasks.Task<string> EmailSignUp(string email, string password)
         {
-            return Authentication.Android.FirebaseAuthentication.EmailSignUp(email, password);
+            return FirebaseAuthentication.EmailSignUp(email, password);
             
         }
 

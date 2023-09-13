@@ -54,6 +54,7 @@ namespace FCMTest
 
         public static async void SendMessage(string deviceFirebaseToken, string messageID, string body, string title, string imageUrl)
         {
+            deviceFirebaseToken="caNxuyw3YE9TnnlUT3vJno:APA91bH1UndH5QUPnKVnyOBZDkd5VR3uRY5kGuaMzWnb78FksJBPC_Yu0j3sgSTqFZ3PS9_yb4Tq_YWy5g5hPVqBgzmNhUNI7nQO16ZUmvHuL3nb6eMdqvL-XNV7WktYBRw-amAwhCaB";
             //Documantation
             //https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message
             imageUrl = "https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg";
@@ -63,15 +64,20 @@ namespace FCMTest
                 {
 
                     { "MessageID", messageID }
-                    ,{"ImageUrl", imageUrl}
-                    ,{"Description","Lamprou Spirou 7, Pireas 185 37, Greece"}
-                    ,{"SubmisionThumb","https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg"}
-                    ,{"Comments","Οι πινακίδες πρέπει να είναι ευανάγνωστες γιατί αφορούν την ασφάλεια μας και δεν ξέρω εάν έχει ήδη διορθωθεί αυτή που είχες δηλώσει στην Τσαμαδού"}
-                    ,{"MessageTimestamp",DateTime.UtcNow.ToString("u")}
-                    ,{"ServicesContextIdentity","7f9bde62e6da45dc8c5661ee2220a7b0"}
+                    , { "ImageUrl", imageUrl }
+                    , { "Description", "Lamprou Spirou 7, Pireas 185 37, Greece" }
+                    , { "SubmisionThumb", "https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg" }
+                    , { "Comments", "Οι πινακίδες πρέπει να είναι ευανάγνωστες γιατί αφορούν την ασφάλεια μας και δεν ξέρω εάν έχει ήδη διορθωθεί αυτή που είχες δηλώσει στην Τσαμαδού" }
+                    , { "MessageTimestamp", DateTime.UtcNow.ToString("u") }
+                    , { "ServicesContextIdentity", "7f9bde62e6da45dc8c5661ee2220a7b0" }
 
                 },
-                Notification = new Notification() { Title = title, Body = body },
+                Notification = new Notification()
+                {
+                    Title = title,
+                    Body = body,
+                    ImageUrl = imageUrl
+                },
                 Token = deviceFirebaseToken,
                 Android = new AndroidConfig()
                 {
@@ -84,11 +90,75 @@ namespace FCMTest
                     Headers = new Dictionary<string, string>() { { "image", imageUrl } },
                     Aps = new Aps
                     {
-                        AlertString = body,
-                        ContentAvailable = true
+                        MutableContent=true
                     }
 
 
+                },
+                Webpush = new WebpushConfig()
+                {
+                    Headers = new Dictionary<string, string>() { { "image", imageUrl } }
+                }
+
+
+
+
+                /*
+                 apns: {
+                    payload: {
+                      aps: {
+                        'mutable-content': 1
+                      }
+                    },
+                    fcm_options: {
+                      image: 'https://foo.bar.pizza-monster.png'
+                    }
+                  },
+                  webpush: {
+                    headers: {
+                      image: 'https://foo.bar.pizza-monster.png'
+                    }
+                  },
+                 */
+
+            };
+
+            fireBaseMessage = new Message()
+            {
+                Notification= new Notification
+                {
+                    Title= "Sparky says hello!"
+                },
+                Token = deviceFirebaseToken,
+                Android=new AndroidConfig()
+                {
+                    Notification=new AndroidNotification()
+                    {
+                        ImageUrl= imageUrl
+                    }
+                },
+                Apns=new ApnsConfig()
+                {
+
+
+
+                    Aps=new Aps()
+                    {
+                        MutableContent=true
+                    }
+                                  ,
+                    FcmOptions =new ApnsFcmOptions()
+                    {
+                        ImageUrl=imageUrl
+
+                    }
+                },
+                Webpush=new WebpushConfig()
+                {
+                    Headers=new Dictionary<string, string>()
+                {
+                    { "image", imageUrl }
+                }
                 }
 
             };
