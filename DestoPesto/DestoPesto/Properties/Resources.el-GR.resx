@@ -304,7 +304,7 @@
     <value>Δες το, Πες το</value>
   </data>
   <data name="NoInternetText" xml:space="preserve">
-    <value>Η εφαρμογή δεν ανταποκρίνεται γιατί έχει χαθεί η σύνδεση με το Internet</value>
+    <value>Η εφαρμογή δεν ανταποκρίνεται γιατί έχει χαθεί η σύνδεση με το Internet ή έχει σταματήσει ο server. Κλείστε την εφαρμογή και ξανά προσπαθήστε σε λίγο</value>
   </data>
   <data name="NoText" xml:space="preserve">
     <value>Όχι</value>

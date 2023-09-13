@@ -628,7 +628,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The application is not responding because the internet connection is lost.
+        ///   Looks up a localized string similar to The system is not responding because internet connection is lost or the server is down. Close the app and try again in a minute.
         /// </summary>
         public static string NoInternetText {
             get {

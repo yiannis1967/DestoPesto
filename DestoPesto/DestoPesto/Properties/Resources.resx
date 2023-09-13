@@ -184,7 +184,7 @@
     <value>Δες το, Πες το</value>
   </data>
   <data name="NoInternetText" xml:space="preserve">
-    <value>The application is not responding because the internet connection is lost</value>
+    <value>The system is not responding because internet connection is lost or the server is down. Close the app and try again in a minute</value>
   </data>
   <data name="NoText" xml:space="preserve">
     <value>No</value>
