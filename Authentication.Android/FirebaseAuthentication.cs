@@ -88,9 +88,23 @@ namespace Authentication.Android
                     await FirebaseAuth.CreateUserWithEmailAndPassword(email, password).AsAsync();
                     return null;
                 }
-                catch (Exception err)
+                catch (Firebase.Auth.FirebaseAuthInvalidCredentialsException err)
                 {
-                    return err.Message;
+
+                    return err.ErrorCode;
+                }
+                catch (Firebase.Auth.FirebaseAuthInvalidUserException usererror)
+                {
+                    return usererror.ErrorCode;
+                }
+                catch (Java.Lang.IllegalArgumentException errr)
+                {
+                    return errr.Message;
+                }
+                catch (Java.Lang.Exception errrr)
+                {
+                    string tt = errrr.GetType().FullName;
+                    return errrr.Message;
                 }
             });
 

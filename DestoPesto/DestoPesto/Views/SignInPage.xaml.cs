@@ -154,7 +154,6 @@ namespace DestoPesto.Views
                 if (!string.IsNullOrWhiteSpace(error))
                 {
                     await PopupNavigation.Instance.PushAsync(new SignInMessagePopUp(errorMessage));
-
                     //await App.Current.MainPage.DisplayAlert("Alert", error, "OK");
                 }
 
