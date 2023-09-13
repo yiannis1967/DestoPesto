@@ -370,7 +370,7 @@
     <value>If notifications are not allowed the app will not run </value>
   </data>
   <data name="TokenExpiredText" xml:space="preserve">
-    <value>Token Expired</value>
+    <value>Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue</value>
   </data>
   <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
     <value>Τhere already exists an account with the email address asserted by Google</value>

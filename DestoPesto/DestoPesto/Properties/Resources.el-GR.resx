@@ -397,7 +397,7 @@
     <value>Όροι και προϋποθέσεις</value>
   </data>
   <data name="TokenExpiredText" xml:space="preserve">
-    <value>Ο κωδικός έχει λήξει</value>
+    <value>Έχουν απενεργοποιηθεί οι προσβάσεις και δεν μπορεί να δουλέψει η εφαρμογή. Ενεργοποιήστε τις χειροκίνητα και ξανά προσπαθήστε </value>
   </data>
   <data name="TurnOff" xml:space="preserve">
     <value>Δεν συμφωνώ</value>

@@ -907,7 +907,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Token Expired.
+        ///   Looks up a localized string similar to Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue.
         /// </summary>
         public static string TokenExpiredText {
             get {
