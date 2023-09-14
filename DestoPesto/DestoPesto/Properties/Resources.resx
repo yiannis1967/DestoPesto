@@ -307,19 +307,19 @@
     <value>Welcome to the app</value>
   </data>
   <data name="CookiesPolicy" xml:space="preserve">
-    <value>Cookies Policy</value>
+    <value>Cookies Policy (in Greek)</value>
   </data>
   <data name="HowItWorks" xml:space="preserve">
-    <value>How it works</value>
+    <value>How it works (in Greek)</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Privacy policy</value>
+    <value>Privacy policy (in Greek)</value>
   </data>
   <data name="TermsConditions" xml:space="preserve">
-    <value>Terms and conditions</value>
+    <value>Terms and conditions (in Greek)</value>
   </data>
   <data name="Vision" xml:space="preserve">
-    <value>Vision</value>
+    <value>Vision (in Greek)</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>Continue</value>
@@ -437,5 +437,20 @@
   </data>
   <data name="WEAK_PASSWORD" xml:space="preserve">
     <value>Τhe new password is not strong enough</value>
+  </data>
+  <data name="Accuracy_disclaimerLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/Accuracy_disclaimer_en</value>
+  </data>
+  <data name="CookiesPolicyLInk" xml:space="preserve">
+    <value>https://destopesto.gr/info/cookies_policy_en</value>
+  </data>
+  <data name="HowItWorksLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/how_it_works_en</value>
+  </data>
+  <data name="PrivacyPolicyLInk" xml:space="preserve">
+    <value>https://destopesto.gr/info/PrivacyPolicy_en</value>
+  </data>
+  <data name="VisionLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/vision_en</value>
   </data>
 </root>

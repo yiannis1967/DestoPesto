@@ -45,7 +45,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.HowItWorks}">
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/how_it_works"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/how_it_works"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -56,7 +56,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.Vision}" >
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/vision"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/vision"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -67,7 +67,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.TermsConditions}">
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/Accuracy_disclaimer"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/Accuracy_disclaimer"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -78,7 +78,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.PrivacyPolicy}" >
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/PrivacyPolicy"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/PrivacyPolicy"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -89,7 +89,8 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.CookiesPolicy}" >
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/cookies_policy"/>
+                                    <!--<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/cookies_policy"/>-->
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="{x:Static resources:Properties.Resources.CookiesPolicy}"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>

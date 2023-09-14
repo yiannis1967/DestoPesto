@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accuracy_disclaimerLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/Accuracy_disclaimer</value>
+  </data>
   <data name="AlertText" xml:space="preserve">
     <value>Προσοχή</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="CookiesPolicy" xml:space="preserve">
     <value>Πολιτική Cookies</value>
+  </data>
+  <data name="CookiesPolicyLInk" xml:space="preserve">
+    <value>https://destopesto.gr/info/cookies_policy</value>
   </data>
   <data name="CreateAccountText" xml:space="preserve">
     <value>Δεν έχετε λογαριασμό?</value>
@@ -267,6 +273,9 @@
   <data name="HowItWorks" xml:space="preserve">
     <value>Πως λειτουργεί</value>
   </data>
+  <data name="HowItWorksLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/how_it_works</value>
+  </data>
   <data name="InstructionsMessage" xml:space="preserve">
     <value>Είναι εύκολο και εντελώς ανώνυμο. Διάλεξε από τις κατηγορίες που φαίνονται παρακάτω τι θέλεις να αναφέρεις πατώντας το αντίστοιχο κουμπί, φωτογράφισέ το και ανάρτησέ το. Τα στοιχεία σου δεν θα εμφανιστούν πουθενά</value>
   </data>
@@ -338,6 +347,9 @@
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Πολιτική απορρήτου</value>
+  </data>
+  <data name="PrivacyPolicyLInk" xml:space="preserve">
+    <value>https://destopesto.gr/info/PrivacyPolicy</value>
   </data>
   <data name="RePasswordPlaceHolder" xml:space="preserve">
     <value>Επανάληψη κωδικού</value>
@@ -419,6 +431,9 @@
   </data>
   <data name="Vision" xml:space="preserve">
     <value>Όραμα</value>
+  </data>
+  <data name="VisionLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/vision</value>
   </data>
   <data name="WEAK_PASSWORD" xml:space="preserve">
     <value>Αδύναμος κωδικός</value>
