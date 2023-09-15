@@ -453,4 +453,7 @@
   <data name="VisionLink" xml:space="preserve">
     <value>https://destopesto.gr/info/vision_en</value>
   </data>
+  <data name="HomeScreenMobileLink" xml:space="preserve">
+    <value>https://asfameazure.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt</value>
+  </data>
 </root>

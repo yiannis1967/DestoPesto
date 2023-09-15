@@ -69,8 +69,8 @@
                AbsoluteLayout.LayoutFlags="All" 
                HorizontalOptions="FillAndExpand"
                VerticalOptions="FillAndExpand" >
-            
-                <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="https://asfameazure.blob.core.windows.net/destopesto/docs/homescreenmob.txt">
+
+                <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{x:Static resources:Properties.Resources.HomeScreenMobileLink}">
                     <!--https://asfameazure.blob.core.windows.net/destopesto/docs/homescreentext.txt-->
                 </WebView>
             </ContentView>

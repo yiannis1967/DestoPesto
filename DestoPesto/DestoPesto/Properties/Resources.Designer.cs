@@ -529,6 +529,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://asfameazure.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt.
+        /// </summary>
+        public static string HomeScreenMobileLink {
+            get {
+                return ResourceManager.GetString("HomeScreenMobileLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to How it works.
         /// </summary>
         public static string HowItWorks {
