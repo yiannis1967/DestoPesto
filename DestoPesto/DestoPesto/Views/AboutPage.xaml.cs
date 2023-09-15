@@ -871,20 +871,20 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
                 if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
                 {
                     var result = await device.RemoteNotificationsPermissionsRequest();
-                    if (result == PermissionStatus.Disabled)
-                    {
-                        await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
-                        return;
-                    }
+                    //if (result == PermissionStatus.Disabled)
+                    //{
+                    //    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                    //    return;
+                    //}
                 }
                 else if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Disabled)
                 {
-                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
-                    return;
+                   // await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                    //return;
                 }
 
-                if (await device.RemoteNotificationsPermissionsCheck() != PermissionStatus.Granted)
-                    return;
+                //if (await device.RemoteNotificationsPermissionsCheck() != PermissionStatus.Granted)
+                //    return;
 
 
 
