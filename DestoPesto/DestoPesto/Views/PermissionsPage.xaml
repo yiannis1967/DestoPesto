@@ -17,10 +17,15 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackLayout x:Name="TitleBar" Orientation="Vertical" Grid.Column="0" BackgroundColor="#0D6EFD" VerticalOptions="CenterAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" HeightRequest="200" BackgroundColor="Red">
+                <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="https://asfameazure.blob.core.windows.net/destopesto/docs/homescreentext.txt">
+                    <!--https://asfameazure.blob.core.windows.net/destopesto/docs/homescreentext.txt-->
+                </WebView>
+            </Grid>
+            <StackLayout IsVisible="false" x:Name="TitleBar" Orientation="Vertical" Grid.Column="0" BackgroundColor="#0D6EFD" VerticalOptions="CenterAndExpand">
                 <Image HorizontalOptions="Start" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
             </StackLayout>
-            <ScrollView Grid.Row="1"  HorizontalScrollBarVisibility="Never" HorizontalOptions="FillAndExpand">
+            <ScrollView IsVisible="false"  Grid.Row="1"  HorizontalScrollBarVisibility="Never" HorizontalOptions="FillAndExpand">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

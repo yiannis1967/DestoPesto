@@ -27,7 +27,7 @@ using Authentication;
 
 namespace DestoPesto.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class AboutPage : ContentPage, System.ComponentModel.INotifyPropertyChanged
     {
         //public TapGestureRecognizer location_tap = new TapGestureRecognizer();
         public string WebAPIkey = "AIzaSyCH9F_m6KO7_1BB3NN0eiSjN9_d99bRjsk";
@@ -50,11 +50,44 @@ namespace DestoPesto.Views
 
             InitializeComponent();
             map.IsVisible = false;
+            BindingContext=this;
             JsonHandler.CreateFolder();
             //    location_tap.Tapped += Location_tap_Tapped;
             // imgpin.GestureRecognizers.Add(location_tap);
             //  lblclickpin.GestureRecognizers.Add(location_tap);
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+
+            var htmlSource = new HtmlWebViewSource();
+
+
+
+            htmlSource.Html = @"
+                                <h1>Δες το Πες το</h1>
+<h3>Το app του πολίτη!</h3>
+<p>Πόσες κακοτεχνίες συναντάς καθημερινά στον δρόμο σου; Λακκούβες, χαλασμένα φανάρια, σπασμένα πεζοδρόμια είναι ορισμένα μόνο από αυτά που κάνουν τη ζωή μας δύσκολη και ενίοτε επικίνδυνη, ειδικά στις ευπαθείς ομάδες.
+<br>Και το παράδοξο είναι ότι ποτέ δεν γνωρίζεις σε ποιο φορέα πρέπει να απευθυνθείς για την αποκατάστασή τους. </p>
+<p>Αυτά μέχρι χθες! Γιατί σήμερα υπάρχει το <b>ΔΕΣ ΤΟ - ΠΕΣ ΤΟ</b>.</p>
+Το πρωτοποριακό app που γίνεται ο καθημερινός σύμμαχος του πολίτη δίνοντας δύναμη στη φωνή του!
+<br><b>Μπορούμε  όλοι να συμβάλλουμε στην βελτίωση της καθημερινότητάς μας. </b>
+<br><b>Κάθε κακοτεχνία που διορθώνεται είναι κέρδος για όλους!</b></p>
+<p><h3>Απλή διαδικασία με 2 βήματα! </h3></p>
+<p><b>ΒΗΜΑ 1ο:</b> Μπες στο app και επίλεξε την κατηγορία (λακκούβα, φανάρι κτλ.)
+<br><b>ΒΗΜΑ 2ο:</b> Φωτογράφισε την κακοτεχνία και σε λίγα μόνο λεπτά θα ειδοποιηθείς αν η ανάρτησή σου είναι έγκυρη.
+<br><b>Από εκεί και πέρα οι αρμόδιοι φορείς δεν έχουν καμία δικαιολογία να μην αποκαταστήσουν το πρόβλημα εφόσον υπάρχει αναρτημένο.</b> 
+<br>Και αυτό γιατί οποιοσδήποτε μπαίνει στην εφαρμογή μπορεί να βλέπει στον χάρτη ανά κατηγορία τις κακοτεχνίες και τα προβλήματα. </p>
+<p>Επιπλέον μπορείς να: 
+<br>- παρακολουθείς αν η κακοτεχνία αποκαταστάθηκε 
+<br>- βλέπεις πόσοι άλλοι έχουν εντοπίσει το ίδιο πρόβλημα. 
+<br><b>Η τεχνητή νοημοσύνη στην υπηρεσία του πολίτη!</b>
+To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTWARE, αξιοποιεί τις δυνατότητες της τεχνητής νοημοσύνης. Κάθε φωτογραφία που ανεβαίνει έχει «ελεγχθεί» από μηχανισμό που βασίζεται στην <b>τεχνητή νοημοσύνη</b>, ώστε να διασφαλιστεί ότι είναι πραγματική. Αυτό εξασφαλίζει την απόλυτη αξιοπιστία της εφαρμογής, ενώ εμποδίζει την ανάρτηση μη σχετικών φωτογραφιών.
+</p>
+<p>Και φυσικά...
+<br><b>το app του Πολίτη είναι διαθέσιμο εντελώς ΔΩΡΕΑΝ για όλες τις συσκευές! </b>
+<br><b>Κατέβασέ τώρα το Δες το Πες το και δώσε δύναμη στη φωνή σου! </b></p>                               ";
+
+            htmlSource.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
+            browser.Source = htmlSource;
+
 
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
 
@@ -442,8 +475,14 @@ namespace DestoPesto.Views
         }
 
 
-       
 
+        public bool BrowserIsVisible
+        {
+            get
+            {
+                return !MapIsVisible;
+            }
+        }
 
         static bool FirstTime = true;
 
@@ -453,6 +492,18 @@ namespace DestoPesto.Views
         {
             //(App.Current as App).getLocation();
             base.OnAppearing();
+
+            var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermisions == PermissionStatus.Granted)
+                MapIsVisible= true;
+            else
+                MapIsVisible= false;
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
+
+
+
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -475,7 +526,7 @@ namespace DestoPesto.Views
             }
 
 
-            
+
             if (/*(App.Current as App)*/App.IntentExtras != null)
             {
                 foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
@@ -513,7 +564,7 @@ namespace DestoPesto.Views
             }
             else
             {
-                var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+                locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
                 if (locationInUsePermisions == PermissionStatus.Granted)
                 {
                     try
@@ -659,8 +710,68 @@ namespace DestoPesto.Views
                 await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, "Oh no !  Token expired", DestoPesto.Properties.Resources.Oktext);
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public bool MapIsVisible { get; set; }
+
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
+
+            var locationInUsePermisionsa = await Permissions.CheckStatusAsync<Permissions.LocationAlways>();
+            var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermisions != PermissionStatus.Granted)
+            {
+
+                locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
+                if (locationInUsePermisions == PermissionStatus.Granted)
+                {
+                    MapIsVisible=true;
+
+                    try
+                    {
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
+
+                        var location = await Geolocation.GetLocationAsync();
+                        if (location != null)
+                        {
+                            map.HasZoomEnabled = true;
+
+
+                            var zoomLevel = 15; // between 1 and 18
+                            var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                            if (LatVisibleRegion != null)
+                                latlongdegrees = LatVisibleRegion.LatitudeDegrees;
+
+                            MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
+                            var h = map.Height;
+                            var w = map.Width;
+
+                            //    map.MoveToRegion(LatVisibleRegion);
+                            //else
+                            map.MoveToRegion(mapSpan);
+                            map.IsVisible = true;
+                        }
+                    }
+                    catch (Exception error)
+                    {
+
+                        throw;
+                    }
+                }
+                return;
+            }
+
+            var cameraUsePermisions = await Permissions.CheckStatusAsync<Permissions.Camera>();
+            if (cameraUsePermisions != PermissionStatus.Granted)
+            {
+
+                cameraUsePermisions = await Permissions.RequestAsync<Permissions.Camera>();
+                if (cameraUsePermisions != PermissionStatus.Granted)
+                    return;
+            }
+
 
             //JsonHandler.ShowNotification("Arion", "Hello World");
             //return; 
@@ -720,25 +831,33 @@ namespace DestoPesto.Views
             Stream stream = null;
 
 
-
-            FileResult result = await MediaPicker.CapturePhotoAsync();
-            //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
-
-            if (result != null)
+            try
             {
-                string base64 = "";
-                stream = await result.OpenReadAsync();
-                //if (stream != null)
-                //{
-                //    using (MemoryStream memory = new MemoryStream())
-                //    {
-                //        stream.CopyTo(memory);
-                //        byte[] bytes = memory.ToArray();
-                //        //byte[] resizedImage = await ImageResizer.ResizeImage(bytes, 1200, 1200);
-                //        //base64 = System.Convert.ToBase64String(resizedImage);
-                //        base64 = System.Convert.ToBase64String(bytes);
-                //    }
-                //}
+
+                FileResult result = await MediaPicker.CapturePhotoAsync();
+                //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
+
+                if (result != null)
+                {
+                    string base64 = "";
+                    stream = await result.OpenReadAsync();
+                    //if (stream != null)
+                    //{
+                    //    using (MemoryStream memory = new MemoryStream())
+                    //    {
+                    //        stream.CopyTo(memory);
+                    //        byte[] bytes = memory.ToArray();
+                    //        //byte[] resizedImage = await ImageResizer.ResizeImage(bytes, 1200, 1200);
+                    //        //base64 = System.Convert.ToBase64String(resizedImage);
+                    //        base64 = System.Convert.ToBase64String(bytes);
+                    //    }
+                    //}
+                }
+            }
+            catch (Exception error)
+            {
+
+                return;
             }
 
             //{
@@ -746,9 +865,33 @@ namespace DestoPesto.Views
             //    stream = typeof(JsonHandler).Assembly.GetManifestResourceStream("DestoPesto.TestPhoto.JPG");
             //}
 
-
             if (stream != null)
             {
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+                {
+                    var result = await device.RemoteNotificationsPermissionsRequest();
+                    if (result == PermissionStatus.Disabled)
+                    {
+                        await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                        return;
+                    }
+                }
+                else if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Disabled)
+                {
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                    return;
+                }
+
+                if (await device.RemoteNotificationsPermissionsCheck() != PermissionStatus.Granted)
+                    return;
+
+
+
+                device.PermissionsGranted();
+
+
+
                 var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);

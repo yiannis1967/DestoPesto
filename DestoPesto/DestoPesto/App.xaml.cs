@@ -35,12 +35,12 @@ namespace DestoPesto
             cameraInUsePermisionstask.Wait();
             var cameraInUsePermisions = cameraInUsePermisionstask.Result;
 
-            if (locationInUsePermisions != PermissionStatus.Granted|| cameraInUsePermisions != PermissionStatus.Granted)
-                MainPage = new PermissionsPage();
-            else
+            //if (locationInUsePermisions != PermissionStatus.Granted|| cameraInUsePermisions != PermissionStatus.Granted)
+            //    MainPage = new PermissionsPage();
+            //else
             {
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
-                device.PermissionsGranted();
+                
                 MainPage = new AppShell();
             }
 

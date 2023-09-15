@@ -50,17 +50,32 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <AbsoluteLayout Grid.Row="0">
+        <AbsoluteLayout IsVisible="{Binding MapIsVisible}" Grid.Row="0">
             <ContentView  
                AbsoluteLayout.LayoutBounds="0,0,1,1"
                AbsoluteLayout.LayoutFlags="All" 
                HorizontalOptions="FillAndExpand"
                VerticalOptions="FillAndExpand" >
-                <map:MapEx  x:Name="map" MapClicked="map_MapClicked"  HasScrollEnabled="True" MapType="Street" HasZoomEnabled="True" IsShowingUser="true" PropertyChanged="map_PropertyChangedAsync"></map:MapEx>
+                <map:MapEx IsVisible="{Binding MapIsVisible}" x:Name="map" MapClicked="map_MapClicked"  HasScrollEnabled="True" MapType="Street" HasZoomEnabled="True" IsShowingUser="true" PropertyChanged="map_PropertyChangedAsync"></map:MapEx>
+            
             </ContentView>
             <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
         </AbsoluteLayout>
 
+
+        <AbsoluteLayout IsVisible="{Binding BrowserIsVisible}" Grid.Row="0">
+            <ContentView  
+               AbsoluteLayout.LayoutBounds="0,0,1,1"
+               AbsoluteLayout.LayoutFlags="All" 
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" >
+            
+                <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="https://asfameazure.blob.core.windows.net/destopesto/docs/homescreentext.txt">
+                    <!--https://asfameazure.blob.core.windows.net/destopesto/docs/homescreentext.txt-->
+                </WebView>
+            </ContentView>
+            <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
+        </AbsoluteLayout>
         <ScrollView Grid.Row="1">
             <Grid   x:Name="GridBtn" BackgroundColor="White"></Grid>
         </ScrollView>

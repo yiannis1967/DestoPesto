@@ -82,6 +82,7 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BaseUrl_iOS.cs" />
     <Compile Include="DeviceCore.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ImageResizer.cs" />
