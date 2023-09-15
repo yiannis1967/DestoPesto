@@ -151,7 +151,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cookies Policy (in Greek).
+        ///   Looks up a localized string similar to Cookies Policy.
         /// </summary>
         public static string CookiesPolicy {
             get {
@@ -529,7 +529,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to How it works (in Greek).
+        ///   Looks up a localized string similar to How it works.
         /// </summary>
         public static string HowItWorks {
             get {
@@ -754,7 +754,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Privacy policy (in Greek).
+        ///   Looks up a localized string similar to Privacy policy.
         /// </summary>
         public static string PrivacyPolicy {
             get {
@@ -934,7 +934,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Terms and conditions (in Greek).
+        ///   Looks up a localized string similar to Terms and conditions.
         /// </summary>
         public static string TermsConditions {
             get {
@@ -1006,7 +1006,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vision (in Greek).
+        ///   Looks up a localized string similar to Vision.
         /// </summary>
         public static string Vision {
             get {

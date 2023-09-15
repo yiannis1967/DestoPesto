@@ -307,19 +307,19 @@
     <value>Welcome to the app</value>
   </data>
   <data name="CookiesPolicy" xml:space="preserve">
-    <value>Cookies Policy (in Greek)</value>
+    <value>Cookies Policy</value>
   </data>
   <data name="HowItWorks" xml:space="preserve">
-    <value>How it works (in Greek)</value>
+    <value>How it works</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Privacy policy (in Greek)</value>
+    <value>Privacy policy</value>
   </data>
   <data name="TermsConditions" xml:space="preserve">
-    <value>Terms and conditions (in Greek)</value>
+    <value>Terms and conditions</value>
   </data>
   <data name="Vision" xml:space="preserve">
-    <value>Vision (in Greek)</value>
+    <value>Vision</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>Continue</value>
