@@ -61,6 +61,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://destopesto.gr/info/Accuracy_disclaimer_en.
+        /// </summary>
+        public static string Accuracy_disclaimerLink {
+            get {
+                return ResourceManager.GetString("Accuracy_disclaimerLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alert.
         /// </summary>
         public static string AlertText {
@@ -142,11 +151,20 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cookies Policy.
+        ///   Looks up a localized string similar to Cookies Policy (in Greek).
         /// </summary>
         public static string CookiesPolicy {
             get {
                 return ResourceManager.GetString("CookiesPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://destopesto.gr/info/cookies_policy_en.
+        /// </summary>
+        public static string CookiesPolicyLInk {
+            get {
+                return ResourceManager.GetString("CookiesPolicyLInk", resourceCulture);
             }
         }
         
@@ -511,11 +529,20 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to How it works.
+        ///   Looks up a localized string similar to How it works (in Greek).
         /// </summary>
         public static string HowItWorks {
             get {
                 return ResourceManager.GetString("HowItWorks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://destopesto.gr/info/how_it_works_en.
+        /// </summary>
+        public static string HowItWorksLink {
+            get {
+                return ResourceManager.GetString("HowItWorksLink", resourceCulture);
             }
         }
         
@@ -628,7 +655,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The application is not responding because the internet connection is lost.
+        ///   Looks up a localized string similar to The system is not responding because internet connection is lost or the server is down. Close the app and try again in a minute.
         /// </summary>
         public static string NoInternetText {
             get {
@@ -727,11 +754,20 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Privacy policy.
+        ///   Looks up a localized string similar to Privacy policy (in Greek).
         /// </summary>
         public static string PrivacyPolicy {
             get {
                 return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://destopesto.gr/info/PrivacyPolicy_en.
+        /// </summary>
+        public static string PrivacyPolicyLInk {
+            get {
+                return ResourceManager.GetString("PrivacyPolicyLInk", resourceCulture);
             }
         }
         
@@ -898,7 +934,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Terms and conditions.
+        ///   Looks up a localized string similar to Terms and conditions (in Greek).
         /// </summary>
         public static string TermsConditions {
             get {
@@ -970,11 +1006,20 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vision.
+        ///   Looks up a localized string similar to Vision (in Greek).
         /// </summary>
         public static string Vision {
             get {
                 return ResourceManager.GetString("Vision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://destopesto.gr/info/vision_en.
+        /// </summary>
+        public static string VisionLink {
+            get {
+                return ResourceManager.GetString("VisionLink", resourceCulture);
             }
         }
         
