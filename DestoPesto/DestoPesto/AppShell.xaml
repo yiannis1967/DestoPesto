@@ -195,10 +195,9 @@
         <ShellContent Route="Submisions" ContentTemplate="{DataTemplate local:SubmisionsListPageDetail}" />
     </FlyoutItem>
 
-    
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="{x:Static resources:Properties.Resources.LogoutItemText}" IconImageSource="logout.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
-    </MenuItem>
+    <MenuItem Text="{x:Static resources:Properties.Resources.DeleteAccountText}" IconImageSource="delete.png" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked"></MenuItem>
+    <MenuItem Text="{x:Static resources:Properties.Resources.LogoutItemText}" IconImageSource="logout.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"></MenuItem>
 
 
 

@@ -23,6 +23,7 @@ using System.Reflection;
 using PCLStorage;
 using System.Xml.Linq;
 using Authentication;
+using System.Net;
 //using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto.Views
@@ -487,6 +488,7 @@ namespace DestoPesto.Views
         static bool FirstTime = true;
 
         bool NoInternetConnection = false;
+        
 
         protected override async void OnAppearing()
         {
@@ -714,6 +716,21 @@ namespace DestoPesto.Views
         public event PropertyChangedEventHandler PropertyChanged;
 
         public bool MapIsVisible { get; set; }
+
+
+        private string _MobileHomePage;
+        public string MobileHomePage 
+        {
+            get
+            {
+                if (_MobileHomePage == null)
+                {
+                    WebClient client = new WebClient();
+                    _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+                }
+                return _MobileHomePage;
+            }
+        }
 
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {

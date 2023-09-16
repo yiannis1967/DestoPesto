@@ -159,6 +159,12 @@
   <data name="DamageSatusSuccess" xml:space="preserve">
     <value>Επιτυχής αποστολή </value>
   </data>
+  <data name="DeleteAccountInfoText" xml:space="preserve">
+    <value>Διαγραφή λογαριασμού γίνεται από το μενού με την επιλογή 'Διαγραφή Λογαριασμού' </value>
+  </data>
+  <data name="DeleteAccountText" xml:space="preserve">
+    <value>Διαγραφή λογαριασμού</value>
+  </data>
   <data name="DobText" xml:space="preserve">
     <value>Ημερομηνία γέννησης</value>
   </data>

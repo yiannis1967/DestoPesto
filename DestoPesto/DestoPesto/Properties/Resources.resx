@@ -456,4 +456,10 @@
   <data name="HomeScreenMobileLink" xml:space="preserve">
     <value>https://asfameazure.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt</value>
   </data>
+  <data name="DeleteAccountInfoText" xml:space="preserve">
+    <value>Account deletion can be done by selecting 'Delete account' at the app's menu</value>
+  </data>
+  <data name="DeleteAccountText" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
 </root>

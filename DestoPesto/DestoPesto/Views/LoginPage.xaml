@@ -108,7 +108,7 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
-                                    <!--<RowDefinition Height="*"></RowDefinition>-->
+                                    <RowDefinition Height="Auto"></RowDefinition>
                                 </Grid.RowDefinitions>
 
 
@@ -122,7 +122,7 @@
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="10*"/>
+                                                <ColumnDefinition Width="6*"/>
                                                 
                                             </Grid.ColumnDefinitions>
                                             <Image Source="{extensions:ImageResource DestoPesto.Images.facebook.png}" />
@@ -141,7 +141,7 @@
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="10*"/>
+                                                <ColumnDefinition Width="6*"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Source="{extensions:ImageResource DestoPesto.Images.google_logo.png}" />
                                             <!--<Image Source="google_logo.png"  />-->
@@ -159,7 +159,7 @@
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="10*"/>
+                                                <ColumnDefinition Width="6*"/>
                                             </Grid.ColumnDefinitions>
                                             <!--<Image Source="applelogo.png"  />-->
                                             <Image Source="{extensions:ImageResource DestoPesto.Images.applelogo.png}" />
@@ -174,7 +174,7 @@
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="10*"/>
+                                                <ColumnDefinition Width="6*"/>
                                             </Grid.ColumnDefinitions>
                                             <!--<Image Source="email.png"  />-->
                                             <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
@@ -182,8 +182,8 @@
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
-
-                            </Grid>
+                            <Label Grid.Row="3" Text="{x:Static resources:Properties.Resources.DeleteAccountInfoText}" TextColor="Black"  LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        </Grid>
 
 
                         </StackLayout>

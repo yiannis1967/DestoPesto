@@ -196,6 +196,24 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account deletion can be done by selecting &apos;Delete account&apos; at the app&apos;s menu.
+        /// </summary>
+        public static string DeleteAccountInfoText {
+            get {
+                return ResourceManager.GetString("DeleteAccountInfoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete account.
+        /// </summary>
+        public static string DeleteAccountText {
+            get {
+                return ResourceManager.GetString("DeleteAccountText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date Of Birth.
         /// </summary>
         public static string DobText {
