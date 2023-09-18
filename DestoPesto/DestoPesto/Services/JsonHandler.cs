@@ -99,7 +99,7 @@ namespace DestoPesto.Services
 
                 var dataFiles = files.Where(x => x.Name.Split('.')[1] == "txt").ToList();
 
-                if (dataFiles.Count > 0&& !SuspendBKService)
+                if (dataFiles.Count > 0 && !SuspendBKService)
                 {
                     device.RunInBackground(new Action(() =>
                     {
@@ -130,7 +130,7 @@ namespace DestoPesto.Services
 
                                     var m_files = dataFiles.Count;
 
-                                    if (Authentication.DeviceAuthentication.IDToken != null&&!SuspendBKService)
+                                    if (Authentication.DeviceAuthentication.IDToken != null && !SuspendBKService)
                                     {
                                         if (onlyWifi == false || profiles.Contains(ConnectionProfile.WiFi))
                                         {
@@ -138,7 +138,7 @@ namespace DestoPesto.Services
                                             {
                                                 try
                                                 {
-                                                    _continue=await UploadDamage(files, dataFile);
+                                                    _continue = await UploadDamage(files, dataFile);
 
                                                     break;
                                                     //await JsonHandler.PostSubmission(Damages);
@@ -224,7 +224,7 @@ namespace DestoPesto.Services
             IList<IFile> files = await folder.GetFilesAsync();
 
             var dataFiles = files.Where(x => x.Name.Split('.')[1] == "txt").ToList();
-            if (dataFiles.Count>0)
+            if (dataFiles.Count > 0)
             {
                 await UploadDamage(files, dataFiles[0]);
                 return true;
@@ -347,7 +347,7 @@ namespace DestoPesto.Services
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://10.0.0.13:5005/";
-                //_Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://10.0.0.10:5005/";
 #endif
 
             }
@@ -792,15 +792,11 @@ namespace DestoPesto.Services
             //}
         }
 
-        internal async static Task< bool> RemoveUser()
+        internal async static Task<bool> RemoveUser()
         {
 
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-            {
-
                 return false;
-
-            }
             var client = new HttpClient();
             Uri uri = new Uri(getUri() + "api/Account/Delete");
 
@@ -821,7 +817,7 @@ namespace DestoPesto.Services
             var result = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return true;
+                return result?.ToLower() == true.ToString().ToLower();
 
             }
             else
