@@ -10,6 +10,7 @@ namespace DestoPesto.Models
        public int id { get; set; }
         public string code { get; set; }
         public string description { get; set; }
+        public string description_en { get; set; }
         public string comments { get; set; }
         public string descriptionCognity { get; set; }
         public string color { get; set; }
