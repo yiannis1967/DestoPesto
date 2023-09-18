@@ -42,7 +42,8 @@ namespace DestoPesto.Views
 
         protected override void OnDisappearing()
         {
-            AboutPage.LatVisibleRegion = map.VisibleRegion;
+            if(map!=null)
+                AboutPage.LatVisibleRegion = map.VisibleRegion;
             base.OnDisappearing();
         }
 
@@ -50,8 +51,8 @@ namespace DestoPesto.Views
         {
 
             InitializeComponent();
-            map.IsVisible = false;
-            BindingContext = this;
+            //map.IsVisible = false;
+            BindingContext=this;
             JsonHandler.CreateFolder();
             //    location_tap.Tapped += Location_tap_Tapped;
             // imgpin.GestureRecognizers.Add(location_tap);
@@ -390,16 +391,18 @@ namespace DestoPesto.Views
                         latlongdegrees = LatVisibleRegion.LatitudeDegrees;
 
                     MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
+                    if (map!=null)
+                    {
+
+                        var h = map.Height;
+                        var w = map.Width;
 
 
-                    var h = map.Height;
-                    var w = map.Width;
-
-
-                    //if (LatVisibleRegion!=null)
-                    //    map.MoveToRegion(LatVisibleRegion);
-                    //else
-                    map.MoveToRegion(mapSpan);
+                        //if (LatVisibleRegion!=null)
+                        //    map.MoveToRegion(LatVisibleRegion);
+                        //else
+                        map.MoveToRegion(mapSpan);
+                    }
 
                     if (Authentication.DeviceAuthentication.AuthUser != null)
                         MessagingCenter.Send<string>("1", "GetData");
@@ -425,6 +428,8 @@ namespace DestoPesto.Views
 
         void DrawPinsOnMap(ObservableCollection<DamageData> _pinLoc)
         {
+            if (map==null)
+                return;
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
@@ -488,7 +493,7 @@ namespace DestoPesto.Views
         static bool FirstTime = true;
 
         bool NoInternetConnection = false;
-        
+        private MapEx map;
 
         protected override async void OnAppearing()
         {
@@ -497,7 +502,15 @@ namespace DestoPesto.Views
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions == PermissionStatus.Granted)
+            {
+                map=new MapEx() { HasScrollEnabled=true, MapType=MapType.Street, HasZoomEnabled=true, IsShowingUser=true };
+
+                MapContent.Content=map;
+                map.MapClicked+=map_MapClicked;
+                map.PropertyChanged+=map_PropertyChangedAsync;
+
                 MapIsVisible = true;
+            }
             else
                 MapIsVisible = false;
 
@@ -572,7 +585,7 @@ namespace DestoPesto.Views
                     try
                     {
                         var location = await Geolocation.GetLocationAsync();
-                        if (location != null)
+                        if (location != null&&map!=null)
                         {
                             map.HasZoomEnabled = true;
 
@@ -743,7 +756,13 @@ namespace DestoPesto.Views
                 locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
                 if (locationInUsePermisions == PermissionStatus.Granted)
                 {
-                    MapIsVisible = true;
+                    map=new MapEx() { HasScrollEnabled=true, MapType=MapType.Street, HasZoomEnabled=true, IsShowingUser=true };
+
+                    MapContent.Content=map;
+                    map.MapClicked+=map_MapClicked;
+                    map.PropertyChanged+=map_PropertyChangedAsync;
+
+                    MapIsVisible=true;
 
                     try
                     {
