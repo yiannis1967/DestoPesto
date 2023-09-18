@@ -89,8 +89,8 @@
     <None Remove="ButtonCircleBig.png" />
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
-    <None Remove="Images\delete.png" />
     <None Remove="Images\delete1.png" />
+    <None Remove="Images\delete_user.png" />
     <None Remove="Images\destopesto_icon.png" />
     <None Remove="Images\destopesto_logo_square_blue.png" />
     <None Remove="Images\destopesto_logo_square_solo_white.png" />
@@ -128,7 +128,7 @@
     <EmbeddedResource Include="ButtonCircleBig.png" />
     <EmbeddedResource Include="Images\applelogo.png" />
     <EmbeddedResource Include="Images\back_arrow.png" />
-    <EmbeddedResource Include="Images\delete.png" />
+    <EmbeddedResource Include="Images\delete_user.png" />
     <EmbeddedResource Include="Images\destopesto_icon.png" />
     <EmbeddedResource Include="Images\destopesto_logo_square_blue.png" />
     <EmbeddedResource Include="Images\destopesto_logo_square_solo_white.png" />
