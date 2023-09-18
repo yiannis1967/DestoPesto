@@ -23,6 +23,7 @@ using System.Reflection;
 using PCLStorage;
 using System.Xml.Linq;
 using Authentication;
+using System.Net;
 //using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto.Views
@@ -58,36 +59,36 @@ namespace DestoPesto.Views
             //  lblclickpin.GestureRecognizers.Add(location_tap);
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
 
-            var htmlSource = new HtmlWebViewSource();
+            //var htmlSource = new HtmlWebViewSource();
 
 
 
-            htmlSource.Html = @"
-                                <h1>Δες το Πες το</h1>
-<h3>Το app του πολίτη!</h3>
-<p>Πόσες κακοτεχνίες συναντάς καθημερινά στον δρόμο σου; Λακκούβες, χαλασμένα φανάρια, σπασμένα πεζοδρόμια είναι ορισμένα μόνο από αυτά που κάνουν τη ζωή μας δύσκολη και ενίοτε επικίνδυνη, ειδικά στις ευπαθείς ομάδες.
-<br>Και το παράδοξο είναι ότι ποτέ δεν γνωρίζεις σε ποιο φορέα πρέπει να απευθυνθείς για την αποκατάστασή τους. </p>
-<p>Αυτά μέχρι χθες! Γιατί σήμερα υπάρχει το <b>ΔΕΣ ΤΟ - ΠΕΣ ΤΟ</b>.</p>
-Το πρωτοποριακό app που γίνεται ο καθημερινός σύμμαχος του πολίτη δίνοντας δύναμη στη φωνή του!
-<br><b>Μπορούμε  όλοι να συμβάλλουμε στην βελτίωση της καθημερινότητάς μας. </b>
-<br><b>Κάθε κακοτεχνία που διορθώνεται είναι κέρδος για όλους!</b></p>
-<p><h3>Απλή διαδικασία με 2 βήματα! </h3></p>
-<p><b>ΒΗΜΑ 1ο:</b> Μπες στο app και επίλεξε την κατηγορία (λακκούβα, φανάρι κτλ.)
-<br><b>ΒΗΜΑ 2ο:</b> Φωτογράφισε την κακοτεχνία και σε λίγα μόνο λεπτά θα ειδοποιηθείς αν η ανάρτησή σου είναι έγκυρη.
-<br><b>Από εκεί και πέρα οι αρμόδιοι φορείς δεν έχουν καμία δικαιολογία να μην αποκαταστήσουν το πρόβλημα εφόσον υπάρχει αναρτημένο.</b> 
-<br>Και αυτό γιατί οποιοσδήποτε μπαίνει στην εφαρμογή μπορεί να βλέπει στον χάρτη ανά κατηγορία τις κακοτεχνίες και τα προβλήματα. </p>
-<p>Επιπλέον μπορείς να: 
-<br>- παρακολουθείς αν η κακοτεχνία αποκαταστάθηκε 
-<br>- βλέπεις πόσοι άλλοι έχουν εντοπίσει το ίδιο πρόβλημα. 
-<br><b>Η τεχνητή νοημοσύνη στην υπηρεσία του πολίτη!</b>
-To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTWARE, αξιοποιεί τις δυνατότητες της τεχνητής νοημοσύνης. Κάθε φωτογραφία που ανεβαίνει έχει «ελεγχθεί» από μηχανισμό που βασίζεται στην <b>τεχνητή νοημοσύνη</b>, ώστε να διασφαλιστεί ότι είναι πραγματική. Αυτό εξασφαλίζει την απόλυτη αξιοπιστία της εφαρμογής, ενώ εμποδίζει την ανάρτηση μη σχετικών φωτογραφιών.
-</p>
-<p>Και φυσικά...
-<br><b>το app του Πολίτη είναι διαθέσιμο εντελώς ΔΩΡΕΑΝ για όλες τις συσκευές! </b>
-<br><b>Κατέβασέ τώρα το Δες το Πες το και δώσε δύναμη στη φωνή σου! </b></p>                               ";
+            //htmlSource.Html = @"
+            //                                <h1>Δες το Πες το</h1>
+            //<h3>Το app του πολίτη!</h3>
+            //<p>Πόσες κακοτεχνίες συναντάς καθημερινά στον δρόμο σου; Λακκούβες, χαλασμένα φανάρια, σπασμένα πεζοδρόμια είναι ορισμένα μόνο από αυτά που κάνουν τη ζωή μας δύσκολη και ενίοτε επικίνδυνη, ειδικά στις ευπαθείς ομάδες.
+            //<br>Και το παράδοξο είναι ότι ποτέ δεν γνωρίζεις σε ποιο φορέα πρέπει να απευθυνθείς για την αποκατάστασή τους. </p>
+            //<p>Αυτά μέχρι χθες! Γιατί σήμερα υπάρχει το <b>ΔΕΣ ΤΟ - ΠΕΣ ΤΟ</b>.</p>
+            //Το πρωτοποριακό app που γίνεται ο καθημερινός σύμμαχος του πολίτη δίνοντας δύναμη στη φωνή του!
+            //<br><b>Μπορούμε  όλοι να συμβάλλουμε στην βελτίωση της καθημερινότητάς μας. </b>
+            //<br><b>Κάθε κακοτεχνία που διορθώνεται είναι κέρδος για όλους!</b></p>
+            //<p><h3>Απλή διαδικασία με 2 βήματα! </h3></p>
+            //<p><b>ΒΗΜΑ 1ο:</b> Μπες στο app και επίλεξε την κατηγορία (λακκούβα, φανάρι κτλ.)
+            //<br><b>ΒΗΜΑ 2ο:</b> Φωτογράφισε την κακοτεχνία και σε λίγα μόνο λεπτά θα ειδοποιηθείς αν η ανάρτησή σου είναι έγκυρη.
+            //<br><b>Από εκεί και πέρα οι αρμόδιοι φορείς δεν έχουν καμία δικαιολογία να μην αποκαταστήσουν το πρόβλημα εφόσον υπάρχει αναρτημένο.</b> 
+            //<br>Και αυτό γιατί οποιοσδήποτε μπαίνει στην εφαρμογή μπορεί να βλέπει στον χάρτη ανά κατηγορία τις κακοτεχνίες και τα προβλήματα. </p>
+            //<p>Επιπλέον μπορείς να: 
+            //<br>- παρακολουθείς αν η κακοτεχνία αποκαταστάθηκε 
+            //<br>- βλέπεις πόσοι άλλοι έχουν εντοπίσει το ίδιο πρόβλημα. 
+            //<br><b>Η τεχνητή νοημοσύνη στην υπηρεσία του πολίτη!</b>
+            //To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTWARE, αξιοποιεί τις δυνατότητες της τεχνητής νοημοσύνης. Κάθε φωτογραφία που ανεβαίνει έχει «ελεγχθεί» από μηχανισμό που βασίζεται στην <b>τεχνητή νοημοσύνη</b>, ώστε να διασφαλιστεί ότι είναι πραγματική. Αυτό εξασφαλίζει την απόλυτη αξιοπιστία της εφαρμογής, ενώ εμποδίζει την ανάρτηση μη σχετικών φωτογραφιών.
+            //</p>
+            //<p>Και φυσικά...
+            //<br><b>το app του Πολίτη είναι διαθέσιμο εντελώς ΔΩΡΕΑΝ για όλες τις συσκευές! </b>
+            //<br><b>Κατέβασέ τώρα το Δες το Πες το και δώσε δύναμη στη φωνή σου! </b></p>                               ";
 
-            htmlSource.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
-            browser.Source = htmlSource;
+            //htmlSource.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
+            //browser.Source = htmlSource;
 
 
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
@@ -511,7 +512,7 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
                 MapIsVisible = true;
             }
             else
-                MapIsVisible= false;
+                MapIsVisible = false;
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
@@ -729,6 +730,21 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
 
         public bool MapIsVisible { get; set; }
 
+
+        private string _MobileHomePage;
+        public string MobileHomePage 
+        {
+            get
+            {
+                if (_MobileHomePage == null)
+                {
+                    WebClient client = new WebClient();
+                    _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+                }
+                return _MobileHomePage;
+            }
+        }
+
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
 
@@ -899,7 +915,7 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
                 }
                 else if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Disabled)
                 {
-                   // await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                    // await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
                     //return;
                 }
 

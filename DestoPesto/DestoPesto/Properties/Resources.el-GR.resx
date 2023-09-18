@@ -159,6 +159,12 @@
   <data name="DamageSatusSuccess" xml:space="preserve">
     <value>Επιτυχής αποστολή </value>
   </data>
+  <data name="DeleteAccountInfoText" xml:space="preserve">
+    <value>Διαγραφή λογαριασμού γίνεται από το μενού με την επιλογή 'Διαγραφή Λογαριασμού' </value>
+  </data>
+  <data name="DeleteAccountText" xml:space="preserve">
+    <value>Διαγραφή λογαριασμού</value>
+  </data>
   <data name="DobText" xml:space="preserve">
     <value>Ημερομηνία γέννησης</value>
   </data>
@@ -269,6 +275,9 @@
   </data>
   <data name="HomeItemText" xml:space="preserve">
     <value>Αρχή</value>
+  </data>
+  <data name="HomeScreenMobileLink" xml:space="preserve">
+    <value>https://asfameazure.blob.core.windows.net/destopesto/docs/homescreenmob.txt</value>
   </data>
   <data name="HowItWorks" xml:space="preserve">
     <value>Πως λειτουργεί</value>

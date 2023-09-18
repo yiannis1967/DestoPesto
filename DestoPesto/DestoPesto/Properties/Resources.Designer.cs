@@ -151,7 +151,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cookies Policy (in Greek).
+        ///   Looks up a localized string similar to Cookies Policy.
         /// </summary>
         public static string CookiesPolicy {
             get {
@@ -192,6 +192,24 @@ namespace DestoPesto.Properties {
         public static string DamageSatusSuccess {
             get {
                 return ResourceManager.GetString("DamageSatusSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account deletion can be done by selecting &apos;Delete account&apos; at the app&apos;s menu.
+        /// </summary>
+        public static string DeleteAccountInfoText {
+            get {
+                return ResourceManager.GetString("DeleteAccountInfoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete account.
+        /// </summary>
+        public static string DeleteAccountText {
+            get {
+                return ResourceManager.GetString("DeleteAccountText", resourceCulture);
             }
         }
         
@@ -529,7 +547,16 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to How it works (in Greek).
+        ///   Looks up a localized string similar to https://asfameazure.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt.
+        /// </summary>
+        public static string HomeScreenMobileLink {
+            get {
+                return ResourceManager.GetString("HomeScreenMobileLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How it works.
         /// </summary>
         public static string HowItWorks {
             get {
@@ -754,7 +781,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Privacy policy (in Greek).
+        ///   Looks up a localized string similar to Privacy policy.
         /// </summary>
         public static string PrivacyPolicy {
             get {
@@ -934,7 +961,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Terms and conditions (in Greek).
+        ///   Looks up a localized string similar to Terms and conditions.
         /// </summary>
         public static string TermsConditions {
             get {
@@ -1006,7 +1033,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vision (in Greek).
+        ///   Looks up a localized string similar to Vision.
         /// </summary>
         public static string Vision {
             get {

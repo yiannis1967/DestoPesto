@@ -45,7 +45,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.HowItWorks}">
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/how_it_works"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="{x:Static resources:Properties.Resources.HowItWorksLink}"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -56,7 +56,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.Vision}" >
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/vision"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="{x:Static resources:Properties.Resources.VisionLink}"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -67,7 +67,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.TermsConditions}">
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/Accuracy_disclaimer"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="{x:Static resources:Properties.Resources.Accuracy_disclaimerLink}"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -78,7 +78,7 @@
                         <FormattedString>
                             <Span Text="{x:Static resources:Properties.Resources.PrivacyPolicy}" >
                                 <Span.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/PrivacyPolicy"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="{x:Static resources:Properties.Resources.PrivacyPolicyLInk}"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -90,7 +90,7 @@
                             <Span Text="{x:Static resources:Properties.Resources.CookiesPolicy}" >
                                 <Span.GestureRecognizers>
                                     <!--<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="https://destopesto.gr/info/cookies_policy"/>-->
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="{x:Static resources:Properties.Resources.CookiesPolicy}"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TapCommand}" CommandParameter="{x:Static resources:Properties.Resources.CookiesPolicyLInk}"/>
                                 </Span.GestureRecognizers>
                             </Span>
                         </FormattedString>
@@ -195,10 +195,9 @@
         <ShellContent Route="Submisions" ContentTemplate="{DataTemplate local:SubmisionsListPageDetail}" />
     </FlyoutItem>
 
-    
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="{x:Static resources:Properties.Resources.LogoutItemText}" IconImageSource="logout.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
-    </MenuItem>
+    <MenuItem Text="{x:Static resources:Properties.Resources.DeleteAccountText}" IconImageSource="delete.png" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked"></MenuItem>
+    <MenuItem Text="{x:Static resources:Properties.Resources.LogoutItemText}" IconImageSource="logout.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"></MenuItem>
 
 
 
