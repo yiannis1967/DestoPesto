@@ -42,7 +42,7 @@ namespace DestoPesto.Views
 
         protected override void OnDisappearing()
         {
-            if(map!=null)
+            if (map!=null)
                 AboutPage.LatVisibleRegion = map.VisibleRegion;
             base.OnDisappearing();
         }
@@ -732,7 +732,7 @@ namespace DestoPesto.Views
 
 
         private string _MobileHomePage;
-        public string MobileHomePage 
+        public string MobileHomePage
         {
             get
             {
@@ -796,7 +796,7 @@ namespace DestoPesto.Views
                         throw;
                     }
                 }
-                return;
+                //return;
             }
 
             var cameraUsePermisions = await Permissions.CheckStatusAsync<Permissions.Camera>();
@@ -903,6 +903,9 @@ namespace DestoPesto.Views
 
             if (stream != null)
             {
+                if (locationInUsePermisions != PermissionStatus.Granted)
+                    return;
+
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
                 if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
                 {

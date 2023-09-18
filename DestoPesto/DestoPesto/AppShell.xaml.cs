@@ -1,4 +1,5 @@
-﻿using DestoPesto.ViewModels;
+﻿using DestoPesto.Services;
+using DestoPesto.ViewModels;
 using DestoPesto.Views;
 using System;
 using System.Collections.Generic;
@@ -63,9 +64,17 @@ namespace DestoPesto
             }
         }
 
-        private void MenuItem_Clicked(object sender, EventArgs e)
+        private async void MenuItem_Clicked(object sender, EventArgs e)
         {
-            
+
+
+            if (await JsonHandler.RemoveUser())
+            {
+                Shell.Current.FlyoutIsPresented = false;
+                Authentication.DeviceAuthentication.SignedOut();
+
+            }
+
         }
     }
 }

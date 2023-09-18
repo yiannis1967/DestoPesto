@@ -343,7 +343,7 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if _DEBUG
+#if DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://10.0.0.13:5005/";
@@ -790,6 +790,47 @@ namespace DestoPesto.Services
             //    Console.WriteLine(ex.Message);
             //    await App.Current.MainPage.DisplayAlert("Alert", "Oh no !  Token expired", "OK");
             //}
+        }
+
+        internal async static Task< bool> RemoveUser()
+        {
+
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+
+                return false;
+
+            }
+            var client = new HttpClient();
+            Uri uri = new Uri(getUri() + "api/Delete");
+
+
+
+            string serializedObject = JsonConvert.SerializeObject("");
+            var content = new StringContent(serializedObject, Encoding.UTF8, "application/json");
+            await getUserData();
+            //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+
+            //client.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
+            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+            HttpResponseMessage response = await client.PostAsync(uri, content);
+
+            // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+
+            var result = await response.Content.ReadAsStringAsync();
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return true;
+
+            }
+            else
+
+            {
+                return false;
+            }
+
+
         }
     }
 
