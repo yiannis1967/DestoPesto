@@ -802,7 +802,7 @@ namespace DestoPesto.Services
 
             }
             var client = new HttpClient();
-            Uri uri = new Uri(getUri() + "api/Delete");
+            Uri uri = new Uri(getUri() + "api/Account/Delete");
 
 
 
