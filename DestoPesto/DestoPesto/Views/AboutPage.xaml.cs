@@ -41,7 +41,8 @@ namespace DestoPesto.Views
 
         protected override void OnDisappearing()
         {
-            AboutPage.LatVisibleRegion = map.VisibleRegion;
+            if(map!=null)
+                AboutPage.LatVisibleRegion = map.VisibleRegion;
             base.OnDisappearing();
         }
 
@@ -49,7 +50,7 @@ namespace DestoPesto.Views
         {
 
             InitializeComponent();
-            map.IsVisible = false;
+            //map.IsVisible = false;
             BindingContext=this;
             JsonHandler.CreateFolder();
             //    location_tap.Tapped += Location_tap_Tapped;
@@ -389,16 +390,18 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
                         latlongdegrees = LatVisibleRegion.LatitudeDegrees;
 
                     MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
+                    if (map!=null)
+                    {
+
+                        var h = map.Height;
+                        var w = map.Width;
 
 
-                    var h = map.Height;
-                    var w = map.Width;
-
-
-                    //if (LatVisibleRegion!=null)
-                    //    map.MoveToRegion(LatVisibleRegion);
-                    //else
-                    map.MoveToRegion(mapSpan);
+                        //if (LatVisibleRegion!=null)
+                        //    map.MoveToRegion(LatVisibleRegion);
+                        //else
+                        map.MoveToRegion(mapSpan);
+                    }
 
                     if (Authentication.DeviceAuthentication.AuthUser != null)
                         MessagingCenter.Send<string>("1", "GetData");
@@ -424,6 +427,8 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
 
         void DrawPinsOnMap(ObservableCollection<DamageData> _pinLoc)
         {
+            if (map==null)
+                return;
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
@@ -487,6 +492,7 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
         static bool FirstTime = true;
 
         bool NoInternetConnection = false;
+        private MapEx map;
 
         protected override async void OnAppearing()
         {
@@ -495,7 +501,15 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions == PermissionStatus.Granted)
-                MapIsVisible= true;
+            {
+                map=new MapEx() { HasScrollEnabled=true, MapType=MapType.Street, HasZoomEnabled=true, IsShowingUser=true };
+
+                MapContent.Content=map;
+                map.MapClicked+=map_MapClicked;
+                map.PropertyChanged+=map_PropertyChangedAsync;
+
+                MapIsVisible = true;
+            }
             else
                 MapIsVisible= false;
 
@@ -570,7 +584,7 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
                     try
                     {
                         var location = await Geolocation.GetLocationAsync();
-                        if (location != null)
+                        if (location != null&&map!=null)
                         {
                             map.HasZoomEnabled = true;
 
@@ -726,6 +740,12 @@ To ΔΕΣ ΤΟ – ΠΕΣ ΤΟ, σχεδιασμένο από την ARION SOFTW
                 locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
                 if (locationInUsePermisions == PermissionStatus.Granted)
                 {
+                    map=new MapEx() { HasScrollEnabled=true, MapType=MapType.Street, HasZoomEnabled=true, IsShowingUser=true };
+
+                    MapContent.Content=map;
+                    map.MapClicked+=map_MapClicked;
+                    map.PropertyChanged+=map_PropertyChangedAsync;
+
                     MapIsVisible=true;
 
                     try
