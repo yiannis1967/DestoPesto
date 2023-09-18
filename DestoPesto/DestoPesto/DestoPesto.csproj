@@ -90,6 +90,7 @@
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
     <None Remove="Images\delete.png" />
+    <None Remove="Images\delete1.png" />
     <None Remove="Images\destopesto_icon.png" />
     <None Remove="Images\destopesto_logo_square_blue.png" />
     <None Remove="Images\destopesto_logo_square_solo_white.png" />
