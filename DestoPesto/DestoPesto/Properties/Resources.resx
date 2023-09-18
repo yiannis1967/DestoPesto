@@ -462,4 +462,7 @@
   <data name="DeleteAccountText" xml:space="preserve">
     <value>Delete account</value>
   </data>
+  <data name="PendingPhotosToUpload" xml:space="preserve">
+    <value>There are still photos to be uploaded. If you close the app now upload will continue next time you start the app</value>
+  </data>
 </root>
