@@ -4,6 +4,7 @@ using DestoPesto.Views;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Xamarin.Auth.OAuth2;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -75,6 +76,16 @@ namespace DestoPesto
 
             }
 
+        }
+
+        void HyperlinkLabel_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+
+        async void howto_Clicked(System.Object sender, System.EventArgs e)
+        {
+            string url = Properties.Resources.HowItWorksLink;
+            await Launcher.OpenAsync(url);
         }
     }
 }
