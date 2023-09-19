@@ -85,6 +85,32 @@ namespace DestoPesto
             string url = Properties.Resources.HowItWorksLink;
             await Launcher.OpenAsync(url);
         }
+
+        async void vision_Clicked(object sender, EventArgs e)
+        {
+            string url = Properties.Resources.VisionLink;
+            await Launcher.OpenAsync(url);
+        }
+
+        async void disclaimer_Clicked(object sender, EventArgs e)
+        {
+            string url = Properties.Resources.Accuracy_disclaimerLink;
+            await Launcher.OpenAsync(url);
+        }
+
+      
+
+        async void PrivacyPolicy_Clicked(object sender, EventArgs e)
+        {
+            string url = Properties.Resources.PrivacyPolicyLInk;
+            await Launcher.OpenAsync(url);
+        }
+
+        async void CookiesPolicy_Clicked(object sender, EventArgs e)
+        {
+            string url = Properties.Resources.CookiesPolicyLInk;
+            await Launcher.OpenAsync(url);
+        }
     }
 }
 
