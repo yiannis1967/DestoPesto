@@ -754,6 +754,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are still photos to be uploaded. If you close the app now upload will continue next time you start the app.
+        /// </summary>
+        public static string PendingPhotosToUpload {
+            get {
+                return ResourceManager.GetString("PendingPhotosToUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If notifications are not allowed the app will not run .
         /// </summary>
         public static string PermissionsNotGrandedText {

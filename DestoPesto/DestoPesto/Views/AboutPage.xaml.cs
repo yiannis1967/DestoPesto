@@ -296,7 +296,7 @@ namespace DestoPesto.Views
                 //CategoryButtons[i].button.Text = catagories[i].description;
                 CategoryButtons[i].label.Text = catagories[i].description;
 
-                if (System.Globalization.CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName.ToLower()!="gre")
+                if (System.Globalization.CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName.ToLower()!="ell")
                     CategoryButtons[i].label.Text = catagories[i].description_en;
 
 

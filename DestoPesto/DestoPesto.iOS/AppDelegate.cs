@@ -262,8 +262,8 @@ namespace DestoPesto.iOS
                 notification.FireDate = NSDate.FromTimeIntervalSinceNow(3);
 
                 // configure the alert
-                notification.AlertAction = "View Alert";
-                notification.AlertBody = "Your one minute alert has fired!";
+                notification.AlertAction = DestoPesto.Properties.Resources.AlertText;
+                notification.AlertBody = DestoPesto.Properties.Resources.NotificationContentText;
 
                 // modify the badge
                 notification.ApplicationIconBadgeNumber = 1;
