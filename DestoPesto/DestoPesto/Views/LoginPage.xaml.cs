@@ -15,6 +15,7 @@ using Xamarin.Forms.Xaml;
 using Authentication;
 using System.Windows.Input;
 using Xamarin.Forms.Internals;
+using DestoPesto.Services;
 
 namespace DestoPesto.Views
 {
@@ -52,7 +53,7 @@ namespace DestoPesto.Views
             FacebookSigninCommand = new Command(OnFacebookSignIn);
             AppleSigninCommand = new Command(OnAppleSignIn);
 
-            this.BindingContext = this;// new LoginViewModel(Navigation);
+            
 
             Signup_tap.Tapped += Signup_tap_Tapped;
             Signin_tap.Tapped += Signin_tap_Tapped;
@@ -69,6 +70,18 @@ namespace DestoPesto.Views
             emailSignin.GestureRecognizers.Add(Signin_tap);
             //DeviceAuthentication.SignedOut();
 
+            JsonHandler.getUri();
+
+            GoogleSignInVisible=JsonHandler.GoogleSignInMethod;
+            AppleSignInVisible=JsonHandler.AppleSignInMethod;
+            FacebookSignInVisible= JsonHandler.FacebookSignInMethod;
+            EmailSignInVisible= JsonHandler.FacebookSignInMethod;
+
+            if (!GoogleSignInVisible&&!AppleSignInVisible&&!FacebookSignInVisible&&!EmailSignInVisible)
+                EmailSignInVisible=true;
+
+            this.BindingContext = this;// new LoginViewModel(Navigation);
+
         }
 
         private async void OnAppleSignIn()
@@ -83,27 +96,30 @@ namespace DestoPesto.Views
         }
 
 
-        public bool GoogleSignInVisible
-        {
-            get
-            {
-                if (Xamarin.Essentials.DeviceInfo.Platform.ToString() == "iOS")
-                    return false;
-                else
-                    return true;
-            }
-        }
+        public bool GoogleSignInVisible { get; set; }
+        //{
+        //    get
+        //    {
+        //        if (Xamarin.Essentials.DeviceInfo.Platform.ToString() == "iOS")
+        //            return false;
+        //        else
+        //            return true;
+        //    }
+        //}
 
-        public bool AppleSignInVisible
-        {
-            get
-            {
-                if (Xamarin.Essentials.DeviceInfo.Platform.ToString() == "iOS")
-                    return true;
-                else
-                    return false;
-            }
-        }
+        public bool AppleSignInVisible { get; set; }
+        //{
+        //    get
+        //    {
+        //        if (Xamarin.Essentials.DeviceInfo.Platform.ToString() == "iOS")
+        //            return true;
+        //        else
+        //            return false;
+        //    }
+        //}
+
+        public bool FacebookSignInVisible { get; set; }
+        public bool EmailSignInVisible { get; }
 
         private void OnFacebookSignIn(object obj)
         {

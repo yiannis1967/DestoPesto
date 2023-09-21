@@ -114,7 +114,7 @@
 
 
                                 <!--<Frame BackgroundColor="#1877F2" HeightRequest="42" WidthRequest="222" CornerRadius="6" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="End" Padding="0">-->
-                                <Frame  CornerRadius="10"  
+                            <Frame  CornerRadius="10"   IsVisible="{Binding FacebookSignInVisible}"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding FacebookSigninCommand}">
@@ -167,7 +167,8 @@
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
-                                <Frame Grid.Row="2" CornerRadius="10" xct:TouchEffect.PressedScale="1.01"
+                            <Frame Grid.Row="2" CornerRadius="10"  IsVisible="{Binding EmailSignInVisible}"
+                                        xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding SigninCommand}">
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="emailSignin" >

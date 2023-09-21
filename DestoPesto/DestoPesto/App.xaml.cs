@@ -34,14 +34,24 @@ namespace DestoPesto
             var cameraInUsePermisionstask = Permissions.CheckStatusAsync<Permissions.Camera>();
             cameraInUsePermisionstask.Wait();
             var cameraInUsePermisions = cameraInUsePermisionstask.Result;
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            var RemoteNotificationsPermissionsTask = device.RemoteNotificationsPermissionsCheck();
+            RemoteNotificationsPermissionsTask.Wait();
+            var RemoteNotificationsPermissions = RemoteNotificationsPermissionsTask.Result;
+
+            if (device != null)
+
 
             //if (locationInUsePermisions != PermissionStatus.Granted|| cameraInUsePermisions != PermissionStatus.Granted)
             //    MainPage = new PermissionsPage();
             //else
             {
-                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
-                
+
+                if (RemoteNotificationsPermissions == PermissionStatus.Granted)
+                    device.PermissionsGranted();
+
                 MainPage = new AppShell();
+
             }
 
 
@@ -53,7 +63,7 @@ namespace DestoPesto
         {
 
 
-            if (!string.IsNullOrWhiteSpace(_FirbaseMessgesToken)&&Authentication.DeviceAuthentication.AuthUser!=null)
+            if (Authentication.DeviceAuthentication.AuthUser != null)
             {
                 JsonHandler.SignIn(_FirbaseMessgesToken);
             }
@@ -76,7 +86,7 @@ namespace DestoPesto
             {
                 if (value == "1")
                 {
-                     locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+                    locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
                     //else
 
                     if (locationInUsePermisions != PermissionStatus.Granted)
@@ -89,7 +99,7 @@ namespace DestoPesto
                     {
 
 
-                        if(SubmittedDamage==null)
+                        if (SubmittedDamage == null)
                             SubmittedDamage = await JsonHandler.GetDamages(false, loc.Latitude, loc.Longitude, 20000.0);
                         LastSubmittedLocation = loc;
 
@@ -118,14 +128,14 @@ namespace DestoPesto
             if (MainPage == null)
                 return;
 
-             locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             //else
 
             if (locationInUsePermisions != PermissionStatus.Granted)
                 return;
 
 
-         
+
             try
             {
 
@@ -161,7 +171,7 @@ namespace DestoPesto
                         //Call GetSubmission
                         try
                         {
-                            if(SubmittedDamage==null)
+                            if (SubmittedDamage == null)
                                 SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, 20000.0);
                         }
                         catch (Exception ex)
@@ -235,7 +245,7 @@ namespace DestoPesto
                 //  locationList.Add(new Tuple<double, double>(position.Latitude, position.Longitude));
                 //
 
-                 
+
             }
             catch
             {
@@ -341,8 +351,8 @@ namespace DestoPesto
             get => _FirbaseMessgesToken;
             set
             {
-                _FirbaseMessgesToken= value;
-                if (Authentication.DeviceAuthentication.AuthUser!=null)
+                _FirbaseMessgesToken = value;
+                if (Authentication.DeviceAuthentication.AuthUser != null)
                 {
                     JsonHandler.SignIn(_FirbaseMessgesToken);
                 }
@@ -390,7 +400,7 @@ namespace DestoPesto
 
         protected override async void OnStart()
         {
-           
+
         }
 
         protected override void OnSleep()
@@ -400,7 +410,7 @@ namespace DestoPesto
         protected override void OnResume()
         {
         }
-         
+
         public void StartFGService()
         {
             JsonHandler.SubmitTripFilesTask();
@@ -414,7 +424,7 @@ namespace DestoPesto
             data.TryGetValue("SubmisionThumb", out submisionThumb);
             string comments;
             data.TryGetValue("Comments", out comments);
-            
+
             await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
         }
     }

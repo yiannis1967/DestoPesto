@@ -339,6 +339,21 @@ namespace DestoPesto.Services
             if (_Uri == null)
             {
                 XDocument doc = XDocument.Load(URLString);
+                XElement signInElement = null;
+                if (DeviceInfo.Platform==DevicePlatform.iOS)
+                    signInElement =doc.Root.Element("SignIn").Element("ios");
+
+                if (DeviceInfo.Platform==DevicePlatform.Android)
+                    signInElement =doc.Root.Element("SignIn").Element("Android");
+
+                if(signInElement!=null)
+                {
+                    FacebookSignInMethod= signInElement.Attribute("Facebook")?.Value?.ToLower() == "true";
+                    GoogleSignInMethod= signInElement.Attribute("Google")?.Value?.ToLower() == "true";
+                    AppleSignInMethod= signInElement.Attribute("Apple")?.Value?.ToLower() == "true";
+                    EmailSignInMethod= signInElement.Attribute("Email")?.Value?.ToLower() == "true";
+                }
+
 
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
@@ -629,6 +644,12 @@ namespace DestoPesto.Services
                 return _NotificationManager;
             }
         }
+
+        public static bool FacebookSignInMethod { get; private set; }
+        public static bool GoogleSignInMethod { get; private set; }
+        public static bool AppleSignInMethod { get; private set; }
+        public static bool EmailSignInMethod { get; private set; }
+
         public static void ShowNotification(string title, string message)
         {
             //var notification = new NotificationRequest
