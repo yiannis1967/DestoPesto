@@ -340,18 +340,18 @@ namespace DestoPesto.Services
             {
                 XDocument doc = XDocument.Load(URLString);
                 XElement signInElement = null;
-                if (DeviceInfo.Platform==DevicePlatform.iOS)
-                    signInElement =doc.Root.Element("SignIn").Element("ios");
+                if (DeviceInfo.Platform == DevicePlatform.iOS)
+                    signInElement = doc.Root.Element("SignIn").Element("ios");
 
-                if (DeviceInfo.Platform==DevicePlatform.Android)
-                    signInElement =doc.Root.Element("SignIn").Element("Android");
+                if (DeviceInfo.Platform == DevicePlatform.Android)
+                    signInElement = doc.Root.Element("SignIn").Element("Android");
 
-                if(signInElement!=null)
+                if (signInElement != null)
                 {
-                    FacebookSignInMethod= signInElement.Attribute("Facebook")?.Value?.ToLower() == "true";
-                    GoogleSignInMethod= signInElement.Attribute("Google")?.Value?.ToLower() == "true";
-                    AppleSignInMethod= signInElement.Attribute("Apple")?.Value?.ToLower() == "true";
-                    EmailSignInMethod= signInElement.Attribute("Email")?.Value?.ToLower() == "true";
+                    FacebookSignInMethod = signInElement.Attribute("Facebook")?.Value?.ToLower() == "true";
+                    GoogleSignInMethod = signInElement.Attribute("Google")?.Value?.ToLower() == "true";
+                    AppleSignInMethod = signInElement.Attribute("Apple")?.Value?.ToLower() == "true";
+                    EmailSignInMethod = signInElement.Attribute("Email")?.Value?.ToLower() == "true";
                 }
 
 

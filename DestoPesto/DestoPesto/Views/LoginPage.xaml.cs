@@ -65,7 +65,7 @@ namespace DestoPesto.Views
             fbSignin.GestureRecognizers.Add(fb_signin);
             appleSignin.GestureRecognizers.Add(apple_signin);
 
-            lblSignup.GestureRecognizers.Add(Signup_tap);
+            //lblSignup.GestureRecognizers.Add(Signup_tap);
 
             emailSignin.GestureRecognizers.Add(Signin_tap);
             //DeviceAuthentication.SignedOut();
@@ -331,7 +331,7 @@ namespace DestoPesto.Views
                 authenticator.Error -= OnAuthError;
             }
 
-            App.Current.MainPage.DisplayAlert("Alert", e.Message, "OK");
+        //    App.Current.MainPage.DisplayAlert("Alert", e.Message, "OK");
         }
 
         async void OnAuthCompletedfb(object sender, AuthenticatorCompletedEventArgs e)
@@ -429,44 +429,44 @@ namespace DestoPesto.Views
             await Shell.Current.Navigation.PushAsync(new SignInPage());
         }
 
-        private async void btnSignIn_Clicked(object sender, EventArgs e)
-        {
+        //private async void btnSignIn_Clicked(object sender, EventArgs e)
+        //{
 
 
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
-                string error = await DeviceAuthentication.EmailSignIn(txtEmail.Text, txtPassword.Text);
-                if (!string.IsNullOrWhiteSpace(error))
-                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, error, DestoPesto.Properties.Resources.Oktext);
+        //    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+        //    {
+        //        string error = await DeviceAuthentication.EmailSignIn(txtEmail.Text, txtPassword.Text);
+        //        if (!string.IsNullOrWhiteSpace(error))
+        //            await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, error, DestoPesto.Properties.Resources.Oktext);
 
-                //    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
-                //    try
+        //        //    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+        //        //    try
 
-                //    {
-
-
-                //        var auth = await authProvider.SignInWithEmailAndPasswordAsync(txtEmail.Text, txtPassword.Text);
-
-                //        String token = auth.FirebaseToken.ToString();
+        //        //    {
 
 
-                //        var content = await auth.GetFreshAuthAsync();
+        //        //        var auth = await authProvider.SignInWithEmailAndPasswordAsync(txtEmail.Text, txtPassword.Text);
 
-                //        var serializedcontnet = JsonConvert.SerializeObject(content);
-                //        Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
-                //        await Shell.Current.GoToAsync("//AboutPage");
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        await App.Current.MainPage.MessageDialogPopup.DisplayPopUp("Alert", "Invalid useremail or password", "OK");
-                //    }
-            }
-            else
-            {
-                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, Properties.Resources.NoInternetText, DestoPesto.Properties.Resources.Oktext);
-            }
+        //        //        String token = auth.FirebaseToken.ToString();
 
 
-        }
+        //        //        var content = await auth.GetFreshAuthAsync();
+
+        //        //        var serializedcontnet = JsonConvert.SerializeObject(content);
+        //        //        Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
+        //        //        await Shell.Current.GoToAsync("//AboutPage");
+        //        //    }
+        //        //    catch (Exception ex)
+        //        //    {
+        //        //        await App.Current.MainPage.MessageDialogPopup.DisplayPopUp("Alert", "Invalid useremail or password", "OK");
+        //        //    }
+        //    }
+        //    else
+        //    {
+        //        await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, Properties.Resources.NoInternetText, DestoPesto.Properties.Resources.Oktext);
+        //    }
+
+
+        //}
     }
 }

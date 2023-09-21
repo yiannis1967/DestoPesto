@@ -69,7 +69,11 @@ namespace DestoPesto.Droid
                 //LogDebug.Current.Log(new List<string>() { "Step 2" });
 
 
+                
                 PrintHashKey(this);
+
+
+                DeviceCore.MainActivity = this;
 
                 string AppVersion = Properties.Resources.Version + " " + Android.App.Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Android.App.Application.Context.ApplicationContext.PackageName, 0).VersionCode.ToString();
 
@@ -92,7 +96,7 @@ namespace DestoPesto.Droid
 
                 // LogDebug.Current.Log(new List<string>() { "Step 4" });
 
-                DeviceCore.MainActivity = this;
+              
                 //InitAfterPermissionsRequest();//  LogDebug.Current.Log(new List<string>() { "Step 5" });
                 //var token = await Task<string>.Run(() =>
                 //{
