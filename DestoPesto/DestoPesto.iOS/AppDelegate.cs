@@ -262,6 +262,7 @@ namespace DestoPesto.iOS
                 notification.FireDate = NSDate.FromTimeIntervalSinceNow(3);
 
                 // configure the alert
+
                 notification.AlertAction = DestoPesto.Properties.Resources.AlertText;
                 notification.AlertBody = DestoPesto.Properties.Resources.NotificationContentText;
 

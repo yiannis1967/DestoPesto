@@ -34,25 +34,12 @@ namespace DestoPesto
             var cameraInUsePermisionstask = Permissions.CheckStatusAsync<Permissions.Camera>();
             cameraInUsePermisionstask.Wait();
             var cameraInUsePermisions = cameraInUsePermisionstask.Result;
-            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
-            var RemoteNotificationsPermissionsTask = device.RemoteNotificationsPermissionsCheck();
-            RemoteNotificationsPermissionsTask.Wait();
-            var RemoteNotificationsPermissions = RemoteNotificationsPermissionsTask.Result;
-
-            if (device != null)
 
 
-            //if (locationInUsePermisions != PermissionStatus.Granted|| cameraInUsePermisions != PermissionStatus.Granted)
-            //    MainPage = new PermissionsPage();
-            //else
-            {
 
-                if (RemoteNotificationsPermissions == PermissionStatus.Granted)
-                    device.PermissionsGranted();
 
-                MainPage = new AppShell();
+            MainPage = new AppShell();
 
-            }
 
 
             //DestoPesto.Images.iconSplash.png
@@ -397,9 +384,21 @@ namespace DestoPesto
             }
         }
 
-
+        bool Initialezed;
         protected override async void OnStart()
         {
+
+
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            var RemoteNotificationsPermissionsTask = device.RemoteNotificationsPermissionsCheck();
+            RemoteNotificationsPermissionsTask.Wait();
+            var RemoteNotificationsPermissions = RemoteNotificationsPermissionsTask.Result;
+            if (RemoteNotificationsPermissions == PermissionStatus.Granted)
+            {
+                if (!Initialezed)
+                    device.PermissionsGranted();
+                Initialezed = true;
+            }
 
         }
 
