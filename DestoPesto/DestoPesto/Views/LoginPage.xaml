@@ -122,7 +122,7 @@
 
 
         </StackLayout>
-        <StackLayout Grid.Row="2" Orientation="Horizontal">
+        <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="10">
             <Image Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="End"/>
             <Label Text="{x:Static resources:Properties.Resources.DeleteAccountInfoText}" TextColor="Black" FontSize="Micro" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
         </StackLayout>
