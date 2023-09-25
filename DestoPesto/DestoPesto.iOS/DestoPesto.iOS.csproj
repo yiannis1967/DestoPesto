@@ -82,7 +82,6 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BaseUrl_iOS.cs" />
     <Compile Include="DeviceCore.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ImageResizer.cs" />
@@ -94,6 +93,9 @@
     <Compile Include="AppDelegate.cs" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
     <ITunesArtwork Include="iTunesArtwork" />
+    <BundleResource Include="Resources\el.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\en.lproj\InfoPlist.strings" />
+    <Compile Include="BaseUrl_iOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_about.png" />
