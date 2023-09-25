@@ -42,7 +42,7 @@ namespace DestoPesto.Views
 
         protected override void OnDisappearing()
         {
-            if (map!=null)
+            if (map != null)
                 AboutPage.LatVisibleRegion = map.VisibleRegion;
             base.OnDisappearing();
         }
@@ -52,7 +52,7 @@ namespace DestoPesto.Views
 
             InitializeComponent();
             //map.IsVisible = false;
-            BindingContext=this;
+            BindingContext = this;
             JsonHandler.CreateFolder();
             //    location_tap.Tapped += Location_tap_Tapped;
             // imgpin.GestureRecognizers.Add(location_tap);
@@ -296,7 +296,7 @@ namespace DestoPesto.Views
                 //CategoryButtons[i].button.Text = catagories[i].description;
                 CategoryButtons[i].label.Text = catagories[i].description;
 
-                if (System.Globalization.CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName.ToLower()!="ell")
+                if (System.Globalization.CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName.ToLower() != "ell")
                     CategoryButtons[i].label.Text = catagories[i].description_en;
 
 
@@ -396,7 +396,7 @@ namespace DestoPesto.Views
                         latlongdegrees = LatVisibleRegion.LatitudeDegrees;
 
                     MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
-                    if (map!=null)
+                    if (map != null)
                     {
 
                         var h = map.Height;
@@ -433,7 +433,7 @@ namespace DestoPesto.Views
 
         void DrawPinsOnMap(ObservableCollection<DamageData> _pinLoc)
         {
-            if (map==null)
+            if (map == null)
                 return;
 
             MainThread.BeginInvokeOnMainThread(() =>
@@ -508,11 +508,11 @@ namespace DestoPesto.Views
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions == PermissionStatus.Granted)
             {
-                map=new MapEx() { HasScrollEnabled=true, MapType=MapType.Street, HasZoomEnabled=true, IsShowingUser=true };
+                map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
 
-                MapContent.Content=map;
-                map.MapClicked+=map_MapClicked;
-                map.PropertyChanged+=map_PropertyChangedAsync;
+                MapContent.Content = map;
+                map.MapClicked += map_MapClicked;
+                map.PropertyChanged += map_PropertyChangedAsync;
 
                 MapIsVisible = true;
             }
@@ -590,7 +590,7 @@ namespace DestoPesto.Views
                     try
                     {
                         var location = await Geolocation.GetLocationAsync();
-                        if (location != null&&map!=null)
+                        if (location != null && map != null)
                         {
                             map.HasZoomEnabled = true;
 
@@ -727,7 +727,7 @@ namespace DestoPesto.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, "Oh no !  Token expired", DestoPesto.Properties.Resources.Oktext);
+                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.AlertText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
             }
         }
 
@@ -761,13 +761,13 @@ namespace DestoPesto.Views
                 locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
                 if (locationInUsePermisions == PermissionStatus.Granted)
                 {
-                    map=new MapEx() { HasScrollEnabled=true, MapType=MapType.Street, HasZoomEnabled=true, IsShowingUser=true };
+                    map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
 
-                    MapContent.Content=map;
-                    map.MapClicked+=map_MapClicked;
-                    map.PropertyChanged+=map_PropertyChangedAsync;
+                    MapContent.Content = map;
+                    map.MapClicked += map_MapClicked;
+                    map.PropertyChanged += map_PropertyChangedAsync;
 
-                    MapIsVisible=true;
+                    MapIsVisible = true;
 
                     try
                     {
