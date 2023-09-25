@@ -136,11 +136,12 @@ namespace DestoPesto.iOS
 
         }
 
-        public void PermissionsGranted()
+        public async Task PermissionsGranted()
         {
 
-            DeviceCore.AppDelegate.RegisterForRemoteNotifications();
-            
+            await DeviceCore.AppDelegate.RegisterForRemoteNotifications();
+
+            return;
    
 
         }

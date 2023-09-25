@@ -46,7 +46,7 @@ namespace DestoPesto.iOS
 
             DeviceCore.AppDelegate = this;
 
-
+            
 
             Dictionary<string, object> m_options = new Dictionary<string, object>();
             //if (options != null)
@@ -67,9 +67,21 @@ namespace DestoPesto.iOS
 
             LoadApplication(formsApp);
             //RegisterForRemoteNotifications();
+            
 
             formsApp.StartFGService();
-            return base.FinishedLaunching(app, options);
+            var result= base.FinishedLaunching(app, options);
+
+            string webClientID = "959003601559-v7ft2g3pr4augp8jus4k61bmoooe37h4.apps.googleusercontent.com";
+            if (!FirebaseAuthInitilized)
+            {
+                Authentication.iOS.Authentication.Init(webClientID);
+                FirebaseAuthInitilized = true;
+            }
+            return result;
+
+
+
         }
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
@@ -88,20 +100,62 @@ namespace DestoPesto.iOS
             var error = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
             Errorlog.Current.Log(new System.Collections.Generic.List<string>() { "Unhandled Exception:"+ error.Message, error.StackTrace });
         }
-        internal void RegisterForRemoteNotifications()
+
+        bool RemoteNotificationsIsRegister = false;
+        internal Task<bool> RegisterForRemoteNotifications()
         {
+
+            TaskCompletionSource<bool> taskCompletionSource = new TaskCompletionSource<bool>();
+
+            if (RemoteNotificationsIsRegister)
+                return Task<bool>.FromResult(true);
+
+            RemoteNotificationsIsRegister = true;
             // Register your app for remote notifications.
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
 
-                
+                // For iOS 10 display notification (sent via APNS)
+                UNUserNotificationCenter.Current.Delegate = this;
+
+                // For iOS 10 data message (sent via FCM)
+                Messaging.SharedInstance.Delegate = this;
+
                 // iOS 10 or later
                 var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
                 UNUserNotificationCenter.Current.RequestAuthorization(authOptions, (granted, error) =>
                 {
                     Console.WriteLine(granted);
-                });
+                    if (granted)
+                    {
+                        Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
+                            try
+                            {
+                                var fcmToken = Firebase.CloudMessaging.Messaging.SharedInstance.FcmToken;
+                                if (App.Current is App)
+                                    (App.Current as App).FirbaseMessgesToken = fcmToken;
+                            }
+                            catch (Exception errolr)
+                            {
+
+                            }
+
+                            taskCompletionSource.SetResult(true);
+
+                          
+                        });
+                        
+                        
+                    }
+                    else
+                        taskCompletionSource.SetResult(true);
+                });
+                
+                return taskCompletionSource.Task;
+                /*
                 UNUserNotificationCenter.Current.GetNotificationSettings((UNNotificationSettings settings) =>
                 {
                     if(settings.AlertSetting==UNNotificationSetting.Enabled)
@@ -109,13 +163,9 @@ namespace DestoPesto.iOS
 
                     }
 
-                });
+                });*/
 
-                // For iOS 10 display notification (sent via APNS)
-                UNUserNotificationCenter.Current.Delegate = this;
 
-                // For iOS 10 data message (sent via FCM)
-                Messaging.SharedInstance.Delegate = this;
             }
             else
             {
@@ -123,9 +173,11 @@ namespace DestoPesto.iOS
                 var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
                 var settings = UIUserNotificationSettings.GetSettingsForTypes(allNotificationTypes, null);
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+                UIApplication.SharedApplication.RegisterForRemoteNotifications();
+                return Task<bool>.FromResult(true);
             }
 
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
+            
 
             /*
             var fcmToken = Messaging.SharedInstance.FcmToken ?? "";
@@ -168,7 +220,7 @@ namespace DestoPesto.iOS
 
             //base.DidReceiveRemoteNotification(application, userInfo, completionHandler);
 
-
+                //caNxuyw3YE9TnnlUT3vJno:APA91bH1UndH5QUPnKVnyOBZDkd5VR3uRY5kGuaMzWnb78FksJBPC_Yu0j3sgSTqFZ3PS9_yb4Tq_YWy5g5hPVqBgzmNhUNI7nQO16ZUmvHuL3nb6eMdqvL-XNV7WktYBRw-amAwhCaB
         }
 
         bool FirebaseAuthInitilized = false;
@@ -182,14 +234,7 @@ namespace DestoPesto.iOS
                 (App.Current as App).FirbaseMessgesToken = fcmToken;
 
 
-            string webClientID = "959003601559-v7ft2g3pr4augp8jus4k61bmoooe37h4.apps.googleusercontent.com";
-            if (!FirebaseAuthInitilized)
-            {
-                Authentication.iOS.Authentication.Init(webClientID);
-                FirebaseAuthInitilized = true;
-
-            }
-            
+         
 
             //"apps.googleusercontent.com.241222885422-bquei744e1i8q3h0r82k7fm31fbuej7m"
 
@@ -262,7 +307,6 @@ namespace DestoPesto.iOS
                 notification.FireDate = NSDate.FromTimeIntervalSinceNow(3);
 
                 // configure the alert
-
                 notification.AlertAction = DestoPesto.Properties.Resources.AlertText;
                 notification.AlertBody = DestoPesto.Properties.Resources.NotificationContentText;
 
