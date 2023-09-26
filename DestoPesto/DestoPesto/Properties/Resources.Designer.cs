@@ -574,7 +574,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It’s easy. Choose the category by pressing the appropriate button below, take a photo and send it.
+        ///   Looks up a localized string similar to It’s easy. Choose the category by pressing the appropriate button below, take a photo and send it. Everything you post is anonymous and your data won&apos;t be visible anywhere.
         /// </summary>
         public static string InstructionsMessage {
             get {

@@ -301,7 +301,7 @@
     <value>Skip this message next time</value>
   </data>
   <data name="InstructionsMessage" xml:space="preserve">
-    <value>It’s easy. Choose the category by pressing the appropriate button below, take a photo and send it</value>
+    <value>It’s easy. Choose the category by pressing the appropriate button below, take a photo and send it. Everything you post is anonymous and your data won't be visible anywhere</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Welcome to the app</value>
