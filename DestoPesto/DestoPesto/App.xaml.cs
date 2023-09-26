@@ -425,6 +425,28 @@ namespace DestoPesto
             data.TryGetValue("Comments", out comments);
 
             await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+
+
+            try
+            {
+                try
+                {
+                    var location = await Geolocation.GetLastKnownLocationAsync();
+                    if (SubmittedDamageUser == null)
+                        SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 20000.0);
+                }
+                catch (Exception ex)
+                {
+                }
+                MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
+
+            }
+            catch (Exception error)
+            {
+
+            }
+
+
         }
     }
 }
