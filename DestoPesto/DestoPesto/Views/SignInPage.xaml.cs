@@ -146,7 +146,9 @@ namespace DestoPesto.Views
                     case "ERROR_INVALID_VERIFICATION_CODE": // if the code is invalid
                         errorMessage = DestoPesto.Properties.Resources.ERROR_INVALID_VERIFICATION_CODE;
                         break;
-
+                    default:
+                        errorMessage = error; 
+                        break;
 
                 }
 

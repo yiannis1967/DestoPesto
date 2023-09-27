@@ -259,7 +259,7 @@
     <value>Quit app now</value>
   </data>
   <data name="Fixed" xml:space="preserve">
-    <value>This has been fixed</value>
+    <value>Has this defect fixed?</value>
   </data>
   <data name="AppleLogin" xml:space="preserve">
     <value>With Apple</value>

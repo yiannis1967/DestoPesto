@@ -432,8 +432,8 @@ namespace DestoPesto
                 try
                 {
                     var location = await Geolocation.GetLastKnownLocationAsync();
-                    if (SubmittedDamageUser == null)
-                        SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 20000.0);
+                    //if (SubmittedDamageUser == null)
+                    SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 20000.0);
                 }
                 catch (Exception ex)
                 {

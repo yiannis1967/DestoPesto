@@ -439,7 +439,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This has been fixed.
+        ///   Looks up a localized string similar to Has this defect fixed?.
         /// </summary>
         public static string Fixed {
             get {

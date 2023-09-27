@@ -8,7 +8,7 @@
              xmlns:resources="clr-namespace:DestoPesto"
              xmlns:extensions="clr-namespace:DestoPesto.Extensions"
             Title="{x:Static resources:Properties.Resources.SubmisionsText}">
-             
+
     <Grid>
         <ScrollView>
             <StackLayout Padding="10">
@@ -25,6 +25,7 @@
                                         <xct:Expander>
                                             <xct:Expander.Header>
                                                 <Grid >
+
 
                                                     <Grid Padding="5" BackgroundColor="WhiteSmoke">
                                                         <Grid.RowDefinitions>
@@ -47,45 +48,39 @@
 
                                                     <Grid>
                                                         <Grid.RowDefinitions>
-
-                                                            <RowDefinition Height="*"/>
-                                                            <RowDefinition Height="80"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
                                                         </Grid.RowDefinitions>
 
                                                         <Grid   >
-                                                            <Image HeightRequest="330" x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
+                                                            <Image x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
                                                         </Grid>
-                                                        <Grid Grid.Row="1" >
-
-                                                            <Grid Grid.Row="1" Grid.Column="0" HeightRequest="40" HorizontalOptions="Fill" IsClippedToBounds="True" VerticalOptions="Center">
-
-                                                                <!--  Button Control  -->
-                                                                <Button BackgroundColor="#2196F3" Text="{x:Static resources:Properties.Resources.Fixed}"  Command="{Binding FixedCommand}">
-                                                                    <Button.Margin>
-                                                                        <OnPlatform x:TypeArguments="Thickness">
-                                                                            <On Platform="Android" Value="-4,-6,-4,-5" />
-                                                                            <On Platform="iOS" Value="0" />
-                                                                        </OnPlatform>
-                                                                    </Button.Margin>
-                                                                </Button>
-
-                                                                <!--  Text Label  -->
-                                                                <!--<Label Margin="10,0,0,0" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" HorizontalTextAlignment="Center" InputTransparent="True" Text="go next" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" />-->
-
-                                                                <!--  Icon Image  -->
-
-                                                            </Grid>
 
 
+                                                        <Grid Grid.Row="1"   HorizontalOptions="Fill" IsClippedToBounds="True" VerticalOptions="Center">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="8*"/>
+                                                                <ColumnDefinition Width="Auto"/>
 
+                                                            </Grid.ColumnDefinitions>
+                                                            <Label Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand"/>
+                                                            <!--  Button Control  -->
+                                                            <Button Grid.Column="1" BackgroundColor="#2196F3" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Command="{Binding FixedCommand}">
+                                                                <!--<Button.Margin>
+                                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                                        <On Platform="Android" Value="-4,-6,-4,-5" />
+                                                                        <On Platform="iOS" Value="0" />
+                                                                    </OnPlatform>
+                                                                </Button.Margin>-->
+                                                            </Button>
 
-                                                            <!--<Grid >
+                                                            <!--  Text Label  -->
+                                                            <!--<Label Margin="10,0,0,0" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" HorizontalTextAlignment="Center" InputTransparent="True" Text="go next" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" />-->
 
-                                                <Button HorizontalOptions="FillAndExpand" Text="Επιδιορθώθηκε" Background="#198754"  CornerRadius="5" ></Button>
-                                                
+                                                            <!--  Icon Image  -->
 
-                                            </Grid>-->
                                                         </Grid>
+
                                                     </Grid>
                                                     <!--<Grid Padding="10">
                                             <Grid.ColumnDefinitions>
