@@ -46,26 +46,24 @@
                                             <xct:Expander.ContentTemplate>
                                                 <DataTemplate>
 
-                                                    <Grid>
+                                                    <Grid HeightRequest="180"  >
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="Auto"/>
-                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="*"/>
                                                         </Grid.RowDefinitions>
 
-                                                        <Grid   >
-                                                            <Image x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
-                                                        </Grid>
+                                                        <Image  x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
 
 
-                                                        <Grid Grid.Row="1"   HorizontalOptions="Fill" IsClippedToBounds="True" VerticalOptions="Center">
+                                                        <Grid Grid.Row="1"   HorizontalOptions="Fill" IsClippedToBounds="True" >
                                                             <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="8*"/>
                                                                 <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
 
                                                             </Grid.ColumnDefinitions>
-                                                            <Label Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand"/>
+                                                            <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand"/>
                                                             <!--  Button Control  -->
-                                                            <Button Grid.Column="1" BackgroundColor="#2196F3" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Command="{Binding FixedCommand}">
+                                                            <Button Grid.Column="1" Padding="5" BackgroundColor="#2196F3" HeightRequest="40" HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Command="{Binding FixedCommand}">
                                                                 <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />

@@ -11,10 +11,8 @@ namespace DestoPesto.Models
 
         public DamageData()
         {
-            FixedCommand=new Command(new Action(async () =>
+            FixedCommand = new Command(new Action(async () =>
             {
-                (App.Current as App).RemoveUserSubmittedDamage(this);
-                return;
 
 
 
@@ -64,7 +62,7 @@ namespace DestoPesto.Models
                 if (await JsonHandler.PutSubmission(fix))
                 {
                     (App.Current as App).RemoveUserSubmittedDamage(this);
-                    
+
                 }
 
                 //System.Diagnostics.Debug.WriteLine("sdss");
