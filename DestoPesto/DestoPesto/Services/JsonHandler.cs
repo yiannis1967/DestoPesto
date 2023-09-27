@@ -588,12 +588,12 @@ namespace DestoPesto.Services
 
         }
 
-        public static async Task PutSubmission(FixdDamage post)
+        public static async Task<bool> PutSubmission(FixdDamage post)
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
 
-                return;
+                return false;
 
             }
             var client = new HttpClient();
@@ -622,6 +622,7 @@ namespace DestoPesto.Services
                 ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusSuccess);
 
                 MessagingCenter.Send<string>("1", "GetData");
+                return true;
             }
             else
 
@@ -629,6 +630,7 @@ namespace DestoPesto.Services
                 //  await App.Current.MainPage.DisplayAlert(Properties.Resources.AlertText,  Properties.Resources.DamageSatusFail, Properties.Resources.Oktext);
                 //  DependencyService.Get<INotification>().ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusFail);
                 ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusFail);
+                return false;
             }
 
 
@@ -680,14 +682,18 @@ namespace DestoPesto.Services
 
         }
 
-        public static string GetCatagory(int id)
+        public static string GetCatagory(int code)
         {
-            return catagories.Where(x => x.code == id.ToString()).FirstOrDefault()?.description;
+            if (System.Globalization.CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName.ToLower() != "ell")
+                return catagories.Where(x => x.code == code.ToString()).FirstOrDefault()?.description_en;
+            else
+                return catagories.Where(x => x.code == code.ToString()).FirstOrDefault()?.description;
+
         }
 
-        public static string GetCatagoryMarkIconUri(int id)
+        public static string GetCatagoryMarkIconUri(int code)
         {
-            return catagories.Where(x => x.id == id).FirstOrDefault()?.markIconUrl;
+            return catagories.Where(x => x.code == code.ToString()).FirstOrDefault()?.markIconUrl;
         }
         public static async Task GetCatagories()
         {

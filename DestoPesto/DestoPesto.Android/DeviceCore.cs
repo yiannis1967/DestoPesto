@@ -1,5 +1,6 @@
 ﻿using Android.Media;
 using Android.OS;
+using Java.Lang;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,9 +77,11 @@ namespace DestoPesto.Droid
 
         }
 
-        public void PermissionsGranted()
+        public Task PermissionsGranted()
         {
             MainActivity?.InitAfterPermissionsGranted();
+            return Task.FromResult(true);
+                
         }
 
         static internal string m_androidId;

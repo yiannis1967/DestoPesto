@@ -9,9 +9,12 @@ namespace DestoPesto.Models
     public class DamageData
     {
 
-        public DamageData            ()
+        public DamageData()
         {
-            FixedCommand=new Command(new Action( async ()=>{
+            FixedCommand=new Command(new Action(async () =>
+            {
+                (App.Current as App).RemoveUserSubmittedDamage(this);
+                return;
 
 
 
@@ -58,9 +61,13 @@ namespace DestoPesto.Models
                 string sss = Authentication.DeviceAuthentication.IDToken;
                 //fix.userId = userEmail;
 
-               await JsonHandler.PutSubmission(fix);
+                if (await JsonHandler.PutSubmission(fix))
+                {
+                    (App.Current as App).RemoveUserSubmittedDamage(this);
+                    
+                }
 
-                System.Diagnostics.Debug.WriteLine("sdss");
+                //System.Diagnostics.Debug.WriteLine("sdss");
 
             }));
         }
@@ -72,7 +79,7 @@ namespace DestoPesto.Models
         public string category { get; set; }
         public int numberOfUsers { get; set; }
         public DateTime firstDateReported { get; set; }
-        public DateTime lastDateReported{ get; set; }
+        public DateTime lastDateReported { get; set; }
         public string photoUrl { get; set; }
 
         public string fullAddress { get; set; }

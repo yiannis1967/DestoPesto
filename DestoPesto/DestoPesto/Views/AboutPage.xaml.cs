@@ -932,7 +932,7 @@ namespace DestoPesto.Views
 
 
 
-                device.PermissionsGranted();
+               await device.PermissionsGranted();
 
 
 

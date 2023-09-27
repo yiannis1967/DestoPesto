@@ -13,16 +13,19 @@ using System.Globalization;
 using PCLStorage;
 using Rg.Plugins.Popup.Services;
 using System.Reflection;
+using LocalNotifications;
+using System.ComponentModel;
 
 namespace DestoPesto
 {
     /// <MetaDataID>{fd109209-cefc-4ba1-b347-41e4cec0d7e3}</MetaDataID>
-    public partial class App : Application
+    public partial class App : Application, INotifyPropertyChanged
     {
         internal string Version;
 
         public App(string version)
         {
+            
             InitializeComponent();
             Version = version;
             DependencyService.Register<MockDataStore>();
@@ -396,7 +399,7 @@ namespace DestoPesto
             if (RemoteNotificationsPermissions == PermissionStatus.Granted)
             {
                 if (!Initialezed)
-                    device.PermissionsGranted();
+                   await device.PermissionsGranted();
                 Initialezed = true;
             }
 
@@ -447,6 +450,13 @@ namespace DestoPesto
             }
 
 
+        }
+
+        internal void RemoveUserSubmittedDamage(DamageData damageData)
+        {
+            SubmittedDamageUser.Remove(damageData);
+
+            OnPropertyChanged(nameof(SubmittedDamageUser));
         }
     }
 }

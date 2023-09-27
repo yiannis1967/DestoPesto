@@ -120,7 +120,7 @@ namespace DestoPesto.Views
                         await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>() == PermissionStatus.Granted &&
                         await Permissions.CheckStatusAsync<Permissions.Camera>() == PermissionStatus.Granted)
                     {
-                        device.PermissionsGranted();
+                        await device.PermissionsGranted();
                         App.Current.MainPage = new AppShell();
 
                     }

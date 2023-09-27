@@ -18,8 +18,14 @@ namespace DestoPesto.Views
             InitializeComponent();
 
             BindingContext= this;
+            (App.Current as App).PropertyChanging+=SubmisionsListPageDetail_PropertyChanging;
 
             //(App.Current as App).SubmittedDamageUser[0].category
+        }
+
+        private void SubmisionsListPageDetail_PropertyChanging(object sender, PropertyChangingEventArgs e)
+        {
+            OnPropertyChanged(nameof(Damages));
         }
 
         public List<DamageData> Damages
