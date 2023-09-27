@@ -509,10 +509,11 @@ namespace DestoPesto.Views
             if (locationInUsePermisions == PermissionStatus.Granted)
             {
                 map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
-
+                map.IsVisible = false;
                 MapContent.Content = map;
                 map.MapClicked += map_MapClicked;
                 map.PropertyChanged += map_PropertyChangedAsync;
+
 
                 MapIsVisible = true;
             }
