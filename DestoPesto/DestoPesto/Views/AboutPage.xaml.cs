@@ -515,6 +515,35 @@ namespace DestoPesto.Views
                 map.PropertyChanged += map_PropertyChangedAsync;
 
 
+                try
+                {
+                    var location = await Geolocation.GetLastKnownLocationAsync();
+                    if (location != null && map != null)
+                    {
+                        map.HasZoomEnabled = true;
+
+
+                        var zoomLevel = 15; // between 1 and 18
+                        var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                        if (LatVisibleRegion != null)
+                            latlongdegrees = LatVisibleRegion.LatitudeDegrees;
+
+                        MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
+                        var h = map.Height;
+                        var w = map.Width;
+
+                        //    map.MoveToRegion(LatVisibleRegion);
+                        //else
+                        map.MoveToRegion(mapSpan);
+                        map.IsVisible = true;
+                    }
+                }
+                catch (Exception error)
+                {
+
+
+                }
+
                 MapIsVisible = true;
             }
             else
