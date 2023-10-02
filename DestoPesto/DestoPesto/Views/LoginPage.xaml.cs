@@ -75,7 +75,7 @@ namespace DestoPesto.Views
             GoogleSignInVisible=JsonHandler.GoogleSignInMethod;
             AppleSignInVisible=JsonHandler.AppleSignInMethod;
             FacebookSignInVisible= JsonHandler.FacebookSignInMethod;
-            EmailSignInVisible= JsonHandler.FacebookSignInMethod;
+            EmailSignInVisible= JsonHandler.EmailSignInMethod;
 
             if (!GoogleSignInVisible&&!AppleSignInVisible&&!FacebookSignInVisible&&!EmailSignInVisible)
                 EmailSignInVisible=true;
