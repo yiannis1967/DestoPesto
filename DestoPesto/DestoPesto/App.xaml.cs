@@ -391,7 +391,7 @@ namespace DestoPesto
         protected override async void OnStart()
         {
 
-
+            var uri= JsonHandler.getUri();
             var device = Xamarin.Forms.DependencyService.Get<IDevice>();
             var RemoteNotificationsPermissionsTask = device.RemoteNotificationsPermissionsCheck();
             RemoteNotificationsPermissionsTask.Wait();

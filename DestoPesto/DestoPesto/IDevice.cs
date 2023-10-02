@@ -28,7 +28,7 @@ namespace DestoPesto
 
         Task PermissionsGranted();
 
-
+        string DeviceID { get; }
 
     }
 }

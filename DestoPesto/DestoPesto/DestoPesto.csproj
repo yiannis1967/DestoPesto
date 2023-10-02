@@ -24,6 +24,7 @@
     <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DebugLog\DebugLog.csproj" />
     <ProjectReference Include="..\..\Map\Map.csproj" />
     <ProjectReference Include="..\..\Authentication\Authentication.csproj" />
   </ItemGroup>
@@ -122,7 +123,6 @@
     <None Remove="Images\user.png" />
     <None Remove="Images\wifi.png" />
     <None Remove="Images\xamarin_logo.png" />
-    <None Remove="Views\Views.7z" />
     <None Remove="Xamarin.Forms.Maps" />
   </ItemGroup>
   <ItemGroup>

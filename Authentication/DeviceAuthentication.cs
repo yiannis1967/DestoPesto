@@ -148,6 +148,13 @@ namespace Authentication
 
                     IDToken = idToken;
                     _UnInitialized = false;
+
+                    if(_AuthUser != null)
+                    {
+
+                        DebugLog.AppEventLog.Log("bool AuthIDTokenChanged   User signed in "+_AuthUser.User_ID);
+                    }
+
                     AuthStateChanged?.Invoke(this, _AuthUser);
                     return true;
 

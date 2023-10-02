@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Map.Android", "Map.Android\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCMTest", "FCMTest\FCMTest.csproj", "{71D6D638-08ED-497B-8A19-AC54B09080F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugLog", "DebugLog\DebugLog.csproj", "{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -353,20 +355,35 @@ Global
 		{71D6D638-08ED-497B-8A19-AC54B09080F7}.Release|x64.Build.0 = Release|Any CPU
 		{71D6D638-08ED-497B-8A19-AC54B09080F7}.Release|x86.ActiveCfg = Release|Any CPU
 		{71D6D638-08ED-497B-8A19-AC54B09080F7}.Release|x86.Build.0 = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|ARM.Build.0 = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|x64.Build.0 = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Debug|x86.Build.0 = Debug|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|ARM.Build.0 = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|iPhone.Build.0 = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|x64.ActiveCfg = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|x64.Build.0 = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|x86.ActiveCfg = Release|Any CPU
+		{D0126EB4-BAE9-4D0C-BB49-0FBA71CD67AB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27B3504E-C18A-4016-8211-ED8ED286A1D5}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://arion.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = DestoPesto\\DestoPesto.UWP\\DestoPesto.UWP.csproj
-		SccProjectName1 = DestoPesto/DestoPesto.UWP
-		SccLocalPath1 = DestoPesto\\DestoPesto.UWP
 	EndGlobalSection
 EndGlobal
