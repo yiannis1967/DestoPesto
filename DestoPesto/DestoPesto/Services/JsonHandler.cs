@@ -365,7 +365,7 @@ namespace DestoPesto.Services
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://10.0.0.13:5005/";
-                //_Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://10.0.0.10:5005/";
 #endif
 
                 DebugLog.AppEventLog.Start(_Uri, device.DeviceID, doc.Root.Element("DebugLogs"));
