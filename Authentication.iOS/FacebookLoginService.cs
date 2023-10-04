@@ -23,8 +23,8 @@ namespace Authentication.iOS
         {
             if (CurrentFacebookLoginService == null)
                 CurrentFacebookLoginService = new FacebookLoginService();
-            else
-                throw new Exception("FacebookLoginService already initilized");
+            //else
+              //  throw new Exception("FacebookLoginService already initilized");
 
 
         }
@@ -37,6 +37,8 @@ namespace Authentication.iOS
              new NSString(global::Facebook.CoreKit.AccessToken.DidChangeNotification),
              async (n) =>
              {
+
+                await DebugLog.AppEventLog.Log("FacebookLoginService ");
                  string token = null;
                  if (global::Facebook.CoreKit.AccessToken.CurrentAccessToken != null)
                      token = global::Facebook.CoreKit.AccessToken.CurrentAccessToken.TokenString;
@@ -46,17 +48,22 @@ namespace Authentication.iOS
 
                  if (token != null)
                  {
+                     await DebugLog.AppEventLog.Log("FacebookLoginService before credentials");
                      //Firebase sign in
                      AuthCredential credentials = Firebase.Auth.FacebookAuthProvider.GetCredential(token);
+                     await DebugLog.AppEventLog.Log("FacebookLoginService after credentials");
                      if (credentials != null)
                      {
                          FirebaseAuthentication.FirebaseAuth.SignInWithCredential(credentials, null);
                          //FirebaseAuthentication.FacebookSignInCompletted(true);
+                         await DebugLog.AppEventLog.Log("FacebookLoginService credentials not null. Sign in  ");
 
                      }
-                     //else
-                     //    FirebaseAuthentication.FacebookSignInCompletted(false);
-
+                     else
+                     {
+                         await DebugLog.AppEventLog.Log("FacebookLoginService credentials null");
+                         //    FirebaseAuthentication.FacebookSignInCompletted(false);
+                     }
                  }
                  //else
                  //    FirebaseAuthentication.FacebookSignInCompletted(false);
@@ -104,17 +111,18 @@ namespace Authentication.iOS
 
         }
 
-        public override void SignIn()
+        public override async void SignIn()
         {
             using (var loginManager = new LoginManager())
             {
                 try
                 {
+                    DebugLog.AppEventLog.Log("SignIn Facebook").Wait(4000);
                     loginManager.LogIn(new string[] { }, Authentication.GetTopViewController(), new global::Facebook.LoginKit.LoginManagerLoginResultBlockHandler(LoginManagerLoginResultBlock));
                 }
                 catch (Exception ex)
                 {
-
+                    DebugLog.AppEventLog.Log("SignIn Facebook catch "+ex.Message+Environment.NewLine+ex.StackTrace).Wait(4000); 
                 }
 
             }

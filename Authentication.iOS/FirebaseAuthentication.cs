@@ -31,6 +31,10 @@ namespace Authentication.iOS
                         if (_FirebaseAuth.CurrentUser != null)
                             AuthStateDidChangeListener(_FirebaseAuth, _FirebaseAuth.CurrentUser);
                     }
+                    else
+                    {
+                        DebugLog.AppEventLog.Log("FirebaseAuth is not ok ");
+                    }
                 }
                 return _FirebaseAuth;
             }
@@ -38,8 +42,11 @@ namespace Authentication.iOS
 
         private static async void AuthStateDidChangeListener(Auth auth, User user)
         {
+
+
             if (user != null)
             {
+               await DebugLog.AppEventLog.Log("AuthStateDidChangeListener " + user.ProviderId);
                 string idToken = await user.GetIdTokenAsync(false);
 
                 var authUser = new AuthUser()
@@ -55,10 +62,13 @@ namespace Authentication.iOS
                     //Providers = firebaseUser.ProviderData.
                 };
 
-                DeviceAuthentication.Current.AuthIDTokenChanged(idToken, DateTime.Now + TimeSpan.FromHours(2), authUser);
+                await DeviceAuthentication.Current.AuthIDTokenChanged(idToken, DateTime.Now + TimeSpan.FromHours(2), authUser);
             }
-           else
-                DeviceAuthentication.Current.AuthIDTokenChanged(null, DateTime.Now + TimeSpan.FromHours(2), null);
+            else
+            {
+                DebugLog.AppEventLog.Log("AuthStateDidChangeListener user is null");
+                await DeviceAuthentication.Current.AuthIDTokenChanged(null, DateTime.Now + TimeSpan.FromHours(2), null);
+            }
 
         }
 

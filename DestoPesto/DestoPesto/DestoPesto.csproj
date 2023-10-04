@@ -24,9 +24,9 @@
     <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DebugLog\DebugLog.csproj" />
     <ProjectReference Include="..\..\Map\Map.csproj" />
     <ProjectReference Include="..\..\Authentication\Authentication.csproj" />
+    <ProjectReference Include="..\..\DebugLog\DebugLog.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

@@ -59,6 +59,9 @@
       <Project>{bf4aee0b-8e63-4c81-ac3b-795f1dc40136}</Project>
       <Name>Authentication</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DebugLog\DebugLog.csproj">
+      <Name>DebugLog</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Firebase.iOS.Auth">

@@ -47,6 +47,7 @@ namespace Authentication.iOS
                         {
                             if (currentUser.Authentication?.IdToken != null)
                             {
+                                
                                 var credentials = Firebase.Auth.GoogleAuthProvider.GetCredential(currentUser.Authentication?.IdToken, currentUser.Authentication?.IdToken);
                                 FirebaseAuth.SignInWithCredential(credentials, new Firebase.Auth.AuthDataResultHandler(OnAuthDataResult));
 
@@ -74,6 +75,7 @@ namespace Authentication.iOS
             FacebookLoginService.Init();
             if (!string.IsNullOrWhiteSpace(FacebookLoginService.CurrentFacebookLoginService.AccessToken))
             {
+                DebugLog.AppEventLog.Log("already signed in with Facebook");
                 var credentials = Firebase.Auth.FacebookAuthProvider.GetCredential(FacebookLoginService.CurrentFacebookLoginService.AccessToken);
                 FirebaseAuth.SignInWithCredential(credentials, new Firebase.Auth.AuthDataResultHandler(OnAuthDataResult));
             }
@@ -141,10 +143,8 @@ namespace Authentication.iOS
                     else if (user.ProviderData.Where(x => x.ProviderId == "apple.com").Count() > 0)
                         providerId = "apple.com";
 
+                    await DebugLog.AppEventLog.Log("User provider = " + providerId);
 
-
-                    if (user != null)
-                    {
                         string idToken = await user.GetIdTokenAsync(false);
 
                         var authUser = new AuthUser()
@@ -160,57 +160,58 @@ namespace Authentication.iOS
                             //Providers = firebaseUser.ProviderData.
                         };
 
-                        DeviceAuthentication.Current.AuthIDTokenChanged(idToken, DateTime.Now + TimeSpan.FromHours(2), authUser);
-                    }
-                    else
-                        DeviceAuthentication.Current.AuthIDTokenChanged(null, DateTime.Now + TimeSpan.FromHours(2), null);
+                        await DeviceAuthentication.Current.AuthIDTokenChanged(idToken, DateTime.Now + TimeSpan.FromHours(2), authUser);
 
-
+                    await DebugLog.AppEventLog.Log("User display name = " + user.DisplayName);
 
                 }
                 else
                 {
-                    
+                    await DebugLog.AppEventLog.Log("user is null here");
                 }
             }
             catch (Exception firebaseException)
             {
-                
-                // do stuff
+
+                await DebugLog.AppEventLog.Log("AuthStateDidChangeListener " + firebaseException.Message + Environment.NewLine+firebaseException.StackTrace);
             }
 
         }
 
 
-        public void AppleSignIn()
+        public async Task AppleSignIn()
         {
             try
             {
+                await DebugLog.AppEventLog.Log("Apple signin ");
+
                 AppleSignInService appleSignInService = new AppleSignInService();
-                appleSignInService.SignInAsync();
+                await appleSignInService.SignInAsync();
 
                 //FacebookLoginService.CurrentFacebookLoginService.SignIn();
             }
             catch (Exception ex)
             {
-
+                await DebugLog.AppEventLog.Log("Apple signin catch = " + ex.Message + "stack trace " + ex.StackTrace);
             }
         }
 
         public async Task<string> EmailSignIn(string email, string password)
         {
+            await DebugLog.AppEventLog.Log("EmailSignIn user " + email + "Password "+password);
 
             try
             {
                 AuthDataResult authDataResult = await FirebaseAuth.SignInWithPasswordAsync(email, password);
+                await DebugLog.AppEventLog.Log("EmailSignIn ok " );
                 return null;
             }
             catch (Foundation.NSErrorException error)
             {
 
                var errorCode= error.UserInfo["FIRAuthErrorUserInfoNameKey"]?.ToString();
+                await DebugLog.AppEventLog.Log("EmailSignIn error " + error.Message);
 
-                
                 //FIRAuthErrorUserInfoNameKey
                 return errorCode;
             }
@@ -243,6 +244,7 @@ namespace Authentication.iOS
         public void FacebookSignIn()
         {
             SignOut();
+            DebugLog.AppEventLog.Log("Facebook signin");
             FacebookLoginService.CurrentFacebookLoginService.SignIn();
         }
 
