@@ -447,6 +447,9 @@
   <data name="WEAK_PASSWORD" xml:space="preserve">
     <value>Αδύναμος κωδικός</value>
   </data>
+  <data name="WelcomeEmailPasswordLogin" xml:space="preserve">
+    <value>Συμπλήρωσε το email και τον κωδικό σου</value>
+  </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Οδηγίες χρήσης</value>
   </data>

@@ -1069,6 +1069,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fill your email and password to login.
+        /// </summary>
+        public static string WelcomeEmailPasswordLogin {
+            get {
+                return ResourceManager.GetString("WelcomeEmailPasswordLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to the app.
         /// </summary>
         public static string WelcomeMessage {

@@ -56,9 +56,12 @@ namespace Authentication.Android
             Authentication.Android.FirebaseAuthentication.SendPasswordResetEmail(email);
         }
 
-        public void AppleSignIn()
+        public System.Threading.Tasks.Task AppleSignIn()
         {
-            
+
+            return System.Threading.Tasks.Task.FromResult(true);
+
+
         }
 
         public void SignOut()
