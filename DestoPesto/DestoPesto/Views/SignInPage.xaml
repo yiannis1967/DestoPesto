@@ -73,7 +73,7 @@
                     <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5">
-                                <Image Source="{extensions:ImageResource DestoPesto.Images.key.png}" Aspect="AspectFill" Margin="0"/>
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" Aspect="AspectFill" Margin="0"/>
                             </Frame>
                             <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txtPassword_TextChanged">
                                 <Entry.Behaviors>
