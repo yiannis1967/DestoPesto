@@ -9,6 +9,7 @@ using System.Text;
 using Xamarin.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using Xamarin.Forms.PlatformConfiguration;
+using System.Threading.Tasks;
 
 namespace Authentication
 {
@@ -116,7 +117,7 @@ namespace Authentication
 
 
 
-        public bool AuthIDTokenChanged(string idToken, DateTime expirationTime, AuthUser authUserData)
+        public async Task<bool> AuthIDTokenChanged(string idToken, DateTime expirationTime, AuthUser authUserData)
         {
             if (IDToken != idToken)
             {
@@ -152,7 +153,7 @@ namespace Authentication
                     if(_AuthUser != null)
                     {
 
-                        DebugLog.AppEventLog.Log("bool AuthIDTokenChanged   User signed in "+_AuthUser.User_ID);
+                        await DebugLog.AppEventLog.Log("bool AuthIDTokenChanged   User signed in "+_AuthUser.User_ID);
                     }
 
                     AuthStateChanged?.Invoke(this, _AuthUser);
@@ -184,7 +185,7 @@ namespace Authentication
 
             }
             return true;
-            return true;
+            
         }
 
         /// <MetaDataID>{34df0860-c61e-41c6-80cc-8c5a3b1d9d65}</MetaDataID>
@@ -357,7 +358,7 @@ namespace Authentication
         void SendPasswordResetEmail(string email);
         void FacebookSignIn();
         void GoogleSignIn();
-        void AppleSignIn();
+        Task AppleSignIn();
         void SignOut();
     }
 }

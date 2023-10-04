@@ -71,8 +71,10 @@ namespace Authentication.iOS
             var creds = await tcsCredential.Task;
 
             if (creds == null)
+            {
+                await DebugLog.AppEventLog.Log("SignInAsync AppleID creds = null");
                 return null;
-
+            }
             
             var appleAccount = new AppleAccount
             {
@@ -84,15 +86,15 @@ namespace Authentication.iOS
                 Token = new NSString(creds.IdentityToken, NSStringEncoding.UTF8).ToString(),
                 UserId = creds.User
             };
-
+            await DebugLog.AppEventLog.Log("SignInAsync AppleID before credentials");
             var credentials = Firebase.Auth.OAuthProvider.GetCredentialWithRawNonce("apple.com", appleAccount.Token, null);
-
+            await DebugLog.AppEventLog.Log("SignInAsync AppleID after credentials");
             FirebaseAuthentication.FirebaseAuth.SignInWithCredential(credentials, new Firebase.Auth.AuthDataResultHandler(OnAuthDataResult));
 
             //var credentials = Firebase.Auth.GoogleAuthProvider.GetCredential(Token, currentUser.Authentication?.IdToken);
             //FirebaseAuth.SignInWithCredential(credentials, new Firebase.Auth.AuthDataResultHandler(OnAuthDataResult));
 
-
+            await DebugLog.AppEventLog.Log("SignInAsync AppleID SignInWithCredential done");
 
             return appleAccount;
         }

@@ -36,18 +36,6 @@ namespace DestoPesto.iOS
             }
         }
 
-
-        string _DeviceID;
-        public string DeviceID
-        {
-            get
-            {
-                if (_DeviceID==null)
-                    _DeviceID=GetDeviceUniqueID();
-                return _DeviceID;
-            }
-        }
-
         public static AppDelegate AppDelegate { get; internal set; }
 
         Task Background;
@@ -147,13 +135,7 @@ namespace DestoPesto.iOS
         {
 
         }
-        public static String GetDeviceUniqueID()
-        {
 
-            string id = UIKit.UIDevice.CurrentDevice?.IdentifierForVendor?.AsString();
-            return id;
-
-        }
         public async Task PermissionsGranted()
         {
 

@@ -361,14 +361,15 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if DEBUG
+#if _DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://10.0.0.13:5005/";
                 //_Uri = "http://10.0.0.10:5005/";
 #endif
 
-                DebugLog.AppEventLog.Start(_Uri, device.DeviceID, doc.Root.Element("DebugLogs"));
+                var deviceID = device.DeviceID;
+                DebugLog.AppEventLog.Start(_Uri, deviceID, doc.Root.Element("DebugLogs"));
             }
             return _Uri;
 
@@ -530,8 +531,10 @@ namespace DestoPesto.Services
                 return;
 
             }
+    
+            
 
-            var client = new HttpClient();
+                var client = new HttpClient();
             Uri uri = new Uri(getUri() + "api/Submissions");
 
 
@@ -573,10 +576,14 @@ namespace DestoPesto.Services
         public static async Task SignIn(string firebaseToken)
         {
 
+
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            string deviceID = device.DeviceID;
+
             var client = new HttpClient();
             String Parameters = "?deviceFirebaseToken=" + firebaseToken;// + "&lng=" + lng + "&rad=" + rad;
 
-            Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}");
+            Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}");
 
             //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
 
