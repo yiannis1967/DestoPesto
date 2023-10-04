@@ -148,7 +148,7 @@ namespace DestoPesto.Views
 
         private async void DeviceAuthentication_AuthStateChanged(object sender, AuthUser e)
         {
-            if (e != null && e.ExpirationTime > DateTime.UtcNow)
+            if (e != null)
             {
                 Device.BeginInvokeOnMainThread(
             async () =>
