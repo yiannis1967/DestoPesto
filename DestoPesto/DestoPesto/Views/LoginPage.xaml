@@ -45,7 +45,9 @@
 
         </Grid.RowDefinitions>
         <StackLayout VerticalOptions="End" >
-            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title" />
+            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title">
+
+            </Label>
             <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Header" />
         </StackLayout>
         <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
