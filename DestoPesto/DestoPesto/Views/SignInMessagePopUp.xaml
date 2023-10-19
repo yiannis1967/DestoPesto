@@ -21,17 +21,31 @@
            VerticalOptions="Center"
            HasShadow="True"
            MinimumHeightRequest="500"
-           IsClippedToBounds="True"
+           
            Padding="10">
         <StackLayout  >
-            <Frame   HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
-                <!--<Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" />-->
-                <!--<Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />-->
-                <Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />
-            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="Auto"/>
 
-            <!--<Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />-->
-            <Label Text="{Binding Message}" ></Label>
+                </Grid.ColumnDefinitions>
+                <Frame   HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" HeightRequest="60" WidthRequest="60" >
+                    <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" />
+                    
+                    <!--<Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />-->
+                </Frame>
+                <Label  Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Title}" FontSize="Title" HorizontalTextAlignment="Start"  TextColor="#0D6EFD" VerticalOptions="Center"></Label>
+                <!--<Label Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />-->
+                <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Message}" TextColor="{extensions:AppMode Color=Text}"></Label>
+            </Grid>
+            
         </StackLayout>
     </Frame>
 

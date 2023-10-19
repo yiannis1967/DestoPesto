@@ -304,7 +304,7 @@
     <value>It’s easy. Choose the category by pressing the appropriate button below, take a photo and send it. Everything you post is anonymous and your data won't be visible anywhere</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
-    <value>Welcome to the app</value>
+    <value>About the app</value>
   </data>
   <data name="CookiesPolicy" xml:space="preserve">
     <value>Cookies Policy</value>

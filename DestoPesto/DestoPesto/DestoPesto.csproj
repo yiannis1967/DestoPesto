@@ -11,6 +11,11 @@
      <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="New folder\**" />
+    <EmbeddedResource Remove="New folder\**" />
+    <None Remove="New folder\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
     <PackageReference Include="Plugin.LocalNotification" Version="10.0.2" />
@@ -123,6 +128,7 @@
     <None Remove="Images\user.png" />
     <None Remove="Images\wifi.png" />
     <None Remove="Images\xamarin_logo.png" />
+    <None Remove="Views\Views.7z" />
     <None Remove="Xamarin.Forms.Maps" />
   </ItemGroup>
   <ItemGroup>

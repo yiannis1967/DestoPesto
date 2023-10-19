@@ -16,9 +16,10 @@ namespace DestoPesto.Views
         public SignInMessagePopUp(string message)
         {
             InitializeComponent();
-            Message=message;
-            this.BindingContext=this;
-            
+            Message = message;
+            Title = Properties.Resources.ApplicationName;
+            this.BindingContext = this;
+
         }
 
         protected override void OnDisappearing()
@@ -28,6 +29,9 @@ namespace DestoPesto.Views
         }
 
         public string Message { get; private set; }
+        
+        
+
 
         static TaskCompletionSource<bool> task;
 

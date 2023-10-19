@@ -5,8 +5,9 @@
         xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
         xmlns:resources="clr-namespace:DestoPesto"
         xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        >
 
-         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation DurationIn="400"
                                    DurationOut="300"
@@ -19,6 +20,8 @@
                                    ScaleOut="0.8" />
     </pages:PopupPage.Animation>
 
+    
+    
     <Frame Margin="10" 
            CornerRadius="5"
            HorizontalOptions="Fill" 
@@ -26,7 +29,7 @@
            HasShadow="True"
            MinimumHeightRequest="500"
            IsClippedToBounds="True"
-           BackgroundColor="WhiteSmoke" Padding="10,20,10,20">
+           Padding="10,20,10,20">
         <StackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -36,8 +39,11 @@
                 <Frame  HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
                     <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" Aspect="AspectFit" />
                 </Frame>
-                <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.WelcomeMessage}" FontSize="Title"   VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.WelcomeMessage}" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="White"   TextColor="#0D6EFD"/>
+
+
             </Grid>
+            <!--BackgroundColor="{extensions:AppMode Color=Mitsos}"-->
             <StackLayout Orientation="Horizontal">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -46,16 +52,20 @@
                     </Grid.RowDefinitions>
 
 
-                    <Label  Text="{x:Static resources:Properties.Resources.InstructionsMessage}" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"></Label>
-                    <Grid Grid.Row="1" Padding="5,5,5,5" >
+                    <Label  Text="{x:Static resources:Properties.Resources.InstructionsMessage}" HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
+                    <Grid Grid.Row="1" Padding="5,5,5,5" BackgroundColor="{extensions:AppMode Color=Background}"   >
                         <Grid.ColumnDefinitions>
 
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
 
                         </Grid.ColumnDefinitions>
-                        <Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"  OnColor="#0D6EFD" ThumbColor="#d9d9d9"   />
-                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5"/>
+                        <!--<Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"   OnColor="{AppThemeBinding Light=Blue, Dark=Red}" ThumbColor="{AppThemeBinding Light=Blue, Dark=Red}"/>-->
+                        <!--<CheckBox IsChecked="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"   Color="{AppThemeBinding Light=Black, Dark=Black}" />-->
+                        <Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand" OnColor= "#0D6EFD" ThumbColor="#d9d9d9" />
+
+                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5" TextColor="{extensions:AppMode Color=TextRevert}"/>
+                        
                     </Grid>
                     <!--<CheckBox  IsChecked="{Binding DontShowAgain}"></CheckBox>-->
                 </Grid>
@@ -64,5 +74,4 @@
     </Frame>
 
 </pages:PopupPage>
-
 

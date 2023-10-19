@@ -451,7 +451,7 @@
     <value>Συμπλήρωσε το email και τον κωδικό σου</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
-    <value>Οδηγίες χρήσης</value>
+    <value>Σχετικά με την εφαρμογή</value>
   </data>
   <data name="WelcomeText" xml:space="preserve">
     <value>Καλώς ήρθες </value>

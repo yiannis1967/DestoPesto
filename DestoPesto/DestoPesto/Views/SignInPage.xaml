@@ -47,13 +47,13 @@
 
                 <StackLayout Padding="0" Margin="15,10" >
 
-                    <Frame BackgroundColor="Transparent"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <Frame BackgroundColor="{extensions:AppMode Color=Background}"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
-                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0" Margin="5">
+                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0" Margin="5" BorderColor="{extensions:AppMode Color=Background}">
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" Aspect="AspectFill" Margin="0" />
                             </Frame>
 
-                            <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" Keyboard="Email" >
+                            <Entry Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" Keyboard="Email" TextColor="{extensions:AppMode Color=TextRevert}" >
                                 <Entry.Behaviors>
                                     <xct:MultiValidationBehavior x:Name="EmailMultiValidator" InvalidStyle="{StaticResource  InvalidEntryStyle}"  Flags="ValidateOnValueChanging">
                                         <xct:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" />
@@ -70,12 +70,12 @@
                     </StackLayout>
 
 
-                    <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <Frame BackgroundColor="{extensions:AppMode Color=Background}"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5">
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" Aspect="AspectFill" Margin="0"/>
                             </Frame>
-                            <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txtPassword_TextChanged">
+                            <Entry Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" IsPassword="True"   HorizontalOptions="FillAndExpand" TextChanged="txtPassword_TextChanged">
                                 <Entry.Behaviors>
                                     <xct:TextValidationBehavior x:Name="PasswordValidator"  DecorationFlags="Trim" MinimumLength="1" Flags="ValidateOnValueChanging"/>
                                 </Entry.Behaviors>
@@ -119,7 +119,7 @@
 
 
             </StackLayout>
-            <Image Grid.Row="2" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            <Image Grid.Row="2" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" BackgroundColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

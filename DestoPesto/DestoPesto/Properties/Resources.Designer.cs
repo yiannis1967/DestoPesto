@@ -1078,7 +1078,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the app.
+        ///   Looks up a localized string similar to About the app.
         /// </summary>
         public static string WelcomeMessage {
             get {

@@ -29,7 +29,7 @@
         </Grid>
     </Shell.TitleView>
     <ContentPage.Content>
-        <Grid BackgroundColor="White">
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="10*" />
@@ -59,7 +59,7 @@
                         </StackLayout>
                     </Grid>
                     <StackLayout Padding="0" Margin="15,10">
-                        <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <Frame BackgroundColor="{extensions:AppMode Color=Background}"    Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
@@ -78,7 +78,7 @@
                         </Frame>
 
 
-                        <Frame BackgroundColor="Transparent" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <Frame BackgroundColor="{extensions:AppMode Color=Background}"    Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0"  Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
@@ -91,7 +91,7 @@
                             </StackLayout>
                         </Frame>
 
-                        <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <Frame BackgroundColor="{extensions:AppMode Color=Background}"    Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0"  Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
@@ -104,13 +104,13 @@
                             </StackLayout>
                         </Frame>
 
-                        <Frame BackgroundColor="Transparent" Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <Frame BackgroundColor="{extensions:AppMode Color=Background}"    Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0"  Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.user.png}" />
                                 </Frame>
 
-                                <Entry Placeholder="{x:Static resources:Properties.Resources.UserNameText}" x:Name="txtDOB"  PlaceholderColor="Gray"  HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                                <Entry Placeholder="{x:Static resources:Properties.Resources.UserNameText}" x:Name="txtDOB"  HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
                                     <Entry.Behaviors >
                                         <xct:TextValidationBehavior x:Name="UserValidator" MinimumLength="1"/>
                                     </Entry.Behaviors>
@@ -144,7 +144,7 @@
 
                 <!--</Frame>-->
             </StackLayout>
-            <Image Grid.Row="2" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            <Image Grid.Row="2" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
         </Grid>
         <!--</StackLayout>-->
     </ContentPage.Content>

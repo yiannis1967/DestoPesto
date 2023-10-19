@@ -40,20 +40,20 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackLayout  Grid.ColumnSpan="3" Orientation="Horizontal"  >
-                    <!--<Grid>
+                                        <!--<Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                     </Grid>-->
                     <Frame   HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
-                        <!--<Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" />-->
-                        <Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />
+                        <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_icon.png}" VerticalOptions="Center" />
+                        <!--<Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />-->
                     </Frame>
-                    <!--<Label Grid.Column="1" Text="{Binding MessageDialogTitle}" FontSize="Title" HorizontalTextAlignment="Center"  TextColor="#0D6EFD" VerticalOptions="Center"></Label>-->
+                    <Label Grid.Column="1" Text="{Binding MessageDialogTitle}" FontSize="Title" HorizontalTextAlignment="Center"  TextColor="#0D6EFD" VerticalOptions="Center"></Label>
                 </StackLayout>
 
-                <Label x:Name="MessagePlacement" Grid.Row="1" Grid.ColumnSpan="4" Text="{Binding MessageDialogMessage}" LineBreakMode="WordWrap" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                <Label x:Name="MessagePlacement" Grid.Row="1" Grid.ColumnSpan="4" Text="{Binding MessageDialogMessage}" LineBreakMode="WordWrap" TextColor="Red" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
 
                 <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="30" Text="{Binding LeftBtnText}" x:Name="LeftBtn" Clicked="LeftBtn_Clicked"  HorizontalOptions="Start"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
                 <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HeightRequest="30" Text="{Binding RightBtnText}" x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>

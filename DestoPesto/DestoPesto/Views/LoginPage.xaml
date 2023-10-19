@@ -45,13 +45,11 @@
 
         </Grid.RowDefinitions>
         <StackLayout VerticalOptions="End" >
-            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title">
-
-            </Label>
-            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Header" />
+            <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="{extensions:AppMode Color=Text}" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
+            <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="{extensions:AppMode Color=Text}"  HorizontalOptions="CenterAndExpand" FontSize="Header" />
         </StackLayout>
         <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Frame  CornerRadius="10"   IsVisible="{Binding FacebookSignInVisible}" HeightRequest="80" Margin="10"
+            <Frame  CornerRadius="10"   IsVisible="{Binding FacebookSignInVisible}" HeightRequest="80" Margin="10" BackgroundColor="White"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding FacebookSigninCommand}">
@@ -63,13 +61,13 @@
 
                         </Grid.ColumnDefinitions>
                         <Image Source="{extensions:ImageResource DestoPesto.Images.facebook.png}" />
-                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.FacebookLogin}" TextColor="Black" FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.FacebookLogin}" TextColor="{extensions:AppMode Color=Text}" FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </StackLayout>
             </Frame>
 
 
-            <Frame IsVisible="{Binding GoogleSignInVisible}"  CornerRadius="10" HeightRequest="80" Margin="10"
+            <Frame IsVisible="{Binding GoogleSignInVisible}"  CornerRadius="10" HeightRequest="80" Margin="10" BackgroundColor="White"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding GoogleSigninCommand}">
@@ -82,12 +80,12 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="{extensions:ImageResource DestoPesto.Images.google_logo.png}" />
 
-                        <Label Grid.Column="1"  Text="{x:Static resources:Properties.Resources.GoogleLogin}" TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        <Label Grid.Column="1"  Text="{x:Static resources:Properties.Resources.GoogleLogin}" TextColor="{extensions:AppMode Color=Text}"   FontAttributes="None" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </StackLayout>
             </Frame>
 
-            <Frame IsVisible="{Binding AppleSignInVisible}" CornerRadius="10" HeightRequest="80"  Margin="10"
+            <Frame IsVisible="{Binding AppleSignInVisible}" CornerRadius="10" HeightRequest="80"  Margin="10" BackgroundColor="White"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding AppleSigninCommand}">
@@ -99,11 +97,11 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="{extensions:ImageResource DestoPesto.Images.applelogo.png}" />
-                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.AppleLogin}"  TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.AppleLogin}"  TextColor="{extensions:AppMode Color=Text}"   FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="10"  IsVisible="{Binding EmailSignInVisible}" HeightRequest="80"  Margin="10"
+            <Frame CornerRadius="10"  IsVisible="{Binding EmailSignInVisible}" HeightRequest="80"  Margin="10" BackgroundColor="White"
                                         xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding SigninCommand}">
@@ -115,7 +113,7 @@
                         </Grid.ColumnDefinitions>
                         <!--<Image Source="email.png"  />-->
                         <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
-                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.EmailLogin}" TextColor="Black"  FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.EmailLogin}" TextColor="{extensions:AppMode Color=Text}"   FontAttributes="None" LineBreakMode="WordWrap"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                     </Grid>
                 </StackLayout>
             </Frame>
@@ -124,9 +122,9 @@
 
 
         </StackLayout>
-        <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="10">
+        <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="10" BackgroundColor="White">
             <Image Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="End"/>
-            <Label Text="{x:Static resources:Properties.Resources.DeleteAccountInfoText}" TextColor="Black" FontSize="Micro" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
+            <Label Text="{x:Static resources:Properties.Resources.DeleteAccountInfoText}" TextColor="{extensions:AppMode Color=Text}"  FontSize="Micro" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
         </StackLayout>
     </Grid>
 
