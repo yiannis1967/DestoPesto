@@ -44,6 +44,7 @@
                     </Grid.ColumnDefinitions>
 
 
+                    
                     <StackLayout Grid.Column="1"  Grid.Row="1">
                         <Label Text="{x:Static resources:Properties.Resources.PermissionsTitle}" FontSize="Title"  LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
                         <Label Text="{x:Static resources:Properties.Resources.PermissionTitleDetails}" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
