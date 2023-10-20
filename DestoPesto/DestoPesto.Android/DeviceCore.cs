@@ -143,6 +143,51 @@ namespace DestoPesto.Droid
 
         }
 
+        public double GetOrientation(System.IO.Stream stream)
+        {
+            var exif = new ExifInterface(stream);
+
+            Orientation orientation = (Orientation)exif.GetAttributeInt(ExifInterface.TagOrientation, (int)Orientation.Undefined);
+            switch(orientation)
+            {
+                case Orientation.Rotate90:
+                    return 90;
+                case Orientation.Rotate180:
+                    return 180;
+                case Orientation.Rotate270:
+                    return 270;
+                default:
+                    return 0;
+            }
+
+            //string orientation = exif.GetAttribute(ExifInterface.TagOrientation);
+
+            //switch (orientation)
+            //{
+            //    case "1": // landscape
+            //        break;
+            //    case "3":
+            //        return 180;
+            //    case "4":
+            //        return 180;
+            //    case "5":
+            //        return 90;
+            //    case "6": // portrait
+            //        return 90;
+            //    case "7":
+            //        return -90;
+            //    case "8":
+            //        return -90;
+            //}
+            //return 360;
+
+        }
+
+        public Task<FileResult> CapturePhotoAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         static internal string m_androidId;
 
         static internal string m_OldandroidId = "";

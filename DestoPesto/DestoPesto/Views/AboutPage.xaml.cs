@@ -53,6 +53,8 @@ namespace DestoPesto.Views
             InitializeComponent();
             //map.IsVisible = false;
             BindingContext = this;
+
+            DebugLog.AppEventLog.Log("AboutPage  ctor");
             JsonHandler.CreateFolder();
             //    location_tap.Tapped += Location_tap_Tapped;
             // imgpin.GestureRecognizers.Add(location_tap);
@@ -505,6 +507,8 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+            await DebugLog.AppEventLog.Log("AboutPage  OnAppearing");
+
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions == PermissionStatus.Granted)
             {
@@ -905,13 +909,25 @@ namespace DestoPesto.Views
             try
             {
 
-                FileResult result = await MediaPicker.CapturePhotoAsync();
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                FileResult result = DeviceInfo.Platform.Equals(DevicePlatform.iOS) && device != null
+               ? await device.CapturePhotoAsync()
+               : await MediaPicker.CapturePhotoAsync();
+
                 //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
 
                 if (result != null)
                 {
                     string base64 = "";
                     stream = await result.OpenReadAsync();
+
+
+                    
+                    var rotateAngle = device.GetOrientation(stream);
+                    stream = await result.OpenReadAsync();
+                    DisplayAlert("image", $"Rotate angle :{rotateAngle}", "OK");
+                    stream.Position = 0;
+                    //return;
                     //if (stream != null)
                     //{
                     //    using (MemoryStream memory = new MemoryStream())
