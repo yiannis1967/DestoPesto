@@ -1,4 +1,5 @@
-﻿using Android.Media;
+﻿using Android.Locations;
+using Android.Media;
 using Android.OS;
 
 using System;
@@ -134,6 +135,27 @@ namespace DestoPesto.Droid
                 return Task.FromResult(PermissionStatus.Denied);
 
 
+        }
+
+        public bool isGPSEnabled()
+        {
+
+
+            LocationManager locationManager = null;
+            bool gps_enabled = false;
+
+            if (locationManager == null)
+            {
+
+                locationManager = (LocationManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.LocationService);
+            }
+            try
+            {
+                gps_enabled = locationManager.IsProviderEnabled(LocationManager.GpsProvider);
+            }
+            catch (Exception ex) { }
+
+            return gps_enabled;
         }
 
         public Task PermissionsGranted()

@@ -12,7 +12,7 @@ namespace DestoPesto
     {
         //  Task<string> SendMessage(string xmlMessage);
 
-
+        bool isGPSEnabled();
 
         Task<PermissionStatus> RemoteNotificationsPermissionsRequest();
 
