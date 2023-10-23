@@ -355,12 +355,15 @@ namespace DestoPesto.Views
                             //if (DeviceInfo.Version >= version)
                             if (locationInUsePermisions != PermissionStatus.Granted)
                             {
-                                locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                                if (DependencyService.Get<IDevice>().isGPSEnabled())
+                                    locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                                
                                 if (locationInUsePermisions != PermissionStatus.Granted)
                                     LocationPermisionsChecked = true;
                             }
                             else
                                 LocationPermisionsChecked = true;
+
 
                             if (locationInUsePermisions == PermissionStatus.Granted)
                                 locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
@@ -791,8 +794,10 @@ namespace DestoPesto.Views
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions != PermissionStatus.Granted)
             {
-
-                locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
+                if (DependencyService.Get<IDevice>().isGPSEnabled())
+                    locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
+                else
+                    return;
                 if (locationInUsePermisions == PermissionStatus.Granted)
                 {
                     map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
