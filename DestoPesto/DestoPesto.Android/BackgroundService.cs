@@ -85,16 +85,24 @@ namespace DestoPesto.Droid
                 {
                     var req = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                     cts = new CancellationTokenSource();
-                    var loc = await Geolocation.GetLocationAsync(req, cts.Token);
-                    await JsonHandler.GetDamages(false, loc.Latitude, loc.Longitude, 20000.0);
-                    LastSubmittedLocation = loc;
-                    SubmittedDamage = JsonHandler.damageData;
+                    try
+                    {
+                        var loc = await Geolocation.GetLocationAsync(req, cts.Token);
+                        await JsonHandler.GetDamages(false, loc.Latitude, loc.Longitude, 20000.0);
+                        LastSubmittedLocation = loc;
+                        SubmittedDamage = JsonHandler.damageData;
 
-                    //Call GetUserSubmission
-                    await JsonHandler.GetDamages(true, loc.Latitude, loc.Longitude, 20000.0);
-                    SubmittedDamageUser = JsonHandler.damageData;
-                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
-                }
+                        //Call GetUserSubmission
+                        await JsonHandler.GetDamages(true, loc.Latitude, loc.Longitude, 20000.0);
+                        SubmittedDamageUser = JsonHandler.damageData;
+                        MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
+
+                    }
+                    catch (Exception exception)
+                    {
+
+                        
+                    }                }
             }
             );
             try

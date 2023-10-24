@@ -183,6 +183,7 @@ namespace DestoPesto.Droid
 
         }
 
+
         void CreateNotificationFromIntent(Intent intent)
         {
             if (intent?.Extras != null)

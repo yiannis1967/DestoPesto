@@ -5,8 +5,10 @@
        xmlns:hpl="clr-namespace:Hyperlink"
        Title="DestoPesto"
        BackgroundColor="#0D6EFD"
+       FlyoutBackgroundColor="White"
        xmlns:resources="clr-namespace:DestoPesto"
        xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+       
        x:Class="DestoPesto.AppShell">
 
     <Shell.FlyoutHeaderTemplate>
@@ -24,9 +26,11 @@
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
-    <Shell.FlyoutFooterTemplate>
+    
+
+    <Shell.FlyoutFooterTemplate >
         <DataTemplate>
-            <ContentView>
+            <ContentView BackgroundColor="White">
                 <Grid Padding="10,0,0,0" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

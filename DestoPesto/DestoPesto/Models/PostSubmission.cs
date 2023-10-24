@@ -24,5 +24,6 @@ namespace DestoPesto.Models
         public string DeviceName { get; set; }
         public string DevicePlatform { get; set; }
         public string DeviceIdiom { get; set; }
+        public int Angle { get;  set; }
     }
 }

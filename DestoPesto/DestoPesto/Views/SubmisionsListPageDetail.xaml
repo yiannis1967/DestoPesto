@@ -9,7 +9,7 @@
              xmlns:extensions="clr-namespace:DestoPesto.Extensions"
             Title="{x:Static resources:Properties.Resources.SubmisionsText}">
 
-    <Grid>
+    <Grid BackgroundColor="White" >
         <ScrollView>
             <StackLayout Padding="10">
                 <controls:RepeaterView ItemsSource="{Binding Path=Damages}">

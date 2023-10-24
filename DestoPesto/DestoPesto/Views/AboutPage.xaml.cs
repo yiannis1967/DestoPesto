@@ -791,6 +791,11 @@ namespace DestoPesto.Views
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions != PermissionStatus.Granted)
             {
+                if (!DependencyService.Get<IDevice>().isGPSEnabled())
+                {
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                    return;
+                }
 
                 locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
                 if (locationInUsePermisions == PermissionStatus.Granted)
@@ -905,7 +910,7 @@ namespace DestoPesto.Views
             //else
             Stream stream = null;
 
-
+            PostSubmission post = new PostSubmission();
             try
             {
 
@@ -915,17 +920,18 @@ namespace DestoPesto.Views
                : await MediaPicker.CapturePhotoAsync();
 
                 //FileResult result = await MediaPicker.PickPhotoAsync();//.CapturePhotoAsync();
-
+                int? angle = null;
                 if (result != null)
                 {
                     string base64 = "";
                     stream = await result.OpenReadAsync();
 
 
-                    
+
                     var rotateAngle = device.GetOrientation(stream);
+                    post.Angle=(int)rotateAngle; ;
                     stream = await result.OpenReadAsync();
-                    DisplayAlert("image", $"Rotate angle :{rotateAngle}", "OK");
+                    //  DisplayAlert("image", $"Rotate angle :{rotateAngle}", "OK");
                     stream.Position = 0;
                     //return;
                     //if (stream != null)
@@ -978,7 +984,7 @@ namespace DestoPesto.Views
 
 
 
-               await device.PermissionsGranted();
+                await device.PermissionsGranted();
 
 
 
@@ -1015,7 +1021,7 @@ namespace DestoPesto.Views
 
 
                 }
-                PostSubmission post = new PostSubmission();
+
 
                 post.dateTime = dt.Year + "-" + month + "-" + day + "T00:" + hour + ":" + min + ".315Z";
                 //post.dateTime = dt.ToString();

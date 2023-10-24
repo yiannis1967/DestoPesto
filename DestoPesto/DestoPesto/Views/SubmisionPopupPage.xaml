@@ -19,7 +19,7 @@
                                    ScaleOut="0.8" />
     </pages:PopupPage.Animation>
     <!--  You can use any elements here which are extended from Xamarin.Forms.View  -->
-    <Frame CornerRadius="5" 
+    <Frame BackgroundColor="White" CornerRadius="5" 
            HorizontalOptions="Center" 
            VerticalOptions="Center"
            HasShadow="True"
@@ -55,7 +55,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid >-->
-            <Label Grid.Row="3" Grid.Column="1" Text="{Binding Comments}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
+            <Label Grid.Row="3" TextColor="DarkGray" Grid.Column="1" Text="{Binding Comments}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
 
                 <!--</Grid>
             </Grid>-->

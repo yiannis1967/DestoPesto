@@ -14,7 +14,7 @@
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
-    <Grid x:Name="GridMain"  >
+    <Grid x:Name="GridMain" BackgroundColor="White"  >
         <Grid.RowDefinitions>
 
             <RowDefinition Height="*" />

@@ -29,6 +29,7 @@
            HasShadow="True"
            MinimumHeightRequest="500"
            IsClippedToBounds="True"
+           BackgroundColor="White"
            Padding="10,20,10,20">
         <StackLayout>
             <Grid>
@@ -53,7 +54,7 @@
 
 
                     <Label  Text="{x:Static resources:Properties.Resources.InstructionsMessage}" HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
-                    <Grid Grid.Row="1" Padding="5,5,5,5" BackgroundColor="{extensions:AppMode Color=Background}"   >
+                    <Grid Grid.Row="1" Padding="5,5,5,5" BackgroundColor="White"   >
                         <Grid.ColumnDefinitions>
 
                             <ColumnDefinition Width="Auto"/>
@@ -64,7 +65,7 @@
                         <!--<CheckBox IsChecked="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"   Color="{AppThemeBinding Light=Black, Dark=Black}" />-->
                         <Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand" OnColor= "#0D6EFD" ThumbColor="#d9d9d9" />
 
-                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5" TextColor="{extensions:AppMode Color=TextRevert}"/>
+                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5" TextColor="#0D6EFD"/>
                         
                     </Grid>
                     <!--<CheckBox  IsChecked="{Binding DontShowAgain}"></CheckBox>-->
