@@ -115,7 +115,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancle.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string CancelText {
             get {
@@ -124,7 +124,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancle.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string CancleText {
             get {
@@ -651,6 +651,15 @@ namespace DestoPesto.Properties {
         public static string LocationPrompt {
             get {
                 return ResourceManager.GetString("LocationPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location Services are not enabled and the app cannot upload a photo without and they are mandatoty for the application to run. Please enable then and try again .
+        /// </summary>
+        public static string LocationServicesOff {
+            get {
+                return ResourceManager.GetString("LocationServicesOff", resourceCulture);
             }
         }
         

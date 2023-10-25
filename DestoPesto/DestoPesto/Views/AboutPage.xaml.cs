@@ -338,6 +338,11 @@ namespace DestoPesto.Views
 
         private async Task getLocation()
         {
+            if (!DependencyService.Get<IDevice>().isGPSEnabled())
+            {
+                //    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                return;
+            }
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             //else
@@ -357,7 +362,7 @@ namespace DestoPesto.Views
                             {
                                 if (DependencyService.Get<IDevice>().isGPSEnabled())
                                     locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-                                
+
                                 if (locationInUsePermisions != PermissionStatus.Granted)
                                     LocationPermisionsChecked = true;
                             }
@@ -513,7 +518,7 @@ namespace DestoPesto.Views
             await DebugLog.AppEventLog.Log("AboutPage  OnAppearing");
 
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-            if (locationInUsePermisions == PermissionStatus.Granted)
+            if (locationInUsePermisions == PermissionStatus.Granted && DependencyService.Get<IDevice>().isGPSEnabled())
             {
                 map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
                 map.IsVisible = false;
@@ -622,7 +627,7 @@ namespace DestoPesto.Views
             else
             {
                 locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-                if (locationInUsePermisions == PermissionStatus.Granted)
+                if (locationInUsePermisions == PermissionStatus.Granted && DependencyService.Get<IDevice>().isGPSEnabled())
                 {
                     try
                     {
@@ -789,16 +794,16 @@ namespace DestoPesto.Views
 
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
-
+            if (!DependencyService.Get<IDevice>().isGPSEnabled())
+            {
+                await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationServicesOff, DestoPesto.Properties.Resources.Oktext);
+                return;
+            }
             var locationInUsePermisionsa = await Permissions.CheckStatusAsync<Permissions.LocationAlways>();
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions != PermissionStatus.Granted)
             {
-                if (!DependencyService.Get<IDevice>().isGPSEnabled())
-                {
-                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
-                    return;
-                }
+
 
                 locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
                 if (locationInUsePermisions == PermissionStatus.Granted)
@@ -932,7 +937,7 @@ namespace DestoPesto.Views
 
 
                     var rotateAngle = device.GetOrientation(stream);
-                    post.Angle=(int)rotateAngle; ;
+                    post.Angle = (int)rotateAngle; ;
                     stream = await result.OpenReadAsync();
                     //  DisplayAlert("image", $"Rotate angle :{rotateAngle}", "OK");
                     stream.Position = 0;

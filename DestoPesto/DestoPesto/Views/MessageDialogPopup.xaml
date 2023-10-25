@@ -37,6 +37,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="5*"/>
+                    
+                    
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackLayout  Grid.ColumnSpan="3" Orientation="Horizontal"  >
@@ -55,6 +57,7 @@
 
                 <Label x:Name="MessagePlacement" Grid.Row="1" Grid.ColumnSpan="4" Text="{Binding MessageDialogMessage}" LineBreakMode="WordWrap" TextColor="Red" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
 
+                
                 <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="30" Text="{Binding LeftBtnText}" x:Name="LeftBtn" Clicked="LeftBtn_Clicked"  HorizontalOptions="Start"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
                 <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HeightRequest="30" Text="{Binding RightBtnText}" x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
             </Grid>

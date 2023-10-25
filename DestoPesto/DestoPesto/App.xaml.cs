@@ -70,6 +70,15 @@ namespace DestoPesto
 
         public async Task getLocation()
         {
+
+            if (!DependencyService.Get<IDevice>().isGPSEnabled())
+            {
+                //    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                return;
+            }
+
+
+
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             MessagingCenter.Unsubscribe<string>(this, "GetData");
             MessagingCenter.Subscribe<string>(this, "GetData", async (value) =>
@@ -239,7 +248,7 @@ namespace DestoPesto
             }
             catch (Exception errr)
             {
-
+               
             }
             //  Toast.MakeText(this, "Latitude: " +position.Latitude.ToString() + " Longitude: " + position.Longitude.ToString(),ToastLength.Short).Show();
 

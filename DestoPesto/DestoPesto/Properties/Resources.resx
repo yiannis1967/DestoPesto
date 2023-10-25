@@ -124,7 +124,7 @@
     <value>Δες το, Πες το</value>
   </data>
   <data name="CancelText" xml:space="preserve">
-    <value>Cancle</value>
+    <value>Cancel</value>
   </data>
   <data name="CatagoryText" xml:space="preserve">
     <value>Catagory</value>
@@ -172,7 +172,7 @@
     <value>Damage Report Alert</value>
   </data>
   <data name="CancleText" xml:space="preserve">
-    <value>Cancle</value>
+    <value>Cancel</value>
   </data>
   <data name="LocationPrompt" xml:space="preserve">
     <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken. </value>
@@ -467,5 +467,8 @@
   </data>
   <data name="WelcomeEmailPasswordLogin" xml:space="preserve">
     <value>Fill your email and password to login</value>
+  </data>
+  <data name="LocationServicesOff" xml:space="preserve">
+    <value>Location Services are not enabled and the app cannot upload a photo without and they are mandatoty for the application to run. Please enable then and try again </value>
   </data>
 </root>
