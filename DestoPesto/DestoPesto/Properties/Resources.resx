@@ -469,6 +469,6 @@
     <value>Fill your email and password to login</value>
   </data>
   <data name="LocationServicesOff" xml:space="preserve">
-    <value>Location Services are not enabled and the app cannot upload a photo without and they are mandatoty for the application to run. Please enable then and try again </value>
+    <value>Location Services are not enabled. This is mandatory as the app in order to upload photos needs the get the location from the device. Please enable the service and try again</value>
   </data>
 </root>

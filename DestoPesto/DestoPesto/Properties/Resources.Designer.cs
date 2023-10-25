@@ -655,7 +655,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Location Services are not enabled and the app cannot upload a photo without and they are mandatoty for the application to run. Please enable then and try again .
+        ///   Looks up a localized string similar to Location Services are not enabled. This is mandatory as the app in order to upload photos needs the get the location from the device. Please enable the service and try again.
         /// </summary>
         public static string LocationServicesOff {
             get {
