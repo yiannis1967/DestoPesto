@@ -31,6 +31,7 @@
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="*"/>
                                                             <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="*"/>
                                                         </Grid.RowDefinitions>
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="*"/>
@@ -38,7 +39,7 @@
                                                         </Grid.ColumnDefinitions>
                                                         <Label Grid.Column="1" FontSize="Subtitle"  Text="{Binding Path=CategoryName}"></Label>
                                                         <Label Grid.Column="1" Grid.Row="1"  Text="{Binding Path=fullAddress}"></Label>
-                                                        <Label  Text="=" />
+                                                        <Label Grid.Column="1" Grid.Row="2"  Text="{Binding Path=SubmissionsNumberPrompt}"></Label>
                                                     </Grid>
 
                                                 </Grid>

@@ -464,6 +464,7 @@ namespace DestoPesto.Views
                             PinEx pin = new PinEx
                             {
                                 Label = _pinLoc[i].CategoryName,
+                                id=_pinLoc[i].id,
                                 Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
                                 Address = _pinLoc[i].numberOfUsers + " since " + date,
                                 StyleId = _pinLoc[i].id,
@@ -475,7 +476,8 @@ namespace DestoPesto.Views
                             };
                             if (pin.Label == null)
                                 continue;
-                            pin.InfoWindowClicked += Pin_MarkerClicked;
+                            //pin.InfoWindowClicked += Pin_MarkerClicked;
+                            pin.MarkerClicked += Pin_MarkerClicked;
                             map.CustomPins.Add(pin);
                             map.Pins.Add(pin);
                         }
@@ -485,6 +487,7 @@ namespace DestoPesto.Views
 
                         }
                     }
+
 
                 }
                 catch (Exception e)
@@ -683,57 +686,63 @@ namespace DestoPesto.Views
             e.HideInfoWindow = true;
             string pinName = ((Pin)sender).Label;
             string pinid = ((Pin)sender).StyleId;
-            bool res = await MessageDialogPopup.DisplayPopUp(Properties.Resources.ReportFix, $":{pinName}", StringResource.YesText, StringResource.NoText);
+           var damage=  this.ReportedDamagePins.Where(x => x.id==pinid).FirstOrDefault();
 
-
-            if (res)
+            if (damage!=null)
             {
-
-                FixdDamage fix = new FixdDamage();
-                fix.id = pinid;
-                DateTime dt = DateTime.Now;
-                string month = dt.Month.ToString();
-                if (dt.Month < 10)
-                {
-                    month = "0" + month;
-
-
-                }
-                string day = dt.Day.ToString();
-                if (dt.Day < 10)
-                {
-                    day = "0" + day;
-
-
-                }
-                string hour = dt.Hour.ToString();
-                if (dt.Hour < 10)
-                {
-                    hour = "0" + hour;
-
-
-                }
-                string min = dt.Minute.ToString();
-                if (dt.Minute < 10)
-                {
-                    min = "0" + min;
-
-
-                }
-                fix.fixedDate = dt.Year + "-" + month + "-" + day + "T00:" + hour + ":" + min + ".315Z";
-                //await getUserData();
-                if (Authentication.DeviceAuthentication.AuthUser == null)
-                {
-                    //await Shell.Current.Navigation.PushAsync(new LoginPage());
-                    await Shell.Current.GoToAsync("//LoginPage");
-                    return;
-                }
-
-                string sss = Authentication.DeviceAuthentication.IDToken;
-                fix.userId = userEmail;
-                await JsonHandler.PutSubmission(fix);
-
+                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage));
             }
+            //bool res = await MessageDialogPopup.DisplayPopUp(Properties.Resources.ReportFix, $":{pinName}", StringResource.YesText, StringResource.NoText);
+
+
+            //if (res)
+            //{
+
+            //    FixdDamage fix = new FixdDamage();
+            //    fix.id = pinid;
+            //    DateTime dt = DateTime.Now;
+            //    string month = dt.Month.ToString();
+            //    if (dt.Month < 10)
+            //    {
+            //        month = "0" + month;
+
+
+            //    }
+            //    string day = dt.Day.ToString();
+            //    if (dt.Day < 10)
+            //    {
+            //        day = "0" + day;
+
+
+            //    }
+            //    string hour = dt.Hour.ToString();
+            //    if (dt.Hour < 10)
+            //    {
+            //        hour = "0" + hour;
+
+
+            //    }
+            //    string min = dt.Minute.ToString();
+            //    if (dt.Minute < 10)
+            //    {
+            //        min = "0" + min;
+
+
+            //    }
+            //    fix.fixedDate = dt.Year + "-" + month + "-" + day + "T00:" + hour + ":" + min + ".315Z";
+            //    //await getUserData();
+            //    if (Authentication.DeviceAuthentication.AuthUser == null)
+            //    {
+            //        //await Shell.Current.Navigation.PushAsync(new LoginPage());
+            //        await Shell.Current.GoToAsync("//LoginPage");
+            //        return;
+            //    }
+
+            //    string sss = Authentication.DeviceAuthentication.IDToken;
+            //    fix.userId = userEmail;
+            //    await JsonHandler.PutSubmission(fix);
+
+            //}
 
         }
 
