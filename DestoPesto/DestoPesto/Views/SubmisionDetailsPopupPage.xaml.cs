@@ -38,7 +38,7 @@ namespace DestoPesto.Views
             }
 
             BindingContext=this;
-
+            
 
 
 
@@ -52,7 +52,7 @@ namespace DestoPesto.Views
                     return Color.FromHex("#2196F3");
                 else
                     return Color.Gray;
-            }
+        }
         }
         public DamageData Submission { get; } 
         async void OnImageNameTapped(object sender, EventArgs args)
