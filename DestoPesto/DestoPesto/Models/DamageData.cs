@@ -1,4 +1,5 @@
 ﻿using DestoPesto.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,54 +17,54 @@ namespace DestoPesto.Models
 
 
 
-                FixdDamage fix = new FixdDamage();
-                fix.id = id;
-                DateTime dt = DateTime.Now;
-                string month = dt.Month.ToString();
-                if (dt.Month < 10)
-                {
-                    month = "0" + month;
+                //FixdDamage fix = new FixdDamage();
+                //fix.id = id;
+                //DateTime dt = DateTime.Now;
+                //string month = dt.Month.ToString();
+                //if (dt.Month < 10)
+                //{
+                //    month = "0" + month;
 
 
-                }
-                string day = dt.Day.ToString();
-                if (dt.Day < 10)
-                {
-                    day = "0" + day;
+                //}
+                //string day = dt.Day.ToString();
+                //if (dt.Day < 10)
+                //{
+                //    day = "0" + day;
 
 
-                }
-                string hour = dt.Hour.ToString();
-                if (dt.Hour < 10)
-                {
-                    hour = "0" + hour;
+                //}
+                //string hour = dt.Hour.ToString();
+                //if (dt.Hour < 10)
+                //{
+                //    hour = "0" + hour;
 
 
-                }
-                string min = dt.Minute.ToString();
-                if (dt.Minute < 10)
-                {
-                    min = "0" + min;
+                //}
+                //string min = dt.Minute.ToString();
+                //if (dt.Minute < 10)
+                //{
+                //    min = "0" + min;
 
 
-                }
-                fix.fixedDate = dt.Year + "-" + month + "-" + day + "T00:" + hour + ":" + min + ".315Z";
-                //await getUserData();
-                if (Authentication.DeviceAuthentication.AuthUser == null)
-                {
-                    //await Shell.Current.Navigation.PushAsync(new LoginPage());
-                    await Shell.Current.GoToAsync("//LoginPage");
-                    return;
-                }
+                //}
+                //fix.fixedDate = dt.Year + "-" + month + "-" + day + "T00:" + hour + ":" + min + ".315Z";
+                ////await getUserData();
+                //if (Authentication.DeviceAuthentication.AuthUser == null)
+                //{
+                //    //await Shell.Current.Navigation.PushAsync(new LoginPage());
+                //    await Shell.Current.GoToAsync("//LoginPage");
+                //    return;
+                //}
 
-                string sss = Authentication.DeviceAuthentication.IDToken;
-                //fix.userId = userEmail;
+                //string sss = Authentication.DeviceAuthentication.IDToken;
+                ////fix.userId = userEmail;
 
-                if (await JsonHandler.PutSubmission(fix))
-                {
-                    (App.Current as App).RemoveUserSubmittedDamage(this);
+                //if (await JsonHandler.PutSubmission(fix))
+                //{
+                //    (App.Current as App).RemoveUserSubmittedDamage(this);
 
-                }
+                //}
 
                 //System.Diagnostics.Debug.WriteLine("sdss");
 
@@ -71,6 +72,7 @@ namespace DestoPesto.Models
         }
 
 
+      
         public string id { get; set; }
         public double lat { get; set; }
         public double lng { get; set; }
@@ -102,6 +104,21 @@ namespace DestoPesto.Models
             }
             set
             {
+
+            }
+        }
+
+        [JsonIgnore]
+        public string SubmissionsNumberPrompt
+        {
+            get
+            {
+
+                return Properties.Resources.NumUserText+" "+numberOfUsers.ToString();
+
+            }
+            set
+            { 
 
             }
         }

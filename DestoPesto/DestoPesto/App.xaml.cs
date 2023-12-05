@@ -171,7 +171,7 @@ namespace DestoPesto
                         try
                         {
                             if (SubmittedDamage == null)
-                                SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, 20000.0);
+                                SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, 481.0);
                         }
                         catch (Exception ex)
                         {
@@ -184,14 +184,14 @@ namespace DestoPesto
                         try
                         {
                             if (SubmittedDamageUser == null)
-                                SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 20000.0);
+                                SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 481.0);
                         }
                         catch (Exception ex)
                         {
 
                         }
                         //                        SubmittedDamageUser = JsonHandler.damageData;
-                        MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
+                        MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamage);
 
                     }
 

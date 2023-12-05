@@ -464,6 +464,7 @@ namespace DestoPesto.Views
                             PinEx pin = new PinEx
                             {
                                 Label = _pinLoc[i].CategoryName,
+                                id=_pinLoc[i].id,
                                 Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
                                 Address = _pinLoc[i].numberOfUsers + " since " + date,
                                 StyleId = _pinLoc[i].id,
@@ -475,7 +476,8 @@ namespace DestoPesto.Views
                             };
                             if (pin.Label == null)
                                 continue;
-                            pin.InfoWindowClicked += Pin_MarkerClicked;
+                            //pin.InfoWindowClicked += Pin_MarkerClicked;
+                            pin.MarkerClicked += Pin_MarkerClicked;
                             map.CustomPins.Add(pin);
                             map.Pins.Add(pin);
                         }
@@ -485,6 +487,7 @@ namespace DestoPesto.Views
 
                         }
                     }
+
 
                 }
                 catch (Exception e)
@@ -683,57 +686,64 @@ namespace DestoPesto.Views
             e.HideInfoWindow = true;
             string pinName = ((Pin)sender).Label;
             string pinid = ((Pin)sender).StyleId;
-            bool res = await MessageDialogPopup.DisplayPopUp(Properties.Resources.ReportFix, $":{pinName}", StringResource.YesText, StringResource.NoText);
+            var damage = this.ReportedDamagePins.Where(x => x.id==pinid).FirstOrDefault();
 
-
-            if (res)
+            if (damage!=null)
             {
-
-                FixdDamage fix = new FixdDamage();
-                fix.id = pinid;
-                DateTime dt = DateTime.Now;
-                string month = dt.Month.ToString();
-                if (dt.Month < 10)
-                {
-                    month = "0" + month;
-
-
-                }
-                string day = dt.Day.ToString();
-                if (dt.Day < 10)
-                {
-                    day = "0" + day;
-
-
-                }
-                string hour = dt.Hour.ToString();
-                if (dt.Hour < 10)
-                {
-                    hour = "0" + hour;
-
-
-                }
-                string min = dt.Minute.ToString();
-                if (dt.Minute < 10)
-                {
-                    min = "0" + min;
-
-
-                }
-                fix.fixedDate = dt.Year + "-" + month + "-" + day + "T00:" + hour + ":" + min + ".315Z";
-                //await getUserData();
-                if (Authentication.DeviceAuthentication.AuthUser == null)
-                {
-                    //await Shell.Current.Navigation.PushAsync(new LoginPage());
-                    await Shell.Current.GoToAsync("//LoginPage");
-                    return;
-                }
-
-                string sss = Authentication.DeviceAuthentication.IDToken;
-                fix.userId = userEmail;
-                await JsonHandler.PutSubmission(fix);
-
+                var locaion =await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
+                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage,locaion));
             }
+            //bool res = await MessageDialogPopup.DisplayPopUp(Properties.Resources.ReportFix, $":{pinName}", StringResource.YesText, StringResource.NoText);
+
+
+            //if (res)
+            //{
+
+            //    FixdDamage fix = new FixdDamage();
+            //    fix.id = pinid;
+            //    DateTime dt = DateTime.Now;
+            //    string month = dt.Month.ToString();
+            //    if (dt.Month < 10)
+            //    {
+            //        month = "0" + month;
+
+
+            //    }
+            //    string day = dt.Day.ToString();
+            //    if (dt.Day < 10)
+            //    {
+            //        day = "0" + day;
+
+
+            //    }
+            //    string hour = dt.Hour.ToString();
+            //    if (dt.Hour < 10)
+            //    {
+            //        hour = "0" + hour;
+
+
+            //    }
+            //    string min = dt.Minute.ToString();
+            //    if (dt.Minute < 10)
+            //    {
+            //        min = "0" + min;
+
+
+            //    }
+            //    fix.fixedDate = dt.Year + "-" + month + "-" + day + "T00:" + hour + ":" + min + ".315Z";
+            //    //await getUserData();
+            //    if (Authentication.DeviceAuthentication.AuthUser == null)
+            //    {
+            //        //await Shell.Current.Navigation.PushAsync(new LoginPage());
+            //        await Shell.Current.GoToAsync("//LoginPage");
+            //        return;
+            //    }
+
+            //    string sss = Authentication.DeviceAuthentication.IDToken;
+            //    fix.userId = userEmail;
+            //    await JsonHandler.PutSubmission(fix);
+
+            //}
 
         }
 
@@ -1105,15 +1115,69 @@ namespace DestoPesto.Views
             }
 
         }
-
+        CancellationTokenSource tokenSource;
 
         private async void map_PropertyChangedAsync(object sender, PropertyChangedEventArgs e)
         {
+
+
+
+
+            if (e.PropertyName=="VisibleRegion")
+            {
+                tokenSource?.Cancel();
+
+                tokenSource = new CancellationTokenSource();
+                tokenSource?.Token.ThrowIfCancellationRequested();
+                var meters = map.VisibleRegion?.Radius.Meters;
+                if (meters.HasValue)
+                {
+                    try
+                    {
+                        await Task.Delay(5000, tokenSource.Token);
+
+                        GetDamages(meters.Value);
+                    }
+                    catch (Exception error)
+                    {
+                    }
+                }
+
+
+            }
 
             //var location = await Geolocation.GetLastKnownLocationAsync();
             //Position position = new Position(location.Latitude, -location.Latitude);
             //MapSpan mapSpan = new MapSpan(position, 0.01, 0.01);
             //map.MoveToRegion(mapSpan);
+        }
+
+        double prevRad = 0;
+        private async void GetDamages(double rad)
+        {
+            if (prevRad!=rad)
+            {
+                var location = await Geolocation.GetLastKnownLocationAsync();
+
+                //Call GetSubmission
+                try
+                {
+
+                    (App.Current as App).SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, rad);
+                }
+                catch (Exception ex)
+                {
+
+                }
+                MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+            }
+
+            //SubmittedDamage = JsonHandler.damageData;
+
+            //Call GetUserSubmission
+
+            
+
         }
 
         private void map_MapClicked(object sender, MapClickedEventArgs e)

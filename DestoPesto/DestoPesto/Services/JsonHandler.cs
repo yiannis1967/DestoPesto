@@ -662,6 +662,7 @@ namespace DestoPesto.Services
         public static bool GoogleSignInMethod { get; private set; }
         public static bool AppleSignInMethod { get; private set; }
         public static bool EmailSignInMethod { get; private set; }
+        public static double MaxDistanceForFixed = 100;
 
         public static void ShowNotification(string title, string message)
         {
@@ -765,7 +766,7 @@ namespace DestoPesto.Services
                 if (isUser)
                 {
 
-                    uri = new Uri(getUri() + "api/Submissions/User" + Parameters);
+                    uri = new Uri(getUri() + "api/Submissions/UserAll" );
                 }
 
                 var response = await httpClient.GetStringAsync(uri);
