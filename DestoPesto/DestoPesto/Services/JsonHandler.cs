@@ -361,11 +361,11 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if _DEBUG
+#if DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
-                //_Uri = "http://10.0.0.13:5005/";
-                _Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://10.0.0.13:5005/";
+                //_Uri = "http://10.0.0.10:5005/";
 #endif
 
                 var deviceID = device.DeviceID;

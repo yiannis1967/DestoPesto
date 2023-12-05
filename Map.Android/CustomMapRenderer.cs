@@ -70,8 +70,8 @@ namespace Maps.Droid
         {
             var marker = new MarkerOptions();
             marker.SetPosition(new LatLng(pin.Position.Latitude, pin.Position.Longitude));
-            marker.SetTitle(pin.Label);
-            marker.SetSnippet(pin.Address);
+            //marker.SetTitle(pin.Label);
+            //marker.SetSnippet(pin.Address);
             Bitmap bitmap = null;
             var iconUri = GetCustomPin(pin.Position)?.Url;
             if (iconUri==null)
@@ -99,13 +99,13 @@ namespace Maps.Droid
                 throw new Exception("Custom pin not found");
             }
 
-            if (!string.IsNullOrWhiteSpace(customPin.Url))
-            {
-                var url = Android.Net.Uri.Parse(customPin.Url);
-                var intent = new Intent(Intent.ActionView, url);
-                intent.AddFlags(ActivityFlags.NewTask);
-                Android.App.Application.Context.StartActivity(intent);
-            }
+            //if (!string.IsNullOrWhiteSpace(customPin.Url))
+            //{
+            //    var url = Android.Net.Uri.Parse(customPin.Url);
+            //    var intent = new Intent(Intent.ActionView, url);
+            //    intent.AddFlags(ActivityFlags.NewTask);
+            //    Android.App.Application.Context.StartActivity(intent);
+            //}
         }
 
         public Android.Views.View GetInfoContents(Marker marker)

@@ -1,4 +1,5 @@
 ﻿using DestoPesto.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -102,6 +103,21 @@ namespace DestoPesto.Models
             }
             set
             {
+
+            }
+        }
+
+        [JsonIgnore]
+        public string SubmissionsNumberPrompt
+        {
+            get
+            {
+
+                return Properties.Resources.NumUserText+" "+numberOfUsers.ToString();
+
+            }
+            set
+            { 
 
             }
         }

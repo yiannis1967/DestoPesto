@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DestoPesto.Views.SubmisionDetailsPopupPage"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:hl="clr-namespace:Hyperlink"
+                 xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+                 xmlns:resources="clr-namespace:DestoPesto"
+                 xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <!--  You can set an animation in the xaml file or in the csharp code behind  -->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <!--  You can use any elements here which are extended from Xamarin.Forms.View  -->
+    <Frame BackgroundColor="White" CornerRadius="5" 
+           HorizontalOptions="Center" 
+           VerticalOptions="Center"
+           HasShadow="True"
+           HeightRequest="400"
+           Padding="0">
+        <Grid >
+            <Frame Margin="5" CornerRadius="5"  BackgroundColor="WhiteSmoke" HorizontalOptions="Fill"  VerticalOptions="Fill" HasShadow="True" IsClippedToBounds="True" Padding="0">
+                <Grid HeightRequest="180"  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid >
+
+
+                        <Grid Padding="5" BackgroundColor="WhiteSmoke">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" FontSize="Subtitle"  Text="{Binding Path=Submission.CategoryName}"></Label>
+                            <Label Grid.Column="1" Grid.Row="1"  Text="{Binding Path=Submission.fullAddress}"></Label>
+                            <Label Grid.Column="1" Grid.Row="2"  Text="{Binding Path=Submission.SubmissionsNumberPrompt}"></Label>
+                        </Grid>
+
+                    </Grid>
+                    
+                    <Image Grid.Row="1"  x:Name="backgroundImage" Source="{Binding Path=Submission.photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
+
+
+                    <Grid Grid.Row="2"   HorizontalOptions="Fill" IsClippedToBounds="True" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand"/>
+                        <!--  Button Control  -->
+                        <Button Grid.Column="1" Padding="5" WidthRequest="100" BackgroundColor="#2196F3" HeightRequest="40" HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Command="{Binding Submission.FixedCommand}">
+                            <!--<Button.Margin>
+                                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                                        <On Platform="Android" Value="-4,-6,-4,-5" />
+                                                                        <On Platform="iOS" Value="0" />
+                                                                    </OnPlatform>
+                                                                </Button.Margin>-->
+                        </Button>
+
+                        <!--  Text Label  -->
+                        <!--<Label Margin="10,0,0,0" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" HorizontalTextAlignment="Center" InputTransparent="True" Text="go next" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" />-->
+
+                        <!--  Icon Image  -->
+
+                    </Grid>
+
+                </Grid>
+
+
+
+            </Frame>
+
+        </Grid>
+
+
+    </Frame>
+</pages:PopupPage>
