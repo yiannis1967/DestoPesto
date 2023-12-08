@@ -25,7 +25,7 @@ namespace DestoPesto
 
         public App(string version)
         {
-            //123
+            //123uu
             InitializeComponent();
             Version = version;
             DependencyService.Register<MockDataStore>();
