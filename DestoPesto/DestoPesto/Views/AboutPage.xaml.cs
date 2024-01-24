@@ -464,7 +464,7 @@ namespace DestoPesto.Views
                             PinEx pin = new PinEx
                             {
                                 Label = _pinLoc[i].CategoryName,
-                                id=_pinLoc[i].id,
+                                id = _pinLoc[i].id,
                                 Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
                                 Address = _pinLoc[i].numberOfUsers + " since " + date,
                                 StyleId = _pinLoc[i].id,
@@ -686,12 +686,12 @@ namespace DestoPesto.Views
             e.HideInfoWindow = true;
             string pinName = ((Pin)sender).Label;
             string pinid = ((Pin)sender).StyleId;
-            var damage = this.ReportedDamagePins.Where(x => x.id==pinid).FirstOrDefault();
+            var damage = this.ReportedDamagePins.Where(x => x.id == pinid).FirstOrDefault();
 
-            if (damage!=null)
+            if (damage != null)
             {
-                var locaion =await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
-                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage,locaion));
+                var locaion = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
+                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, locaion));
             }
             //bool res = await MessageDialogPopup.DisplayPopUp(Properties.Resources.ReportFix, $":{pinName}", StringResource.YesText, StringResource.NoText);
 
@@ -1123,7 +1123,7 @@ namespace DestoPesto.Views
 
 
 
-            if (e.PropertyName=="VisibleRegion")
+            if (e.PropertyName == "VisibleRegion")
             {
                 tokenSource?.Cancel();
 
@@ -1155,7 +1155,7 @@ namespace DestoPesto.Views
         double prevRad = 0;
         private async void GetDamages(double rad)
         {
-            if (prevRad!=rad)
+            if (prevRad != rad)
             {
                 var location = await Geolocation.GetLastKnownLocationAsync();
 
@@ -1176,7 +1176,7 @@ namespace DestoPesto.Views
 
             //Call GetUserSubmission
 
-            
+
 
         }
 
