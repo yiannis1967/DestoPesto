@@ -72,7 +72,7 @@
                 <ColumnDefinition Width="60" />
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Opacity="0.5" Text="My"></Button>
+            <Button Opacity="0.5" Text="My"></Button> 
             <Button Grid.Column="1" Opacity="0.5" Text="All"></Button>
         </Grid>
 
