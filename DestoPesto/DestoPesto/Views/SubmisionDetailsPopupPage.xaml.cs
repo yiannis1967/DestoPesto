@@ -27,7 +27,7 @@ namespace DestoPesto.Views
 
 
             var distance = Xamarin.Essentials.LocationExtensions.CalculateDistance(locaion, submission.lat,submission.lng, Xamarin.Essentials.DistanceUnits.Kilometers)*1000;
-            if (distance> Services.JsonHandler.MaxDistanceForFixed)
+            if (distance> Services.JsonHandler.MaxDistanceForFixed_meters)
             {
                 enableFixButton=false;
             }

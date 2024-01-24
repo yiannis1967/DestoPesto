@@ -353,9 +353,11 @@ namespace DestoPesto.Services
                     AppleSignInMethod = signInElement.Attribute("Apple")?.Value?.ToLower() == "true";
                     EmailSignInMethod = signInElement.Attribute("Email")?.Value?.ToLower() == "true";
                 }
+                int.TryParse(doc.Root.Attribute("MaxDistanceForFixed_meters")?.Value, out MaxDistanceForFixed_meters);
+
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
-                
+
 
 
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
@@ -365,7 +367,11 @@ namespace DestoPesto.Services
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://10.0.0.13:5005/";
-                //_Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://62.169.215.49:5005/";
+                
+                //_Uri = "https://destopesto.azurewebsites.net/";
+
 #endif
 
                 var deviceID = device.DeviceID;
@@ -531,10 +537,10 @@ namespace DestoPesto.Services
                 return;
 
             }
-    
-            
 
-                var client = new HttpClient();
+
+
+            var client = new HttpClient();
             Uri uri = new Uri(getUri() + "api/Submissions");
 
 
@@ -662,7 +668,9 @@ namespace DestoPesto.Services
         public static bool GoogleSignInMethod { get; private set; }
         public static bool AppleSignInMethod { get; private set; }
         public static bool EmailSignInMethod { get; private set; }
-        public static double MaxDistanceForFixed = 100;
+        public static int MaxDistanceForFixed_meters = 100;
+
+
 
         public static void ShowNotification(string title, string message)
         {
@@ -766,7 +774,7 @@ namespace DestoPesto.Services
                 if (isUser)
                 {
 
-                    uri = new Uri(getUri() + "api/Submissions/UserAll" );
+                    uri = new Uri(getUri() + "api/Submissions/UserAll");
                 }
 
                 var response = await httpClient.GetStringAsync(uri);
