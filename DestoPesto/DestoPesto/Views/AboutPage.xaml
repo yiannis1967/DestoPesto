@@ -17,7 +17,7 @@
         <Grid InputTransparent="True"   VerticalOptions="Center">
 
             <Image HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
-            
+
         </Grid>
 
 
@@ -57,11 +57,24 @@
                HorizontalOptions="FillAndExpand"
                VerticalOptions="FillAndExpand" >
                 <!--<map:MapEx IsVisible="{Binding MapIsVisible}" x:Name="map" MapClicked="map_MapClicked"  HasScrollEnabled="True" MapType="Street" HasZoomEnabled="True" IsShowingUser="true" PropertyChanged="map_PropertyChangedAsync"></map:MapEx>-->
-            
+
             </ContentView>
             <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
         </AbsoluteLayout>
-
+        <Grid Grid.Row="0" Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Opacity="0.5" Text="My"></Button>
+            <Button Grid.Column="1" Opacity="0.5" Text="All"></Button>
+        </Grid>
 
         <AbsoluteLayout IsVisible="{Binding BrowserIsVisible}" Grid.Row="0">
             <ContentView  
@@ -69,6 +82,7 @@
                AbsoluteLayout.LayoutFlags="All" 
                HorizontalOptions="FillAndExpand"
                VerticalOptions="FillAndExpand" >
+
 
                 <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                     <WebView.Source>
