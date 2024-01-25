@@ -61,7 +61,7 @@
             </ContentView>
             <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
         </AbsoluteLayout>
-        <Grid Grid.Row="0" Padding="5">
+        <Grid Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" Padding="5,5,0,0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
@@ -72,8 +72,8 @@
                 <ColumnDefinition Width="60" />
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Opacity="0.5" Text="My"></Button> 
-            <Button Grid.Column="1" Opacity="0.5" Text="All"></Button>
+            <Button Opacity="0.5" Text="My" Clicked="My_Clicked" ></Button>
+            <Button Grid.Column="1" Opacity="0.5" Text="All" Clicked="All_Clicked" ></Button>
         </Grid>
 
         <AbsoluteLayout IsVisible="{Binding BrowserIsVisible}" Grid.Row="0">

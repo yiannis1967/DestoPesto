@@ -1169,7 +1169,12 @@ namespace DestoPesto.Views
                 {
 
                 }
-                MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                if (App.ShowAll)
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                else
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamageUser);
+
+
             }
 
             //SubmittedDamage = JsonHandler.damageData;
@@ -1186,6 +1191,36 @@ namespace DestoPesto.Views
 
         }
 
+        private void My_Clicked(object sender, EventArgs e)
+        {
+            if (App.ShowAll)
+            {
+
+                App.ShowAll=false;
+
+                if (App.ShowAll)
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                else
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamageUser);
+            }
+
+
+        }
+
+        private void All_Clicked(object sender, EventArgs e)
+        {
+            if (!App.ShowAll)
+            {
+                App.ShowAll=true;
+
+                if (App.ShowAll)
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                else
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamageUser);
+            }
+
+
+        }
 
     }
 }
