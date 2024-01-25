@@ -809,13 +809,13 @@ namespace DestoPesto.Views
                 await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationServicesOff, DestoPesto.Properties.Resources.Oktext);
                 return;
             }
-            var locationInUsePermisionsa = await Permissions.CheckStatusAsync<Permissions.LocationAlways>();
+            //var locationInUsePermisionsa = await Permissions.CheckStatusAsync<Permissions.LocationAlways>();
             var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             if (locationInUsePermisions != PermissionStatus.Granted)
             {
 
 
-                locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationAlways>();
+                locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 if (locationInUsePermisions == PermissionStatus.Granted)
                 {
                     map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
@@ -1169,7 +1169,12 @@ namespace DestoPesto.Views
                 {
 
                 }
-                MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                if (App.ShowAll)
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                else
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamageUser);
+
+
             }
 
             //SubmittedDamage = JsonHandler.damageData;
@@ -1186,6 +1191,36 @@ namespace DestoPesto.Views
 
         }
 
+        private void My_Clicked(object sender, EventArgs e)
+        {
+            if (App.ShowAll)
+            {
+
+                App.ShowAll=false;
+
+                if (App.ShowAll)
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                else
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamageUser);
+            }
+
+
+        }
+
+        private void All_Clicked(object sender, EventArgs e)
+        {
+            if (!App.ShowAll)
+            {
+                App.ShowAll=true;
+
+                if (App.ShowAll)
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
+                else
+                    MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamageUser);
+            }
+
+
+        }
 
     }
 }

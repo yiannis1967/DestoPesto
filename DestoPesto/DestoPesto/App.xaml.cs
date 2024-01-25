@@ -66,7 +66,7 @@ namespace DestoPesto
         internal System.Collections.ObjectModel.ObservableCollection<DamageData> SubmittedDamage;
         internal System.Collections.ObjectModel.ObservableCollection<DamageData> SubmittedDamageUser;
 
-
+        static public  bool ShowAll = false;
 
         public async Task getLocation()
         {
@@ -191,7 +191,7 @@ namespace DestoPesto
 
                         }
                         //                        SubmittedDamageUser = JsonHandler.damageData;
-                        MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamage);
+                        MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
 
                     }
 

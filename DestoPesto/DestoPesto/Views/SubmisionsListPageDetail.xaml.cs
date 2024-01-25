@@ -1,4 +1,5 @@
 ﻿using DestoPesto.Models;
+using DestoPesto.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,18 @@ namespace DestoPesto.Views
             InitializeComponent();
 
             BindingContext= this;
+
+
             (App.Current as App).PropertyChanged += SubmisionsListPageDetail_PropertyChanged;
+            
 
             //(App.Current as App).SubmittedDamageUser[0].category
+        }
+        protected override async void OnAppearing()
+        {
+            _Damages = (await JsonHandler.GetUserDamages()).ToList();
+            OnPropertyChanged(nameof(Damages));
+            base.OnAppearing();
         }
 
         private void SubmisionsListPageDetail_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -34,13 +44,12 @@ namespace DestoPesto.Views
            
         }
 
+        List<DamageData> _Damages= new List<DamageData>();
         public List<DamageData> Damages
         {
             get
             {
-                if ((App.Current as App).SubmittedDamageUser == null)
-                    return new List<DamageData>();
-                return (App.Current as App).SubmittedDamageUser.ToList();
+                return _Damages;
             }
         }
     }

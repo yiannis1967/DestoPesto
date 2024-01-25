@@ -369,7 +369,8 @@ namespace DestoPesto.Services
                 _Uri = "http://10.0.0.13:5005/";
                 _Uri = "http://10.0.0.10:5005/";
                 _Uri = "http://62.169.215.49:5005/";
-                
+                _Uri = "http://192.168.1.1:5005/";
+                _Uri = "http://10.0.0.10:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
 
 #endif
@@ -748,6 +749,41 @@ namespace DestoPesto.Services
             }
         }
         public static string WebAPIkey = "AIzaSyCH9F_m6KO7_1BB3NN0eiSjN9_d99bRjsk";
+
+        public static async Task<System.Collections.ObjectModel.ObservableCollection<DamageData>> GetUserDamages()
+        {
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet && !string.IsNullOrWhiteSpace(Authentication.DeviceAuthentication.IDToken))
+            {
+
+                return new ObservableCollection<DamageData>();
+
+            }
+
+
+            using (httpClient = new HttpClient())
+            {
+
+                string uri = getUri() + "api/Submissions/UserAll";
+
+                httpClient.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+                var response = await httpClient.GetStringAsync(uri);
+
+                //   var content = await response.Content.ReadAsStringAsync();
+
+
+                var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
+                damageData = new ObservableCollection<DamageData>(Damages);
+                return damageData;
+
+                //             
+            }
+        }
+
+
+
+
+
         public static async Task<System.Collections.ObjectModel.ObservableCollection<DamageData>> GetDamages(bool isUser, double lat, double lng, double rad)
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet && !string.IsNullOrWhiteSpace(Authentication.DeviceAuthentication.IDToken))
