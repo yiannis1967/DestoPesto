@@ -17,7 +17,7 @@ namespace DestoPesto.Models
             {
 
 
-                if (!await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationServicesOff, DestoPesto.Properties.Resources.YesText, DestoPesto.Properties.Resources.NoText))
+                if (!await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.WarningForUserBanMessage, DestoPesto.Properties.Resources.YesText, DestoPesto.Properties.Resources.NoText))
                 {
                     return;
                 }

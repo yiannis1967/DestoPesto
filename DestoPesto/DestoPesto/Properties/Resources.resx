@@ -471,4 +471,7 @@
   <data name="LocationServicesOff" xml:space="preserve">
     <value>Location Services are not enabled. This is mandatory as the app in order to upload photos needs the get the location from the device. Please enable the service and try again</value>
   </data>
+  <data name="WarningForUserBanMessage" xml:space="preserve">
+    <value>Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue</value>
+  </data>
 </root>

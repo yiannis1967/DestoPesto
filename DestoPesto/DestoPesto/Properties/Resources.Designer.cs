@@ -1069,6 +1069,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue.
+        /// </summary>
+        public static string WarningForUserBanMessage {
+            get {
+                return ResourceManager.GetString("WarningForUserBanMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Τhe new password is not strong enough.
         /// </summary>
         public static string WEAK_PASSWORD {

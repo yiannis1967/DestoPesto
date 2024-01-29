@@ -447,6 +447,9 @@
   <data name="VisionLink" xml:space="preserve">
     <value>https://destopesto.gr/info/vision</value>
   </data>
+  <data name="WarningForUserBanMessage" xml:space="preserve">
+    <value>Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue</value>
+  </data>
   <data name="WEAK_PASSWORD" xml:space="preserve">
     <value>Αδύναμος κωδικός</value>
   </data>
