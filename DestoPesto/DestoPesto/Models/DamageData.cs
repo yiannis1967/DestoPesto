@@ -1,4 +1,5 @@
 ﻿using DestoPesto.Services;
+using DestoPesto.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,12 @@ namespace DestoPesto.Models
         {
             FixedCommand = new Command(new Action(async () =>
             {
+
+
+                if (!await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, DestoPesto.Properties.Resources.LocationServicesOff, DestoPesto.Properties.Resources.YesText, DestoPesto.Properties.Resources.NoText))
+                {
+                    return;
+                }
 
 
 
@@ -72,7 +79,7 @@ namespace DestoPesto.Models
         }
 
 
-      
+
         public string id { get; set; }
         public double lat { get; set; }
         public double lng { get; set; }
@@ -118,7 +125,7 @@ namespace DestoPesto.Models
 
             }
             set
-            { 
+            {
 
             }
         }
