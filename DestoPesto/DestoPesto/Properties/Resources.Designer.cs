@@ -1069,7 +1069,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue.
+        ///   Looks up a localized string similar to If the defect is not fixed, then your account will be banned for some time, and you won’t be able to change the status of the defects. Do you want to continue?.
         /// </summary>
         public static string WarningForUserBanMessage {
             get {
