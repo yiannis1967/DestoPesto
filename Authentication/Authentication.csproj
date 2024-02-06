@@ -10,7 +10,7 @@
     <UserSecretsId>2dc659f5-c16d-4c10-a438-4fd16c08c79e</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DebugLog\DebugLog.csproj" />

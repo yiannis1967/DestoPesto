@@ -60,10 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2545</Version>
+      <Version>5.0.0.2622</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms.Maps">
-      <Version>5.0.0.2545</Version>
+      <Version>5.0.0.2622</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
