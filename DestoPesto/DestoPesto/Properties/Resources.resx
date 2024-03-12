@@ -474,4 +474,7 @@
   <data name="WarningForUserBanMessage" xml:space="preserve">
     <value>If the defect is not fixed, then your account will be banned for some time, and you won’t be able to change the status of the defects. Do you want to continue?</value>
   </data>
+  <data name="ContestTitle" xml:space="preserve">
+    <value>Διαγωνισμός</value>
+  </data>
 </root>

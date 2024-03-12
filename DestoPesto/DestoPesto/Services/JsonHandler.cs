@@ -20,6 +20,7 @@ using LocalNotifications;
 using System.Linq;
 using System.IO;
 using Xamarin.Auth;
+using DestoPesto.Views;
 
 
 namespace DestoPesto.Services
@@ -373,9 +374,11 @@ namespace DestoPesto.Services
                 //_Uri = "http://10.0.0.10:5005/";
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
+                _Uri = "http://192.168.1.71:5005/";
+                
 
 #endif
-
+               // _Uri = "http://10.0.0.13:5005/";
                 var deviceID = device.DeviceID;
                 DebugLog.AppEventLog.Start(_Uri, deviceID, doc.Root.Element("DebugLogs"));
             }
@@ -581,7 +584,7 @@ namespace DestoPesto.Services
         }
 
 
-        public static async Task SignIn(string firebaseToken)
+        public static async void SignIn(string firebaseToken)
         {
 
 
@@ -603,7 +606,21 @@ namespace DestoPesto.Services
 
             var response = await client.GetAsync(uri);
 
-            //   var content = await response.Content.ReadAsStringAsync();
+               var content = await response.Content.ReadAsStringAsync();
+
+            var user = JsonConvert.DeserializeObject<User>(content);
+
+            Authentication.DeviceAuthentication.AuthUser.Tag=user;
+
+            if (user.ParticipateToContest != true && user.PromoContest != null)
+            {
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    await ContestIntroPage.DisplayPopUp();
+                    // Code to run on the main thread
+                });
+                
+            }
 
         }
 

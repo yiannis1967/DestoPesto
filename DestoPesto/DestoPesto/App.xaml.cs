@@ -49,7 +49,7 @@ namespace DestoPesto
             var names = typeof(App).Assembly.GetManifestResourceNames();
         }
 
-        private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
+        private  void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
 
 

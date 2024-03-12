@@ -44,6 +44,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>StringResource.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\ContestIntroPage.xaml.cs">
+      <DependentUpon>ContestIntroPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SubmisionDetailsPopupPage.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>SubmisionDetailsPopupPage.xaml</DependentUpon>
@@ -59,6 +62,9 @@
       <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CategoryButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContestIntroPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ForgotPasswordPage.xaml">

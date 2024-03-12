@@ -207,6 +207,7 @@ namespace Authentication
 
         /// <MetaDataID>{4fa04e99-9c39-41a0-b19c-422bf2518058}</MetaDataID>
         public string AuthToken { get; set; }
+        public object Tag { get; set; }
     }
 
     /// <MetaDataID>{575d4f5e-2c31-4bff-89d7-cdee483ee371}</MetaDataID>

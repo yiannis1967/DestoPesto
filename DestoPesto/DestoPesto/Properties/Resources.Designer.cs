@@ -142,6 +142,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Διαγωνισμός.
+        /// </summary>
+        public static string ContestTitle {
+            get {
+                return ResourceManager.GetString("ContestTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Continue.
         /// </summary>
         public static string ContinueText {

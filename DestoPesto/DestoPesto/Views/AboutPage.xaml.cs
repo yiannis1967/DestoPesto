@@ -663,6 +663,12 @@ namespace DestoPesto.Views
                 }
 
 
+             
+
+                CurrentUser = Authentication.DeviceAuthentication.AuthUser;
+
+                     
+
                 if (FirstTime)
                 {
                     FirstTime = false;
@@ -672,10 +678,9 @@ namespace DestoPesto.Views
                         DontShowAgainIntroPage = await IntroPage.DisplayPopUp();
                         Preferences.Set("DontShowAgainIntroPage", DontShowAgainIntroPage);
                     }
+               
                 }
 
-
-                CurrentUser = Authentication.DeviceAuthentication.AuthUser;
 
             }
 
