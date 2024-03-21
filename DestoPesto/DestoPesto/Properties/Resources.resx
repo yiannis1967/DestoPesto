@@ -477,4 +477,13 @@
   <data name="ContestTitle" xml:space="preserve">
     <value>Διαγωνισμός</value>
   </data>
+  <data name="MobilePhonePlaceHolder" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="PersonNamePlaceHolder" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>User profile</value>
+  </data>
 </root>

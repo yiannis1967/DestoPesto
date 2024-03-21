@@ -111,6 +111,17 @@ namespace DestoPesto
             string url = Properties.Resources.CookiesPolicyLInk;
             await Launcher.OpenAsync(url);
         }
+
+        private async void UserProfile_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushAsync(new UserProfilePage());
+            Shell.Current.FlyoutIsPresented = false;
+        }
+
+        private void UserProfile_Clicked_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
