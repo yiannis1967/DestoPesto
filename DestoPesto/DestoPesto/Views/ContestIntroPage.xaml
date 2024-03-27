@@ -27,7 +27,7 @@
           HasShadow="True"
           MinimumHeightRequest="500"
           IsClippedToBounds="True"
-          BackgroundColor="Coral"
+          BackgroundColor="White"
           Padding="10,20,10,20">
         <StackLayout>
             <Grid>
@@ -55,15 +55,21 @@
                     <Grid Grid.Row="1" Padding="5,5,5,5" BackgroundColor="White"   >
                         <Grid.ColumnDefinitions>
 
-                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            
 
                         </Grid.ColumnDefinitions>
                         <!--<Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"   OnColor="{AppThemeBinding Light=Blue, Dark=Red}" ThumbColor="{AppThemeBinding Light=Blue, Dark=Red}"/>-->
                         <!--<CheckBox IsChecked="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"   Color="{AppThemeBinding Light=Black, Dark=Black}" />-->
-                        <Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand" OnColor= "#0D6EFD" ThumbColor="#d9d9d9" />
+                        <!--<Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand" OnColor= "#0D6EFD" ThumbColor="#d9d9d9" />
 
-                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5" TextColor="#0D6EFD"/>
+                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5" TextColor="#0D6EFD"/>-->
+
+                        <Button Grid.Column="1" x:Name="OKBtn" Margin="10,0,10,0" Opacity="0.5" Text="OK" Clicked="OKBtn_Clicked"   ></Button>
+                        <Button Grid.Column="2" x:Name="CancelBtn" Margin="10,0,10,0" Opacity="0.5" Text="Cancel" Clicked="CancelBtn_Clicked" ></Button>
+
 
                     </Grid>
                     <!--<CheckBox  IsChecked="{Binding DontShowAgain}"></CheckBox>-->

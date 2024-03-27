@@ -700,6 +700,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mobile phone.
+        /// </summary>
+        public static string MobilePhonePlaceHolder {
+            get {
+                return ResourceManager.GetString("MobilePhonePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The system is not responding because internet connection is lost or the server is down. Close the app and try again in a minute.
         /// </summary>
         public static string NoInternetText {
@@ -804,6 +813,15 @@ namespace DestoPesto.Properties {
         public static string PermissionTitleDetails {
             get {
                 return ResourceManager.GetString("PermissionTitleDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string PersonNamePlaceHolder {
+            get {
+                return ResourceManager.GetString("PersonNamePlaceHolder", resourceCulture);
             }
         }
         
@@ -1047,6 +1065,15 @@ namespace DestoPesto.Properties {
         public static string UserNameText {
             get {
                 return ResourceManager.GetString("UserNameText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User profile.
+        /// </summary>
+        public static string UserProfile {
+            get {
+                return ResourceManager.GetString("UserProfile", resourceCulture);
             }
         }
         

@@ -95,9 +95,36 @@ namespace DestoPesto.Views
 
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
 
+            MessagingCenter.Unsubscribe<string>(this, "UserServerSignedIn");
+            MessagingCenter.Subscribe<string>(this, "UserServerSignedIn", async (value) =>
+            {
 
-            SetCatagoryButtons();
+                User user = Authentication.DeviceAuthentication.AuthUser.Tag as User;
+                if (user.PromoContest!=null)
+                {
+                    
+                    CurrentContestTitle=user.PromoContest.Description;
+                    ContestLabel.IsVisible = true;
+                    ScrollingText.Text= CurrentContestTitle;
+                    Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
+                    {
+                        ScrollingText.TranslationX += 1f;
+
+                        if (Math.Abs(ScrollingText.TranslationX) > Width)
+                        {
+                            ScrollingText.TranslationX =0;
+                        }
+
+                        return Execute;
+                    });
+                }
+
+
+
+            });
+                SetCatagoryButtons();
             MessagingCenter.Send<string>("1", "backgroundService");
+            MessagingCenter.Unsubscribe<string>(this, "LocList");
             MessagingCenter.Subscribe<App, ObservableCollection<DamageData>>(App.Current, "LocList", (snd, arg) =>
          {
 
@@ -512,11 +539,14 @@ namespace DestoPesto.Views
 
         bool NoInternetConnection = false;
         private MapEx map;
-
+        bool Execute = true;
         protected override async void OnAppearing()
         {
             //(App.Current as App).getLocation();
             base.OnAppearing();
+
+         
+
 
             await DebugLog.AppEventLog.Log("AboutPage  OnAppearing");
 
@@ -811,6 +841,8 @@ namespace DestoPesto.Views
                 return _MobileHomePage;
             }
         }
+
+        public string CurrentContestTitle{ get; private set; }
 
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
