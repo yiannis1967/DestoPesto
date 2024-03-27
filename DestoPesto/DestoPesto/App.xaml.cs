@@ -49,7 +49,7 @@ namespace DestoPesto
             var names = typeof(App).Assembly.GetManifestResourceNames();
         }
 
-        private  void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
+        private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
 
 
@@ -66,7 +66,7 @@ namespace DestoPesto
         internal System.Collections.ObjectModel.ObservableCollection<DamageData> SubmittedDamage;
         internal System.Collections.ObjectModel.ObservableCollection<DamageData> SubmittedDamageUser;
 
-        static public  bool ShowAll = false;
+        static public bool ShowAll = false;
 
         public async Task getLocation()
         {
@@ -248,7 +248,7 @@ namespace DestoPesto
             }
             catch (Exception errr)
             {
-               
+
             }
             //  Toast.MakeText(this, "Latitude: " +position.Latitude.ToString() + " Longitude: " + position.Longitude.ToString(),ToastLength.Short).Show();
 
@@ -400,7 +400,7 @@ namespace DestoPesto
         protected override async void OnStart()
         {
 
-            var uri= JsonHandler.getUri();
+            var uri = JsonHandler.getUri();
             var device = Xamarin.Forms.DependencyService.Get<IDevice>();
             var RemoteNotificationsPermissionsTask = device.RemoteNotificationsPermissionsCheck();
             RemoteNotificationsPermissionsTask.Wait();
@@ -408,7 +408,7 @@ namespace DestoPesto
             if (RemoteNotificationsPermissions == PermissionStatus.Granted)
             {
                 if (!Initialezed)
-                   await device.PermissionsGranted();
+                    await device.PermissionsGranted();
                 Initialezed = true;
             }
 
@@ -429,8 +429,16 @@ namespace DestoPesto
 
         public async void DispayMessage(IDictionary<string, string> data)
         {
+
+
             string description;
             data.TryGetValue("Description", out description);
+
+            string messageID;
+            data.TryGetValue("MessageID", out messageID);
+            if (messageID != null && messageID.IndexOf("Contest_") == 0)
+                return;
+
             string submisionThumb;
             data.TryGetValue("SubmisionThumb", out submisionThumb);
             string comments;

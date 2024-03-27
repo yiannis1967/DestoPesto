@@ -609,6 +609,11 @@ namespace DestoPesto.Views
                         /*(App.Current as App)*/
                         App.IntentExtras.TryGetValue("Comments", out comments);
 
+                        string messageID;
+                        App.IntentExtras.TryGetValue("MessageID", out messageID);
+                        if (messageID != null && messageID.IndexOf("Contest_") == 0)
+                            return;
+
                         /*(App.Current as App)*/
                         App.IntentExtras.Clear();
                         await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
