@@ -367,7 +367,7 @@ namespace DestoPesto.Services
 #if DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
-                _Uri = "http://10.0.0.13:5005/";
+                _Uri = "http://192.168.1.71:5005/";
                 //_Uri = "http://10.0.0.10:5005/";
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "http://192.168.1.1:5005/";
@@ -610,7 +610,7 @@ namespace DestoPesto.Services
 
             var user = JsonConvert.DeserializeObject<User>(content);
 
-            Authentication.DeviceAuthentication.AuthUser.Tag=user;
+            Authentication.DeviceAuthentication.AuthUser.Tag = user;
 
             if (user.ParticipateToContest != true && user.PromoContest != null)
             {
@@ -618,6 +618,7 @@ namespace DestoPesto.Services
                 {
                     if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
                         await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+
                 });
 
             }
@@ -949,7 +950,29 @@ namespace DestoPesto.Services
 
             var user = JsonConvert.DeserializeObject<User>(content);
 
-            Authentication.DeviceAuthentication.AuthUser.Tag=user;
+            Authentication.DeviceAuthentication.AuthUser.Tag = user;
+
+        }
+
+        internal static async void IgnoreContest(PromoContest promoContest)
+        {
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            string deviceID = device.DeviceID;
+
+            var client = new HttpClient();
+
+            Uri uri = new Uri(getUri() + $"api/Contests/UserIgnoreContest?contestID={promoContest.Id}");
+
+            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+            var response = await client.GetAsync(uri);
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            //JsonConvert.DeserializeObject<User>(content);
+            User user = Authentication.DeviceAuthentication.AuthUser.Tag as User;
+            user.PromoContest = null;
+
 
         }
 

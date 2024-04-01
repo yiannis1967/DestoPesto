@@ -192,8 +192,8 @@ namespace DestoPesto.Views
 
                 if (this.NoInternetConnection)
                 {
-
-                    PopupNavigation.Instance.PopAsync();
+                    if (PopupNavigation.Instance.PopupStack.Count > 0)
+                        PopupNavigation.Instance.PopAsync();
                     this.NoInternetConnection = false;
                 }
 
@@ -622,37 +622,47 @@ namespace DestoPesto.Views
 
 
 
-            if (/*(App.Current as App)*/App.IntentExtras != null)
+            try
             {
-                foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
+                if (/*(App.Current as App)*/App.IntentExtras != null)
                 {
-                    if (entry.Key == "MessageID")
+                    foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
                     {
+                        if (entry.Key == "MessageID")
+                        {
 
-                        string description;
-                        /*(App.Current as App)*/
-                        App.IntentExtras.TryGetValue("Description", out description);
-                        string submisionThumb;
-                        /*(App.Current as App)*/
-                        App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
-                        string comments;
-                        /*(App.Current as App)*/
-                        App.IntentExtras.TryGetValue("Comments", out comments);
+                            string description;
+                            /*(App.Current as App)*/
+                            App.IntentExtras.TryGetValue("Description", out description);
+                            string submisionThumb;
+                            /*(App.Current as App)*/
+                            App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
+                            string comments;
+                            /*(App.Current as App)*/
+                            App.IntentExtras.TryGetValue("Comments", out comments);
 
-                        string messageID;
-                        App.IntentExtras.TryGetValue("MessageID", out messageID);
-                        if (messageID != null && messageID.IndexOf("Contest_") == 0)
-                            return;
+                            string messageID;
+                            App.IntentExtras.TryGetValue("MessageID", out messageID);
+                            if (messageID != null && messageID.IndexOf("Contest_") == 0)
+                                return;
 
-                        /*(App.Current as App)*/
-                        App.IntentExtras.Clear();
-                        await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+                            /*(App.Current as App)*/
+                            App.IntentExtras.Clear();
+                            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
 
-                        break;
+                            break;
+                        }
+                        //DisplayAlert("Notification", $"{entry.Key} : {entry.Value}", "OK");
                     }
-                    //DisplayAlert("Notification", $"{entry.Key} : {entry.Value}", "OK");
                 }
+
+
             }
+            catch (Exception error)
+            {
+
+                
+            }            
             if (Authentication.DeviceAuthentication.AuthUser == null)
             {
 

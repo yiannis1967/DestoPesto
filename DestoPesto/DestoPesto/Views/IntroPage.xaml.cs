@@ -18,11 +18,29 @@ namespace DestoPesto.Views
         public IntroPage()
         {
             InitializeComponent();
-            BindingContext=this;
-            
+
+            try
+            {
+                _DontShowAgain = Xamarin.Essentials.Preferences.Get("IntroDontShowAgain",false);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            BindingContext = this;
+
         }
 
-        public bool DontShowAgain { get;  set; }
+        bool _DontShowAgain;
+        public bool DontShowAgain
+        {
+            get => _DontShowAgain; set
+            {
+                _DontShowAgain = value;
+                Xamarin.Essentials.Preferences.Set("IntroDontShowAgain", value);
+            }
+        }
 
         public static Task<bool> DisplayPopUp()
         {

@@ -18,6 +18,7 @@ namespace DestoPesto.Models
         public string VectorImageUrl { get; set; }
         public string IconUrl { get; set; }
         public string markIconUrl { get; set; }
-         
+        public string InfoText { get; set; }
+
     }
 }

@@ -47,6 +47,9 @@
     <Compile Update="Views\ContestIntroPage.xaml.cs">
       <DependentUpon>ContestIntroPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\SubmissionTypeIntro.xaml.cs">
+      <DependentUpon>SubmissionTypeIntro.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SubmisionDetailsPopupPage.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>SubmisionDetailsPopupPage.xaml</DependentUpon>
