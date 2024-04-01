@@ -23,7 +23,7 @@ namespace DestoPesto.Views
             SubmissionType = submissionType;
             _DontShowAgain= Xamarin.Essentials.Preferences.Get("SubmissionTypeIntroDontShowAgain" + SubmissionType.code, false);
             BindingContext =this;
-            
+            a
         }
 
 
