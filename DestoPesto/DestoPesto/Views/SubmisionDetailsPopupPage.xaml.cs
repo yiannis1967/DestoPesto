@@ -1,4 +1,5 @@
 ﻿using DestoPesto.Models;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,8 @@ namespace DestoPesto.Views
         {
             try
             {
-                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
+                if (PopupNavigation.Instance.PopupStack.Count > 0)
+                    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
                 //Code to execute on tapped event
             }
             catch (Exception ex)
@@ -70,7 +72,8 @@ namespace DestoPesto.Views
 
         private async void IsRepairedHyperlink_Clicked(object sender, EventArgs e)
         {
-            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
         }
 
 

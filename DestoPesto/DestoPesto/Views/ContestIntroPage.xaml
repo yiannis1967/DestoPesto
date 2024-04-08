@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="http://rotorgames.com" 
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+            xmlns:resources="clr-namespace:DestoPesto"
+            xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+             x:Class="DestoPesto.Views.ContestIntroPage">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                  DurationOut="300"
+                                  EasingIn="SinOut"
+                                  EasingOut="SinIn"
+                                  HasBackgroundAnimation="True"
+                                  PositionIn="Center"
+                                  PositionOut="Center"
+                                  ScaleIn="1.2"
+                                  ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+
+    <Frame Margin="10" 
+          CornerRadius="5"
+          HorizontalOptions="Fill" 
+          VerticalOptions="Center"
+          HasShadow="True"
+          MinimumHeightRequest="500"
+          IsClippedToBounds="True"
+          BackgroundColor="White"
+          Padding="10,20,10,10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame  HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
+                    <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" Aspect="AspectFit" />
+                </Frame>
+                <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.ContestTitle}" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="White"   TextColor="#0D6EFD"/>
+            </Grid>
+            <!--BackgroundColor="{extensions:AppMode Color=Mitsos}"-->
+
+            <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  HeightRequest="250" >
+
+                <Image   x:Name="backgroundImage" Source="{Binding InfoUrl}" AbsoluteLayout.LayoutFlags="PositionProportional"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill">
+                 
+                </Image>
+                
+               
+            </Grid>
+
+            <Grid Grid.Row="2"  BackgroundColor="White"   >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button HeightRequest="40" Grid.Column="1" x:Name="OKBtn" Margin="10,0,10,0" Opacity="0.5" Text="OK" Clicked="OKBtn_Clicked"   ></Button>
+                <Button HeightRequest="40" Grid.Column="2" x:Name="CancelBtn" Margin="10,0,10,0" Opacity="0.5" Text="Cancel" Clicked="CancelBtn_Clicked" ></Button>
+            </Grid>
+
+        </Grid>
+    </Frame>
+</pages:PopupPage>

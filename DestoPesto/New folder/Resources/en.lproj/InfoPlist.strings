@@ -1,0 +1,6 @@
+"NSLocationWhenInUseUsageDescription"="The app needs to collect your location data when you take a photograph to qualify the accuracy of the defect. It is important to tap on “Allow while using the app” as the application won’t go any further if you don’t allow it. At all cases your personal and location data are anonymous as these are kept in order to display a pin of the spot on the map";
+"NSLocationAlwaysUsageDescription"="The app needs to collect your location data when you take a photograph to qualify the accuracy of the defect. It is important to tap on “Allow while using the app” as the application won’t go any further if you don’t allow it. At all cases your personal and location data are anonymous as these are kept in order to display a pin of the spot on the map";
+"NSLocationAlwaysAndWhenInUseUsageDescription"="The app needs to collect your location data when you take a photograph to qualify the accuracy of the defect. It is important to tap on “Allow while using the app” as the application won’t go any further if you don’t allow it. At all cases your personal and location data are anonymous as these are kept in order to display a pin of the spot on the map";
+"NSCameraUsageDescription"="To take a photograph is mantotory to allow the app to access your device's camera. If you don't the application won't proceed any further";
+
+

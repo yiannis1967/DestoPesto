@@ -95,9 +95,36 @@ namespace DestoPesto.Views
 
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
 
+            MessagingCenter.Unsubscribe<string>(this, "UserServerSignedIn");
+            MessagingCenter.Subscribe<string>(this, "UserServerSignedIn", async (value) =>
+            {
 
+                User user = Authentication.DeviceAuthentication.AuthUser.Tag as User;
+                if (user.PromoContest!=null)
+                {
+
+                    CurrentContestTitle=user.PromoContest.Description;
+                    ContestLabel.IsVisible = true;
+                    ScrollingText.Text= CurrentContestTitle;
+                    Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
+                    {
+                        ScrollingText.TranslationX += 1f;
+
+                        if (Math.Abs(ScrollingText.TranslationX) > Width)
+                        {
+                            ScrollingText.TranslationX =0;
+                        }
+
+                        return Execute;
+                    });
+                }
+
+
+
+            });
             SetCatagoryButtons();
             MessagingCenter.Send<string>("1", "backgroundService");
+            MessagingCenter.Unsubscribe<string>(this, "LocList");
             MessagingCenter.Subscribe<App, ObservableCollection<DamageData>>(App.Current, "LocList", (snd, arg) =>
          {
 
@@ -165,8 +192,8 @@ namespace DestoPesto.Views
 
                 if (this.NoInternetConnection)
                 {
-
-                    PopupNavigation.Instance.PopAsync();
+                    if (PopupNavigation.Instance.PopupStack.Count > 0)
+                        PopupNavigation.Instance.PopAsync();
                     this.NoInternetConnection = false;
                 }
 
@@ -512,11 +539,14 @@ namespace DestoPesto.Views
 
         bool NoInternetConnection = false;
         private MapEx map;
-
+        bool Execute = true;
         protected override async void OnAppearing()
         {
             //(App.Current as App).getLocation();
             base.OnAppearing();
+
+
+
 
             await DebugLog.AppEventLog.Log("AboutPage  OnAppearing");
 
@@ -592,31 +622,46 @@ namespace DestoPesto.Views
 
 
 
-            if (/*(App.Current as App)*/App.IntentExtras != null)
+            try
             {
-                foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
+                if (/*(App.Current as App)*/App.IntentExtras != null)
                 {
-                    if (entry.Key == "MessageID")
+                    foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
                     {
+                        if (entry.Key == "MessageID")
+                        {
 
-                        string description;
-                        /*(App.Current as App)*/
-                        App.IntentExtras.TryGetValue("Description", out description);
-                        string submisionThumb;
-                        /*(App.Current as App)*/
-                        App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
-                        string comments;
-                        /*(App.Current as App)*/
-                        App.IntentExtras.TryGetValue("Comments", out comments);
+                            string description;
+                            /*(App.Current as App)*/
+                            App.IntentExtras.TryGetValue("Description", out description);
+                            string submisionThumb;
+                            /*(App.Current as App)*/
+                            App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
+                            string comments;
+                            /*(App.Current as App)*/
+                            App.IntentExtras.TryGetValue("Comments", out comments);
 
-                        /*(App.Current as App)*/
-                        App.IntentExtras.Clear();
-                        await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+                            string messageID;
+                            App.IntentExtras.TryGetValue("MessageID", out messageID);
+                            if (messageID != null && messageID.IndexOf("Contest_") == 0)
+                                return;
 
-                        break;
+                            /*(App.Current as App)*/
+                            App.IntentExtras.Clear();
+                            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+
+                            break;
+                        }
+                        //DisplayAlert("Notification", $"{entry.Key} : {entry.Value}", "OK");
                     }
-                    //DisplayAlert("Notification", $"{entry.Key} : {entry.Value}", "OK");
                 }
+
+
+            }
+            catch (Exception error)
+            {
+
+
             }
             if (Authentication.DeviceAuthentication.AuthUser == null)
             {
@@ -663,6 +708,12 @@ namespace DestoPesto.Views
                 }
 
 
+
+
+                CurrentUser = Authentication.DeviceAuthentication.AuthUser;
+
+
+
                 if (FirstTime)
                 {
                     FirstTime = false;
@@ -672,10 +723,9 @@ namespace DestoPesto.Views
                         DontShowAgainIntroPage = await IntroPage.DisplayPopUp();
                         Preferences.Set("DontShowAgainIntroPage", DontShowAgainIntroPage);
                     }
+
                 }
 
-
-                CurrentUser = Authentication.DeviceAuthentication.AuthUser;
 
             }
 
@@ -801,6 +851,8 @@ namespace DestoPesto.Views
                 return _MobileHomePage;
             }
         }
+
+        public string CurrentContestTitle { get; private set; }
 
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
@@ -931,6 +983,13 @@ namespace DestoPesto.Views
             PostSubmission post = new PostSubmission();
             try
             {
+                bool dontShowAgain = Xamarin.Essentials.Preferences.Get("SubmissionTypeIntroDontShowAgain" + selectedCatagory.code, false);
+                if (!dontShowAgain)
+                {
+                    
+                    await SubmissionTypeIntro.DisplayPopUp(selectedCatagory);
+                }
+
 
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
                 FileResult result = DeviceInfo.Platform.Equals(DevicePlatform.iOS) && device != null

@@ -75,14 +75,16 @@ namespace DestoPesto.Views
         private void RightBtn_Clicked(object sender, EventArgs e)
         {
             DialogResult=true;
-            PopupNavigation.Instance.PopAsync();
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
         }
 
         private void LeftBtn_Clicked(object sender, EventArgs e)
         {
             
             DialogResult=false;
-            PopupNavigation.Instance.PopAsync();
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
         }
         
     }

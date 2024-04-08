@@ -432,6 +432,9 @@
   <data name="UserNameText" xml:space="preserve">
     <value>Ονοματεπώνυμο</value>
   </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>Προφίλ χρήστη</value>
+  </data>
   <data name="USER_DISABLED" xml:space="preserve">
     <value>Έχει απενεργοποιηθεί ο λογαριασμός. Επικοινωνήστε με τον διαχειριστή</value>
   </data>

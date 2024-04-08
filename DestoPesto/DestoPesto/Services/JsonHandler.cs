@@ -20,6 +20,7 @@ using LocalNotifications;
 using System.Linq;
 using System.IO;
 using Xamarin.Auth;
+using DestoPesto.Views;
 
 
 namespace DestoPesto.Services
@@ -366,16 +367,19 @@ namespace DestoPesto.Services
 #if DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
-                _Uri = "http://10.0.0.13:5005/";
-                _Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://192.168.1.71:5005/";
+                //_Uri = "http://10.0.0.10:5005/";
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "http://192.168.1.1:5005/";
                 //_Uri = "http://10.0.0.10:5005/";
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
+                //_Uri = "http://192.168.1.71:5005/";
+                _Uri = "http://10.0.0.10:5005/";
+
 
 #endif
-
+                // _Uri = "http://10.0.0.13:5005/";
                 var deviceID = device.DeviceID;
                 DebugLog.AppEventLog.Start(_Uri, deviceID, doc.Root.Element("DebugLogs"));
             }
@@ -581,7 +585,7 @@ namespace DestoPesto.Services
         }
 
 
-        public static async Task SignIn(string firebaseToken)
+        public static async void SignIn(string firebaseToken)
         {
 
 
@@ -603,7 +607,24 @@ namespace DestoPesto.Services
 
             var response = await client.GetAsync(uri);
 
-            //   var content = await response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync();
+
+            var user = JsonConvert.DeserializeObject<User>(content);
+
+            Authentication.DeviceAuthentication.AuthUser.Tag = user;
+
+            if (user.ParticipateToContest != true && user.PromoContest != null)
+            {
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
+                        await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+
+                });
+
+            }
+
+            MessagingCenter.Send<string>("1", "UserServerSignedIn");
 
         }
 
@@ -910,6 +931,75 @@ namespace DestoPesto.Services
                 return false;
             }
 
+
+        }
+
+        internal static async void ParticipateToContest(PromoContest promoContest)
+        {
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            string deviceID = device.DeviceID;
+
+            var client = new HttpClient();
+
+            Uri uri = new Uri(getUri() + $"api/Contests/UserParticipate?contestID={promoContest.Id}");
+
+            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+            var response = await client.GetAsync(uri);
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            var user = JsonConvert.DeserializeObject<User>(content);
+
+            Authentication.DeviceAuthentication.AuthUser.Tag = user;
+
+        }
+
+        internal static async void IgnoreContest(PromoContest promoContest)
+        {
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            string deviceID = device.DeviceID;
+
+            var client = new HttpClient();
+
+            Uri uri = new Uri(getUri() + $"api/Contests/UserIgnoreContest?contestID={promoContest.Id}");
+
+            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+            var response = await client.GetAsync(uri);
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            //JsonConvert.DeserializeObject<User>(content);
+            User user = Authentication.DeviceAuthentication.AuthUser.Tag as User;
+            user.PromoContest = null;
+
+
+        }
+
+        internal static async Task<bool> UpdateUser(User user)
+        {
+            try
+            {
+
+                string serializedObject = JsonConvert.SerializeObject(user);
+                var content = new StringContent(serializedObject, Encoding.UTF8, "application/json");
+
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+                Uri uri = new Uri(getUri() + "api/Account/SignUp");
+
+                var httpResponseMessage = await httpClient.PostAsync(uri, content);
+
+                if (httpResponseMessage.StatusCode == System.Net.HttpStatusCode.OK)
+                    return true;
+                return false;
+
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
 
         }
     }

@@ -18,5 +18,12 @@
 	<style name="splashTheme" parent="android:Theme">
 		<item name="android:windowBackground">@drawable/iconSplash</item>
 		<item name="android:windowNoTitle">true</item>
+		<item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+	</style>
+
+	
+
+	<style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+		<item name="colorAccent">#2196F3</item>
 	</style>
 </resources>

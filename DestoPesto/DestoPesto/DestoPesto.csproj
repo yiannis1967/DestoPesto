@@ -16,16 +16,16 @@
     <None Remove="New folder\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
-    <PackageReference Include="Plugin.LocalNotification" Version="10.0.2" />
+    <PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
     <PackageReference Include="Prism.Plugin.Popups" Version="8.0.76" />
-    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xam.Plugin.Media" Version="6.0.2" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.8.0" />
-    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2545" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2622" />
     <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +44,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>StringResource.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\ContestIntroPage.xaml.cs">
+      <DependentUpon>ContestIntroPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubmissionTypeIntro.xaml.cs">
+      <DependentUpon>SubmissionTypeIntro.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SubmisionDetailsPopupPage.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>SubmisionDetailsPopupPage.xaml</DependentUpon>
@@ -59,6 +65,9 @@
       <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CategoryButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContestIntroPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ForgotPasswordPage.xaml">
@@ -96,6 +105,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SubmisionsListPageFlyout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
