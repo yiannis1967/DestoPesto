@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>8.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>Δες το - Πες το</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.arion.destopesto.ios</string>
+	<key>CFBundleVersion</key>
+	<string>1.4.37</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>CFBundleName</key>
+	<string>DestoPesto</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+		<string>processing</string>
+	</array>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<string>No</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1710976555958732</string>
+				<string>com.googleusercontent.apps.959003601559-v7ft2g3pr4augp8jus4k61bmoooe37h4</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1710976555958732</string>
+	<key>FacebookClientToken</key>
+	<string>fe32ca907bf16331f72ba8f8b1416d37</string>
+	<key>FacebookDisplayName</key>
+	<string>destopesto</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Η εφαρμογή χρειάζεται να έχει πρόσβαση στην κάμερα της συσκευής για να τραβήξει φωτογραφίες</string>
+	<key>XSAppIconAssets</key>
+	<string>Media.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>el</string>
+	</array>
+</dict>
+</plist>

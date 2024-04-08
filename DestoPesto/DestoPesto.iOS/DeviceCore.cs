@@ -1,8 +1,11 @@
 ﻿
+using CoreLocation;
 using DestoPesto.iOS;
 using Firebase.CloudMessaging;
+using Foundation;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -42,8 +45,8 @@ namespace DestoPesto.iOS
         {
             get
             {
-                if (_DeviceID==null)
-                    _DeviceID=GetDeviceUniqueID();
+                if (_DeviceID == null)
+                    _DeviceID = GetDeviceUniqueID();
                 return _DeviceID;
             }
         }
@@ -110,7 +113,7 @@ namespace DestoPesto.iOS
                 var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
                 UNUserNotificationCenter.Current.RequestAuthorization(authOptions, (granted, error) =>
                 {
-                    if(granted)
+                    if (granted)
                         taskCompletionSource.SetResult(PermissionStatus.Granted);
                     else
                         taskCompletionSource.SetResult(PermissionStatus.Disabled);
@@ -143,6 +146,28 @@ namespace DestoPesto.iOS
         }
 
 
+        public double GetOrientation(Stream stream)
+        {
+            var imageData = NSData.FromStream(stream);
+            var uIImage = UIImage.LoadFromData(imageData);
+
+
+
+
+            if (uIImage.Orientation == UIImageOrientation.Right)
+                return 90;
+            if (uIImage.Orientation == UIImageOrientation.Left)
+                return -90;
+            if (uIImage.Orientation == UIImageOrientation.Down)
+                return 180;
+
+            if (uIImage.Orientation == UIImageOrientation.Up)
+                return 360;
+
+            return 0;
+
+
+        }
         public void StopBackgroundService()
         {
 
@@ -160,7 +185,7 @@ namespace DestoPesto.iOS
             await DeviceCore.AppDelegate.RegisterForRemoteNotifications();
 
             return;
-   
+
 
         }
 
@@ -171,7 +196,85 @@ namespace DestoPesto.iOS
 
 
 
+
+
+        private UIImagePickerController _picker;
+
+        public async Task<FileResult> CapturePhotoAsync()
+        {
+            TaskCompletionSource<FileResult> taskCompletionSource = new TaskCompletionSource<FileResult>();
+
+            if (await Permissions.RequestAsync<Permissions.Camera>() != PermissionStatus.Granted)
+            {
+                taskCompletionSource.TrySetException(new PermissionException("Camera permission not granted"));
+                return await taskCompletionSource.Task;
+            }
+
+            //Create an image picker object
+            _picker = new UIImagePickerController
+            {
+                SourceType = UIImagePickerControllerSourceType.Camera
+            };
+
+            //Make sure we can find the top most view controller to launch the camera
+            UIViewController vc = Platform.GetCurrentUIViewController();
+
+            vc.PresentViewController(_picker, true, null);
+            _picker.FinishedPickingMedia += async (_, e) =>
+            {
+                // get the original image
+                UIImage originalImage = e.Info[UIImagePickerController.OriginalImage] as UIImage;
+
+                string documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string jpgFilename = Path.Combine(documentsDirectory, $"{Guid.NewGuid()}.jpg");
+                NSData imgData = originalImage.AsJPEG();
+
+                await vc.DismissViewControllerAsync(true);
+
+                if (imgData.Save(jpgFilename, false, out NSError err))
+                {
+                    taskCompletionSource.TrySetResult(new FileResult(jpgFilename));
+                }
+                else
+                {
+                    taskCompletionSource.TrySetException(new Exception("Unable to save the image" + err));
+                }
+
+                _picker.DismissViewController(true, null);
+            };
+            _picker.Canceled += async (_, e) =>
+            {
+                await vc.DismissViewControllerAsync(true);
+                taskCompletionSource.TrySetResult(null);
+                _picker?.Dispose();
+                _picker = null;
+            };
+
+            return await taskCompletionSource.Task;
+        }
+
+        public bool isGPSEnabled()
+        {
+            if (CLLocationManager.Status == CLAuthorizationStatus.Denied)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private class CameraDelegate : UIImagePickerControllerDelegate
+        {
+            public override void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
+            {
+                picker.DismissModalViewController(true);
+            }
+        }
     }
 
 
 }
+
+

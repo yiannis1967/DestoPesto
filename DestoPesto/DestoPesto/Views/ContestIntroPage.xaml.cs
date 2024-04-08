@@ -20,8 +20,8 @@ namespace DestoPesto.Views
         {
             InitializeComponent();
             PromoContest = promoContest;
-            
-            browser.Source= "https://dotnet.microsoft.com/apps/xamarin";
+            BindingContext=promoContest;
+            //browser.Source=promoContest.InfoUrl;// "https://dotnet.microsoft.com/apps/xamarin";
         }
 
 

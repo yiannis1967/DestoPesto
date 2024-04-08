@@ -17,13 +17,21 @@ namespace DestoPesto.Views
         private static TaskCompletionSource<bool> task;
 
         Catagories SubmissionType;
+
+        public string InfoText { get; private set; }
+        public string Caption { get; private set; }
+
         public SubmissionTypeIntro(Catagories submissionType )
         {
             InitializeComponent();
             SubmissionType = submissionType;
+            InfoText=submissionType.InfoText;
+            Caption =submissionType.description_en;
+            if (System.Globalization.CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName.ToLower() != "ell")
+                Caption  = submissionType.description_en;
             _DontShowAgain= Xamarin.Essentials.Preferences.Get("SubmissionTypeIntroDontShowAgain" + SubmissionType.code, false);
             BindingContext =this;
-            a
+            
         }
 
 
@@ -38,10 +46,10 @@ namespace DestoPesto.Views
         }
 
 
-        public static Task<bool> DisplayPopUp()
+        public static Task<bool> DisplayPopUp(Catagories submissionType)
         {
             task = new TaskCompletionSource<bool>();
-            PopupNavigation.Instance.PushAsync(new IntroPage());
+            PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
 
             return task.Task;
         }

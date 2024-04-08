@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.Extensions;
+
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace DestoPesto.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UserProfilePage : ContentPage,INotifyPropertyChanged
+    public partial class UserProfilePage : ContentPage, INotifyPropertyChanged
     {
         public UserProfilePage()
         {
 
             InitializeComponent();
-            
+
+            IsAndroid= Xamarin.Essentials.DeviceInfo.Platform ==Xamarin.Essentials.DevicePlatform.Android;
+
+            iOS= Xamarin.Essentials.DeviceInfo.Platform ==Xamarin.Essentials.DevicePlatform.iOS;
 
             User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
 
@@ -32,6 +37,13 @@ namespace DestoPesto.Views
 
             this.BindingContext = this;
 
+            iOsBirthDatePicker.Unfocused+=BirthDatePicker_Unfocused;
+
+            if (BirthDate.HasValue)
+            {
+                birthDatePicker.Date=BirthDate.Value;
+                iOsBirthDatePicker.Date=BirthDate.Value;
+            }
 
 
         }
@@ -39,7 +51,7 @@ namespace DestoPesto.Views
         protected override void OnDisappearing()
         {
             User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
-            if(User != null)
+            if (User != null)
             {
                 User.FirstName = Name;
                 User.Email = Email;
@@ -50,6 +62,8 @@ namespace DestoPesto.Views
             base.OnDisappearing();
         }
 
+        public bool IsAndroid { get; set; }
+        public bool iOS { get; set; }
         public string Name { get; set; }
 
         public string Email { get; set; }
@@ -62,17 +76,17 @@ namespace DestoPesto.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-           
+
         }
 
         private void BirthDatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            birthDatePicker.DateSelected-=BirthDatePicker_DateSelected;
+
             BirthDate=birthDatePicker.Date;
             if (BirthDate!=null)
                 BirthDateText= BirthDate.Value.ToShortDateString();
 
-            
+
         }
 
 
@@ -85,10 +99,10 @@ namespace DestoPesto.Views
         private void birthDateEntry_Focused(object sender, FocusEventArgs e)
         {
 
-            if (BirthDate.HasValue)
-                birthDatePicker.Date=BirthDate.Value;
+            if (IsAndroid)
+                birthDatePicker.Unfocused+=BirthDatePicker_Unfocused;
             //birthDatePicker.DateSelected+=BirthDatePicker_DateSelected;
-            birthDatePicker.Unfocused+=BirthDatePicker_Unfocused;
+
             birthDatePicker.IsEnabled = true;
             birthDateEntry.IsEnabled=false;
             birthDatePicker.Focus();
@@ -98,7 +112,13 @@ namespace DestoPesto.Views
         private void BirthDatePicker_Unfocused(object sender, FocusEventArgs e)
         {
             birthDatePicker.Unfocused-=BirthDatePicker_Unfocused;
-            BirthDate=birthDatePicker.Date;
+
+            if (IsAndroid)
+                BirthDate=birthDatePicker.Date;
+            if (iOS)
+                BirthDate=iOsBirthDatePicker.Date;
+            iOS= Xamarin.Essentials.DeviceInfo.Platform ==Xamarin.Essentials.DevicePlatform.iOS;
+
             if (BirthDate!=null)
                 BirthDateText= BirthDate.Value.ToShortDateString();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BirthDateText)));

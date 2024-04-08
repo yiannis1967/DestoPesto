@@ -61,16 +61,21 @@
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Grid HorizontalOptions="FillAndExpand">
+                        <Grid IsVisible="{Binding iOS}" HorizontalOptions="FillAndExpand">
+                            <DatePicker x:Name="iOsBirthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
+                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            </DatePicker>
+                        </Grid>
+
+                        <Grid IsVisible="{Binding Android}" HorizontalOptions="FillAndExpand">
                             <Entry  x:Name="birthDateEntry" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="Black" Placeholder="Birth date"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
-
                             </Entry>
-
-
                             <DatePicker IsVisible="false" IsEnabled="False" x:Name="birthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
                                 <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                             </DatePicker>
                         </Grid>
+
+
                     </StackLayout>
                 </Frame>
 
