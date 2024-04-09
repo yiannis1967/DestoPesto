@@ -6,6 +6,20 @@
              xmlns:resources="clr-namespace:DestoPesto"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="DestoPesto.Views.UserProfilePage">
+    <Shell.TitleView >
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Grid InputTransparent="True"   VerticalOptions="Center" >
+
+                <Image HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+
+            </Grid>
+
+
+        </StackLayout>
+
+        <!--<Image HeightRequest="32" WidthRequest="80"  HorizontalOptions="Start" InputTransparent="True" Source="logo_landscape_blue_back.png" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All"/>-->
+    </Shell.TitleView>
+
     <ContentPage.Content>
         <StackLayout Grid.Row="1" VerticalOptions="Center">
 
@@ -47,7 +61,7 @@
                 <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
-                            <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" Aspect="AspectFill" Margin="0"/>
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.phone.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
                         <Entry TextColor="Black" Text="{Binding PhoneNumber}"  Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
 
@@ -59,7 +73,7 @@
                 <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
-                            <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" Aspect="AspectFill" Margin="0"/>
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.date-of-birth-icon.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
                         <Grid IsVisible="{Binding iOS}" HorizontalOptions="FillAndExpand">
                             <DatePicker x:Name="iOsBirthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
