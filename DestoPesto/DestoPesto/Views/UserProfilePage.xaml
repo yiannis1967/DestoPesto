@@ -40,7 +40,7 @@
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.user.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry TextColor="Black" Text="{Binding Name}" Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                        <Entry TextColor="#0D6EFD" Text="{Binding Name}" Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
 
                         </Entry>
                     </StackLayout>
@@ -52,7 +52,7 @@
                             <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" Aspect="AspectFill" Margin="0" />
                         </Frame>
 
-                        <Entry TextColor="Black" Text="{Binding Email}"  Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" BackgroundColor="White" Keyboard="Email"  >
+                        <Entry TextColor="#0D6EFD" Text="{Binding Email}"  Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" BackgroundColor="White" Keyboard="Email"  >
 
                         </Entry>
                     </StackLayout>
@@ -63,7 +63,7 @@
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.phone.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry TextColor="Black" Text="{Binding PhoneNumber}"  Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                        <Entry TextColor="#0D6EFD" Text="{Binding PhoneNumber}"  Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
 
                         </Entry>
                     </StackLayout>
@@ -82,7 +82,7 @@
                         </Grid>
 
                         <Grid IsVisible="{Binding Android}" HorizontalOptions="FillAndExpand">
-                            <Entry  x:Name="birthDateEntry" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="Black" Placeholder="Birth date"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                            <Entry  x:Name="birthDateEntry" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="#0D6EFD" Placeholder="Birth date"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
                             </Entry>
                             <DatePicker IsVisible="false" IsEnabled="False" x:Name="birthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
                                 <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>

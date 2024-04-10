@@ -373,7 +373,7 @@
     <value>Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue</value>
   </data>
   <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
-    <value>Τhere already exists an account with the email address asserted by Google</value>
+    <value>There already exists an account with the email address asserted by Google</value>
   </data>
   <data name="ERROR_CUSTOM_TOKEN_MISMATCH" xml:space="preserve">
     <value>Invalid configuration</value>
@@ -388,7 +388,7 @@
     <value>The email address is invalid</value>
   </data>
   <data name="ERROR_INVALID_ACTION_CODE" xml:space="preserve">
-    <value>Τhe password reset code is invalid. This can happen if the code is malformed or has already been used</value>
+    <value>The password reset code is invalid. This can happen if the code is malformed or has already been used</value>
   </data>
   <data name="ERROR_INVALID_CREDENTIAL" xml:space="preserve">
     <value>The [email] address is malformed</value>
@@ -424,19 +424,19 @@
     <value>The password is wrongp</value>
   </data>
   <data name="EXPIRED_ACTION_CODE" xml:space="preserve">
-    <value>Τhe password reset code has expired</value>
+    <value>The password reset code has expired</value>
   </data>
   <data name="INVALID_ACTION_CODE" xml:space="preserve">
-    <value>Τhe password reset code is invalid. This can happen if the code is malformed or has already been used</value>
+    <value>The password reset code is invalid. This can happen if the code is malformed or has already been used</value>
   </data>
   <data name="USER_DISABLED" xml:space="preserve">
-    <value>Τhe user corresponding to the given password reset code has been disabled</value>
+    <value>The user corresponding to the given password reset code has been disabled</value>
   </data>
   <data name="USER_NOT_FOUND" xml:space="preserve">
-    <value>Τhere is no user corresponding to the password reset cod</value>
+    <value>There is no user corresponding to the password reset cod</value>
   </data>
   <data name="WEAK_PASSWORD" xml:space="preserve">
-    <value>Τhe new password is not strong enough</value>
+    <value>The new password is not strong enough</value>
   </data>
   <data name="Accuracy_disclaimerLink" xml:space="preserve">
     <value>https://destopesto.gr/info/Accuracy_disclaimer_en</value>
@@ -475,7 +475,7 @@
     <value>If the defect is not fixed, then your account will be banned for some time, and you won’t be able to change the status of the defects. Do you want to continue?</value>
   </data>
   <data name="ContestTitle" xml:space="preserve">
-    <value>Διαγωνισμός</value>
+    <value>Contest</value>
   </data>
   <data name="MobilePhonePlaceHolder" xml:space="preserve">
     <value>Mobile phone</value>
