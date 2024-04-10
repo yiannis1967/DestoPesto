@@ -364,7 +364,7 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if DEBUG
+#if _DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://192.168.1.71:5005/";
@@ -375,7 +375,7 @@ namespace DestoPesto.Services
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
                 //_Uri = "http://192.168.1.71:5005/";
-                _Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://10.0.0.13:5005/";
 
 
 #endif

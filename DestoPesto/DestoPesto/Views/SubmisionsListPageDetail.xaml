@@ -37,9 +37,9 @@
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="20*"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <Label Grid.Column="1" FontSize="Subtitle"  Text="{Binding Path=CategoryName}"></Label>
-                                                        <Label Grid.Column="1" Grid.Row="1"  Text="{Binding Path=fullAddress}"></Label>
-                                                        <Label Grid.Column="1" Grid.Row="2"  Text="{Binding Path=SubmissionsNumberPrompt}"></Label>
+                                                        <Label Grid.Column="1" FontSize="Subtitle"  Text="{Binding Path=CategoryName}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+                                                        <Label Grid.Column="1" Grid.Row="1"  Text="{Binding Path=fullAddress}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+                                                        <Label Grid.Column="1" Grid.Row="2"  Text="{Binding Path=SubmissionsNumberPrompt}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
                                                     </Grid>
 
                                                 </Grid>
@@ -62,7 +62,7 @@
                                                                 <ColumnDefinition Width="*"/>
 
                                                             </Grid.ColumnDefinitions>
-                                                            <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand"/>
+                                                            <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand" TextColor="{extensions:AppMode Color=TextDefault}"/>
                                                             <!--  Button Control  -->
                                                             <Button Grid.Column="1" Padding="5" BackgroundColor="#2196F3" HeightRequest="40" HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Command="{Binding FixedCommand}">
                                                                 <!--<Button.Margin>

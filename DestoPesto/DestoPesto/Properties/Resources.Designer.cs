@@ -142,7 +142,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Διαγωνισμός.
+        ///   Looks up a localized string similar to Contest.
         /// </summary>
         public static string ContestTitle {
             get {
@@ -268,7 +268,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Τhere already exists an account with the email address asserted by Google.
+        ///   Looks up a localized string similar to There already exists an account with the email address asserted by Google.
         /// </summary>
         public static string ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL {
             get {
@@ -313,7 +313,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Τhe password reset code is invalid. This can happen if the code is malformed or has already been used.
+        ///   Looks up a localized string similar to The password reset code is invalid. This can happen if the code is malformed or has already been used.
         /// </summary>
         public static string ERROR_INVALID_ACTION_CODE {
             get {
@@ -430,7 +430,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Τhe password reset code has expired.
+        ///   Looks up a localized string similar to The password reset code has expired.
         /// </summary>
         public static string EXPIRED_ACTION_CODE {
             get {
@@ -592,7 +592,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Τhe password reset code is invalid. This can happen if the code is malformed or has already been used.
+        ///   Looks up a localized string similar to The password reset code is invalid. This can happen if the code is malformed or has already been used.
         /// </summary>
         public static string INVALID_ACTION_CODE {
             get {
@@ -1042,7 +1042,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Τhe user corresponding to the given password reset code has been disabled.
+        ///   Looks up a localized string similar to The user corresponding to the given password reset code has been disabled.
         /// </summary>
         public static string USER_DISABLED {
             get {
@@ -1051,7 +1051,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Τhere is no user corresponding to the password reset cod.
+        ///   Looks up a localized string similar to There is no user corresponding to the password reset cod.
         /// </summary>
         public static string USER_NOT_FOUND {
             get {
@@ -1114,7 +1114,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Τhe new password is not strong enough.
+        ///   Looks up a localized string similar to The new password is not strong enough.
         /// </summary>
         public static string WEAK_PASSWORD {
             get {
