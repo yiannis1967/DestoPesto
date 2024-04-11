@@ -486,4 +486,10 @@
   <data name="UserProfile" xml:space="preserve">
     <value>User profile</value>
   </data>
+  <data name="UserProfileText" xml:space="preserve">
+    <value>User profile</value>
+  </data>
+  <data name="UserProfileText_2" xml:space="preserve">
+    <value>Your personal data</value>
+  </data>
 </root>

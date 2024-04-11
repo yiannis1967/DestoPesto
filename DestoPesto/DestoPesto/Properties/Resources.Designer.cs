@@ -1078,6 +1078,24 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User profile.
+        /// </summary>
+        public static string UserProfileText {
+            get {
+                return ResourceManager.GetString("UserProfileText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your personal data.
+        /// </summary>
+        public static string UserProfileText_2 {
+            get {
+                return ResourceManager.GetString("UserProfileText_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to v.
         /// </summary>
         public static string Version {

@@ -153,13 +153,13 @@
         <ShellContent Route="Submisions" ContentTemplate="{DataTemplate local:SubmisionsListPageDetail}" />
     </FlyoutItem>
 
-    <MenuItem x:Name="UserProfile" Text="{x:Static resources:Properties.Resources.UserProfile}" IconImageSource="user_blue.png" StyleClass="MenuItemLayoutStyle" Clicked="UserProfile_Clicked"></MenuItem>
+    <MenuItem x:Name="UserProfile" Text="{x:Static resources:Properties.Resources.UserProfile}" IconImageSource="{extensions:ImageResource DestoPesto.Images.user_blue.png}" StyleClass="MenuItemLayoutStyle" Clicked="UserProfile_Clicked"></MenuItem>
 
     
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="{x:Static resources:Properties.Resources.DeleteAccountText}" IconImageSource="delete_user.png" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked"></MenuItem>
+    <MenuItem Text="{x:Static resources:Properties.Resources.DeleteAccountText}" IconImageSource="{extensions:ImageResource DestoPesto.Images.delete_user.png}" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked"></MenuItem>
 
-    <MenuItem Text="{x:Static resources:Properties.Resources.LogoutItemText}" IconImageSource="logout.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"></MenuItem>
+    <MenuItem Text="{x:Static resources:Properties.Resources.LogoutItemText}" IconImageSource="{extensions:ImageResource DestoPesto.Images.logout.png}" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"></MenuItem>
 
 
 

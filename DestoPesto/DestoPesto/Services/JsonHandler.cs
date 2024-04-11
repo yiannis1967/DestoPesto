@@ -364,18 +364,18 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if _DEBUG
+#if DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://192.168.1.71:5005/";
                 //_Uri = "http://10.0.0.10:5005/";
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "http://192.168.1.1:5005/";
-                //_Uri = "http://10.0.0.10:5005/";
+                _Uri = "http://10.0.0.10:5005/";
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
                 //_Uri = "http://192.168.1.71:5005/";
-                _Uri = "http://10.0.0.13:5005/";
+                //_Uri = "http://10.0.0.13:5005/";
 
 
 #endif
@@ -609,19 +609,27 @@ namespace DestoPesto.Services
 
             var content = await response.Content.ReadAsStringAsync();
 
-            var user = JsonConvert.DeserializeObject<User>(content);
-
-            Authentication.DeviceAuthentication.AuthUser.Tag = user;
-
-            if (user.ParticipateToContest != true && user.PromoContest != null)
+            try
             {
-                MainThread.BeginInvokeOnMainThread(async () =>
+                var user = JsonConvert.DeserializeObject<User>(content);
+
+                Authentication.DeviceAuthentication.AuthUser.Tag = user;
+
+                if (user.ParticipateToContest != true && user.PromoContest != null)
                 {
-                    if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
-                        await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+                    MainThread.BeginInvokeOnMainThread(async () =>
+                    {
+                        if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
+                            await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
 
-                });
+                    });
 
+                }
+            }
+            catch (Exception error)
+            {
+
+                throw;
             }
 
             MessagingCenter.Send<string>("1", "UserServerSignedIn");
