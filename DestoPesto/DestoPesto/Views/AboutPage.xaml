@@ -96,9 +96,9 @@
 
 
                 <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-                    <!--<WebView.Source>
+                    <WebView.Source>
                         <HtmlWebViewSource Html="{Binding MobileHomePage}"/>
-                    </WebView.Source>-->
+                    </WebView.Source>
                 </WebView>
             </ContentView>
             <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->

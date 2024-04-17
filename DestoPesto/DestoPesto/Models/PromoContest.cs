@@ -11,5 +11,9 @@ namespace DestoPesto.Models
         public string Description { get; set; }
 
         public DateTime StartingDate { get; set; }
+
+        public String InfoUrl { get; set; }
+
+        public String InfoText { get; set; }
     }
 }

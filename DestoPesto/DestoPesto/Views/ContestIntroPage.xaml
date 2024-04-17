@@ -45,12 +45,13 @@
             </Grid>
             <!--BackgroundColor="{extensions:AppMode Color=Mitsos}"-->
 
-            <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  HeightRequest="150" >
-                <WebView x:Name="browser" HeightRequest="150"   HorizontalOptions="FillAndExpand" >
-                    <!--<WebView.Source>
-                        <HtmlWebViewSource Html="{Binding MobileHomePage}"/>
-                    </WebView.Source>-->
-                </WebView>
+            <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  HeightRequest="250" >
+
+                <Image   x:Name="backgroundImage" Source="{Binding InfoUrl}" AbsoluteLayout.LayoutFlags="PositionProportional"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill">
+                 
+                </Image>
+                
+               
             </Grid>
 
             <Grid Grid.Row="2"  BackgroundColor="White"   >

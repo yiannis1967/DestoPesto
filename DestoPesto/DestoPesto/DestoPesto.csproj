@@ -115,6 +115,7 @@
     <None Remove="ButtonCircleBig.png" />
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
+    <None Remove="Images\date-of-birth-icon.png" />
     <None Remove="Images\delete1.png" />
     <None Remove="Images\delete_user.png" />
     <None Remove="Images\destopesto_icon.png" />
@@ -141,11 +142,13 @@
     <None Remove="Images\mail.png" />
     <None Remove="Images\map.png" />
     <None Remove="Images\password.png" />
+    <None Remove="Images\phone.png" />
     <None Remove="Images\pin.png" />
     <None Remove="Images\pin_drop.png" />
     <None Remove="Images\settings.png" />
     <None Remove="Images\twitter.png" />
     <None Remove="Images\user.png" />
+    <None Remove="Images\user_blue.png" />
     <None Remove="Images\wifi.png" />
     <None Remove="Images\xamarin_logo.png" />
     <None Remove="Views\Views.7z" />
@@ -155,6 +158,7 @@
     <EmbeddedResource Include="ButtonCircleBig.png" />
     <EmbeddedResource Include="Images\applelogo.png" />
     <EmbeddedResource Include="Images\back_arrow.png" />
+    <EmbeddedResource Include="Images\date-of-birth-icon.png" />
     <EmbeddedResource Include="Images\delete_user.png" />
     <EmbeddedResource Include="Images\destopesto_icon.png" />
     <EmbeddedResource Include="Images\destopesto_logo_square_blue.png" />
@@ -176,11 +180,13 @@
     <EmbeddedResource Include="Images\mail.png" />
     <EmbeddedResource Include="Images\map.png" />
     <EmbeddedResource Include="Images\password.png" />
+    <EmbeddedResource Include="Images\phone.png" />
     <EmbeddedResource Include="Images\pin.png" />
     <EmbeddedResource Include="Images\pin_drop.png" />
     <EmbeddedResource Include="Images\settings.png" />
     <EmbeddedResource Include="Images\twitter.png" />
     <EmbeddedResource Include="Images\user.png" />
+    <EmbeddedResource Include="Images\user_blue.png" />
     <EmbeddedResource Include="Images\wifi.png" />
     <EmbeddedResource Include="Images\xamarin_logo.png" />
   </ItemGroup>

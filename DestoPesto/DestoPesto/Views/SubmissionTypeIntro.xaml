@@ -40,7 +40,7 @@
                 <Frame  HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
                     <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" Aspect="AspectFit" />
                 </Frame>
-                <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.WelcomeMessage}" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="White"   TextColor="#0D6EFD"/>
+                <Label Grid.Column="1" Text="{Binding Caption}" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="White"   TextColor="#0D6EFD"/>
 
 
             </Grid>
@@ -53,7 +53,7 @@
                     </Grid.RowDefinitions>
 
 
-                    <Label  Text="{x:Static resources:Properties.Resources.InstructionsMessage}" HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
+                    <Label  Text="{Binding InfoText}" HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
                     <Grid Grid.Row="1" Padding="5,5,5,5" BackgroundColor="White"   >
                         <Grid.ColumnDefinitions>
 

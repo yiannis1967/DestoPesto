@@ -141,6 +141,9 @@
   <data name="CatagoryText" xml:space="preserve">
     <value>Κατηγορία</value>
   </data>
+  <data name="ContestTitle" xml:space="preserve">
+    <value>Διαγωνισμός</value>
+  </data>
   <data name="ContinueText" xml:space="preserve">
     <value>Συνέχεια</value>
   </data>
@@ -433,7 +436,13 @@
     <value>Ονοματεπώνυμο</value>
   </data>
   <data name="UserProfile" xml:space="preserve">
-    <value>User profile</value>
+    <value>Προφίλ χρήστη</value>
+  </data>
+  <data name="UserProfileText" xml:space="preserve">
+    <value>Προφίλ χρήστη</value>
+  </data>
+  <data name="UserProfileText_2" xml:space="preserve">
+    <value>Συμπλήρωσε τα στοιχεία σου</value>
   </data>
   <data name="USER_DISABLED" xml:space="preserve">
     <value>Έχει απενεργοποιηθεί ο λογαριασμός. Επικοινωνήστε με τον διαχειριστή</value>

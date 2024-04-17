@@ -102,7 +102,7 @@ namespace DestoPesto.Views
                 User user = Authentication.DeviceAuthentication.AuthUser.Tag as User;
                 if (user.PromoContest!=null)
                 {
-                    
+
                     CurrentContestTitle=user.PromoContest.Description;
                     ContestLabel.IsVisible = true;
                     ScrollingText.Text= CurrentContestTitle;
@@ -122,7 +122,7 @@ namespace DestoPesto.Views
 
 
             });
-                SetCatagoryButtons();
+            SetCatagoryButtons();
             MessagingCenter.Send<string>("1", "backgroundService");
             MessagingCenter.Unsubscribe<string>(this, "LocList");
             MessagingCenter.Subscribe<App, ObservableCollection<DamageData>>(App.Current, "LocList", (snd, arg) =>
@@ -545,7 +545,7 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
-         
+
 
 
             await DebugLog.AppEventLog.Log("AboutPage  OnAppearing");
@@ -661,8 +661,8 @@ namespace DestoPesto.Views
             catch (Exception error)
             {
 
-                
-            }            
+
+            }
             if (Authentication.DeviceAuthentication.AuthUser == null)
             {
 
@@ -708,11 +708,11 @@ namespace DestoPesto.Views
                 }
 
 
-             
+
 
                 CurrentUser = Authentication.DeviceAuthentication.AuthUser;
 
-                     
+
 
                 if (FirstTime)
                 {
@@ -723,7 +723,7 @@ namespace DestoPesto.Views
                         DontShowAgainIntroPage = await IntroPage.DisplayPopUp();
                         Preferences.Set("DontShowAgainIntroPage", DontShowAgainIntroPage);
                     }
-               
+
                 }
 
 
@@ -852,7 +852,7 @@ namespace DestoPesto.Views
             }
         }
 
-        public string CurrentContestTitle{ get; private set; }
+        public string CurrentContestTitle { get; private set; }
 
         private async void Location_tap_Tapped(Catagories selectedCatagory)
         {
@@ -983,6 +983,13 @@ namespace DestoPesto.Views
             PostSubmission post = new PostSubmission();
             try
             {
+                bool dontShowAgain = Xamarin.Essentials.Preferences.Get("SubmissionTypeIntroDontShowAgain" + selectedCatagory.code, false);
+                if (!dontShowAgain)
+                {
+                    
+                    await SubmissionTypeIntro.DisplayPopUp(selectedCatagory);
+                }
+
 
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
                 FileResult result = DeviceInfo.Platform.Equals(DevicePlatform.iOS) && device != null
