@@ -24,7 +24,6 @@ using PCLStorage;
 using System.Xml.Linq;
 using Authentication;
 using System.Net;
-using System.Net.Http;
 //using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto.Views
