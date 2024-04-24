@@ -364,7 +364,7 @@ namespace DestoPesto.Services
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                 _Uri = uri;
-#if _DEBUG
+#if DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://192.168.1.71:5005/";
@@ -589,42 +589,42 @@ namespace DestoPesto.Services
         {
 
 
-            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
-            string deviceID = device.DeviceID;
-
-            var client = new HttpClient();
-            String Parameters = "?deviceFirebaseToken=" + firebaseToken;// + "&lng=" + lng + "&rad=" + rad;
-
-            Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}");
-
-            //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
-
-            //httpClient.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
-
-            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
-
-
-
-            var response = await client.GetAsync(uri);
-
-            var content = await response.Content.ReadAsStringAsync();
-
-            var user = JsonConvert.DeserializeObject<User>(content);
-
-            Authentication.DeviceAuthentication.AuthUser.Tag = user;
-
-            if (user.ParticipateToContest != true && user.PromoContest != null)
+            try
             {
-                MainThread.BeginInvokeOnMainThread(async () =>
-                {
-                    if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
-                        await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                string deviceID = device.DeviceID;
 
-                });
+                var client = new HttpClient();
+                String Parameters = "?deviceFirebaseToken=" + firebaseToken;// + "&lng=" + lng + "&rad=" + rad;
+
+                Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}");
+
+                //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+
+                //httpClient.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
+
+                client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+                var response = await client.GetAsync(uri);
+                var content = await response.Content.ReadAsStringAsync();
+                var user = JsonConvert.DeserializeObject<User>(content);
+                Authentication.DeviceAuthentication.AuthUser.Tag = user;
+                if (user.ParticipateToContest != true && user.PromoContest != null)
+                {
+                    MainThread.BeginInvokeOnMainThread(async () =>
+                    {
+                        if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
+                            await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+
+                    });
+
+                }
+                MessagingCenter.Send<string>("1", "UserServerSignedIn");
+            }
+            catch (Exception error)
+            {
 
             }
-
-            MessagingCenter.Send<string>("1", "UserServerSignedIn");
 
         }
 

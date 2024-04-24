@@ -21,17 +21,22 @@ namespace DestoPesto.Views
         public string InfoText { get; private set; }
         public string Caption { get; private set; }
 
-        public SubmissionTypeIntro(Catagories submissionType )
+        public SubmissionTypeIntro(Catagories submissionType)
         {
             InitializeComponent();
             SubmissionType = submissionType;
             InfoText=submissionType.InfoText;
             Caption =submissionType.description_en;
             if (System.Globalization.CultureInfo.CurrentUICulture.ThreeLetterISOLanguageName.ToLower() != "ell")
+            {
+                InfoText=submissionType.InfoText_en;
                 Caption  = submissionType.description_en;
+            }
+
+
             _DontShowAgain= Xamarin.Essentials.Preferences.Get("SubmissionTypeIntroDontShowAgain" + SubmissionType.code, false);
             BindingContext =this;
-            
+
         }
 
 

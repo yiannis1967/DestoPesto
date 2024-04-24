@@ -4,6 +4,7 @@
              xmlns:pages="http://rotorgames.com" 
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
             xmlns:resources="clr-namespace:DestoPesto"
+            xmlns:hpl="clr-namespace:Hyperlink"
             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
              x:Class="DestoPesto.Views.ContestIntroPage">
     <pages:PopupPage.Animation>
@@ -32,6 +33,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0"  >
                 <Grid.ColumnDefinitions>
@@ -54,7 +56,8 @@
                
             </Grid>
 
-            <Grid Grid.Row="2"  BackgroundColor="White"   >
+            <hpl:HyperlinkLabel  Grid.Row="2"   x:Name="howto" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.HowItWorks}" Clicked="howto_Clicked" />
+            <Grid Grid.Row="3"  BackgroundColor="White"   >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>

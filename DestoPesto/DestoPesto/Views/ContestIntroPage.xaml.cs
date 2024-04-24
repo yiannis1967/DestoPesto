@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static System.Net.WebRequestMethods;
@@ -42,7 +42,11 @@ namespace DestoPesto.Views
             return task.Task;
         }
 
-
+        async void howto_Clicked(System.Object sender, System.EventArgs e)
+        {
+            string url = Properties.Resources.HowItWorksLink;
+            await Launcher.OpenAsync(url);
+        }
         private string _MobileHomePage;
         public string MobileHomePage
         {
