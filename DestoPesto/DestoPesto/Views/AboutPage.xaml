@@ -46,6 +46,9 @@
     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <Grid x:Name="ContestLabel" IsVisible="false" BackgroundColor="#039ece">
             <Label FontSize="Subtitle" x:Name="ScrollingText" TextColor="White"></Label>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer x:Name="ContestScrollText" Tapped="ContestScrollText_Tapped"  NumberOfTapsRequired="1" />
+            </Grid.GestureRecognizers>
         </Grid>
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" x:Name="GridMain">
         <Grid.RowDefinitions>
