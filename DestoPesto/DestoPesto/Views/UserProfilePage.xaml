@@ -97,6 +97,11 @@
                     </StackLayout>
                 </Frame>
 
+                <StackLayout IsVisible="{Binding ContestParticipation}" Orientation="Horizontal">
+                    <Label Text="Φωτογραφίες διαγωνισμου:" />
+                    <Label Text="{Binding ContestAcceptedPhotosText}"></Label>
+                </StackLayout>
+
 
 
                 <!--<Button Text="Open" Clicked="Button_Clicked"></Button>-->
