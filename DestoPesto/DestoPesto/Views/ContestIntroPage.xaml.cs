@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static System.Net.WebRequestMethods;
@@ -42,7 +42,7 @@ namespace DestoPesto.Views
             return task.Task;
         }
 
-
+    
         private string _MobileHomePage;
         public string MobileHomePage
         {
@@ -83,6 +83,12 @@ namespace DestoPesto.Views
             if (PopupNavigation.Instance.PopupStack.Count > 0)
                 PopupNavigation.Instance.PopAsync();
 
+        }
+
+        private async void ContestTerms_Clicked(object sender, EventArgs e)
+        {
+            string url = PromoContest.TermsUrl;
+            await Launcher.OpenAsync(url);
         }
     }
 }

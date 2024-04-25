@@ -545,6 +545,27 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+            //using (var httpClient = new HttpClient())
+            //{
+
+            //    Uri uri = new Uri("http://10.0.0.10:5005/api/Categories");
+            //    //await getUserData();
+
+            //    //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+            //    ////     var authHeader = new AuthenticationHeaderValue("Authorization", savedfirebaseauth.FirebaseToken);
+            //    //httpClient.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
+
+            //    // httpClient.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+            //    var response = await httpClient.GetStringAsync(uri);
+
+            //    //   var content = await response.Content.ReadAsStringAsync();
+
+
+
+
+            //    //             
+            //}
 
 
 

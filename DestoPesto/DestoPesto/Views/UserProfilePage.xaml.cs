@@ -22,30 +22,46 @@ namespace DestoPesto.Views
 
             InitializeComponent();
 
-            IsAndroid= Xamarin.Essentials.DeviceInfo.Platform ==Xamarin.Essentials.DevicePlatform.Android;
+            IsAndroid = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.Android;
 
-            iOS= Xamarin.Essentials.DeviceInfo.Platform ==Xamarin.Essentials.DevicePlatform.iOS;
+            iOS = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.iOS;
 
             User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
 
-            Name=User?.FirstName;
-            Email=User?.Email;
-            PhoneNumber=User?.PhoneNumber;
-            BirthDate=User?.DateOfBirth;
-            if (BirthDate!=null)
-                BirthDateText= BirthDate.Value.ToShortDateString();
+            Name = User?.FirstName;
+            Email = User?.Email;
+            PhoneNumber = User?.PhoneNumber;
+            BirthDate = User?.DateOfBirth;
+
+
+            ContestAcceptedPhotosText = User?.PromoAcceptedPhotos.ToString();
+
+            if (BirthDate != null)
+                BirthDateText = BirthDate.Value.ToShortDateString();
 
             this.BindingContext = this;
 
-            iOsBirthDatePicker.Unfocused+=BirthDatePicker_Unfocused;
+            iOsBirthDatePicker.Unfocused += BirthDatePicker_Unfocused;
 
             if (BirthDate.HasValue)
             {
-                birthDatePicker.Date=BirthDate.Value;
-                iOsBirthDatePicker.Date=BirthDate.Value;
+                birthDatePicker.Date = BirthDate.Value;
+                iOsBirthDatePicker.Date = BirthDate.Value;
             }
 
 
+        }
+
+        public bool ContestParticipation
+        {
+            get
+            {
+                User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
+                if (User?.PromoContest != null)
+                    return true;
+                else
+                    return false;
+            }
         }
 
         protected override void OnDisappearing()
@@ -73,6 +89,8 @@ namespace DestoPesto.Views
         public string BirthDateText { get; set; }
 
         public DateTime? BirthDate { get; set; }
+        public string ContestAcceptedPhotosText { get; }
+
 
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -82,9 +100,9 @@ namespace DestoPesto.Views
         private void BirthDatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
 
-            BirthDate=birthDatePicker.Date;
-            if (BirthDate!=null)
-                BirthDateText= BirthDate.Value.ToShortDateString();
+            BirthDate = birthDatePicker.Date;
+            if (BirthDate != null)
+                BirthDateText = BirthDate.Value.ToShortDateString();
 
 
         }
@@ -100,27 +118,27 @@ namespace DestoPesto.Views
         {
 
             if (IsAndroid)
-                birthDatePicker.Unfocused+=BirthDatePicker_Unfocused;
+                birthDatePicker.Unfocused += BirthDatePicker_Unfocused;
             //birthDatePicker.DateSelected+=BirthDatePicker_DateSelected;
 
             birthDatePicker.IsEnabled = true;
-            birthDateEntry.IsEnabled=false;
+            birthDateEntry.IsEnabled = false;
             birthDatePicker.Focus();
-            birthDateEntry.IsEnabled=true;
+            birthDateEntry.IsEnabled = true;
         }
 
         private void BirthDatePicker_Unfocused(object sender, FocusEventArgs e)
         {
-            birthDatePicker.Unfocused-=BirthDatePicker_Unfocused;
+            birthDatePicker.Unfocused -= BirthDatePicker_Unfocused;
 
             if (IsAndroid)
-                BirthDate=birthDatePicker.Date;
+                BirthDate = birthDatePicker.Date;
             if (iOS)
-                BirthDate=iOsBirthDatePicker.Date;
-            iOS= Xamarin.Essentials.DeviceInfo.Platform ==Xamarin.Essentials.DevicePlatform.iOS;
+                BirthDate = iOsBirthDatePicker.Date;
+            iOS = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.iOS;
 
-            if (BirthDate!=null)
-                BirthDateText= BirthDate.Value.ToShortDateString();
+            if (BirthDate != null)
+                BirthDateText = BirthDate.Value.ToShortDateString();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BirthDateText)));
         }
     }

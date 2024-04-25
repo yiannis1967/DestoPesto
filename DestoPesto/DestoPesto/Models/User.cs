@@ -24,15 +24,17 @@ namespace DestoPesto.Models
         /// User's date of birth 
         /// </summary>
         public DateTime? DateOfBirth { get; set; }
-        
+
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
 
 
         public PromoContest PromoContest { get; set; }
 
-        
+
         public bool ParticipateToContest { get; set; }
+
+        public int PromoAcceptedPhotos { get; set; }
 
     }
 }

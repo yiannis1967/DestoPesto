@@ -4,6 +4,7 @@
              xmlns:pages="http://rotorgames.com" 
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
             xmlns:resources="clr-namespace:DestoPesto"
+            xmlns:hpl="clr-namespace:Hyperlink"
             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
              x:Class="DestoPesto.Views.ContestIntroPage">
     <pages:PopupPage.Animation>
@@ -27,10 +28,12 @@
           IsClippedToBounds="True"
           BackgroundColor="White"
           Padding="10,20,10,10">
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0"  >
@@ -48,13 +51,15 @@
             <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand"  HeightRequest="250" >
 
                 <Image   x:Name="backgroundImage" Source="{Binding InfoUrl}" AbsoluteLayout.LayoutFlags="PositionProportional"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill">
-                 
-                </Image>
-                
-               
-            </Grid>
 
-            <Grid Grid.Row="2"  BackgroundColor="White"   >
+                </Image>
+
+
+            </Grid>
+            <Grid Grid.Row="2">
+                <hpl:HyperlinkLabel     x:Name="ContestTerms" Text="{x:Static resources:Properties.Resources.ContestTermsLabel}" Clicked="ContestTerms_Clicked" />
+            </Grid>
+            <Grid Grid.Row="3"  BackgroundColor="White"   >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -65,5 +70,8 @@
             </Grid>
 
         </Grid>
+        
+
+
     </Frame>
 </pages:PopupPage>

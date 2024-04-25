@@ -141,6 +141,9 @@
   <data name="CatagoryText" xml:space="preserve">
     <value>Κατηγορία</value>
   </data>
+  <data name="ContestTermsLabel" xml:space="preserve">
+    <value>Terms and conditions</value>
+  </data>
   <data name="ContestTitle" xml:space="preserve">
     <value>Διαγωνισμός</value>
   </data>

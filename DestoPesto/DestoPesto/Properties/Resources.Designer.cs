@@ -142,6 +142,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Terms and conditions.
+        /// </summary>
+        public static string ContestTermsLabel {
+            get {
+                return ResourceManager.GetString("ContestTermsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contest.
         /// </summary>
         public static string ContestTitle {

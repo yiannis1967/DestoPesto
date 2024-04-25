@@ -15,5 +15,7 @@ namespace DestoPesto.Models
         public String InfoUrl { get; set; }
 
         public String InfoText { get; set; }
+
+        public string TermsUrl { get; set; }
     }
 }
