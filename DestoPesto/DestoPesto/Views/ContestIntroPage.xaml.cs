@@ -74,6 +74,8 @@ namespace DestoPesto.Views
                 PopupNavigation.Instance.PopAsync();
             DialogResult = true;
 
+            
+
         }
 
         private void CancelBtn_Clicked(object sender, EventArgs e)

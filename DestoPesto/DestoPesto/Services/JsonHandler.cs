@@ -21,6 +21,7 @@ using System.Linq;
 using System.IO;
 using Xamarin.Auth;
 using DestoPesto.Views;
+using Authentication;
 
 
 namespace DestoPesto.Services
@@ -58,6 +59,7 @@ namespace DestoPesto.Services
         }
         public static async Task<string> BuildTripFile(PostSubmission post, Stream image)
         {
+
             string fileName = "";
             try
             {
@@ -81,6 +83,11 @@ namespace DestoPesto.Services
             {
                 String a = e.Message;
             }
+
+            User user = DeviceAuthentication.AuthUser.Tag as User;
+            if(user!=null)
+                user.PromoAcceptedPhotos++;
+
             return fileName;
         }
 
@@ -372,7 +379,7 @@ namespace DestoPesto.Services
                 _Uri = "http://62.169.215.49:5005/";
                 //_Uri = "http://192.168.1.1:5005/";
                 _Uri = "http://10.0.0.10:5005/";
-                _Uri = "http://62.169.215.49:5005/";
+                //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
                 //_Uri = "http://192.168.1.71:5005/";
                 //_Uri = "http://10.0.0.13:5005/";
@@ -615,6 +622,8 @@ namespace DestoPesto.Services
                 {
                     if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
                         await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+
+                    
 
                 });
 
@@ -948,7 +957,10 @@ namespace DestoPesto.Services
 
             var user = JsonConvert.DeserializeObject<User>(content);
 
+            user.PromoContest = null;
             Authentication.DeviceAuthentication.AuthUser.Tag = user;
+            MessagingCenter.Send<string>("1", "UserServerSignedIn");
+
 
         }
 
@@ -970,6 +982,7 @@ namespace DestoPesto.Services
             //JsonConvert.DeserializeObject<User>(content);
             User user = Authentication.DeviceAuthentication.AuthUser.Tag as User;
             user.PromoContest = null;
+            MessagingCenter.Send<string>("1", "UserServerSignedIn");
 
 
         }

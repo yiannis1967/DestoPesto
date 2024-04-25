@@ -100,23 +100,28 @@ namespace DestoPesto.Views
             {
 
                 User user = Authentication.DeviceAuthentication.AuthUser.Tag as User;
-                if (user.PromoContest!=null)
+                if (user.PromoContest != null)
                 {
 
-                    CurrentContestTitle=user.PromoContest.Description;
+                    CurrentContestTitle = user.PromoContest.Description;
                     ContestLabel.IsVisible = true;
-                    ScrollingText.Text= CurrentContestTitle;
+                    ScrollingText.Text = CurrentContestTitle;
                     Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
                     {
                         ScrollingText.TranslationX += 1f;
 
                         if (Math.Abs(ScrollingText.TranslationX) > Width)
                         {
-                            ScrollingText.TranslationX =0;
+                            ScrollingText.TranslationX = 0;
                         }
 
                         return Execute;
                     });
+                }
+                else
+                {
+                    Execute = false;
+                    ContestLabel.IsVisible = false;
                 }
 
 

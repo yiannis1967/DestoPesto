@@ -36,6 +36,7 @@
     </ContentPage.ToolbarItems>-->
 
 
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Cancle">#ff0000</Color>
