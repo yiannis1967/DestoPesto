@@ -99,7 +99,7 @@
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.camera.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" />
+                        <Entry Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
                 </Frame>
 
