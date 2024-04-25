@@ -42,11 +42,7 @@ namespace DestoPesto.Views
             return task.Task;
         }
 
-        async void howto_Clicked(System.Object sender, System.EventArgs e)
-        {
-            string url = Properties.Resources.HowItWorksLink;
-            await Launcher.OpenAsync(url);
-        }
+    
         private string _MobileHomePage;
         public string MobileHomePage
         {
@@ -87,6 +83,12 @@ namespace DestoPesto.Views
             if (PopupNavigation.Instance.PopupStack.Count > 0)
                 PopupNavigation.Instance.PopAsync();
 
+        }
+
+        private async void ContestTerms_Clicked(object sender, EventArgs e)
+        {
+            string url = PromoContest.TermsUrl;
+            await Launcher.OpenAsync(url);
         }
     }
 }

@@ -492,4 +492,7 @@
   <data name="UserProfileText_2" xml:space="preserve">
     <value>Your personal data</value>
   </data>
+  <data name="ContestTermsLabel" xml:space="preserve">
+    <value>Terms and conditions</value>
+  </data>
 </root>

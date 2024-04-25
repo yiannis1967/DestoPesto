@@ -45,7 +45,7 @@
     </ContentPage.Resources>
     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <Grid x:Name="ContestLabel" IsVisible="false" BackgroundColor="#039ece">
-            <Label FontSize="Subtitle" x:Name="ScrollingText" TextColor="White">Liakos</Label>
+            <Label FontSize="Subtitle" x:Name="ScrollingText" TextColor="White"></Label>
         </Grid>
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" x:Name="GridMain">
         <Grid.RowDefinitions>
