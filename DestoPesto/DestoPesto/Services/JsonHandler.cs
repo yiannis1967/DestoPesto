@@ -359,7 +359,7 @@ namespace DestoPesto.Services
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
 
-
+ 
 
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 

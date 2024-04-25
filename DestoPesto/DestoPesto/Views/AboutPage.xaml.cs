@@ -1302,5 +1302,15 @@ namespace DestoPesto.Views
 
         }
 
+   
+
+        private async void ContestScrollText_Tapped(object sender, EventArgs e)
+        {
+
+            User user =DeviceAuthentication.AuthUser.Tag as User;
+            if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
+                await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+
+        }
     }
 }
