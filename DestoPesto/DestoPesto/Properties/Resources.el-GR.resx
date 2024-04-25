@@ -186,6 +186,9 @@
   <data name="EnableBGToast" xml:space="preserve">
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
   </data>
+  <data name="EnterCompetition" xml:space="preserve">
+    <value>Θέλω να συμμετέχω</value>
+  </data>
   <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
     <value>Υπάρχει άλλος λογιαριασμός με αυτά τα στοιχεία</value>
   </data>

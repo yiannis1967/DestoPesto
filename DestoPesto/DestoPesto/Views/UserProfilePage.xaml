@@ -67,9 +67,9 @@
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.phone.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry TextColor="#0D6EFD" Text="{Binding PhoneNumber}"  Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                        <Entry TextColor="#0D6EFD" Text="{Binding PhoneNumber}"  Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" />
 
-                        </Entry>
+
                     </StackLayout>
                 </Frame>
 
@@ -92,16 +92,16 @@
                                 <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                             </DatePicker>
                         </Grid>
-
-
                     </StackLayout>
                 </Frame>
-
-                <StackLayout IsVisible="{Binding ContestParticipation}" Orientation="Horizontal">
-                    <Label Text="Φωτογραφίες διαγωνισμου:" />
-                    <Label Text="{Binding ContestAcceptedPhotosText}"></Label>
-                </StackLayout>
-
+                <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.camera.png}" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Entry Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                </Frame>
 
 
                 <!--<Button Text="Open" Clicked="Button_Clicked"></Button>-->

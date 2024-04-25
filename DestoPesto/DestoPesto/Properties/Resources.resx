@@ -495,4 +495,7 @@
   <data name="ContestTermsLabel" xml:space="preserve">
     <value>Terms and conditions</value>
   </data>
+  <data name="EnterCompetition" xml:space="preserve">
+    <value>I want to participate</value>
+  </data>
 </root>

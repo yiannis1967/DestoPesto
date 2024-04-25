@@ -115,6 +115,7 @@
     <None Remove="ButtonCircleBig.png" />
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
+    <None Remove="Images\camera.png" />
     <None Remove="Images\date-of-birth-icon.png" />
     <None Remove="Images\delete1.png" />
     <None Remove="Images\delete_user.png" />
@@ -158,6 +159,7 @@
     <EmbeddedResource Include="ButtonCircleBig.png" />
     <EmbeddedResource Include="Images\applelogo.png" />
     <EmbeddedResource Include="Images\back_arrow.png" />
+    <EmbeddedResource Include="Images\camera.png" />
     <EmbeddedResource Include="Images\date-of-birth-icon.png" />
     <EmbeddedResource Include="Images\delete_user.png" />
     <EmbeddedResource Include="Images\destopesto_icon.png" />

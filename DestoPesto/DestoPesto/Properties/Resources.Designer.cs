@@ -277,6 +277,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to I want to participate.
+        /// </summary>
+        public static string EnterCompetition {
+            get {
+                return ResourceManager.GetString("EnterCompetition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There already exists an account with the email address asserted by Google.
         /// </summary>
         public static string ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL {
