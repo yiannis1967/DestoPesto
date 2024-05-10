@@ -83,6 +83,7 @@
     <RunWithWarnings>true</RunWithWarnings>
     <PackagingExtraArgs></PackagingExtraArgs>
     <EnablePackageSigning></EnablePackageSigning>
+    <BuildIpa></BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />

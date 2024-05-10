@@ -142,14 +142,14 @@
 
 
 
-    <FlyoutItem Title="{x:Static resources:Properties.Resources.Home}" Icon="pin_drop.png">
+    <FlyoutItem Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="{x:Static resources:Properties.Resources.SettingItemText}" Icon="settings.png">
+    <FlyoutItem Title="{x:Static resources:Properties.Resources.SettingItemText}" Icon="{extensions:ImageResource DestoPesto.Images.settings.png}">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="{x:Static resources:Properties.Resources.SubmisionsText}" Icon="map.png">
+    <FlyoutItem Title="{x:Static resources:Properties.Resources.SubmisionsText}" Icon="{extensions:ImageResource DestoPesto.Images.map.png}">
         <ShellContent Route="Submisions" ContentTemplate="{DataTemplate local:SubmisionsListPageDetail}" />
     </FlyoutItem>
 
