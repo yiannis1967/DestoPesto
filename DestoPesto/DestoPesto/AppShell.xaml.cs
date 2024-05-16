@@ -18,13 +18,6 @@ namespace DestoPesto
             BindingContext= this;
 
 
-      
-
-
-
-
-
-
             //if (Authentication.DeviceAuthentication.AuthUser==null)
 
             // this.CurrentItem = this.PermissionsPage;

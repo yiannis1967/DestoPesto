@@ -85,7 +85,7 @@ namespace DestoPesto.Services
             }
 
             User user = DeviceAuthentication.AuthUser.Tag as User;
-            if(user!=null)
+            if (user != null)
                 user.PromoAcceptedPhotos++;
 
             return fileName;
@@ -366,7 +366,7 @@ namespace DestoPesto.Services
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
 
- 
+
 
                 string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
@@ -382,7 +382,7 @@ namespace DestoPesto.Services
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
                 //_Uri = "http://192.168.1.71:5005/";
-                _Uri = "http://10.0.0.13:5005/";
+                //_Uri = "http://10.0.0.13:5005/";
 
 
 #endif
@@ -623,7 +623,7 @@ namespace DestoPesto.Services
                     if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
                         await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
 
-                    
+
 
                 });
 
@@ -765,14 +765,23 @@ namespace DestoPesto.Services
 
                 // httpClient.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
 
-                var response = await httpClient.GetStringAsync(uri);
 
-                //   var content = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    var response = await httpClient.GetStringAsync(uri);
 
 
-                var Catagories = JsonConvert.DeserializeObject<List<Catagories>>(response);
-                catagories = new ObservableCollection<Catagories>(Catagories);
+                    //   var content = await response.Content.ReadAsStringAsync();
 
+
+                    var Catagories = JsonConvert.DeserializeObject<List<Catagories>>(response);
+                    catagories = new ObservableCollection<Catagories>(Catagories);
+                }
+                catch (Exception error)
+                {
+
+                    throw;
+                }
                 //             
             }
         }
