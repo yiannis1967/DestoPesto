@@ -213,7 +213,16 @@ namespace DestoPesto.Droid
             StopCommands.Add(notificationData.StopActionID);
 
             const int Service_Running_Notification_ID = 936;
-            StartForeground(Service_Running_Notification_ID, notification);
+
+            if (Build.VERSION.SdkInt < BuildVersionCodes.Tiramisu)
+            {
+                StartForeground(Service_Running_Notification_ID, notification);
+            }
+            else
+            {
+                StartForeground(Service_Running_Notification_ID, notification, Android.Content.PM.ForegroundService.TypeDataSync);
+
+            }
         }
 
 

@@ -15,7 +15,7 @@ namespace DestoPesto.Droid
 {
     /// <MetaDataID>{52453757-2621-49c4-a293-43e18ae14e6a}</MetaDataID>
 
-    [Service(Name = "com.arionsoftware.destopesto.MyForeGroundService")]
+    [Service(Name = "com.arionsoftware.destopesto.MyForeGroundService",ForegroundServiceType =Android.Content.PM.ForegroundService.TypeDataSync)]
     public class MyForeGroundService : DestoPesto.Droid.ForegroundService, IBackgroundService
     {
         public bool IsServiceStarted
