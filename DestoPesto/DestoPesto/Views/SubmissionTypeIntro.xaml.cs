@@ -51,12 +51,13 @@ namespace DestoPesto.Views
         }
 
 
-        public static Task<bool> DisplayPopUp(Catagories submissionType)
+        public static async Task<bool> DisplayPopUp(Catagories submissionType)
         {
             task = new TaskCompletionSource<bool>();
-            PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
+            await PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
 
-            return task.Task;
+            //return task.Task;
+            return true;
         }
 
         protected override void OnDisappearing()
