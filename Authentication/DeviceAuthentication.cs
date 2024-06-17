@@ -131,6 +131,8 @@ namespace Authentication
                 }
                 else
                 {
+
+                  
                     _AuthUser = GetAuthData(idToken);
                     if (_AuthUser == null && authUserData != null)
                     {
@@ -145,6 +147,7 @@ namespace Authentication
                             Picture = authUserData.PhotoUrl,
                             User_ID = authUserData.Uid
                         };
+
                     }
 
                     IDToken = idToken;

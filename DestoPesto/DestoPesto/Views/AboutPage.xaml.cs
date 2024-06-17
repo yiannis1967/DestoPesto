@@ -689,14 +689,16 @@ namespace DestoPesto.Views
 
 
             }
-            if (Authentication.DeviceAuthentication.AuthUser == null)
+            if (Authentication.DeviceAuthentication.AuthUser == null&&(!Application.Current.Properties.ContainsKey("user_id")||string.IsNullOrWhiteSpace(Application.Current.Properties["user_id"] as string)))
             {
 
                 if (Shell.Current.Navigation?.NavigationStack?.Last()?.GetType() == typeof(LoginPage))
                     return;
-                var count = Shell.Current.Navigation.NavigationStack.Count;
-                await Shell.Current.Navigation.PushAsync(new LoginPage());
-                return;
+
+                    var count = Shell.Current.Navigation.NavigationStack.Count;
+                    await Shell.Current.Navigation.PushAsync(new LoginPage());
+                    return;
+
             }
             else
             {

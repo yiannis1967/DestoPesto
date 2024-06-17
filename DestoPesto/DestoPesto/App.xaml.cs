@@ -52,11 +52,15 @@ namespace DestoPesto
         private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
 
+            
 
             if (Authentication.DeviceAuthentication.AuthUser != null)
             {
                 JsonHandler.SignIn(_FirbaseMessgesToken);
+                Xamarin.Forms.Application.Current.Properties["user_id"]=Authentication.DeviceAuthentication.AuthUser.User_ID;
             }
+            else
+                Xamarin.Forms.Application.Current.Properties["user_id"]="";
 
             getLocation();
         }
@@ -354,7 +358,11 @@ namespace DestoPesto
                 if (Authentication.DeviceAuthentication.AuthUser != null)
                 {
                     JsonHandler.SignIn(_FirbaseMessgesToken);
+                    Xamarin.Forms.Application.Current.Properties["user_id"]=Authentication.DeviceAuthentication.AuthUser.User_ID;
                 }
+                else
+                    Xamarin.Forms.Application.Current.Properties["user_id"]="";
+
             }
         }
 

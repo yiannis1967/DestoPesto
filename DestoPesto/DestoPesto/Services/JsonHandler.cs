@@ -497,6 +497,8 @@ namespace DestoPesto.Services
                 //Uri uri = new Uri(getUri() + "api/Submissions");
 
                 string token = Authentication.DeviceAuthentication.IDToken;
+                if(string.IsNullOrWhiteSpace(token))
+                    return false;
                 client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
 
                 var multiPartContent = new MultipartFormDataContent();
