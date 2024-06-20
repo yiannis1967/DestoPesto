@@ -613,24 +613,32 @@ namespace DestoPesto.Services
             client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
 
             var response = await client.GetAsync(uri);
-            var content = await response.Content.ReadAsStringAsync();
-            var user = JsonConvert.DeserializeObject<User>(content);
-            Authentication.DeviceAuthentication.AuthUser.Tag = user;
-
-
-            if (user.ParticipateToContest != true && user.PromoContest != null)
+            try
             {
-                MainThread.BeginInvokeOnMainThread(async () =>
+                var content = await response.Content.ReadAsStringAsync();
+                var user = JsonConvert.DeserializeObject<User>(content);
+                Authentication.DeviceAuthentication.AuthUser.Tag = user;
+
+
+                if (user.ParticipateToContest != true && user.PromoContest != null)
                 {
-                    if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
-                        await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
+                    MainThread.BeginInvokeOnMainThread(async () =>
+                    {
+                        if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
+                            await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
 
 
 
-                });
+                    });
 
+                }
+                MessagingCenter.Send<string>("1", "UserServerSignedIn");
             }
-            MessagingCenter.Send<string>("1", "UserServerSignedIn");
+            catch (Exception error)
+            {
+
+                
+            }
 
 
 
@@ -791,31 +799,39 @@ namespace DestoPesto.Services
 
         public static async Task<System.Collections.ObjectModel.ObservableCollection<DamageData>> GetUserDamages()
         {
-            if (Connectivity.NetworkAccess != NetworkAccess.Internet && !string.IsNullOrWhiteSpace(Authentication.DeviceAuthentication.IDToken))
+            try
+            {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet && !string.IsNullOrWhiteSpace(Authentication.DeviceAuthentication.IDToken))
+                {
+
+                    return new ObservableCollection<DamageData>();
+
+                }
+
+
+                using (httpClient = new HttpClient())
+                {
+
+                    string uri = getUri() + "api/Submissions/UserAll";
+
+                    httpClient.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+                    var response = await httpClient.GetStringAsync(uri);
+
+                    //   var content = await response.Content.ReadAsStringAsync();
+
+
+                    var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
+                    damageData = new ObservableCollection<DamageData>(Damages);
+                    return damageData;
+
+                    //             
+                }
+            }
+            catch (Exception error)
             {
 
                 return new ObservableCollection<DamageData>();
-
-            }
-
-
-            using (httpClient = new HttpClient())
-            {
-
-                string uri = getUri() + "api/Submissions/UserAll";
-
-                httpClient.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
-
-                var response = await httpClient.GetStringAsync(uri);
-
-                //   var content = await response.Content.ReadAsStringAsync();
-
-
-                var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
-                damageData = new ObservableCollection<DamageData>(Damages);
-                return damageData;
-
-                //             
             }
         }
 
@@ -917,37 +933,45 @@ namespace DestoPesto.Services
         internal async static Task<bool> RemoveUser()
         {
 
-            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-                return false;
-            var client = new HttpClient();
-            Uri uri = new Uri(getUri() + "api/Account/Delete");
-
-
-
-            string serializedObject = JsonConvert.SerializeObject("");
-            var content = new StringContent(serializedObject, Encoding.UTF8, "application/json");
-            await getUserData();
-            //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
-
-            //client.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
-            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
-
-            HttpResponseMessage response = await client.PostAsync(uri, content);
-
-            // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
-
-            var result = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            try
             {
-                return result?.ToLower() == true.ToString().ToLower();
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                    return false;
+                var client = new HttpClient();
+                Uri uri = new Uri(getUri() + "api/Account/Delete");
+
+
+
+                string serializedObject = JsonConvert.SerializeObject("");
+                var content = new StringContent(serializedObject, Encoding.UTF8, "application/json");
+                await getUserData();
+                //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+
+                //client.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
+                client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+                HttpResponseMessage response = await client.PostAsync(uri, content);
+
+                // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+
+                var result = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return result?.ToLower() == true.ToString().ToLower();
+
+                }
+                else
+
+                {
+                    return false;
+                }
 
             }
-            else
-
+            catch (Exception error)
             {
+
                 return false;
             }
-
 
         }
 

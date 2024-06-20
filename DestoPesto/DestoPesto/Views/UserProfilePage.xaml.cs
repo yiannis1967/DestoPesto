@@ -66,14 +66,21 @@ namespace DestoPesto.Views
 
         protected override void OnDisappearing()
         {
-            User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
-            if (User != null)
+            try
             {
-                User.FirstName = Name;
-                User.Email = Email;
-                User.PhoneNumber = PhoneNumber;
-                User.DateOfBirth = BirthDate;
-                JsonHandler.UpdateUser(User);
+                User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
+                if (User != null)
+                {
+                    User.FirstName = Name;
+                    User.Email = Email;
+                    User.PhoneNumber = PhoneNumber;
+                    User.DateOfBirth = BirthDate;
+                    JsonHandler.UpdateUser(User);
+                }
+
+            }
+            catch (Exception error)
+            {
             }
             base.OnDisappearing();
         }

@@ -60,6 +60,8 @@ namespace DestoPesto
 
         private async void MenuItem_Clicked(object sender, EventArgs e)
         {
+
+
             if (await JsonHandler.RemoveUser())
             {
                 Shell.Current.FlyoutIsPresented = false;
