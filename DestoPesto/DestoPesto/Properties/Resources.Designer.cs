@@ -574,7 +574,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://asfameazure.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt.
+        ///   Looks up a localized string similar to https://destopesto.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt.
         /// </summary>
         public static string HomeScreenMobileLink {
             get {

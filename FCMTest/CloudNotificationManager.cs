@@ -57,7 +57,7 @@ namespace FCMTest
             deviceFirebaseToken="caNxuyw3YE9TnnlUT3vJno:APA91bH1UndH5QUPnKVnyOBZDkd5VR3uRY5kGuaMzWnb78FksJBPC_Yu0j3sgSTqFZ3PS9_yb4Tq_YWy5g5hPVqBgzmNhUNI7nQO16ZUmvHuL3nb6eMdqvL-XNV7WktYBRw-amAwhCaB";
             //Documantation
             //https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message
-            imageUrl = "https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg";
+            imageUrl = "https://destopesto.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg";
             var fireBaseMessage = new Message()
             {
                 Data = new Dictionary<string, string>()
@@ -66,7 +66,7 @@ namespace FCMTest
                     { "MessageID", messageID }
                     , { "ImageUrl", imageUrl }
                     , { "Description", "Lamprou Spirou 7, Pireas 185 37, Greece" }
-                    , { "SubmisionThumb", "https://asfameazure.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg" }
+                    , { "SubmisionThumb", "https://destopesto.blob.core.windows.net/destopesto/images/thumb/78374882b62e4e769d7b5e72d62ea534.jpg" }
                     , { "Comments", "Οι πινακίδες πρέπει να είναι ευανάγνωστες γιατί αφορούν την ασφάλεια μας και δεν ξέρω εάν έχει ήδη διορθωθεί αυτή που είχες δηλώσει στην Τσαμαδού" }
                     , { "MessageTimestamp", DateTime.UtcNow.ToString("u") }
                     , { "ServicesContextIdentity", "7f9bde62e6da45dc8c5661ee2220a7b0" }

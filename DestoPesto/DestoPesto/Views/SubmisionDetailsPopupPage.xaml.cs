@@ -77,7 +77,7 @@ namespace DestoPesto.Views
         }
 
 
-        public string SubmisionThumb { get; set; }// = "https://asfameazure.blob.core.windows.net/destopesto/images/eb25c486-14cf-42f6-b300-0f8107c1df21.jpg";
+        public string SubmisionThumb { get; set; }// = "https://destopesto.blob.core.windows.net/destopesto/images/eb25c486-14cf-42f6-b300-0f8107c1df21.jpg";
 
         public string Description { get; set; }
 

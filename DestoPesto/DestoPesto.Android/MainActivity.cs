@@ -177,7 +177,17 @@ namespace DestoPesto.Droid
         }
         protected override void OnStart()
         {
-            base.OnStart();
+            try
+            {
+                
+                base.OnStart();
+
+            }
+            catch (Exception error)
+            {
+                System.Diagnostics.Debug.WriteLine(error.StackTrace);
+                
+            }
 
 
 

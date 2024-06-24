@@ -76,7 +76,7 @@ namespace Maps.Droid
             Bitmap bitmap = null;
             var iconUri = GetCustomPin(pin.Position)?.Url;
             if (iconUri==null)
-                iconUri="https://asfameazure.blob.core.windows.net/images/fast-food.png";
+                iconUri="https://destopesto.blob.core.windows.net/images/fast-food.png";
 
             if (!Icons.TryGetValue(iconUri, out bitmap))
             {

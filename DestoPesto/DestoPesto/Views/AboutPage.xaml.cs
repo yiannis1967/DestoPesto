@@ -497,7 +497,7 @@ namespace DestoPesto.Views
                             {
                                 Label = _pinLoc[i].CategoryName,
                                 id = _pinLoc[i].id,
-                                Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://asfameazure.blob.core.windows.net/images/fast-food.png",
+                                Url = _pinLoc[i].MarkIconUri,// Services.JsonHandler.GetCatagoryMarkIconUri( category. "https://destopesto.blob.core.windows.net/images/fast-food.png",
                                 Address = _pinLoc[i].numberOfUsers + " since " + date,
                                 StyleId = _pinLoc[i].id,
                                 Type = PinType.Generic,
