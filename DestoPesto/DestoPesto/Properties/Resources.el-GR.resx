@@ -349,7 +349,7 @@
     <value>Ειδοποιήσεις</value>
   </data>
   <data name="NumUserText" xml:space="preserve">
-    <value>{0} χρήστες έχουν δηλώσει αυτό </value>
+    <value>Οι χρήστες που το έχουν αναφέρει είναι </value>
   </data>
   <data name="Oktext" xml:space="preserve">
     <value>OK</value>
