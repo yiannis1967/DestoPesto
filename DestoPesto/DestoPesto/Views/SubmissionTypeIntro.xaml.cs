@@ -53,8 +53,8 @@ namespace DestoPesto.Views
 
         public static async Task<bool> DisplayPopUp(Catagories submissionType)
         {
-            task = new TaskCompletionSource<bool>();
-            await PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
+           // task = new TaskCompletionSource<bool>();
+            //await PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
 
             //return task.Task;
             return true;

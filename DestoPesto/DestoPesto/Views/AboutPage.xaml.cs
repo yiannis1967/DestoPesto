@@ -182,7 +182,7 @@ namespace DestoPesto.Views
 
         private async void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            //SetCatagoryButtons();
+            SetCatagoryButtons();
             //var profiles = Connectivity.ConnectionProfiles;
             ////if (profiles.Contains(ConnectionProfile.WiFi))
             ////{
@@ -550,6 +550,16 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                if (!this.NoInternetConnection)
+                {
+                    this.NoInternetConnection = true;
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
+                    this.NoInternetConnection = false;
+                }
+            }
+
             //using (var httpClient = new HttpClient())
             //{
 
@@ -874,7 +884,16 @@ namespace DestoPesto.Views
                 if (_MobileHomePage == null)
                 {
                     WebClient client = new WebClient();
-                    _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+
+                    try
+                    {
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                            _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
                 return _MobileHomePage;
             }

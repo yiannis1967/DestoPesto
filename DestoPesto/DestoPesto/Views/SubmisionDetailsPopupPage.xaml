@@ -59,15 +59,29 @@
                     <Image Grid.Row="1"  x:Name="backgroundImage" Source="{Binding Path=Submission.photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
 
 
-                    <Grid Grid.Row="2"   HorizontalOptions="Fill" IsClippedToBounds="True" >
+                    <Grid Grid.Row="2"   HorizontalOptions="Fill" IsClippedToBounds="True" Margin="0,0,0,5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
 
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
                         <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand"/>
                         <!--  Button Control  -->
-                        <Button Grid.Column="1" IsEnabled="{Binding enableFixButton}" Padding="5" WidthRequest="100" BackgroundColor="{Binding ButtonColor}"  HeightRequest="40" HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Command="{Binding FixedCommand}">
+
+                        <Button x:Name="Cancel" Grid.Column="0"  Grid.Row="1" Padding="5" WidthRequest="100" BackgroundColor="{Binding ButtonColor}"  HeightRequest="40" HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="6" Clicked="Cancel_Clicked" >
+                            <!--<Button.Margin>
+                                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                                        <On Platform="Android" Value="-4,-6,-4,-5" />
+                                                                        <On Platform="iOS" Value="0" />
+                                                                    </OnPlatform>
+                                                                </Button.Margin>-->
+                        </Button>
+                        
+                        <Button Grid.Column="1" Grid.Row="1" IsEnabled="{Binding enableFixButton}" Padding="5" WidthRequest="100" BackgroundColor="{Binding ButtonColor}"  HeightRequest="40" HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Clicked="Fixed_Clicked" >
                             <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />

@@ -344,52 +344,63 @@ namespace DestoPesto.Services
 
         internal static string getUri()
         {
-            if (_Uri == null)
+            try
             {
-                XDocument doc = XDocument.Load(URLString);
-                XElement signInElement = null;
-                if (DeviceInfo.Platform == DevicePlatform.iOS)
-                    signInElement = doc.Root.Element("SignIn").Element("ios");
 
-                if (DeviceInfo.Platform == DevicePlatform.Android)
-                    signInElement = doc.Root.Element("SignIn").Element("Android");
-
-                if (signInElement != null)
+                if (_Uri == null)
                 {
-                    FacebookSignInMethod = signInElement.Attribute("Facebook")?.Value?.ToLower() == "true";
-                    GoogleSignInMethod = signInElement.Attribute("Google")?.Value?.ToLower() == "true";
-                    AppleSignInMethod = signInElement.Attribute("Apple")?.Value?.ToLower() == "true";
-                    EmailSignInMethod = signInElement.Attribute("Email")?.Value?.ToLower() == "true";
-                }
-                int.TryParse(doc.Root.Attribute("MaxDistanceForFixed_meters")?.Value, out MaxDistanceForFixed_meters);
+                    XDocument doc = XDocument.Load(URLString);
+                    XElement signInElement = null;
+                    if (DeviceInfo.Platform == DevicePlatform.iOS)
+                        signInElement = doc.Root.Element("SignIn").Element("ios");
 
-                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                    if (DeviceInfo.Platform == DevicePlatform.Android)
+                        signInElement = doc.Root.Element("SignIn").Element("Android");
+
+                    if (signInElement != null)
+                    {
+                        FacebookSignInMethod = signInElement.Attribute("Facebook")?.Value?.ToLower() == "true";
+                        GoogleSignInMethod = signInElement.Attribute("Google")?.Value?.ToLower() == "true";
+                        AppleSignInMethod = signInElement.Attribute("Apple")?.Value?.ToLower() == "true";
+                        EmailSignInMethod = signInElement.Attribute("Email")?.Value?.ToLower() == "true";
+                    }
+                    int.TryParse(doc.Root.Attribute("MaxDistanceForFixed_meters")?.Value, out MaxDistanceForFixed_meters);
+
+                    var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
 
 
 
-                string uri = doc.Root.Attribute("ServiceUrl")?.Value;
+                    string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
-                _Uri = uri;
+                    _Uri = uri;
 #if DEBUG
-                var profiles = Connectivity.ConnectionProfiles;
-                //if(profiles.Contains(ConnectionProfile.WiFi))
-                _Uri = "http://192.168.1.71:5005/";
-                //_Uri = "http://10.0.0.10:5005/";
-                _Uri = "http://62.169.215.49:5005/";
-                //_Uri = "http://192.168.1.1:5005/";
-                _Uri = "http://10.0.0.10:5005/";
-                //_Uri = "http://62.169.215.49:5005/";
-                //_Uri = "https://destopesto.azurewebsites.net/";
-                //_Uri = "http://192.168.1.71:5005/";
-                //_Uri = "http://10.0.0.13:5005/";
+                    var profiles = Connectivity.ConnectionProfiles;
+                    //if(profiles.Contains(ConnectionProfile.WiFi))
+                    _Uri = "http://192.168.1.71:5005/";
+                    //_Uri = "http://10.0.0.10:5005/";
+                    _Uri = "http://62.169.215.49:5005/";
+                    //_Uri = "http://192.168.1.1:5005/";
+                    _Uri = "http://10.0.0.10:5005/";
+                    //_Uri = "http://62.169.215.49:5005/";
+                    //_Uri = "https://destopesto.azurewebsites.net/";
+                    //_Uri = "http://192.168.1.71:5005/";
+                    _Uri = "http://10.0.0.13:5005/";
 
 
 #endif
-                // _Uri = "http://10.0.0.13:5005/";
-                var deviceID = device.DeviceID;
-                DebugLog.AppEventLog.Start(_Uri, deviceID, doc.Root.Element("DebugLogs"));
+                    // _Uri = "http://10.0.0.13:5005/";
+                    var deviceID = device.DeviceID;
+                    DebugLog.AppEventLog.Start(_Uri, deviceID, doc.Root.Element("DebugLogs"));
+                }
+
             }
+            catch (Exception ex)
+            {
+
+            }
+
+
             return _Uri;
 
 
@@ -598,23 +609,24 @@ namespace DestoPesto.Services
         {
 
 
-            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
-            string deviceID = device.DeviceID;
-
-            var client = new HttpClient();
-            String Parameters = "?deviceFirebaseToken=" + firebaseToken;// + "&lng=" + lng + "&rad=" + rad;
-
-            Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}");
-
-            //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
-
-            //httpClient.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
-
-            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
-
-            var response = await client.GetAsync(uri);
+           
             try
             {
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                string deviceID = device.DeviceID;
+
+                var client = new HttpClient();
+                String Parameters = "?deviceFirebaseToken=" + firebaseToken;// + "&lng=" + lng + "&rad=" + rad;
+
+                Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}");
+
+                //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+
+                //httpClient.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
+
+                client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+                var response = await client.GetAsync(uri);
                 var content = await response.Content.ReadAsStringAsync();
                 var user = JsonConvert.DeserializeObject<User>(content);
                 Authentication.DeviceAuthentication.AuthUser.Tag = user;
@@ -790,7 +802,7 @@ namespace DestoPesto.Services
                 catch (Exception error)
                 {
 
-                    throw;
+                    
                 }
                 //             
             }

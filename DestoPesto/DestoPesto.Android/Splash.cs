@@ -17,6 +17,11 @@ namespace DestoPesto.Droid
     [Activity(Theme = "@style/splashTheme", MainLauncher = true, NoHistory = true)]
     public class Splash : Activity
     {
+
+        public Splash()
+        {
+
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
