@@ -182,7 +182,7 @@ namespace DestoPesto.Views
 
         private async void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            //SetCatagoryButtons();
+            SetCatagoryButtons();
             //var profiles = Connectivity.ConnectionProfiles;
             ////if (profiles.Contains(ConnectionProfile.WiFi))
             ////{
@@ -550,6 +550,16 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                if (!this.NoInternetConnection)
+                {
+                    this.NoInternetConnection = true;
+                    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ApplicationName, Properties.Resources.NoInternetText, null);
+                    this.NoInternetConnection = false;
+                }
+            }
+
             //using (var httpClient = new HttpClient())
             //{
 
@@ -689,15 +699,15 @@ namespace DestoPesto.Views
 
 
             }
-            if (Authentication.DeviceAuthentication.AuthUser == null&&(!Application.Current.Properties.ContainsKey("user_id")||string.IsNullOrWhiteSpace(Application.Current.Properties["user_id"] as string)))
+            if (Authentication.DeviceAuthentication.AuthUser == null && (!Application.Current.Properties.ContainsKey("user_id") || string.IsNullOrWhiteSpace(Application.Current.Properties["user_id"] as string)))
             {
 
                 if (Shell.Current.Navigation?.NavigationStack?.Last()?.GetType() == typeof(LoginPage))
                     return;
 
-                    var count = Shell.Current.Navigation.NavigationStack.Count;
-                    await Shell.Current.Navigation.PushAsync(new LoginPage());
-                    return;
+                var count = Shell.Current.Navigation.NavigationStack.Count;
+                await Shell.Current.Navigation.PushAsync(new LoginPage());
+                return;
 
             }
             else
@@ -874,7 +884,16 @@ namespace DestoPesto.Views
                 if (_MobileHomePage == null)
                 {
                     WebClient client = new WebClient();
-                    _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+
+                    try
+                    {
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                            _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
                 return _MobileHomePage;
             }
@@ -1014,7 +1033,7 @@ namespace DestoPesto.Views
                 bool dontShowAgain = Xamarin.Essentials.Preferences.Get("SubmissionTypeIntroDontShowAgain" + selectedCatagory.code, false);
                 if (!dontShowAgain)
                 {
-                    
+
                     await SubmissionTypeIntro.DisplayPopUp(selectedCatagory);
                 }
 
@@ -1283,7 +1302,7 @@ namespace DestoPesto.Views
             if (App.ShowAll)
             {
 
-                App.ShowAll=false;
+                App.ShowAll = false;
 
                 if (App.ShowAll)
                     MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
@@ -1298,7 +1317,7 @@ namespace DestoPesto.Views
         {
             if (!App.ShowAll)
             {
-                App.ShowAll=true;
+                App.ShowAll = true;
 
                 if (App.ShowAll)
                     MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", (App.Current as App).SubmittedDamage);
@@ -1309,12 +1328,12 @@ namespace DestoPesto.Views
 
         }
 
-   
+
 
         private async void ContestScrollText_Tapped(object sender, EventArgs e)
         {
 
-            User user =DeviceAuthentication.AuthUser.Tag as User;
+            User user = DeviceAuthentication.AuthUser.Tag as User;
             if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
                 await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
 

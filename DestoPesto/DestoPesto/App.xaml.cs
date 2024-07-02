@@ -15,6 +15,7 @@ using Rg.Plugins.Popup.Services;
 using System.Reflection;
 using LocalNotifications;
 using System.ComponentModel;
+using Authentication;
 
 namespace DestoPesto
 {
@@ -49,18 +50,27 @@ namespace DestoPesto
             var names = typeof(App).Assembly.GetManifestResourceNames();
         }
 
+        AuthUser user = null;
+
+
         private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
 
-            
+
 
             if (Authentication.DeviceAuthentication.AuthUser != null)
             {
+                user = Authentication.DeviceAuthentication.AuthUser;
                 JsonHandler.SignIn(_FirbaseMessgesToken);
-                Xamarin.Forms.Application.Current.Properties["user_id"]=Authentication.DeviceAuthentication.AuthUser.User_ID;
+                Xamarin.Forms.Application.Current.Properties["user_id"] = Authentication.DeviceAuthentication.AuthUser.User_ID;
             }
             else
-                Xamarin.Forms.Application.Current.Properties["user_id"]="";
+            {
+                if (user != null)
+                {
+                    Xamarin.Forms.Application.Current.Properties["user_id"] = "";
+                }
+            }
 
             getLocation();
         }
@@ -355,13 +365,7 @@ namespace DestoPesto
             set
             {
                 _FirbaseMessgesToken = value;
-                if (Authentication.DeviceAuthentication.AuthUser != null)
-                {
-                    JsonHandler.SignIn(_FirbaseMessgesToken);
-                    Xamarin.Forms.Application.Current.Properties["user_id"]=Authentication.DeviceAuthentication.AuthUser.User_ID;
-                }
-                else
-                    Xamarin.Forms.Application.Current.Properties["user_id"]="";
+       
 
             }
         }

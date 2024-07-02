@@ -33,6 +33,10 @@ namespace DestoPesto.Droid
     //[Activity(Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, Android.Gms.Tasks.IOnSuccessListener
     {
+        public MainActivity()
+        {
+
+        }
         static ICallbackManager CallbackManager;
         FirebaseAuthEvents FirebaseAuthEvents = new FirebaseAuthEvents();
         MyAccessTokenTracker myAccessTokenTracker;

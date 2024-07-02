@@ -50,7 +50,7 @@ namespace DestoPesto.Views
             get
             {
                 if (enableFixButton)
-                    return Color.FromHex("#2196F3");
+                    return Color.FromHex("#5EDD60");
                 else
                     return Color.Gray;
         }
@@ -83,5 +83,20 @@ namespace DestoPesto.Views
 
         public string Comments { get; set; }
         public bool enableFixButton { get; private set; }
+
+        private async void Fixed_Clicked(object sender, EventArgs e)
+        {
+            bool FixedResult = await Submission?.Fixed();
+            if (FixedResult!=false)
+                if (PopupNavigation.Instance.PopupStack.Count > 0)
+                    await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
+
+        }
+
+        private async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
+        }
     }
 }

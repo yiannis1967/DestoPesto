@@ -66,9 +66,12 @@ namespace DestoPesto.Views
         public string RightBtnText { get; private set; }
         public string LeftBtnText { get; private set; }
 
-        protected override void OnDisappearing()
+        protected override async void OnDisappearing()
         {
             base.OnDisappearing();
+            if (PopupNavigation.Instance.PopupStack.Last()==this)
+              await  PopupNavigation.Instance.PopAsync();
+
             task.SetResult(DialogResult);
         }
 
