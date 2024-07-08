@@ -80,17 +80,19 @@ namespace DestoPesto.Models
                 return false;
             }
 
-            return true;
+            
             string sss = Authentication.DeviceAuthentication.IDToken;
             //fix.userId = userEmail;
 
             if (await JsonHandler.PutSubmission(fix))
             {
                 (App.Current as App).RemoveUserSubmittedDamage(this);
+                return true;
 
             }
+            return false;
 
-            System.Diagnostics.Debug.WriteLine("sdss");
+            
         }
 
         public string id { get; set; }
