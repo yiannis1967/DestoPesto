@@ -92,7 +92,7 @@ namespace DestoPesto.Models
             }
             return false;
 
-            System.Diagnostics.Debug.WriteLine("sdss");
+            
         }
 
         public string id { get; set; }
