@@ -66,5 +66,10 @@ namespace DestoPesto.Views
 
             task.SetResult(DontShowAgain);
         }
+
+        private void RightBtn_Clicked(object sender, EventArgs e)
+        {
+            OnDisappearing();
+        }
     }
 }

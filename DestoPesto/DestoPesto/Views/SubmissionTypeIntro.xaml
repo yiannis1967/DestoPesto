@@ -22,23 +22,23 @@
 
     
     
-    <Frame Margin="10" 
+    <Frame Margin="5" 
            CornerRadius="5"
            HorizontalOptions="Fill" 
            VerticalOptions="Center"
            HasShadow="True"
-           MinimumHeightRequest="500"
+           MinimumHeightRequest="600"
            IsClippedToBounds="True"
            BackgroundColor="White"
-           Padding="10,20,10,20">
+           Padding="5">
         <StackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Frame  HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="10" >
-                    <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.icon.png}" VerticalOptions="Center" Aspect="AspectFit" />
+                <Frame  HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center" HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="5">
+                    <Image  HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_icon.png}" VerticalOptions="Center" Aspect="AspectFit" />
                 </Frame>
                 <Label Grid.Column="1" Text="{Binding Caption}" FontSize="Title" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="White"   TextColor="#0D6EFD"/>
 
@@ -53,12 +53,13 @@
                     </Grid.RowDefinitions>
 
 
-                    <Label  Text="{Binding InfoText}" HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
-                    <Grid Grid.Row="1" Padding="5,5,5,5" BackgroundColor="White"   >
+                    <Label  Text="{Binding InfoText}" HorizontalTextAlignment="Start" FontSize="Medium" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
+                    <Grid Grid.Row="1" Padding="5" BackgroundColor="White"   >
                         <Grid.ColumnDefinitions>
 
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
 
                         </Grid.ColumnDefinitions>
                         <!--<Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"   OnColor="{AppThemeBinding Light=Blue, Dark=Red}" ThumbColor="{AppThemeBinding Light=Blue, Dark=Red}"/>-->
@@ -66,7 +67,7 @@
                         <Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand" OnColor= "#0D6EFD" ThumbColor="#d9d9d9" />
 
                         <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5" TextColor="#0D6EFD"/>
-                        
+                        <Button Grid.Column="2" HeightRequest="30" Text="{x:Static resources:Properties.Resources.Oktext}" x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
                     </Grid>
                     <!--<CheckBox  IsChecked="{Binding DontShowAgain}"></CheckBox>-->
                 </Grid>

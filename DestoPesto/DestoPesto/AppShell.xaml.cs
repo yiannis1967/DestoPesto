@@ -15,7 +15,7 @@ namespace DestoPesto
         public AppShell()
         {
             InitializeComponent();
-            BindingContext= this;
+            BindingContext = this;
 
 
             //if (Authentication.DeviceAuthentication.AuthUser==null)
@@ -32,7 +32,7 @@ namespace DestoPesto
         {
             Shell.Current.FlyoutIsPresented = false;
             Authentication.DeviceAuthentication.SignedOut();
-            
+
 
         }
 
@@ -93,7 +93,7 @@ namespace DestoPesto
             await Launcher.OpenAsync(url);
         }
 
-      
+
 
         async void PrivacyPolicy_Clicked(object sender, EventArgs e)
         {

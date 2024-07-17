@@ -59,7 +59,7 @@
                                                         <Grid Grid.Row="1"   HorizontalOptions="Fill" IsClippedToBounds="True" >
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="Auto"/>
-                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="2*"/>
                                                                 
                                                                 
 
@@ -69,8 +69,8 @@
                                                             
                                                             <!--  Button Control  -->
 
-                                                            <StackLayout Grid.Column="1" Spacing="15" Orientation="Horizontal" HorizontalOptions="End">
-                                                            <Button Grid.Column="1" Padding="20,5,20,5" BackgroundColor="#CF1F25" VerticalOptions="Center"  HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="6" Command="{Binding CloseCommand}" >
+                                                            <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                                                            <Button Grid.Column="1" Padding="5" BackgroundColor="#CF1F25" VerticalOptions="Center"  HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="5" Command="{Binding CloseCommand}" >
                                                                 <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />
@@ -79,7 +79,7 @@
                                                                 </Button.Margin>-->
                                                             </Button>
 
-                                                            <Button Grid.Column="2" Padding="20,5,20,5" BackgroundColor="#5EDD60" VerticalOptions="Center"  HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Command="{Binding FixedCommand}">
+                                                            <Button Grid.Column="2" Padding="5" BackgroundColor="#5EDD60" VerticalOptions="Center"  HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="5" Command="{Binding FixedCommand}">
                                                                 <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />

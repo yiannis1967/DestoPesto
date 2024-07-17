@@ -452,7 +452,13 @@ namespace DestoPesto
                 return;
 
             string submisionThumb;
+            if (!data.ContainsKey("SubmisionThumb"))
+                return;
+
             data.TryGetValue("SubmisionThumb", out submisionThumb);
+            if(string.IsNullOrWhiteSpace(submisionThumb)) 
+                return;
+
             string comments;
             data.TryGetValue("Comments", out comments);
 
