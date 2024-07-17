@@ -59,7 +59,8 @@ namespace DestoPesto.Views
 
         private void RightBtn_Clicked(object sender, EventArgs e)
         {
-            //OnDisappearing();
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
 
         }
     }
