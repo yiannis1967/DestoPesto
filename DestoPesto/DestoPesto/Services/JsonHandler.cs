@@ -381,7 +381,7 @@ namespace DestoPesto.Services
                 //_Uri = "http://10.0.0.10:5005/";
                 _Uri = "http://62.169.215.49:5005/";
                 //_Uri = "http://192.168.1.1:5005/";
-                _Uri = "http://10.0.0.13:5005/";
+                _Uri = "http://10.0.0.10:5005/";
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
                 _Uri = "http://192.168.1.71:5005/";
@@ -605,7 +605,7 @@ namespace DestoPesto.Services
         }
 
 
-        public static async void SignIn(string firebaseToken)
+        public static async void SignIn(string firebaseToken, bool notificationsActivated)
         {
 
 
@@ -618,7 +618,7 @@ namespace DestoPesto.Services
                 var client = new HttpClient();
                 String Parameters = "?deviceFirebaseToken=" + firebaseToken;// + "&lng=" + lng + "&rad=" + rad;
 
-                Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}");
+                Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}&notificationsActivated={notificationsActivated}");
 
                 //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
 
@@ -834,7 +834,9 @@ namespace DestoPesto.Services
 
 
                     var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
+                    var sds= Damages.Where(x=>x.IsActivate).ToList();
                     damageData = new ObservableCollection<DamageData>(Damages);
+
                     return damageData;
 
                     //             

@@ -187,7 +187,7 @@
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
   </data>
   <data name="EnterCompetition" xml:space="preserve">
-    <value>Θέλω να συμμετέχω</value>
+    <value>Θα πάρεις μέρος?</value>
   </data>
   <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
     <value>Υπάρχει άλλος λογιαριασμός με αυτά τα στοιχεία</value>
@@ -349,7 +349,7 @@
     <value>Ειδοποιήσεις</value>
   </data>
   <data name="NumUserText" xml:space="preserve">
-    <value>Οι χρήστες που το έχουν αναφέρει είναι </value>
+    <value>Αριθμός πολιτών που το έχουν αναφέρει : </value>
   </data>
   <data name="Oktext" xml:space="preserve">
     <value>OK</value>
@@ -466,7 +466,7 @@
     <value>https://destopesto.gr/info/vision</value>
   </data>
   <data name="WarningForUserBanMessage" xml:space="preserve">
-    <value>Εάν το πρόβλημα δεν έχει αποκατασταθεί ο λογαριασμός σας θα μπλοκαριστεί και δεν θα μπορείτε για κάποιο χρονικό διάστημα να κάνετε αναφορά επιδιόρθωσης προβλήματων. Θέλετε να συνεχίσετε ?</value>
+    <value>Έχει σίγουρα αποκατασταθεί το πρόβλημα ?</value>
   </data>
   <data name="WEAK_PASSWORD" xml:space="preserve">
     <value>Αδύναμος κωδικός</value>

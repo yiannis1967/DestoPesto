@@ -21,7 +21,7 @@ namespace DestoPesto.Views
 
             try
             {
-                _DontShowAgain = Xamarin.Essentials.Preferences.Get("IntroDontShowAgain",false);
+                _DontShowAgain = Xamarin.Essentials.Preferences.Get("IntroDontShowAgain", false);
             }
             catch (Exception)
             {
@@ -55,6 +55,13 @@ namespace DestoPesto.Views
             base.OnDisappearing();
 
             task.SetResult(DontShowAgain);
+        }
+
+        private void RightBtn_Clicked(object sender, EventArgs e)
+        {
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
+
         }
     }
 }

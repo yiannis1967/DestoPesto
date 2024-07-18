@@ -40,16 +40,16 @@
                 </StackLayout>
 
 
-                <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
-                    <StackLayout Orientation="Horizontal">
-                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
-                            <Image Source="{extensions:ImageResource DestoPesto.Images.user.png}" Aspect="AspectFill" Margin="0"/>
-                        </Frame>
-                        <Entry TextColor="#0D6EFD" Text="{Binding Name}" Margin="4" Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                
+                    <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                        <Label Text="Name" > </Label>
+                    <Entry  BackgroundColor="Transparent" TextColor="#0D6EFD" Text="{Binding Name}" Margin="0,-4,0,0"  Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"    HorizontalOptions="FillAndExpand" >
 
                         </Entry>
                     </StackLayout>
-                </Frame>
+                
+
+               
 
                 <Frame BackgroundColor="White"  Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">

@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ButtonCircleBig.png" />
+    <None Remove="Images\AcceptedSub.png" />
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
     <None Remove="Images\camera.png" />
@@ -146,6 +147,7 @@
     <None Remove="Images\phone.png" />
     <None Remove="Images\pin.png" />
     <None Remove="Images\pin_drop.png" />
+    <None Remove="Images\ReviewSub.png" />
     <None Remove="Images\settings.png" />
     <None Remove="Images\twitter.png" />
     <None Remove="Images\user.png" />
@@ -157,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ButtonCircleBig.png" />
+    <EmbeddedResource Include="Images\AcceptedSub.png" />
     <EmbeddedResource Include="Images\applelogo.png" />
     <EmbeddedResource Include="Images\back_arrow.png" />
     <EmbeddedResource Include="Images\camera.png" />
@@ -185,6 +188,7 @@
     <EmbeddedResource Include="Images\phone.png" />
     <EmbeddedResource Include="Images\pin.png" />
     <EmbeddedResource Include="Images\pin_drop.png" />
+    <EmbeddedResource Include="Images\ReviewSub.png" />
     <EmbeddedResource Include="Images\settings.png" />
     <EmbeddedResource Include="Images\twitter.png" />
     <EmbeddedResource Include="Images\user.png" />

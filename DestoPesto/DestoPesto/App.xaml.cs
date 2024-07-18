@@ -53,7 +53,7 @@ namespace DestoPesto
         AuthUser user = null;
 
 
-        private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
+        private async void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
 
 
@@ -61,7 +61,14 @@ namespace DestoPesto
             if (Authentication.DeviceAuthentication.AuthUser != null)
             {
                 user = Authentication.DeviceAuthentication.AuthUser;
-                JsonHandler.SignIn(_FirbaseMessgesToken);
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                
+                if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Granted)
+                    JsonHandler.SignIn(_FirbaseMessgesToken,true);
+                else
+                    JsonHandler.SignIn(_FirbaseMessgesToken, true);
+
+
                 Xamarin.Forms.Application.Current.Properties["user_id"] = Authentication.DeviceAuthentication.AuthUser.User_ID;
             }
             else
@@ -452,7 +459,13 @@ namespace DestoPesto
                 return;
 
             string submisionThumb;
+            if (!data.ContainsKey("SubmisionThumb"))
+                return;
+
             data.TryGetValue("SubmisionThumb", out submisionThumb);
+            if(string.IsNullOrWhiteSpace(submisionThumb)) 
+                return;
+
             string comments;
             data.TryGetValue("Comments", out comments);
 

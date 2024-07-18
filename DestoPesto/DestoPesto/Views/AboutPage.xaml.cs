@@ -550,6 +550,24 @@ namespace DestoPesto.Views
             //(App.Current as App).getLocation();
             base.OnAppearing();
 
+
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+            {
+                var result = await device.RemoteNotificationsPermissionsRequest();
+                //if (result == PermissionStatus.Disabled)
+                //{
+                //    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                //    return;
+                //}
+            }
+            else if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Disabled)
+            {
+                // await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                //return;
+            }
+
+
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 if (!this.NoInternetConnection)

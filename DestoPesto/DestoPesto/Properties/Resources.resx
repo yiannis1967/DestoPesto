@@ -190,7 +190,7 @@
     <value>No</value>
   </data>
   <data name="NumUserText" xml:space="preserve">
-    <value>Users have reported this</value>
+    <value>Total users who reported this : </value>
   </data>
   <data name="Oktext" xml:space="preserve">
     <value>OK</value>
@@ -259,7 +259,7 @@
     <value>Quit app now</value>
   </data>
   <data name="Fixed" xml:space="preserve">
-    <value>Has this defect fixed?</value>
+    <value>Is this fixed?</value>
   </data>
   <data name="AppleLogin" xml:space="preserve">
     <value>With Apple</value>
@@ -472,7 +472,7 @@
     <value>Location Services are not enabled. This is mandatory as the app in order to upload photos needs the get the location from the device. Please enable the service and try again</value>
   </data>
   <data name="WarningForUserBanMessage" xml:space="preserve">
-    <value>If the defect is not fixed, then your account will be banned for some time, and you won’t be able to change the status of the defects. Do you want to continue?</value>
+    <value>Are you sure that this has been fixed?</value>
   </data>
   <data name="ContestTitle" xml:space="preserve">
     <value>Contest</value>
@@ -496,6 +496,6 @@
     <value>Terms and conditions</value>
   </data>
   <data name="EnterCompetition" xml:space="preserve">
-    <value>I want to participate</value>
+    <value>Are you in?</value>
   </data>
 </root>

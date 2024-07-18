@@ -51,13 +51,21 @@ namespace DestoPesto.Views
         }
 
 
-        public static async Task<bool> DisplayPopUp(Catagories submissionType)
+        public static  Task<bool> DisplayPopUp(Catagories submissionType)
         {
-           // task = new TaskCompletionSource<bool>();
-            //await PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
+            
+            if (Xamarin.Essentials.DeviceInfo.Platform!=Xamarin.Essentials.DevicePlatform.iOS&&Xamarin.Essentials.DeviceInfo.Platform!=Xamarin.Essentials.DevicePlatform.macOS)
+            {
+                var task = new TaskCompletionSource<bool>();
 
-            //return task.Task;
-            return true;
+                PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
+
+                return task.Task;
+                
+
+
+            }
+            return Task.FromResult(true);
         }
 
         protected override void OnDisappearing()
@@ -65,6 +73,13 @@ namespace DestoPesto.Views
             base.OnDisappearing();
 
             task.SetResult(DontShowAgain);
+        }
+
+        private void RightBtn_Clicked(object sender, EventArgs e)
+        {
+            //DialogResult=true;
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
         }
     }
 }

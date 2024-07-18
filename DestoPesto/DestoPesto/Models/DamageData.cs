@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace DestoPesto.Models
 {
-    public class DamageData:INotifyPropertyChanged
+    public class DamageData : INotifyPropertyChanged
     {
 
         public DamageData()
@@ -21,9 +21,9 @@ namespace DestoPesto.Models
 
             }));
 
-            CloseCommand=new Command(new Action(async () =>
+            CloseCommand = new Command(new Action(async () =>
             {
-                IsExpanded=false;
+                IsExpanded = false;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsExpanded)));
 
             }));
@@ -80,7 +80,7 @@ namespace DestoPesto.Models
                 return false;
             }
 
-            
+
             string sss = Authentication.DeviceAuthentication.IDToken;
             //fix.userId = userEmail;
 
@@ -92,7 +92,7 @@ namespace DestoPesto.Models
             }
             return false;
 
-            
+
         }
 
         public string id { get; set; }
@@ -103,6 +103,10 @@ namespace DestoPesto.Models
         public DateTime firstDateReported { get; set; }
         public DateTime lastDateReported { get; set; }
         public string photoUrl { get; set; }
+
+        public bool IsActivate{ get; set; }
+
+        public bool Review { get=>!IsActivate; set { } }
 
         public string fullAddress { get; set; }
 
@@ -136,7 +140,7 @@ namespace DestoPesto.Models
             get
             {
 
-                return Properties.Resources.NumUserText+" "+numberOfUsers.ToString();
+                return Properties.Resources.NumUserText + " " + numberOfUsers.ToString();
 
             }
             set
@@ -148,7 +152,7 @@ namespace DestoPesto.Models
         public Command FixedCommand { get; set; }
 
 
-        public Command CloseCommand { get; set;}
+        public Command CloseCommand { get; set; }
 
         public bool IsExpanded { get; set; }
     }

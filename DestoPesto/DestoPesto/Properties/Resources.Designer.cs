@@ -277,7 +277,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I want to participate.
+        ///   Looks up a localized string similar to Are you in?.
         /// </summary>
         public static string EnterCompetition {
             get {
@@ -466,7 +466,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Has this defect fixed?.
+        ///   Looks up a localized string similar to Is this fixed?.
         /// </summary>
         public static string Fixed {
             get {
@@ -772,7 +772,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Users have reported this.
+        ///   Looks up a localized string similar to Total users who reported this : .
         /// </summary>
         public static string NumUserText {
             get {
@@ -1141,7 +1141,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If the defect is not fixed, then your account will be banned for some time, and you won’t be able to change the status of the defects. Do you want to continue?.
+        ///   Looks up a localized string similar to Are you sure that this has been fixed?.
         /// </summary>
         public static string WarningForUserBanMessage {
             get {
