@@ -84,6 +84,8 @@ namespace DestoPesto.Models
             string sss = Authentication.DeviceAuthentication.IDToken;
             //fix.userId = userEmail;
 
+
+
             if (await JsonHandler.PutSubmission(fix))
             {
                 (App.Current as App).RemoveUserSubmittedDamage(this);
@@ -104,9 +106,9 @@ namespace DestoPesto.Models
         public DateTime lastDateReported { get; set; }
         public string photoUrl { get; set; }
 
-        public bool IsActivate{ get; set; }
+        public bool IsActivate { get; set; }
 
-        public bool Review { get=>!IsActivate; set { } }
+        public bool Review { get => !IsActivate; set { } }
 
         public string fullAddress { get; set; }
 
