@@ -83,12 +83,10 @@ namespace DestoPesto.Models
 
             string sss = Authentication.DeviceAuthentication.IDToken;
             //fix.userId = userEmail;
-
-
-
+            (App.Current as App).RemoveUserSubmittedDamage(this);
             //if (await JsonHandler.PutSubmission(fix))
             //{
-            //    (App.Current as App).RemoveUserSubmittedDamage(this);
+                
             //    return true;
 
             //}

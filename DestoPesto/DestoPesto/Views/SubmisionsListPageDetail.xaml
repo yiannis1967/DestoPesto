@@ -12,7 +12,7 @@
     <Grid BackgroundColor="White" >
         <ScrollView>
             <StackLayout Padding="10">
-                <controls:RepeaterView ItemsSource="{Binding Path=Damages}">
+                <controls:RepeaterView ItemsSource="{Binding Path=UserSubmissions.AllUserDamages}">
 
                     <controls:RepeaterView.ItemTemplate>
                         <DataTemplate>
