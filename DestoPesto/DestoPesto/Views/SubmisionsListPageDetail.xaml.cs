@@ -22,20 +22,29 @@ namespace DestoPesto.Views
 
 
             (App.Current as App).PropertyChanged += SubmisionsListPageDetail_PropertyChanged;
-            
+            UserSubmissions = (App.Current as App).UserSubmissions;
 
             //(App.Current as App).SubmittedDamageUser[0].category
         }
         protected override async void OnAppearing()
         {
-            _Damages = (await JsonHandler.GetUserDamages()).ToList();
-            OnPropertyChanged(nameof(Damages));
+
+            await UserSubmissions.GetAllUserDamages();
+
+            
+
+
+
+            OnPropertyChanged(nameof(UserSubmissions));
             base.OnAppearing();
         }
 
+       
+
         private void SubmisionsListPageDetail_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            OnPropertyChanged(nameof(Damages));
+
+            
 
         }
 
@@ -44,13 +53,17 @@ namespace DestoPesto.Views
            
         }
 
-        List<DamageData> _Damages= new List<DamageData>();
-        public List<DamageData> Damages
-        {
-            get
-            {
-                return _Damages;
-            }
-        }
+        
+
+        //List<DamageData> _Damages= new List<DamageData>();
+        //public List<DamageData> Damages
+        //{
+        //    get
+        //    {
+        //        return _Damages;
+        //    }
+        //}
+
+        public UserSubmissions UserSubmissions { get; }
     }
 }
