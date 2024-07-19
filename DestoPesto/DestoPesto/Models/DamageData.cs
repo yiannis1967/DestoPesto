@@ -86,12 +86,12 @@ namespace DestoPesto.Models
 
 
 
-            if (await JsonHandler.PutSubmission(fix))
-            {
-                (App.Current as App).RemoveUserSubmittedDamage(this);
-                return true;
+            //if (await JsonHandler.PutSubmission(fix))
+            //{
+            //    (App.Current as App).RemoveUserSubmittedDamage(this);
+            //    return true;
 
-            }
+            //}
             return false;
 
 
