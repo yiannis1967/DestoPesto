@@ -104,9 +104,9 @@ namespace DestoPesto.Models
         public DateTime lastDateReported { get; set; }
         public string photoUrl { get; set; }
 
-        public bool IsActivate{ get; set; }
+        public bool IsActivate { get; set; }
 
-        public bool Review { get=>!IsActivate; set { } }
+        public bool Review { get => !IsActivate; set { } }
 
         public string fullAddress { get; set; }
 
