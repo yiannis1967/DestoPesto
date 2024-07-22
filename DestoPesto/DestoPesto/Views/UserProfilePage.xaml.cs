@@ -39,7 +39,7 @@ namespace DestoPesto.Views
             RejectedPhotosText = User?.RejectedPhotos.ToString();
 
 
-            RejectedPhotosText = User?.RejectedPhotos.ToString();
+            //RejectedPhotosText = User?.RejectedPhotos.ToString();
 
 
             if (BirthDate != null)
@@ -104,6 +104,7 @@ namespace DestoPesto.Views
         public DateTime? BirthDate { get; set; }
         public string ContestAcceptedPhotosText { get; }
         public string AcceptedPhotosText { get; }
+        public string RejectedPhotosText { get; }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
