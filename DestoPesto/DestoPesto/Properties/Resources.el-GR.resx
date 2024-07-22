@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AcceptedPhotosLabel" xml:space="preserve">
+    <value>Accepted Photos</value>
+  </data>
   <data name="Accuracy_disclaimerLink" xml:space="preserve">
     <value>https://destopesto.gr/info/Accuracy_disclaimer</value>
   </data>
@@ -128,6 +131,12 @@
   </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Δες το, Πες το</value>
+  </data>
+  <data name="BirthDateLabel" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
+  <data name="BirthDatePlaceHolder" xml:space="preserve">
+    <value>Birth Date</value>
   </data>
   <data name="CameraDetails" xml:space="preserve">
     <value>Στην ειδοποίηση πατήστε 'Κατά την χρήση της εφαρμογής' ώστε να επιτρέψετε την λειτουργία της κάμερας</value>
@@ -176,6 +185,9 @@
   </data>
   <data name="DontShowAgain" xml:space="preserve">
     <value>Να μην εμφανίζεται το μήνυμα</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="EmailLogin" xml:space="preserve">
     <value>Mε email και κωδικό</value>
@@ -333,6 +345,12 @@
   <data name="MapHeaderText" xml:space="preserve">
     <value>Δες το, Πες το</value>
   </data>
+  <data name="MobilePhoneLabel" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="MobilePhonePlaceHolder" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
   <data name="NoInternetText" xml:space="preserve">
     <value>Η εφαρμογή δεν ανταποκρίνεται γιατί έχει χαθεί η σύνδεση με το Internet ή έχει σταματήσει ο server. Κλείστε την εφαρμογή και ξανά προσπαθήστε σε λίγο</value>
   </data>
@@ -365,6 +383,12 @@
   </data>
   <data name="PermissionTitleDetails" xml:space="preserve">
     <value>Η εφαρμογή χρειάζεται την άδεια σας για την ενεργοποίηση όλων των παρακάτω ώστε να είναι πλήρως λειτουργική</value>
+  </data>
+  <data name="PersonNameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PersonNamePlaceHolder" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Πολιτική απορρήτου</value>

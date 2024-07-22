@@ -40,18 +40,28 @@
                 </StackLayout>
 
 
-                
-                    <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
-                        <Label Text="Name" > </Label>
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label Text="{x:Static resources:Properties.Resources.PersonNameLabel}" ></Label>
                     <Entry  BackgroundColor="Transparent" TextColor="#0D6EFD" Text="{Binding Name}" Margin="0,-4,0,0"  Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"    HorizontalOptions="FillAndExpand" >
+                    </Entry>
+                </StackLayout>
 
-                        </Entry>
-                    </StackLayout>
-                
 
-               
 
-                <Frame BackgroundColor="White"  Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label Text="{x:Static resources:Properties.Resources.EmailLabel}" ></Label>
+                    <Entry BackgroundColor="Transparent"  Margin="0,-4,0,0" TextColor="#0D6EFD" Text="{Binding Email}"  Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand"  Keyboard="Email"  >
+                    </Entry>
+                </StackLayout>
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label Text="{x:Static resources:Properties.Resources.MobilePhoneLabel}" ></Label>
+                    <Entry BackgroundColor="Transparent"  Margin="0,-4,0,0" TextColor="#0D6EFD" Text="{Binding PhoneNumber}"   Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"   HorizontalOptions="FillAndExpand" />
+
+                </StackLayout>
+
+                <!--<Frame BackgroundColor="White"  Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White">
                             <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" Aspect="AspectFill" Margin="0" />
@@ -61,9 +71,9 @@
 
                         </Entry>
                     </StackLayout>
-                </Frame>
+                </Frame>-->
 
-                <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.phone.png}" Aspect="AspectFill" Margin="0"/>
@@ -72,10 +82,26 @@
 
 
                     </StackLayout>
-                </Frame>
+                </Frame>-->
 
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label Text="{x:Static resources:Properties.Resources.BirthDateLabel}" ></Label>
+                    <Grid IsVisible="{Binding iOS}" HorizontalOptions="FillAndExpand">
+                        <DatePicker x:Name="iOsBirthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,4,0" Date="{x:Static sys:DateTime.Now}">
+                            <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                        </DatePicker>
+                    </Grid>
 
-                <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <Grid IsVisible="{Binding IsAndroid}" HorizontalOptions="FillAndExpand">
+                        <Entry  x:Name="birthDateEntry" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="#0D6EFD" Placeholder="{x:Static resources:Properties.Resources.BirthDateLabel}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                        </Entry>
+                        <DatePicker IsVisible="false" IsEnabled="False" x:Name="birthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
+                            <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                        </DatePicker>
+                    </Grid>
+                </StackLayout>
+
+                <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.date-of-birth-icon.png}" Aspect="AspectFill" Margin="0"/>
@@ -87,14 +113,31 @@
                         </Grid>
 
                         <Grid IsVisible="{Binding IsAndroid}" HorizontalOptions="FillAndExpand">
-                            <Entry  x:Name="birthDateEntry" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="#0D6EFD" Placeholder="Birth date"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                            <Entry  x:Name="birthDateEntry" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="#0D6EFD" Placeholder="{x:Static resources:Properties.Resources.BirthDateLabel}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
                             </Entry>
                             <DatePicker IsVisible="false" IsEnabled="False" x:Name="birthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
                                 <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                             </DatePicker>
                         </Grid>
                     </StackLayout>
+                </Frame>-->
+
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label Text="{x:Static resources:Properties.Resources.AcceptedPhotosLabel}" ></Label>
+                    <Entry Text="{Binding AcceptedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                
+                <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.camera.png}" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Entry Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
                 </Frame>
+
+
                 <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >

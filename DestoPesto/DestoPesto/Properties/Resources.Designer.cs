@@ -61,6 +61,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accepted Photos.
+        /// </summary>
+        public static string AcceptedPhotosLabel {
+            get {
+                return ResourceManager.GetString("AcceptedPhotosLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://destopesto.gr/info/Accuracy_disclaimer_en.
         /// </summary>
         public static string Accuracy_disclaimerLink {
@@ -93,6 +102,24 @@ namespace DestoPesto.Properties {
         public static string ApplicationName {
             get {
                 return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Birth Date.
+        /// </summary>
+        public static string BirthDateLabel {
+            get {
+                return ResourceManager.GetString("BirthDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Birth Date.
+        /// </summary>
+        public static string BirthDatePlaceHolder {
+            get {
+                return ResourceManager.GetString("BirthDatePlaceHolder", resourceCulture);
             }
         }
         
@@ -246,6 +273,15 @@ namespace DestoPesto.Properties {
         public static string DontShowAgain {
             get {
                 return ResourceManager.GetString("DontShowAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string EmailLabel {
+            get {
+                return ResourceManager.GetString("EmailLabel", resourceCulture);
             }
         }
         
@@ -720,6 +756,15 @@ namespace DestoPesto.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Mobile phone.
         /// </summary>
+        public static string MobilePhoneLabel {
+            get {
+                return ResourceManager.GetString("MobilePhoneLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobile phone.
+        /// </summary>
         public static string MobilePhonePlaceHolder {
             get {
                 return ResourceManager.GetString("MobilePhonePlaceHolder", resourceCulture);
@@ -831,6 +876,15 @@ namespace DestoPesto.Properties {
         public static string PermissionTitleDetails {
             get {
                 return ResourceManager.GetString("PermissionTitleDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string PersonNameLabel {
+            get {
+                return ResourceManager.GetString("PersonNameLabel", resourceCulture);
             }
         }
         

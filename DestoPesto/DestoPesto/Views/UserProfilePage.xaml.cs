@@ -35,6 +35,7 @@ namespace DestoPesto.Views
 
 
             ContestAcceptedPhotosText = User?.PromoAcceptedPhotos.ToString();
+            AcceptedPhotosText = User?.AcceptedPhotos.ToString();
 
             if (BirthDate != null)
                 BirthDateText = BirthDate.Value.ToShortDateString();
@@ -97,7 +98,7 @@ namespace DestoPesto.Views
 
         public DateTime? BirthDate { get; set; }
         public string ContestAcceptedPhotosText { get; }
-
+        public string AcceptedPhotosText { get; }
 
         private void Button_Clicked(object sender, EventArgs e)
         {

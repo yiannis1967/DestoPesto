@@ -498,4 +498,22 @@
   <data name="EnterCompetition" xml:space="preserve">
     <value>Are you in?</value>
   </data>
+  <data name="AcceptedPhotosLabel" xml:space="preserve">
+    <value>Accepted Photos</value>
+  </data>
+  <data name="BirthDateLabel" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
+  <data name="BirthDatePlaceHolder" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="MobilePhoneLabel" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="PersonNameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
 </root>
