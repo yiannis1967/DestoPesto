@@ -916,7 +916,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accepted Photos.
+        ///   Looks up a localized string similar to Rejected Photos.
         /// </summary>
         public static string RejectedPhotosLabel {
             get {
