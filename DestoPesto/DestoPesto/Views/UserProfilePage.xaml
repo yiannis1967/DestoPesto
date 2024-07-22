@@ -127,25 +127,39 @@
                     <Label Text="{x:Static resources:Properties.Resources.AcceptedPhotosLabel}" ></Label>
                     <Entry Text="{Binding AcceptedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label Text="{x:Static resources:Properties.Resources.RejectedPhotosLabel}" ></Label>
+                    <Entry Text="{Binding RejectedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0" IsVisible="{Binding ContestParticipation}">
+                    <Label Text="{x:Static resources:Properties.Resources.ContestPhotosLabel}" ></Label>
+                    <Entry Text="{Binding ContestAcceptedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+
+
+                <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.camera.png}" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Entry Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                </Frame>-->
+
                 
-                <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
+                
+
+                <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
                     <StackLayout Orientation="Horizontal">
                         <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                             <Image Source="{extensions:ImageResource DestoPesto.Images.camera.png}" Aspect="AspectFill" Margin="0"/>
                         </Frame>
                         <Entry Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
-                </Frame>
-
-
-                <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
-                    <StackLayout Orientation="Horizontal">
-                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
-                            <Image Source="{extensions:ImageResource DestoPesto.Images.camera.png}" Aspect="AspectFill" Margin="0"/>
-                        </Frame>
-                        <Entry Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
-                    </StackLayout>
-                </Frame>
+                </Frame>-->
 
 
                 <!--<Button Text="Open" Clicked="Button_Clicked"></Button>-->

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AcceptedPhotosLabel" xml:space="preserve">
-    <value>Accepted Photos</value>
+    <value>Σύνολο επικυρωμένων φωτογραφίων</value>
   </data>
   <data name="Accuracy_disclaimerLink" xml:space="preserve">
     <value>https://destopesto.gr/info/Accuracy_disclaimer</value>
@@ -133,10 +133,10 @@
     <value>Δες το, Πες το</value>
   </data>
   <data name="BirthDateLabel" xml:space="preserve">
-    <value>Birth Date</value>
+    <value>Ημερομηνία Γέννησης</value>
   </data>
   <data name="BirthDatePlaceHolder" xml:space="preserve">
-    <value>Birth Date</value>
+    <value>Συμπλήρωσε την ημερομηνία γέννησης σου</value>
   </data>
   <data name="CameraDetails" xml:space="preserve">
     <value>Στην ειδοποίηση πατήστε 'Κατά την χρήση της εφαρμογής' ώστε να επιτρέψετε την λειτουργία της κάμερας</value>
@@ -149,6 +149,9 @@
   </data>
   <data name="CatagoryText" xml:space="preserve">
     <value>Κατηγορία</value>
+  </data>
+  <data name="ContestPhotosLabel" xml:space="preserve">
+    <value>Σύνολο επικυρωμένων φωτογραφιών διαγωνισμού</value>
   </data>
   <data name="ContestTermsLabel" xml:space="preserve">
     <value>Terms and conditions</value>
@@ -193,7 +196,7 @@
     <value>Mε email και κωδικό</value>
   </data>
   <data name="EmailPlaceHolder" xml:space="preserve">
-    <value>Email</value>
+    <value>Συμπλήρωσε το email σου</value>
   </data>
   <data name="EnableBGToast" xml:space="preserve">
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
@@ -346,10 +349,10 @@
     <value>Δες το, Πες το</value>
   </data>
   <data name="MobilePhoneLabel" xml:space="preserve">
-    <value>Mobile phone</value>
+    <value>Κινητό τηλέφωνο</value>
   </data>
   <data name="MobilePhonePlaceHolder" xml:space="preserve">
-    <value>Mobile phone</value>
+    <value>Συμπλήρωσε το κινητό σου</value>
   </data>
   <data name="NoInternetText" xml:space="preserve">
     <value>Η εφαρμογή δεν ανταποκρίνεται γιατί έχει χαθεί η σύνδεση με το Internet ή έχει σταματήσει ο server. Κλείστε την εφαρμογή και ξανά προσπαθήστε σε λίγο</value>
@@ -385,16 +388,19 @@
     <value>Η εφαρμογή χρειάζεται την άδεια σας για την ενεργοποίηση όλων των παρακάτω ώστε να είναι πλήρως λειτουργική</value>
   </data>
   <data name="PersonNameLabel" xml:space="preserve">
-    <value>Name</value>
+    <value>Ονοματεπώνυμο</value>
   </data>
   <data name="PersonNamePlaceHolder" xml:space="preserve">
-    <value>Name</value>
+    <value>Συμπλήρωσε το ονοματεπώνυμο σου</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Πολιτική απορρήτου</value>
   </data>
   <data name="PrivacyPolicyLInk" xml:space="preserve">
     <value>https://destopesto.gr/info/PrivacyPolicy</value>
+  </data>
+  <data name="RejectedPhotosLabel" xml:space="preserve">
+    <value>Σύνολο ακυρωμένων φωτογραφιών</value>
   </data>
   <data name="RePasswordPlaceHolder" xml:space="preserve">
     <value>Επανάληψη κωδικού</value>
