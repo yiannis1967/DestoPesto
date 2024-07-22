@@ -142,7 +142,7 @@
     <value>Date Of Birth</value>
   </data>
   <data name="EmailPlaceHolder" xml:space="preserve">
-    <value>Email</value>
+    <value>Type your email</value>
   </data>
   <data name="EnableBGToast" xml:space="preserve">
     <value>Please Set Location Permission: " Allow all the time " in Settings</value>
@@ -478,10 +478,10 @@
     <value>Contest</value>
   </data>
   <data name="MobilePhonePlaceHolder" xml:space="preserve">
-    <value>Mobile phone</value>
+    <value>Enter your mobile number</value>
   </data>
   <data name="PersonNamePlaceHolder" xml:space="preserve">
-    <value>Name</value>
+    <value>Type your first and last name</value>
   </data>
   <data name="UserProfile" xml:space="preserve">
     <value>User profile</value>
@@ -499,13 +499,13 @@
     <value>Are you in?</value>
   </data>
   <data name="AcceptedPhotosLabel" xml:space="preserve">
-    <value>Accepted Photos</value>
+    <value>Total qualified photos</value>
   </data>
   <data name="BirthDateLabel" xml:space="preserve">
-    <value>Birth Date</value>
+    <value>Birthdate</value>
   </data>
   <data name="BirthDatePlaceHolder" xml:space="preserve">
-    <value>Birth Date</value>
+    <value>Enter your birthday</value>
   </data>
   <data name="EmailLabel" xml:space="preserve">
     <value>Email</value>
@@ -516,7 +516,10 @@
   <data name="PersonNameLabel" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="ContestPhotosLabel" xml:space="preserve">
+    <value>Total qualified photos for contest</value>
+  </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Rejected Photos</value>
+    <value>Total number of rejected photos</value>
   </data>
 </root>
