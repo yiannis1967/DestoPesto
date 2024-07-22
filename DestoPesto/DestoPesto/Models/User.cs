@@ -37,7 +37,10 @@ namespace DestoPesto.Models
         public int PromoAcceptedPhotos { get; set; }
 
         public int AcceptedPhotos { get; set; }
+
+        public int RejectedPhotos { get; set; }
         
+
 
     }
 }

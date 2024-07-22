@@ -916,6 +916,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accepted Photos.
+        /// </summary>
+        public static string RejectedPhotosLabel {
+            get {
+                return ResourceManager.GetString("RejectedPhotosLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Retype Password.
         /// </summary>
         public static string RePasswordPlaceHolder {

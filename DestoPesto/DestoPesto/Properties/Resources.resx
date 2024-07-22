@@ -516,4 +516,7 @@
   <data name="PersonNameLabel" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="RejectedPhotosLabel" xml:space="preserve">
+    <value>Rejected Photos</value>
+  </data>
 </root>
