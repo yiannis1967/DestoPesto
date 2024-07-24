@@ -519,6 +519,9 @@
   <data name="ContestPhotosLabel" xml:space="preserve">
     <value>Total qualified photos for contest</value>
   </data>
+  <data name="LoginScreenMobileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen_en.txt</value>
+  </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
     <value>Total number of rejected photos</value>
   </data>

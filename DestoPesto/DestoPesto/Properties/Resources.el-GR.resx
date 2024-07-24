@@ -342,6 +342,9 @@
   <data name="LocationTitle" xml:space="preserve">
     <value>Λήψη τοποθεσίας</value>
   </data>
+  <data name="LoginScreenMobileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
+  </data>
   <data name="LogoutItemText" xml:space="preserve">
     <value>Έξοδος </value>
   </data>

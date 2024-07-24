@@ -38,17 +38,39 @@
 
     <Grid BackgroundColor="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
 
 
         </Grid.RowDefinitions>
-        <StackLayout VerticalOptions="End" >
+
+        
+        
+        <!--<AbsoluteLayout  >-->
+            <ContentView   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  >
+                <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding LoginHomePage}" />
+                    </WebView.Source>
+                </WebView>
+            </ContentView>
+            <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
+        <!--</AbsoluteLayout>-->
+        
+        <!--<Line Grid.Row="1" BackgroundColor="#0D6EFD" HeightRequest="2" />-->
+        
+        <StackLayout VerticalOptions="Center" Grid.Row="2" >
             <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="{extensions:AppMode Color=Text}" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
             <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="{extensions:AppMode Color=Text}"  HorizontalOptions="CenterAndExpand" FontSize="Header" />
+            
         </StackLayout>
-        <StackLayout Grid.Row="1" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+
+
+        <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Frame  CornerRadius="10"   IsVisible="{Binding FacebookSignInVisible}" HeightRequest="80" Margin="10" BackgroundColor="White"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
@@ -122,7 +144,7 @@
 
 
         </StackLayout>
-        <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="10" BackgroundColor="White">
+        <StackLayout Grid.Row="4" Orientation="Horizontal" Margin="10" BackgroundColor="White">
             <Image Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="End"/>
             <Label Text="{x:Static resources:Properties.Resources.DeleteAccountInfoText}" TextColor="{extensions:AppMode Color=Text}"  FontSize="Micro" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
         </StackLayout>

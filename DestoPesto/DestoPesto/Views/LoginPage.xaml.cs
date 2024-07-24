@@ -16,6 +16,7 @@ using Authentication;
 using System.Windows.Input;
 using Xamarin.Forms.Internals;
 using DestoPesto.Services;
+using System.Net;
 
 namespace DestoPesto.Views
 {
@@ -83,6 +84,31 @@ namespace DestoPesto.Views
             this.BindingContext = this;// new LoginViewModel(Navigation);
 
         }
+
+        private string _LoginHomePage;
+        public string LoginHomePage
+        {
+            get
+            {
+                if (_LoginHomePage == null)
+                {
+                    WebClient client = new WebClient();
+
+                    try
+                    {
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                            _LoginHomePage = client.DownloadString(Properties.Resources.LoginScreenMobileLink);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+                return _LoginHomePage;
+            }
+        }
+
+
 
         private async void OnAppleSignIn()
         {

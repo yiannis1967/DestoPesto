@@ -745,6 +745,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen_en.txt.
+        /// </summary>
+        public static string LoginScreenMobileLink {
+            get {
+                return ResourceManager.GetString("LoginScreenMobileLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         public static string LogoutItemText {
@@ -925,7 +934,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rejected Photos.
+        ///   Looks up a localized string similar to Total number of rejected photos.
         /// </summary>
         public static string RejectedPhotosLabel {
             get {
