@@ -47,10 +47,10 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="3*"/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Label  Text="{x:Static resources:Properties.Resources.InstructionsMessage}" HorizontalTextAlignment="Start" FontSize="Medium"  HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
+                    <Label  Text="{x:Static resources:Properties.Resources.InstructionsMessage}" HorizontalTextAlignment="Start" FontSize="Small"  HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap" VerticalOptions="Center"   TextColor="#0D6EFD"/>
                     <Grid Grid.Row="1" Padding="5" BackgroundColor="White"   >
                         <Grid.ColumnDefinitions>
 
@@ -63,8 +63,8 @@
                         <!--<CheckBox IsChecked="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand"   Color="{AppThemeBinding Light=Black, Dark=Black}" />-->
                         <Switch IsToggled="{Binding DontShowAgain}"  VerticalOptions="Center" Scale="1.5"  HorizontalOptions="StartAndExpand" OnColor= "#0D6EFD" ThumbColor="#d9d9d9" />
 
-                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="5" TextColor="#0D6EFD"/>
-                        <Button Grid.Column="2" Text="{x:Static resources:Properties.Resources.Oktext}" x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
+                        <Label Grid.Column="1" Text="{x:Static resources:Properties.Resources.DontShowAgain}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" Padding="5" TextColor="#0D6EFD"/>
+                        <Button Grid.Column="2" Text="{x:Static resources:Properties.Resources.Oktext}" x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="End"   BackgroundColor="#0D6EFD" FontSize="Small" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
                     </Grid>
                     <!--<CheckBox  IsChecked="{Binding DontShowAgain}"></CheckBox>-->
                 </Grid>

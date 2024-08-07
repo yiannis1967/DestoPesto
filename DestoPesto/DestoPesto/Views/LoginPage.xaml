@@ -41,7 +41,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="Auto"/>
 
 
@@ -62,7 +62,7 @@
         
         <!--<Line Grid.Row="1" BackgroundColor="#0D6EFD" HeightRequest="2" />-->
         
-        <StackLayout VerticalOptions="Center" Grid.Row="2" >
+        <StackLayout VerticalOptions="Center" Grid.Row="2" Margin="10" >
             <Label Text="{x:Static resources:Properties.Resources.WelcomeText}" TextColor="{extensions:AppMode Color=Text}" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
             <Label  Text="{x:Static resources:Properties.Resources.WelcomeText_2}" TextColor="{extensions:AppMode Color=Text}"  HorizontalOptions="CenterAndExpand" FontSize="Header" />
             
@@ -71,7 +71,7 @@
 
 
         <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Frame  CornerRadius="10"   IsVisible="{Binding FacebookSignInVisible}" HeightRequest="80" Margin="10" BackgroundColor="White"
+            <Frame  CornerRadius="10"   IsVisible="{Binding FacebookSignInVisible}" Margin="10" BackgroundColor="White"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding FacebookSigninCommand}">
@@ -89,7 +89,7 @@
             </Frame>
 
 
-            <Frame IsVisible="{Binding GoogleSignInVisible}"  CornerRadius="10" HeightRequest="80" Margin="10" BackgroundColor="White"
+            <Frame IsVisible="{Binding GoogleSignInVisible}"  CornerRadius="10" Margin="10" BackgroundColor="White"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding GoogleSigninCommand}">
@@ -107,7 +107,7 @@
                 </StackLayout>
             </Frame>
 
-            <Frame IsVisible="{Binding AppleSignInVisible}" CornerRadius="10" HeightRequest="80"  Margin="10" BackgroundColor="White"
+            <Frame IsVisible="{Binding AppleSignInVisible}" CornerRadius="10" Margin="10" BackgroundColor="White"
                                          xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding AppleSigninCommand}">
@@ -123,7 +123,7 @@
                     </Grid>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="10"  IsVisible="{Binding EmailSignInVisible}" HeightRequest="80"  Margin="10" BackgroundColor="White"
+            <Frame CornerRadius="10"  IsVisible="{Binding EmailSignInVisible}" Margin="10" BackgroundColor="White"
                                         xct:TouchEffect.PressedScale="1.01"
                                         xct:TouchEffect.PressedOpacity=".8"
                                         xct:TouchEffect.Command="{Binding SigninCommand}">
