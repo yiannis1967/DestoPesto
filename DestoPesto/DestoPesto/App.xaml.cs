@@ -16,6 +16,7 @@ using System.Reflection;
 using LocalNotifications;
 using System.ComponentModel;
 using Authentication;
+using System.Linq;
 
 namespace DestoPesto
 {
@@ -53,7 +54,7 @@ namespace DestoPesto
         AuthUser user = null;
 
 
-        private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
+        private async void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
 
 
@@ -61,7 +62,14 @@ namespace DestoPesto
             if (Authentication.DeviceAuthentication.AuthUser != null)
             {
                 user = Authentication.DeviceAuthentication.AuthUser;
-                JsonHandler.SignIn(_FirbaseMessgesToken);
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+
+                if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Granted)
+                    JsonHandler.SignIn(_FirbaseMessgesToken, true);
+                else
+                    JsonHandler.SignIn(_FirbaseMessgesToken, true);
+
+
                 Xamarin.Forms.Application.Current.Properties["user_id"] = Authentication.DeviceAuthentication.AuthUser.User_ID;
             }
             else
@@ -230,6 +238,17 @@ namespace DestoPesto
                     {
 
                     }
+
+                    try
+                    {
+
+                        SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, 20000.0);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
                     //SubmittedDamageUser = JsonHandler.damageData;
                     MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
                 }
@@ -354,6 +373,8 @@ namespace DestoPesto
         public Dictionary<string, object> Options { get; set; }
 
 
+        public UserSubmissions UserSubmissions { get; set; } = new UserSubmissions(); 
+
         string _FirbaseMessgesToken;
         public string FirbaseMessgesToken
         {
@@ -361,11 +382,12 @@ namespace DestoPesto
             set
             {
                 _FirbaseMessgesToken = value;
-       
+
 
             }
         }
 
+    
         public async Task ReadTripFile(String FileName)
         {
             try
@@ -452,7 +474,7 @@ namespace DestoPesto
                 return;
 
             data.TryGetValue("SubmisionThumb", out submisionThumb);
-            if(string.IsNullOrWhiteSpace(submisionThumb)) 
+            if (string.IsNullOrWhiteSpace(submisionThumb))
                 return;
 
             string comments;
@@ -485,9 +507,14 @@ namespace DestoPesto
 
         internal void RemoveUserSubmittedDamage(DamageData damageData)
         {
-            SubmittedDamageUser.Remove(damageData);
+            if (SubmittedDamageUser != null && SubmittedDamageUser.Contains(damageData))
+            {
+                SubmittedDamageUser.Remove(damageData);
+                OnPropertyChanged(nameof(SubmittedDamageUser));
+            }
 
-            OnPropertyChanged(nameof(SubmittedDamageUser));
+            UserSubmissions.RemoveUserSubmittedDamage(damageData); 
+
         }
     }
 }

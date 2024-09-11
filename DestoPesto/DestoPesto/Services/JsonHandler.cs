@@ -957,8 +957,17 @@ namespace DestoPesto.Services
                 //   var content = await response.Content.ReadAsStringAsync();
 
 
-                var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
-                damageData = new ObservableCollection<DamageData>(Damages);
+                
+                try
+                {
+                    var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
+                    damageData = new ObservableCollection<DamageData>(Damages);
+                }
+                catch (Exception error)
+                {
+
+                    
+                }
                 return damageData;
 
                 //             
