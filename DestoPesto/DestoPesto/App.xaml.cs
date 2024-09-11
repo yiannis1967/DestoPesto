@@ -151,12 +151,6 @@ namespace DestoPesto
 
             try
             {
-
-
-
-
-
-
                 var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                 cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
@@ -267,6 +261,8 @@ namespace DestoPesto
             //  Toast.MakeText(this, "Latitude: " +position.Latitude.ToString() + " Longitude: " + position.Longitude.ToString(),ToastLength.Short).Show();
 
         }
+        
+        
         private async Task GenerateLocalNotificationAsync(System.Collections.ObjectModel.ObservableCollection<DamageData> data, Location _location)
         {
 

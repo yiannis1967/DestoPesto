@@ -16,6 +16,13 @@
     <None Remove="New folder\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="App.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="App.xaml" />
+    <EmbeddedResource Remove="Views\AboutPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
     <PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
@@ -34,6 +41,10 @@
     <ProjectReference Include="..\..\DebugLog\DebugLog.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="App_s.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -56,6 +67,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="App_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPage_s.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,13 +94,13 @@
     <EmbeddedResource Update="Views\IntroPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\MessageDialogPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\PasswordResetPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PermissionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SignInMessagePopUp.xaml">
@@ -113,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ButtonCircleBig.png" />
+    <None Remove="Images\AcceptedSub.png" />
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
     <None Remove="Images\camera.png" />
@@ -146,6 +165,7 @@
     <None Remove="Images\phone.png" />
     <None Remove="Images\pin.png" />
     <None Remove="Images\pin_drop.png" />
+    <None Remove="Images\ReviewSub.png" />
     <None Remove="Images\settings.png" />
     <None Remove="Images\twitter.png" />
     <None Remove="Images\user.png" />
@@ -157,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ButtonCircleBig.png" />
+    <EmbeddedResource Include="Images\AcceptedSub.png" />
     <EmbeddedResource Include="Images\applelogo.png" />
     <EmbeddedResource Include="Images\back_arrow.png" />
     <EmbeddedResource Include="Images\camera.png" />
@@ -185,6 +206,7 @@
     <EmbeddedResource Include="Images\phone.png" />
     <EmbeddedResource Include="Images\pin.png" />
     <EmbeddedResource Include="Images\pin_drop.png" />
+    <EmbeddedResource Include="Images\ReviewSub.png" />
     <EmbeddedResource Include="Images\settings.png" />
     <EmbeddedResource Include="Images\twitter.png" />
     <EmbeddedResource Include="Images\user.png" />

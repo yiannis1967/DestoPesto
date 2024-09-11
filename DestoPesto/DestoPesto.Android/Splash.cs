@@ -14,7 +14,7 @@ namespace DestoPesto.Droid
 {
 
     /// <MetaDataID>{100481b8-85be-46de-b328-e98db5af6037}</MetaDataID>
-    [Activity(Theme = "@style/splashTheme", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/splashTheme", NoHistory = true)]
     public class Splash : Activity
     {
 
@@ -28,12 +28,12 @@ namespace DestoPesto.Droid
 
             if (Intent?.Extras?.KeySet() != null)
             {
-                if (App.IntentExtras == null)
-                    App.IntentExtras = new Dictionary<string, string>();
+                if (App_s.Current is App_s && (App_s.Current as App_s).IntentExtras == null)
+                    (App_s.Current as App_s).IntentExtras = new Dictionary<string, string>();
                 foreach (var key in Intent.Extras.KeySet())
                 {
                     var value = Intent.Extras.GetString(key);
-                    App.IntentExtras[key] = value;
+                    (App_s.Current as App_s).IntentExtras[key] = value;
 
                 }
             }

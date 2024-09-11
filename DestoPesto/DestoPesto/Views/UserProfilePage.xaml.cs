@@ -27,14 +27,48 @@ namespace DestoPesto.Views
             iOS = Xamarin.Essentials.DeviceInfo.Platform == Xamarin.Essentials.DevicePlatform.iOS;
 
             User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
+            if (User != null)
+            {
+                Name = User?.FirstName;
+                Email = User?.Email;
+                PhoneNumber = User?.PhoneNumber;
+                BirthDate = User?.DateOfBirth;
+            }
+            else
+            {
+                App_s app = App_s.Current as App_s;
+                
+                if (app.Properties.ContainsKey("FirstName"))
+                    Name = app.Properties["FirstName"] as string;
+                if (app.Properties.ContainsKey("Email"))
+                    Email = app.Properties["Email"] as string;
 
-            Name = User?.FirstName;
-            Email = User?.Email;
-            PhoneNumber = User?.PhoneNumber;
-            BirthDate = User?.DateOfBirth;
+                if (app.Properties.ContainsKey("PhoneNumber"))
+                    PhoneNumber = app.Properties["PhoneNumber"] as string;
+
+                if (app.Properties.ContainsKey("PhoneNumber"))
+                    PhoneNumber = app.Properties["PhoneNumber"] as string;
+
+                if (app.Properties.ContainsKey("BirthDate"))
+                {
+                    long ticks = 0;
+                    long.TryParse(app.Properties["BirthDate"] as string,out ticks);
+                    if(ticks!=0)
+                        BirthDate=new DateTime(ticks);
+                }
+
+
+
+            }
 
 
             ContestAcceptedPhotosText = User?.PromoAcceptedPhotos.ToString();
+            AcceptedPhotosText = User?.AcceptedPhotos.ToString();
+            RejectedPhotosText = User?.RejectedPhotos.ToString();
+
+
+            //RejectedPhotosText = User?.RejectedPhotos.ToString();
+
 
             if (BirthDate != null)
                 BirthDateText = BirthDate.Value.ToShortDateString();
@@ -71,11 +105,24 @@ namespace DestoPesto.Views
                 User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
                 if (User != null)
                 {
+                    App_s app = App_s.Current as App_s;
+
                     User.FirstName = Name;
                     User.Email = Email;
                     User.PhoneNumber = PhoneNumber;
                     User.DateOfBirth = BirthDate;
-                    JsonHandler.UpdateUser(User);
+
+                    app.Properties["FirstName"] = Name;
+                    app.Properties["Email"] = Email;
+                    app.Properties["PhoneNumber"] = PhoneNumber;
+                    if (BirthDate != null)
+                        app.Properties["BirthDate"] = BirthDate.Value.Ticks.ToString();
+                    app.SavePropertiesAsync();
+                    Task.Run(() =>
+                    {
+                        JsonHandler.UpdateUser(User);
+                    });
+
                 }
 
             }
@@ -97,7 +144,8 @@ namespace DestoPesto.Views
 
         public DateTime? BirthDate { get; set; }
         public string ContestAcceptedPhotosText { get; }
-
+        public string AcceptedPhotosText { get; }
+        public string RejectedPhotosText { get; }
 
         private void Button_Clicked(object sender, EventArgs e)
         {

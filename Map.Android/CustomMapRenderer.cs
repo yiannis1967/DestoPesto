@@ -12,6 +12,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Maps.Android;
 using System.Linq;
+using System.Threading.Tasks;
+using AndroidX.Annotations;
 
 [assembly: ExportRenderer(typeof(MapEx), typeof(CustomMapRenderer))]
 namespace Maps.Droid
@@ -31,7 +33,7 @@ namespace Maps.Droid
             if (e.OldElement != null)
             {
                 NativeMap.InfoWindowClick -= OnInfoWindowClick;
-                
+
             }
 
             if (e.NewElement is MapEx)
@@ -75,20 +77,29 @@ namespace Maps.Droid
             //marker.SetSnippet(pin.Address);
             Bitmap bitmap = null;
             var iconUri = GetCustomPin(pin.Position)?.Url;
-            if (iconUri==null)
-                iconUri="https://destopesto.blob.core.windows.net/images/fast-food.png";
-
-            if (!Icons.TryGetValue(iconUri, out bitmap))
+            var iconFileName = GetCustomPin(pin.Position)?.IconFileName;
+            //if (iconUri == null)
+            //    iconUri = "https://destopesto.blob.core.windows.net/images/fast-food.png";
+            if (!string.IsNullOrWhiteSpace(iconUri))
             {
-                var webClient = new WebClient();
-                byte[] imageBytes = webClient.DownloadData(iconUri);
-                //MemoryStream stream = new MemoryStream(imageBytes);
-                //stream.Position = 0;
-                bitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
-                Icons[iconUri]=bitmap;
+                lock (Icons)
+                {
+                    if (!Icons.TryGetValue(iconUri, out bitmap))
+                    {
+
+                        byte[] imageBytes = System.IO.File.ReadAllBytes(iconFileName);
+                        //var webClient = new WebClient();
+                        //byte[] wImageBytes = webClient.DownloadData(iconUri);
+
+                        bitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                        Icons[iconUri] = bitmap;
+                    }
+                }
+
+                marker.SetIcon(BitmapDescriptorFactory.FromBitmap(bitmap));
+
+              //  marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
             }
-            marker.SetIcon(BitmapDescriptorFactory.FromBitmap(bitmap));
-            //marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
             return marker;
         }
 
@@ -156,7 +167,7 @@ namespace Maps.Droid
         PinEx GetCustomPin(Marker annotation)
         {
             var position = new Position(annotation.Position.Latitude, annotation.Position.Longitude);
-            if (position!=null)
+            if (position != null)
             {
                 var pins = this.MapEx?.CustomPins?.ToList();
                 if (pins != null)

@@ -84,11 +84,11 @@ namespace DestoPesto.Models
             string sss = Authentication.DeviceAuthentication.IDToken;
             //fix.userId = userEmail;
 
+
+            (App_s.Current as App_s).RemoveUserSubmittedDamage(this);
             if (await JsonHandler.PutSubmission(fix))
             {
-                (App.Current as App).RemoveUserSubmittedDamage(this);
                 return true;
-
             }
             return false;
 
@@ -103,6 +103,10 @@ namespace DestoPesto.Models
         public DateTime firstDateReported { get; set; }
         public DateTime lastDateReported { get; set; }
         public string photoUrl { get; set; }
+
+        public bool IsActivate { get; set; }
+
+        public bool Review { get => !IsActivate; set { } }
 
         public string fullAddress { get; set; }
 
@@ -127,6 +131,14 @@ namespace DestoPesto.Models
             set
             {
 
+            }
+        }
+
+        public string IconFileName
+        {
+            get
+            {
+                return DestoPesto.Services.JsonHandler.GetCategoryIconFileName(int.Parse(category));
             }
         }
 

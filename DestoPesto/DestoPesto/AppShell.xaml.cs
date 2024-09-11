@@ -1,8 +1,10 @@
 ﻿using DestoPesto.Services;
 using DestoPesto.ViewModels;
 using DestoPesto.Views;
+using Prism.Navigation.Xaml;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Auth.OAuth2;
 using Xamarin.Essentials;
@@ -26,12 +28,36 @@ namespace DestoPesto
             //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
 
+        public String CookiesPolicy
+        {
+            get
+            {
+                return "CookiesPolicy";
+            }
+            set
+            {
+
+            }
+
+        }
+
         public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
+            var dd = Navigation.NavigationStack.Count;
+            var page = (Shell.Current?.CurrentItem?.CurrentItem as IShellSectionController)?.PresentedPage;
+
+            if (page is MainPage && Navigation.NavigationStack.Count == 1)
+                CurrentItem = Items[1];
+
             Shell.Current.FlyoutIsPresented = false;
             Authentication.DeviceAuthentication.SignedOut();
+
+
+
+            //Shell.Current.FlyoutIsPresented = false;
+            //Authentication.DeviceAuthentication.SignedOut();
 
 
         }
@@ -48,12 +74,14 @@ namespace DestoPesto
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(_AppVersion))
+                //if (string.IsNullOrWhiteSpace(_AppVersion))
                     //_AppVersion = Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionCode;
 
                     //Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
 
-                    _AppVersion = (App.Current as App).Version;
+                    //_AppVersion =Navigation.InsertPageBefore
+
+
                 return _AppVersion;
             }
         }
@@ -64,6 +92,13 @@ namespace DestoPesto
 
             if (await JsonHandler.RemoveUser())
             {
+                var dd = Navigation.NavigationStack.Count;
+                var page = (Shell.Current?.CurrentItem?.CurrentItem as IShellSectionController)?.PresentedPage;
+
+                if (page is MainPage && Navigation.NavigationStack.Count == 1)
+                    CurrentItem = Items[1];
+
+                
                 Shell.Current.FlyoutIsPresented = false;
                 Authentication.DeviceAuthentication.SignedOut();
 

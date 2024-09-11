@@ -12,7 +12,7 @@ namespace DestoPesto.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryButton : ContentView
     {
-        public CategoryButton()
+        public CategoryButton(int age)
         {
             InitializeComponent();
         }

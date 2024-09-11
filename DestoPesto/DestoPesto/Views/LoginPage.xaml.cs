@@ -16,11 +16,14 @@ using Authentication;
 using System.Windows.Input;
 using Xamarin.Forms.Internals;
 using DestoPesto.Services;
+using System.Net;
+using System.IO;
+using System.ComponentModel;
 
 namespace DestoPesto.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class LoginPage : ContentPage, INotifyPropertyChanged
     {
         public TapGestureRecognizer Signup_tap = new TapGestureRecognizer();
         public TapGestureRecognizer Signin_tap = new TapGestureRecognizer();
@@ -28,6 +31,7 @@ namespace DestoPesto.Views
         public TapGestureRecognizer fb_signin = new TapGestureRecognizer();
         public TapGestureRecognizer apple_signin = new TapGestureRecognizer();
         public string WebAPIkey = "AIzaSyCH9F_m6KO7_1BB3NN0eiSjN9_d99bRjsk";
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand BackCommand => new Command<string>(async (url) =>
         {
@@ -38,8 +42,11 @@ namespace DestoPesto.Views
         {
 
             Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
-            if (!string.IsNullOrEmpty(Preferences.Get("MyFirebaseRefreshToken", "")))
-                Shell.Current.GoToAsync("//AboutPage");
+
+           
+
+            //if (!string.IsNullOrEmpty(Preferences.Get("MyFirebaseRefreshToken", "")))
+            //    Shell.Current.GoToAsync("//AboutPage");
             InitializeComponent();
             store = AccountStore.Create();
 
@@ -70,7 +77,7 @@ namespace DestoPesto.Views
             emailSignin.GestureRecognizers.Add(Signin_tap);
             //DeviceAuthentication.SignedOut();
 
-            JsonHandler.getUri();
+            
 
             GoogleSignInVisible=JsonHandler.GoogleSignInMethod;
             AppleSignInVisible=JsonHandler.AppleSignInMethod;
@@ -82,7 +89,111 @@ namespace DestoPesto.Views
 
             this.BindingContext = this;// new LoginViewModel(Navigation);
 
+            Task.Run(() => {
+
+               
+
+                if (_LoginHomePage == null)
+                {
+
+                    const string errorFileName = "LoginHomePage.html";
+                    var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
+                    var filePath = Path.Combine(libraryPath, errorFileName);
+
+                    if (File.Exists(filePath))
+                        _LoginHomePage = File.ReadAllText(filePath);
+
+
+
+                    MainThread.BeginInvokeOnMainThread(async () =>
+                    {
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LoginHomePage)));
+                    });
+
+
+
+                    try
+                    {
+                        if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                        {
+                            var url = Properties.Resources.HomeScreenMobileLink;
+                            WebClient client = new WebClient();
+                            _LoginHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+
+                            File.WriteAllText(filePath, _LoginHomePage);
+                            MainThread.BeginInvokeOnMainThread(async () =>
+                            {
+                                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LoginHomePage)));
+                            });
+
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    try
+                    {
+                        JsonHandler.getUri();
+
+                        GoogleSignInVisible = JsonHandler.GoogleSignInMethod;
+                        AppleSignInVisible = JsonHandler.AppleSignInMethod;
+                        FacebookSignInVisible = JsonHandler.FacebookSignInMethod;
+                        EmailSignInVisible = JsonHandler.EmailSignInMethod;
+                        MainThread.BeginInvokeOnMainThread(async () =>
+                        {
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GoogleSignInVisible)));
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AppleSignInVisible)));
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FacebookSignInVisible)));
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EmailSignInVisible)));
+                        });
+
+                    }
+                    catch (Exception error)
+                    {
+                    }
+                }
+
+
+                
+
+            });
         }
+
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            this.DisplayAlert("Loading time", (DateTime.UtcNow - App_s.StartTime).TotalSeconds.ToString(), "OK");
+        }
+        private string _LoginHomePage=null;
+        public string LoginHomePage
+        {
+            get
+            {
+                if (_LoginHomePage == null)
+                {
+                    return "";
+                    //WebClient client = new WebClient();
+
+                    //try
+                    //{
+                    //    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+                    //        _LoginHomePage = client.DownloadString(Properties.Resources.LoginScreenMobileLink);
+                    //}
+                    //catch (Exception ex)
+                    //{
+
+                    //}
+                }
+                return _LoginHomePage;
+            }
+        }
+
+
 
         private async void OnAppleSignIn()
         {
@@ -119,7 +230,7 @@ namespace DestoPesto.Views
         //}
 
         public bool FacebookSignInVisible { get; set; }
-        public bool EmailSignInVisible { get; }
+        public bool EmailSignInVisible { get; set; }
 
         private void OnFacebookSignIn(object obj)
         {
@@ -148,23 +259,23 @@ namespace DestoPesto.Views
 
         private async void DeviceAuthentication_AuthStateChanged(object sender, AuthUser e)
         {
-            if (e != null)
-            {
-                Device.BeginInvokeOnMainThread(
-            async () =>
-            {
-                int backStep = Navigation.NavigationStack.Count- Navigation.NavigationStack.IndexOf(this);
+            //if (e != null)
+            //{
+            //    Device.BeginInvokeOnMainThread(
+            //async () =>
+            //{
+            //    int backStep = Navigation.NavigationStack.Count- Navigation.NavigationStack.IndexOf(this);
 
-                if (Navigation.NavigationStack.Count == 1)
-                    await Shell.Current.GoToAsync("//AboutPage");
-                else
-                    while (backStep>0)
-                    {
-                        backStep--;
-                        await Navigation.PopAsync();
-                    }
-            });
-            }
+            //    if (Navigation.NavigationStack.Count == 1)
+            //        await Shell.Current.GoToAsync("//AboutPage");
+            //    else
+            //        while (backStep>0)
+            //        {
+            //            backStep--;
+            //            await Navigation.PopAsync();
+            //        }
+            //});
+            //}
         }
         private void apple_signin_Tapped(object sender, EventArgs e)
         {

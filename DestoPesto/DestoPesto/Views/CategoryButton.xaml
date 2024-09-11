@@ -32,18 +32,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <!--  Icon Image  -->
-
-
-
-                <!--<Image    x:FieldModifier="public" Grid.Column="2" Margin="0,0,0,0" HeightRequest="20" WidthRequest="20" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.ButtonCircleBig.png}" 
-                                                           VerticalOptions="End"
-                                                            HorizontalOptions="Center"
-                          
-                                                           AbsoluteLayout.LayoutFlags="All" />-->
-
-                <!--<Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2" Text="20"></Label>-->
-                <Image   x:Name="image" x:FieldModifier="public" HeightRequest="20" WidthRequest="20" InputTransparent="True"  HorizontalOptions="Center" Source="{Binding Path=IconUrl}" VerticalOptions="Center"  />
+                <Image   x:Name="image" x:FieldModifier="public" HeightRequest="20" WidthRequest="20" InputTransparent="True"  HorizontalOptions="Center" Source="{Binding Path=ImageSource}" VerticalOptions="Center"  />
                 <Label Grid.Row="1" x:Name="label" x:FieldModifier="public" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             </Grid>
 

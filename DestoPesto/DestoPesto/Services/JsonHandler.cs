@@ -31,8 +31,8 @@ namespace DestoPesto.Services
         static HttpClient httpClient;
         public static ObservableCollection<Catagories> catagories;
         public static ObservableCollection<DamageData> damageData;
-        static String URLString = "https://asfameazure.blob.core.windows.net/applications/arionapps/destopesto.xml";
-        static XmlTextReader reader = new XmlTextReader(URLString);
+        public static String URLString = "https://asfameazure.blob.core.windows.net/applications/arionapps/destopesto.xml";
+        
         static String FileData = "";
         public static async Task CreateFolder()
         {
@@ -57,6 +57,16 @@ namespace DestoPesto.Services
             }
 
         }
+
+        static JsonHandler()
+        {
+            if (Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.Android)
+                AppleSignInMethod = false;
+            if (Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.iOS)
+                GoogleSignInMethod = false;
+
+        }
+
         public static async Task<string> BuildTripFile(PostSubmission post, Stream image)
         {
 
@@ -366,6 +376,8 @@ namespace DestoPesto.Services
                     }
                     int.TryParse(doc.Root.Attribute("MaxDistanceForFixed_meters")?.Value, out MaxDistanceForFixed_meters);
 
+                    int.TryParse(doc.Root.Attribute("MaxRadToMapinMeters")?.Value, out MaxRadToMapinMeters);
+
                     var device = Xamarin.Forms.DependencyService.Get<IDevice>();
 
 
@@ -374,7 +386,7 @@ namespace DestoPesto.Services
                     string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                     _Uri = uri;
-#if DEBUG
+#if _DEBUG
                 var profiles = Connectivity.ConnectionProfiles;
                 //if(profiles.Contains(ConnectionProfile.WiFi))
                 _Uri = "http://192.168.1.71:5005/";
@@ -385,7 +397,7 @@ namespace DestoPesto.Services
                 //_Uri = "http://62.169.215.49:5005/";
                 //_Uri = "https://destopesto.azurewebsites.net/";
                 //_Uri = "http://192.168.1.71:5005/";
-                _Uri = "http://10.0.0.13:5005/";
+                //_Uri = "http://10.0.0.13:5005/";
 
 
 #endif
@@ -508,7 +520,7 @@ namespace DestoPesto.Services
                 //Uri uri = new Uri(getUri() + "api/Submissions");
 
                 string token = Authentication.DeviceAuthentication.IDToken;
-                if(string.IsNullOrWhiteSpace(token))
+                if (string.IsNullOrWhiteSpace(token))
                     return false;
                 client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
 
@@ -605,11 +617,11 @@ namespace DestoPesto.Services
         }
 
 
-        public static async void SignIn(string firebaseToken)
+        public static async void SignIn(string firebaseToken, bool notificationsActivated)
         {
 
 
-           
+
             try
             {
                 var device = Xamarin.Forms.DependencyService.Get<IDevice>();
@@ -618,7 +630,7 @@ namespace DestoPesto.Services
                 var client = new HttpClient();
                 String Parameters = "?deviceFirebaseToken=" + firebaseToken;// + "&lng=" + lng + "&rad=" + rad;
 
-                Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}");
+                Uri uri = new Uri(getUri() + $"api/Account/SignIn?deviceFirebaseToken={firebaseToken}&deviceID={deviceID}&notificationsActivated={notificationsActivated}");
 
                 //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
 
@@ -636,10 +648,19 @@ namespace DestoPesto.Services
                 {
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
-                        if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
+
+                        var page = (Shell.Current?.CurrentItem?.CurrentItem as IShellSectionController)?.PresentedPage;
+
+                        if (page is MainPage )
+                        {
+                            (page as MainPage).UserSignedIn();
+
+                        }
+
+                            if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
                             await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
 
-
+                        
 
                     });
 
@@ -649,7 +670,7 @@ namespace DestoPesto.Services
             catch (Exception error)
             {
 
-                
+
             }
 
 
@@ -715,11 +736,14 @@ namespace DestoPesto.Services
             }
         }
 
-        public static bool FacebookSignInMethod { get; private set; }
-        public static bool GoogleSignInMethod { get; private set; }
-        public static bool AppleSignInMethod { get; private set; }
-        public static bool EmailSignInMethod { get; private set; }
+        public static bool FacebookSignInMethod { get; private set; } = true;
+        public static bool GoogleSignInMethod { get; private set; } = true;
+        public static bool AppleSignInMethod { get; private set; } = true;
+        public static bool EmailSignInMethod { get; private set; } = true;
         public static int MaxDistanceForFixed_meters = 100;
+        public static int MaxRadToMapinMeters = 3000;
+
+        
 
 
 
@@ -766,14 +790,52 @@ namespace DestoPesto.Services
         {
             return catagories.Where(x => x.code == code.ToString()).FirstOrDefault()?.markIconUrl;
         }
-        public static async Task GetCatagories()
+
+        public static string GetCategoryIconFileName(int code)
+        {
+            var category = catagories.Where(x => x.code == code.ToString()).FirstOrDefault();
+            if (category != null)
+            {
+                string iconFileName = $"m_icon_{category.id}.png";
+                var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
+                var filePath = Path.Combine(libraryPath, iconFileName);
+                if (File.Exists(filePath))
+                {
+                    return filePath;
+                }
+            }
+            return null;
+
+        }
+
+
+        public static async Task GetCachedCategories()
+        {
+
+            const string errorFileName = "categories.json";
+            var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
+            var errorFilePath = Path.Combine(libraryPath, errorFileName);
+
+            if (File.Exists(errorFilePath))
+            {
+                string response = File.ReadAllText(errorFilePath);
+                var Categories = JsonConvert.DeserializeObject<List<Catagories>>(response);
+                catagories = new ObservableCollection<Catagories>(Categories);
+
+            }
+
+
+
+
+
+        }
+        public static async Task GetCategories()
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-
                 return;
-
             }
+
 
             using (httpClient = new HttpClient())
             {
@@ -796,13 +858,21 @@ namespace DestoPesto.Services
                     //   var content = await response.Content.ReadAsStringAsync();
 
 
+                    const string errorFileName = "categories.json";
+                    var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
+                    var errorFilePath = Path.Combine(libraryPath, errorFileName);
+
+                    File.WriteAllText(errorFilePath, response);
+
+                    Application.Current.Properties["Categories"] = response;
+
                     var Catagories = JsonConvert.DeserializeObject<List<Catagories>>(response);
                     catagories = new ObservableCollection<Catagories>(Catagories);
                 }
                 catch (Exception error)
                 {
 
-                    
+
                 }
                 //             
             }
@@ -834,7 +904,9 @@ namespace DestoPesto.Services
 
 
                     var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
+                    var sds = Damages.Where(x => x.IsActivate).ToList();
                     damageData = new ObservableCollection<DamageData>(Damages);
+
                     return damageData;
 
                     //             

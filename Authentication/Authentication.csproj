@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" ProjectGUID="9204df9e-27c1-42b3-bc63-3783f247892f">
+﻿<Project Sdk="Microsoft.NET.Sdk" ProjectGUID="9204df9e-27c1-42b3-bc63-3783f247892f">
   <PropertyGroup Label="Globals">
     <SccProjectName></SccProjectName>
     <SccProvider></SccProvider>

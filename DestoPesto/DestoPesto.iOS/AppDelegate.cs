@@ -61,8 +61,8 @@ namespace DestoPesto.iOS
             System.Diagnostics.Debug.Write(text);
              
 
-            var formsApp = new App("");
-            formsApp.Options = m_options;
+            var formsApp = new App_s("");
+            //formsApp.Options = m_options;
             BGTaskScheduler.Shared.Register(UploadTaskId, null, task => HandleUpload(task as BGAppRefreshTask));
 
             LoadApplication(formsApp);
@@ -135,8 +135,8 @@ namespace DestoPesto.iOS
                             try
                             {
                                 var fcmToken = Firebase.CloudMessaging.Messaging.SharedInstance.FcmToken;
-                                if (App.Current is App)
-                                    (App.Current as App).FirbaseMessgesToken = fcmToken;
+                                if (App_s.Current is App_s)
+                                    (App_s.Current as App_s).FirbaseMessgesToken = fcmToken;
                             }
                             catch (Exception errolr)
                             {
@@ -210,7 +210,7 @@ namespace DestoPesto.iOS
             {
 
                 Dictionary<string, string> messageProperties = userInfo.ToDictionary<KeyValuePair<NSObject, NSObject>, string, string>(item => item.Key as NSString, item => item.Value.ToString());
-                (App.Current as App).DispayMessage(messageProperties);
+                (App_s.Current as App_s).DispayMessage(messageProperties);
 
             }
             catch (Exception ex)
@@ -230,8 +230,8 @@ namespace DestoPesto.iOS
         {
             var esnn = Firebase.Core.App.DefaultInstance;
             Console.WriteLine($"Firebase registration token: {fcmToken}");
-            if (App.Current is App)
-                (App.Current as App).FirbaseMessgesToken = fcmToken;
+            if (App_s.Current is App_s)
+                (App_s.Current as App_s).FirbaseMessgesToken = fcmToken;
 
 
          

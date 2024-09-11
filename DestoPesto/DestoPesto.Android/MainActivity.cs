@@ -29,7 +29,7 @@ using System.Linq;
 namespace DestoPesto.Droid
 {
     //[Activity(Label = "Δες το Πες το", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
-    [Activity(Label = "Δες το, Πες το", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+    [Activity(Label = "Δες το, Πες το", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     //[Activity(Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, Android.Gms.Tasks.IOnSuccessListener
     {
@@ -37,10 +37,14 @@ namespace DestoPesto.Droid
         {
 
         }
+        static MainActivity()
+        {
+            App_s.StartTime = DateTime.UtcNow;
+        }
         static ICallbackManager CallbackManager;
         FirebaseAuthEvents FirebaseAuthEvents = new FirebaseAuthEvents();
         MyAccessTokenTracker myAccessTokenTracker;
-        App App;
+        App_s App;
         protected override async void OnCreate(Bundle savedInstanceState)
         {
 
@@ -58,44 +62,57 @@ namespace DestoPesto.Droid
                 Xamarin.FormsMaps.Init(this, savedInstanceState);
 
 
+
+
                 //LogDebug.Current.Log(new List<string>() { "Step 1"});
 
                 Rg.Plugins.Popup.Popup.Init(this);
 
+                App = new App_s("");
+                LoadApplication(App);
+                
+                DeviceCore.MainActivity = this;
 
-                string webClientID = "959003601559-9ljm2ph745o1s8h78p1luiq3fioham75.apps.googleusercontent.com";
+                Task.Run(() =>
+                {
+                    string webClientID = "959003601559-9ljm2ph745o1s8h78p1luiq3fioham75.apps.googleusercontent.com";
 
-                Authentication.Android.FirebaseAuthentication.Init(this, webClientID);
+                    Authentication.Android.FirebaseAuthentication.Init(this, webClientID);
+                    FirebaseMessaging.Instance?.GetToken()?.AddOnSuccessListener(this, this);
+                    DeviceCore.ForegroundServiceManager = new Droid.MyForeGroundService();
+
+                    if (Intent?.Extras?.KeySet() != null)
+                    {
+                        if (App.IntentExtras == null)
+                            App.IntentExtras = new Dictionary<string, string>();
+                        foreach (var key in Intent.Extras.KeySet())
+                        {
+                            var value = Intent.Extras.GetString(key);
+                            App.IntentExtras[key] = value;
+                        }
+                    }
+
+                });
 
 
-                DeviceCore.ForegroundServiceManager = new Droid.MyForeGroundService();
+                
 
                 //LogDebug.Current.Log(new List<string>() { "Step 2" });
 
 
                 
-                PrintHashKey(this);
+                //PrintHashKey(this);
 
 
-                DeviceCore.MainActivity = this;
 
-                string AppVersion = Properties.Resources.Version + " " + Android.App.Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Android.App.Application.Context.ApplicationContext.PackageName, 0).VersionCode.ToString();
 
-                App = new App(AppVersion);
+                //string AppVersion = Properties.Resources.Version + " " + Android.App.Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Android.App.Application.Context.ApplicationContext.PackageName, 0).VersionCode.ToString();
+
+                //App = new App(AppVersion);
 
 
                 //LogDebug.Current.Log(new List<string>() { "Step 3" });
-                if (Intent?.Extras?.KeySet() != null)
-                {
-                    if (App.IntentExtras == null)
-                        App.IntentExtras = new Dictionary<string, string>();
-                    foreach (var key in Intent.Extras.KeySet())
-                    {
-                        var value = Intent.Extras.GetString(key);
-                        App.IntentExtras[key] = value;
-
-                    }
-                }
+               
 
 
                 // LogDebug.Current.Log(new List<string>() { "Step 4" });
@@ -107,7 +124,7 @@ namespace DestoPesto.Droid
                 //    return FirebaseInstanceId.Instance.GetToken("959003601559", "FCM");
                 //});
 
-                FirebaseMessaging.Instance?.GetToken()?.AddOnSuccessListener(this, this);
+                
 
 
                 //MessagingCenter.Unsubscribe<string>(this, "backgroundService");
@@ -156,7 +173,7 @@ namespace DestoPesto.Droid
 
                 //////////new Droid.LocationService().StartForegroundService(this, Constants.ACTION_START_SERVICE, serviceState);
 
-                LoadApplication(App);
+               // LoadApplication(App);
 
 
             }
@@ -213,8 +230,8 @@ namespace DestoPesto.Droid
         public void OnSuccess(Java.Lang.Object result)
         {
             string token = result.ToString();
-            if (App.Current is App)
-                (App.Current as App).FirbaseMessgesToken = token;
+            if (App_s.Current is App_s)
+                (App_s.Current as App_s).FirbaseMessgesToken = token;
 
 
         }

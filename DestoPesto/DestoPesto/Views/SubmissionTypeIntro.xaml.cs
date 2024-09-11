@@ -56,7 +56,7 @@ namespace DestoPesto.Views
             
             if (Xamarin.Essentials.DeviceInfo.Platform!=Xamarin.Essentials.DevicePlatform.iOS&&Xamarin.Essentials.DeviceInfo.Platform!=Xamarin.Essentials.DevicePlatform.macOS)
             {
-                var task = new TaskCompletionSource<bool>();
+                 task = new TaskCompletionSource<bool>();
 
                 PopupNavigation.Instance.PushAsync(new SubmissionTypeIntro(submissionType));
 

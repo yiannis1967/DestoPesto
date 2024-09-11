@@ -126,15 +126,14 @@
     <Compile Include="AlarmHandler.cs" />
     <Compile Include="AndroidNotificationManager.cs" />
     <Compile Include="AppTerminate.cs" />
-    <Compile Include="BackgroundService.cs" />
     <Compile Include="BaseUrl_Android.cs" />
-    <Compile Include="BrodcastHandler.cs" />
     <Compile Include="ForeGroundService.cs" />
     <Compile Include="ImageResizerNative.cs" />
     <Compile Include="ImageResizer.cs" />
     <Compile Include="LocalNotificationsService.cs" />
     <Compile Include="LocationService.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainActivity_s.cs" />
     <Compile Include="MyAccessTokenTracker.cs" />
     <Compile Include="MyFirebaseMessagingService .cs" />
     <Compile Include="MyForeGroundService.cs" />

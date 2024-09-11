@@ -10,9 +10,10 @@
             Title="{x:Static resources:Properties.Resources.SubmisionsText}">
 
     <Grid BackgroundColor="White" >
+        
         <ScrollView>
             <StackLayout Padding="10">
-                <controls:RepeaterView ItemsSource="{Binding Path=Damages}">
+                <controls:RepeaterView ItemsSource="{Binding Path=UserSubmissions.AllUserDamages}">
 
                     <controls:RepeaterView.ItemTemplate>
                         <DataTemplate>
@@ -29,7 +30,7 @@
 
                                                     <Grid Padding="5" BackgroundColor="WhiteSmoke">
                                                         <Grid.RowDefinitions>
-                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="22"/>
                                                             <RowDefinition Height="*"/>
                                                             <RowDefinition Height="*"/>
                                                         </Grid.RowDefinitions>
@@ -37,7 +38,13 @@
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="20*"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <Label Grid.Column="1" FontSize="Subtitle"  Text="{Binding Path=CategoryName}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+
+                                                        <StackLayout Grid.Column="1"  Orientation="Horizontal">
+                                                            <Image HeightRequest="16" IsVisible="{Binding IsActivate}" WidthRequest="16" HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.AcceptedSub.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+                                                            <Image HeightRequest="16" IsVisible="{Binding Review}" WidthRequest="16" HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.ReviewSub.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+                                                            <Label  FontSize="Subtitle"  Text="{Binding Path=CategoryName}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+                                                        </StackLayout>
+
                                                         <Label Grid.Column="1" Grid.Row="1"  Text="{Binding Path=fullAddress}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
                                                         <Label Grid.Column="1" Grid.Row="2"  Text="{Binding Path=SubmissionsNumberPrompt}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
                                                     </Grid>
@@ -60,33 +67,33 @@
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="Auto"/>
                                                                 <ColumnDefinition Width="2*"/>
-                                                                
-                                                                
+
+
 
                                                             </Grid.ColumnDefinitions>
-                                                            
+
                                                             <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand" TextColor="{extensions:AppMode Color=TextDefault}"/>
-                                                            
+
                                                             <!--  Button Control  -->
 
                                                             <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
-                                                            <Button Grid.Column="1" Padding="5" BackgroundColor="#CF1F25" VerticalOptions="Center"  HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="5" Command="{Binding CloseCommand}" >
-                                                                <!--<Button.Margin>
+                                                                <Button Grid.Column="1" Padding="5" BackgroundColor="#CF1F25" VerticalOptions="Center"  HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="5" Command="{Binding CloseCommand}" >
+                                                                    <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />
                                                                         <On Platform="iOS" Value="0" />
                                                                     </OnPlatform>
                                                                 </Button.Margin>-->
-                                                            </Button>
+                                                                </Button>
 
-                                                            <Button Grid.Column="2" Padding="5" BackgroundColor="#5EDD60" VerticalOptions="Center"  HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="5" Command="{Binding FixedCommand}">
-                                                                <!--<Button.Margin>
+                                                                <Button Grid.Column="2" Padding="5" BackgroundColor="#5EDD60" VerticalOptions="Center"  HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="5" Command="{Binding FixedCommand}">
+                                                                    <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />
                                                                         <On Platform="iOS" Value="0" />
                                                                     </OnPlatform>
                                                                 </Button.Margin>-->
-                                                            </Button>
+                                                                </Button>
                                                             </StackLayout>
 
                                                             <!--  Text Label  -->
@@ -133,5 +140,8 @@
 
             </StackLayout>
         </ScrollView>
+
+
+        <Label IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" >Loading... </Label>
     </Grid>
 </ContentPage>
