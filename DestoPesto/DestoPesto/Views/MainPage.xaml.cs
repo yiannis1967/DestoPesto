@@ -197,6 +197,52 @@ namespace DestoPesto.Views
 
 
 
+                   try
+                   {
+                       App_s App = App_s.Current as App_s;
+
+                       if (/*(App.Current as App)*/App.IntentExtras != null)
+                       {
+                           foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
+                           {
+                               if (entry.Key == "MessageID")
+                               {
+
+                                   string description;
+                                   /*(App.Current as App)*/
+                                   App.IntentExtras.TryGetValue("Description", out description);
+                                   string submisionThumb;
+                                   /*(App.Current as App)*/
+                                   App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
+                                   string comments;
+                                   /*(App.Current as App)*/
+                                   App.IntentExtras.TryGetValue("Comments", out comments);
+
+                                   string messageID;
+                                   App.IntentExtras.TryGetValue("MessageID", out messageID);
+                                   if (messageID != null && messageID.IndexOf("Contest_") == 0)
+                                       return;
+
+                                   /*(App.Current as App)*/
+                                   App.IntentExtras.Clear();
+                                   await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+
+                                   break;
+                               }
+                               //DisplayAlert("Notification", $"{entry.Key} : {entry.Value}", "OK");
+                           }
+                       }
+
+
+                   }
+                   catch (Exception error)
+                   {
+
+
+                   }
+
+
+
                    if (_MobileHomePage == null)
                    {
 
