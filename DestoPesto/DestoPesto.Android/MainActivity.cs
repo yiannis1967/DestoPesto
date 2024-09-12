@@ -28,9 +28,9 @@ using System.Linq;
 
 namespace DestoPesto.Droid
 {
-    //[Activity(Label = "Δες το Πες το", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
-    [Activity(Label = "Δες το, Πες το", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
-    //[Activity(Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    
+    [Activity(Label = "Δες το, Πες το", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+    
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, Android.Gms.Tasks.IOnSuccessListener
     {
         public MainActivity()
@@ -39,12 +39,12 @@ namespace DestoPesto.Droid
         }
         static MainActivity()
         {
-            App_s.StartTime = DateTime.UtcNow;
+            App.StartTime = DateTime.UtcNow;
         }
         static ICallbackManager CallbackManager;
         FirebaseAuthEvents FirebaseAuthEvents = new FirebaseAuthEvents();
         MyAccessTokenTracker myAccessTokenTracker;
-        App_s App;
+        App App;
         protected override async void OnCreate(Bundle savedInstanceState)
         {
 
@@ -68,7 +68,7 @@ namespace DestoPesto.Droid
 
                 Rg.Plugins.Popup.Popup.Init(this);
 
-                App = new App_s("");
+                App = new App("");
                 LoadApplication(App);
                 
                 DeviceCore.MainActivity = this;
@@ -230,8 +230,8 @@ namespace DestoPesto.Droid
         public void OnSuccess(Java.Lang.Object result)
         {
             string token = result.ToString();
-            if (App_s.Current is App_s)
-                (App_s.Current as App_s).FirbaseMessgesToken = token;
+            if (App.Current is App)
+                (App.Current as App).FirbaseMessgesToken = token;
 
 
         }

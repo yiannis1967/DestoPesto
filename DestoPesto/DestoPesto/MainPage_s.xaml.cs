@@ -19,7 +19,7 @@ namespace DestoPesto.Views
             base.OnAppearing();
 
             
-            this.DisplayAlert("Loading time", (DateTime.UtcNow - App_s.StartTime).TotalSeconds.ToString(),"OK");
+            //this.DisplayAlert("Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(),"OK");
         }
     }
 }

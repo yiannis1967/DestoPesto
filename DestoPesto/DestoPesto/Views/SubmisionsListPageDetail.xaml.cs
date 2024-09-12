@@ -22,9 +22,9 @@ namespace DestoPesto.Views
             BindingContext = this;
 
 
-            (App_s.Current as App_s).PropertyChanged += SubmisionsListPageDetail_PropertyChanged;
+            (App.Current as App).PropertyChanged += SubmisionsListPageDetail_PropertyChanged;
             
-            UserSubmissions = (App_s.Current as App_s).UserSubmissions;
+            UserSubmissions = (App.Current as App).UserSubmissions;
 
             //(App.Current as App).SubmittedDamageUser[0].category
         }

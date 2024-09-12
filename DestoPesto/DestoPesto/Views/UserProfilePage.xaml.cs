@@ -36,7 +36,7 @@ namespace DestoPesto.Views
             }
             else
             {
-                App_s app = App_s.Current as App_s;
+                App app = App.Current as App;
                 
                 if (app.Properties.ContainsKey("FirstName"))
                     Name = app.Properties["FirstName"] as string;
@@ -105,7 +105,7 @@ namespace DestoPesto.Views
                 User User = Authentication.DeviceAuthentication.AuthUser.Tag as User;
                 if (User != null)
                 {
-                    App_s app = App_s.Current as App_s;
+                    App app = App.Current as App;
 
                     User.FirstName = Name;
                     User.Email = Email;

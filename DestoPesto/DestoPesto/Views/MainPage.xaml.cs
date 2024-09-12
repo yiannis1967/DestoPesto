@@ -56,17 +56,40 @@ namespace DestoPesto.Views
         {
             base.OnAppearing();
 
-            
-            this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App_s.StartTime).TotalSeconds.ToString(), "OK");
+
+            //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
 
             if (InitTask != null)
                 return;
+
+
+
+
+
 
             InitTask = Task.Run(async () =>
                {
                    //System.Threading.Thread.Sleep(5000);
                    MainThread.BeginInvokeOnMainThread(async () =>
                   {
+
+
+                      var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                      if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+                      {
+                          var result = await device.RemoteNotificationsPermissionsRequest();
+                          //if (result == PermissionStatus.Disabled)
+                          //{
+                          //    await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                          //    return;
+                          //}
+                      }
+                      else if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Disabled)
+                      {
+                          // await MessageDialogPopup.DisplayPopUp(DestoPesto.Properties.Resources.ExitText, DestoPesto.Properties.Resources.TokenExpiredText, DestoPesto.Properties.Resources.Oktext);
+                          //return;
+                      }
+
 
                       var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
                       if (locationInUsePermisions == PermissionStatus.Granted && DependencyService.Get<IDevice>().isGPSEnabled())
@@ -85,7 +108,7 @@ namespace DestoPesto.Views
                           try
                           {
                               var location = await Geolocation.GetLastKnownLocationAsync();
-#if DEBUG
+#if _DEBUG
                               location = new Location(37.942942, 23.649365);
 #endif
                               if (location != null && map != null)
@@ -146,7 +169,7 @@ namespace DestoPesto.Views
                    }
 
 
-
+            
 
                    try
                    {
@@ -199,7 +222,7 @@ namespace DestoPesto.Views
 
                    try
                    {
-                       App_s App = App_s.Current as App_s;
+                       App App = App.Current as App;
 
                        if (/*(App.Current as App)*/App.IntentExtras != null)
                        {
@@ -291,7 +314,7 @@ namespace DestoPesto.Views
                });
 
 
-            this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App_s.StartTime).TotalSeconds.ToString(), "OK");
+            //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
         }
 
         CancellationTokenSource tokenSource;
@@ -345,21 +368,21 @@ namespace DestoPesto.Views
                  {
                      var location = await Geolocation.GetLastKnownLocationAsync();
 
-#if DEBUG
+#if _DEBUG
                      location = new Location(37.942942, 23.649365);
 #endif
                      //Call GetSubmission
                      try
                      {
-                         (App_s.Current as App_s).SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, rad);
+                         (App.Current as App).SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, rad);
                      }
                      catch (Exception ex)
                      {
                      }
                      try
                      {
-                         if ((App_s.Current as App_s).SubmittedDamageUser == null)
-                             (App_s.Current as App_s).SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, rad);
+                         if ((App.Current as App).SubmittedDamageUser == null)
+                             (App.Current as App).SubmittedDamageUser = await JsonHandler.GetDamages(true, location.Latitude, location.Longitude, rad);
                      }
                      catch (Exception ex)
                      {
@@ -368,9 +391,9 @@ namespace DestoPesto.Views
                      MainThread.BeginInvokeOnMainThread(() =>
                      {
                          if (ShowAll)
-                             DrawPinsOnMap((App_s.Current as App_s).SubmittedDamage);
+                             DrawPinsOnMap((App.Current as App).SubmittedDamage);
                          else
-                             DrawPinsOnMap((App_s.Current as App_s).SubmittedDamageUser);
+                             DrawPinsOnMap((App.Current as App).SubmittedDamageUser);
                      });
 
                      prevRad = rad;
@@ -556,7 +579,7 @@ namespace DestoPesto.Views
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
 
                         var location = await Geolocation.GetLocationAsync();
-#if DEBUG
+#if _DEBUG
                         location = new Location(37.942942, 23.649365);
 #endif
 
@@ -744,7 +767,7 @@ namespace DestoPesto.Views
                 var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
-#if DEBUG
+#if _DEBUG
                 location = new Location(37.942942, 23.649365);
 #endif
 
@@ -821,9 +844,9 @@ namespace DestoPesto.Views
                 ShowAll = false;
 
                 if (ShowAll)
-                    DrawPinsOnMap((App_s.Current as App_s).SubmittedDamage);
+                    DrawPinsOnMap((App.Current as App).SubmittedDamage);
                 else
-                    DrawPinsOnMap((App_s.Current as App_s).SubmittedDamageUser);
+                    DrawPinsOnMap((App.Current as App).SubmittedDamageUser);
             }
 
         }
@@ -835,9 +858,9 @@ namespace DestoPesto.Views
                 ShowAll = true;
 
                 if (ShowAll)
-                    DrawPinsOnMap((App_s.Current as App_s).SubmittedDamage);
+                    DrawPinsOnMap((App.Current as App).SubmittedDamage);
                 else
-                    DrawPinsOnMap((App_s.Current as App_s).SubmittedDamageUser);
+                    DrawPinsOnMap((App.Current as App).SubmittedDamageUser);
             }
         }
 

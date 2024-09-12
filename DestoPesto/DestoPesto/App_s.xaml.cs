@@ -14,7 +14,7 @@ using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto
 {
-    public partial class App_s : Application
+    public partial class App : Application
     {
         private AuthUser user;
 
@@ -24,7 +24,7 @@ namespace DestoPesto
 
         public UserSubmissions UserSubmissions { get; set; } = new UserSubmissions();
 
-        public App_s(string appVersion)
+        public App(string appVersion)
         {
             InitializeComponent();
 
@@ -278,7 +278,7 @@ namespace DestoPesto
                 catch (Exception ex)
                 {
                 }
-                MessagingCenter.Send<App_s, ObservableCollection<DamageData>>(App_s.Current as App_s, "LocList", SubmittedDamageUser);
+                MessagingCenter.Send<App, ObservableCollection<DamageData>>(App.Current as App, "LocList", SubmittedDamageUser);
 
             }
             catch (Exception error)

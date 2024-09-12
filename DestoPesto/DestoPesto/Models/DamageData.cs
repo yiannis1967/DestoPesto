@@ -85,7 +85,7 @@ namespace DestoPesto.Models
             //fix.userId = userEmail;
 
 
-            (App_s.Current as App_s).RemoveUserSubmittedDamage(this);
+            (App.Current as App).RemoveUserSubmittedDamage(this);
             if (await JsonHandler.PutSubmission(fix))
             {
                 return true;

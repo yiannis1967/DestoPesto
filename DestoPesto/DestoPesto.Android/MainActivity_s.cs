@@ -12,7 +12,7 @@ namespace DestoPesto.Droid
     {
         static MainActivity_s()
         {
-            App_s.StartTime = DateTime.UtcNow;
+            //App.StartTime = DateTime.UtcNow;
         }
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -20,7 +20,7 @@ namespace DestoPesto.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App_s(""));
+            LoadApplication(new App(""));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
