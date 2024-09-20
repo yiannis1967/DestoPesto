@@ -25,17 +25,23 @@ namespace DestoPesto.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            if (Intent?.Extras?.KeySet() != null)
+            try
             {
-                if (App.Current is App && (App.Current as App).IntentExtras == null)
-                    (App.Current as App).IntentExtras = new Dictionary<string, string>();
-                foreach (var key in Intent.Extras.KeySet())
-                {
-                    var value = Intent.Extras.GetString(key);
-                    (App.Current as App).IntentExtras[key] = value;
 
+                if (Intent?.Extras?.KeySet() != null)
+                {
+                    if (App.Current is App && (App.Current as App).IntentExtras == null)
+                        (App.Current as App).IntentExtras = new Dictionary<string, string>();
+                    foreach (var key in Intent.Extras.KeySet())
+                    {
+                        var value = Intent.Extras.GetString(key);
+                        (App.Current as App).IntentExtras[key] = value;
+
+                    }
                 }
+            }
+            catch (Exception error)
+            {
             }
 
 
