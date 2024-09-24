@@ -46,7 +46,11 @@ namespace DestoPesto
             //////appShell.CurrentItem = appShell.Items[2]; // login paige
 
             if (Authentication.DeviceAuthentication.AuthUser == null && (!Application.Current.Properties.ContainsKey("user_id") || string.IsNullOrWhiteSpace(Application.Current.Properties["user_id"] as string)))
+            {
                 appShell.CurrentItem = appShell.Items[1]; // login paige
+            }
+            else
+                appShell.LoginItem.IsVisible = false;
 
             appShell.Navigating += AppShell_Navigating;
 
@@ -73,6 +77,7 @@ namespace DestoPesto
                     if (MainPage is AppShell)
                     {
                         Shell.Current.CurrentItem = Shell.Current.Items[0];
+                        (Shell.Current as AppShell).LoginItem.IsVisible = false;
 
 
 

@@ -49,7 +49,10 @@ namespace DestoPesto
             var page = (Shell.Current?.CurrentItem?.CurrentItem as IShellSectionController)?.PresentedPage;
 
             if (page is MainPage && Navigation.NavigationStack.Count == 1)
+            {
                 CurrentItem = Items[1];
+                LoginItem.IsVisible = true; 
+            }
 
             Shell.Current.FlyoutIsPresented = false;
             Authentication.DeviceAuthentication.SignedOut();

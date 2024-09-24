@@ -221,7 +221,7 @@
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"/>
     </FlyoutItem>
 
-    <FlyoutItem IsVisible ="False"  Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}">
+    <FlyoutItem x:Name="LoginItem"  x:FieldModifier="public" Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}">
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}"/>
     </FlyoutItem>
     
