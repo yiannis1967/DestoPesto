@@ -50,8 +50,9 @@ namespace DestoPesto
 
             if (page is MainPage && Navigation.NavigationStack.Count == 1)
             {
+                LoginItem.IsVisible = true;
                 CurrentItem = Items[1];
-                LoginItem.IsVisible = true; 
+                
             }
 
             Shell.Current.FlyoutIsPresented = false;
