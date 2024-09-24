@@ -131,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ButtonCircleBig.png" />
+    <None Remove="DestoPesto-app.7z" />
+    <None Remove="DestoPesto.7z" />
     <None Remove="Images\AcceptedSub.png" />
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
@@ -172,6 +174,8 @@
     <None Remove="Images\user_blue.png" />
     <None Remove="Images\wifi.png" />
     <None Remove="Images\xamarin_logo.png" />
+    <None Remove="New Text Document.txt" />
+    <None Remove="TestPhoto.jpg" />
     <None Remove="Views\Views.7z" />
     <None Remove="Xamarin.Forms.Maps" />
   </ItemGroup>
