@@ -198,6 +198,9 @@
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="RePasswordPlaceHolder" xml:space="preserve">
     <value>Retype Password</value>
   </data>
@@ -524,5 +527,17 @@
   </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
     <value>Total number of rejected photos</value>
+  </data>
+  <data name="EmailAddressPlaceHolder" xml:space="preserve">
+    <value>Write your email</value>
+  </data>
+  <data name="PasswordPlaceHolder1" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ConfirmPasswordLabel" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="UserNameInputLabel" xml:space="preserve">
+    <value>User name</value>
   </data>
 </root>

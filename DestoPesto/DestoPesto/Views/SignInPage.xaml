@@ -47,7 +47,7 @@
 
                 <StackLayout Padding="0" Margin="15,10" >
 
-                    <Frame BackgroundColor="White"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <!--<Frame BackgroundColor="White"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White">
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" Aspect="AspectFill" Margin="0" />
@@ -62,7 +62,17 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                    </Frame>
+                    </Frame>-->
+
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.EmailLabel}" ></Label>
+                    <extensions:EntryEx PlaceholderColor="LightGray" BorderColor="LightGray" TextColor="Black" Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" BackgroundColor="White" Keyboard="Email"  >
+                        <Entry.Behaviors>
+                            <xct:MultiValidationBehavior x:Name="EmailMultiValidator" InvalidStyle="{StaticResource  InvalidEntryStyle}"  Flags="ValidateOnValueChanging">
+                                <xct:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" />
+                                <xct:TextValidationBehavior x:Name="EmailTextLenghtValidator" MinimumLength="1"/>
+                            </xct:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </extensions:EntryEx>
                     <StackLayout  Orientation="Horizontal">
 
                         <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightEmail}" x:Name="txtWrongEmail" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
@@ -70,7 +80,7 @@
                     </StackLayout>
 
 
-                    <Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
                                 <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" Aspect="AspectFill" Margin="0"/>
@@ -81,7 +91,13 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                    </Frame>
+                    </Frame>-->
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PasswordLabel}" ></Label>
+                    <extensions:EntryEx  PlaceholderColor="LightGray" BorderColor="LightGray" TextColor="Black" Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" IsPassword="True" BackgroundColor="White"  HorizontalOptions="FillAndExpand" TextChanged="txtPassword_TextChanged">
+                        <Entry.Behaviors>
+                            <xct:TextValidationBehavior x:Name="PasswordValidator"  DecorationFlags="Trim" MinimumLength="1" Flags="ValidateOnValueChanging"/>
+                        </Entry.Behaviors>
+                    </extensions:EntryEx>
                     <StackLayout  Orientation="Horizontal">
                         <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightPassword}" x:Name="txtWrongPass" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                     </StackLayout>

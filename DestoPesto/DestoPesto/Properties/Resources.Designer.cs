@@ -169,6 +169,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
+        /// </summary>
+        public static string ConfirmPasswordLabel {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total qualified photos for contest.
         /// </summary>
         public static string ContestPhotosLabel {
@@ -282,6 +291,15 @@ namespace DestoPesto.Properties {
         public static string DontShowAgain {
             get {
                 return ResourceManager.GetString("DontShowAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write your email.
+        /// </summary>
+        public static string EmailAddressPlaceHolder {
+            get {
+                return ResourceManager.GetString("EmailAddressPlaceHolder", resourceCulture);
             }
         }
         
@@ -855,9 +873,27 @@ namespace DestoPesto.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
+        public static string PasswordLabel {
+            get {
+                return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
         public static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string PasswordPlaceHolder1 {
+            get {
+                return ResourceManager.GetString("PasswordPlaceHolder1", resourceCulture);
             }
         }
         
@@ -1155,6 +1191,15 @@ namespace DestoPesto.Properties {
         public static string USER_NOT_FOUND {
             get {
                 return ResourceManager.GetString("USER_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User name.
+        /// </summary>
+        public static string UserNameInputLabel {
+            get {
+                return ResourceManager.GetString("UserNameInputLabel", resourceCulture);
             }
         }
         

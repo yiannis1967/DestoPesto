@@ -117,56 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcceptedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο επικυρωμένων φωτογραφίων</value>
-  </data>
-  <data name="Accuracy_disclaimerLink" xml:space="preserve">
-    <value>https://destopesto.gr/info/Accuracy_disclaimer</value>
-  </data>
   <data name="AlertText" xml:space="preserve">
     <value>Προσοχή</value>
   </data>
-  <data name="AppleLogin" xml:space="preserve">
-    <value>Με Apple</value>
-  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Δες το, Πες το</value>
-  </data>
-  <data name="BirthDateLabel" xml:space="preserve">
-    <value>Ημερομηνία Γέννησης</value>
-  </data>
-  <data name="BirthDatePlaceHolder" xml:space="preserve">
-    <value>Συμπλήρωσε την ημερομηνία γέννησης σου</value>
-  </data>
-  <data name="CameraDetails" xml:space="preserve">
-    <value>Στην ειδοποίηση πατήστε 'Κατά την χρήση της εφαρμογής' ώστε να επιτρέψετε την λειτουργία της κάμερας</value>
-  </data>
-  <data name="CameraTitle" xml:space="preserve">
-    <value>Κάμερα για λήψη φωτογραφιών</value>
   </data>
   <data name="CancelText" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>
   <data name="CatagoryText" xml:space="preserve">
     <value>Κατηγορία</value>
-  </data>
-  <data name="ContestPhotosLabel" xml:space="preserve">
-    <value>Σύνολο επικυρωμένων φωτογραφιών διαγωνισμού</value>
-  </data>
-  <data name="ContestTermsLabel" xml:space="preserve">
-    <value>Terms and conditions</value>
-  </data>
-  <data name="ContestTitle" xml:space="preserve">
-    <value>Διαγωνισμός</value>
-  </data>
-  <data name="ContinueText" xml:space="preserve">
-    <value>Συνέχεια</value>
-  </data>
-  <data name="CookiesPolicy" xml:space="preserve">
-    <value>Πολιτική Cookies</value>
-  </data>
-  <data name="CookiesPolicyLInk" xml:space="preserve">
-    <value>https://destopesto.gr/info/cookies_policy</value>
   </data>
   <data name="CreateAccountText" xml:space="preserve">
     <value>Δεν έχετε λογαριασμό?</value>
@@ -177,23 +138,8 @@
   <data name="DamageSatusSuccess" xml:space="preserve">
     <value>Επιτυχής αποστολή </value>
   </data>
-  <data name="DeleteAccountInfoText" xml:space="preserve">
-    <value>Διαγραφή λογαριασμού γίνεται από το μενού με την επιλογή 'Διαγραφή Λογαριασμού' </value>
-  </data>
-  <data name="DeleteAccountText" xml:space="preserve">
-    <value>Διαγραφή λογαριασμού</value>
-  </data>
   <data name="DobText" xml:space="preserve">
     <value>Ημερομηνία γέννησης</value>
-  </data>
-  <data name="DontShowAgain" xml:space="preserve">
-    <value>Να μην εμφανίζεται το μήνυμα</value>
-  </data>
-  <data name="EmailLabel" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="EmailLogin" xml:space="preserve">
-    <value>Mε email και κωδικό</value>
   </data>
   <data name="EmailPlaceHolder" xml:space="preserve">
     <value>Συμπλήρωσε το email σου</value>
@@ -201,8 +147,230 @@
   <data name="EnableBGToast" xml:space="preserve">
     <value>Επιλέξτε "Συνέχεια" για την αποστολή θέση στις Ρυθμίσεις</value>
   </data>
-  <data name="EnterCompetition" xml:space="preserve">
-    <value>Θα πάρεις μέρος?</value>
+  <data name="ForgetPasswordText" xml:space="preserve">
+    <value>Ξέχασα τον κωδικό μου</value>
+  </data>
+  <data name="GenderText" xml:space="preserve">
+    <value>Φύλο</value>
+  </data>
+  <data name="GetCatagoryText" xml:space="preserve">
+    <value>Λήψη κατηγοριών</value>
+  </data>
+  <data name="HaveAccountText" xml:space="preserve">
+    <value>Έχετε ήδη λογαριασμο?</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Αρχική</value>
+  </data>
+  <data name="HomeItemText" xml:space="preserve">
+    <value>Αρχή</value>
+  </data>
+  <data name="LocalNotificationDec" xml:space="preserve">
+    <value>Υπάρχει κοντά σας δηλωμένη εγγραφή. Παρακαλώ ελέγξτε</value>
+  </data>
+  <data name="LocalNotificationTitle" xml:space="preserve">
+    <value>Μήνυμα από "Δες το πες το" </value>
+  </data>
+  <data name="LocationPrompt" xml:space="preserve">
+    <value>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </value>
+  </data>
+  <data name="LogoutItemText" xml:space="preserve">
+    <value>Έξοδος </value>
+  </data>
+  <data name="MapHeaderText" xml:space="preserve">
+    <value>Δες το, Πες το</value>
+  </data>
+  <data name="NoInternetText" xml:space="preserve">
+    <value>Η εφαρμογή δεν ανταποκρίνεται γιατί έχει χαθεί η σύνδεση με το Internet ή έχει σταματήσει ο server. Κλείστε την εφαρμογή και ξανά προσπαθήστε σε λίγο</value>
+  </data>
+  <data name="NoText" xml:space="preserve">
+    <value>Όχι</value>
+  </data>
+  <data name="NumUserText" xml:space="preserve">
+    <value>Αριθμός πολιτών που το έχουν αναφέρει : </value>
+  </data>
+  <data name="Oktext" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PasswordPlaceHolder" xml:space="preserve">
+    <value>Κωδικός</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Κωδικός</value>
+  </data>
+  <data name="RePasswordPlaceHolder" xml:space="preserve">
+    <value>Επανάληψη κωδικού</value>
+  </data>
+  <data name="ReportDamageClick" xml:space="preserve">
+    <value>Δηλώστε την βλάβη</value>
+  </data>
+  <data name="ReportFailed" xml:space="preserve">
+    <value>Η δήλωση απέτυχε</value>
+  </data>
+  <data name="ReportFix" xml:space="preserve">
+    <value>Αυτό διορθώθηκε</value>
+  </data>
+  <data name="ReportSuccess" xml:space="preserve">
+    <value>Η δήλωση έγινε επιτυχώς</value>
+  </data>
+  <data name="sendDataWifi" xml:space="preserve">
+    <value>Μεταφορά δεδομένων μόνο μέσω WiFi</value>
+  </data>
+  <data name="seprationSignupText" xml:space="preserve">
+    <value>ή Εγγραφή με</value>
+  </data>
+  <data name="seprationSimpleText" xml:space="preserve">
+    <value>Ή</value>
+  </data>
+  <data name="SettingItemText" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="SigninText" xml:space="preserve">
+    <value>Είσοδος</value>
+  </data>
+  <data name="SignupFail" xml:space="preserve">
+    <value>Αποτυχία εισόδου</value>
+  </data>
+  <data name="SignupSuccess" xml:space="preserve">
+    <value>Επιτυχής είσοδος</value>
+  </data>
+  <data name="SignUpText" xml:space="preserve">
+    <value>Εγγραφή</value>
+  </data>
+  <data name="SubmisionsText" xml:space="preserve">
+    <value>Οι αναρτήσεις μου</value>
+  </data>
+  <data name="TurnOff" xml:space="preserve">
+    <value>Δεν συμφωνώ</value>
+  </data>
+  <data name="TurnOn" xml:space="preserve">
+    <value>Συμφωνώ</value>
+  </data>
+  <data name="YesText" xml:space="preserve">
+    <value>Ναι</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="NotificationContentText" xml:space="preserve">
+    <value>Επειδή δεν έχουν αποσταλλεί ανέβει όλες οι φωτογραφίες η εφαρμογή θα συνεχίσει να τρέχει στο παρασκήνιο μέχρι να ολοκληρωθεί η διαδικασία και μετά θα κλείσει αυτόματα </value>
+  </data>
+  <data name="StopServiceCommandTitle" xml:space="preserve">
+    <value>Κλείσιμο τώρα</value>
+  </data>
+  <data name="Fixed" xml:space="preserve">
+    <value>Έχει αποκατασταθεί αυτό?</value>
+  </data>
+  <data name="AppleLogin" xml:space="preserve">
+    <value>Με Apple</value>
+  </data>
+  <data name="EmailLogin" xml:space="preserve">
+    <value>Mε email και κωδικό</value>
+  </data>
+  <data name="FacebookLogin" xml:space="preserve">
+    <value>Με Facebook</value>
+  </data>
+  <data name="GoogleLogin" xml:space="preserve">
+    <value>Με Google</value>
+  </data>
+  <data name="LetsRegisterLineOneText" xml:space="preserve">
+    <value>Καλώς όρισες </value>
+  </data>
+  <data name="LetsRegisterLineTwoText" xml:space="preserve">
+    <value>Κάνε εγγραφή</value>
+  </data>
+  <data name="UserNameText" xml:space="preserve">
+    <value>Ονοματεπώνυμο</value>
+  </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Καλώς ήρθες </value>
+  </data>
+  <data name="WelcomeText_2" xml:space="preserve">
+    <value>Διάλεξε πως θα συνεχίσεις </value>
+  </data>
+  <data name="InvalidEntryStyle" xml:space="preserve">
+    <value>InvalidEntryStyle</value>
+  </data>
+  <data name="SomethingIsNotRightEmail" xml:space="preserve">
+    <value>Δεν έχεις συμπληρώσει το email σου</value>
+  </data>
+  <data name="SomethingIsNotRightPassword" xml:space="preserve">
+    <value>Δεν έχεις συμπληρώσει τον κωδικό σου</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>Να μην εμφανίζεται το μήνυμα</value>
+  </data>
+  <data name="InstructionsMessage" xml:space="preserve">
+    <value>Είναι εύκολο και εντελώς ανώνυμο. Διάλεξε από τις κατηγορίες που φαίνονται παρακάτω τι θέλεις να αναφέρεις πατώντας το αντίστοιχο κουμπί, φωτογράφισέ το και ανάρτησέ το. Τα στοιχεία σου δεν θα εμφανιστούν πουθενά</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Σχετικά με την εφαρμογή</value>
+  </data>
+  <data name="CookiesPolicy" xml:space="preserve">
+    <value>Πολιτική Cookies</value>
+  </data>
+  <data name="HowItWorks" xml:space="preserve">
+    <value>Πως λειτουργεί</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Πολιτική απορρήτου</value>
+  </data>
+  <data name="TermsConditions" xml:space="preserve">
+    <value>Όροι και προϋποθέσεις</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>Όραμα</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Συνέχεια</value>
+  </data>
+  <data name="ForgotPasswordPage" xml:space="preserve">
+    <value>Οι ακριβείς οδηγίες ανάκτησης του κωδικού θα αποσταλλούν στο email σου. Ακολούθησέ τις και σε χρόνο μηδέν θα είσαι πάλι στο παιχνίδι</value>
+  </data>
+  <data name="ForgotPasswordPageText1" xml:space="preserve">
+    <value>Ξέχασες τον κωδικό σου?</value>
+  </data>
+  <data name="ForgotPasswordPageText2" xml:space="preserve">
+    <value>Συμπλήρωσε το email σου</value>
+  </data>
+  <data name="CameraDetails" xml:space="preserve">
+    <value>Στην ειδοποίηση πατήστε 'Κατά την χρήση της εφαρμογής' ώστε να επιτρέψετε την λειτουργία της κάμερας</value>
+  </data>
+  <data name="CameraTitle" xml:space="preserve">
+    <value>Κάμερα για λήψη φωτογραφιών</value>
+  </data>
+  <data name="LocationPermission" xml:space="preserve">
+    <value>Όταν ερωτηθείτε πατήστε 'Κατά την χρήση της εφαρμογής' ώστε να δουλέψει η εφαρμογή χωρίς προβλήματα</value>
+  </data>
+  <data name="LocationTitle" xml:space="preserve">
+    <value>Λήψη τοποθεσίας</value>
+  </data>
+  <data name="NotificationDetails" xml:space="preserve">
+    <value>Στο ανάλογο παράθυρο πατήσετε 'Αποδοχή' ώστε η εφαρμογή να σας ενημερώνει για νέα όπως την ολοκλήρωση αποστολής των φωτογραφιών</value>
+  </data>
+  <data name="NotificationsTitle" xml:space="preserve">
+    <value>Ειδοποιήσεις</value>
+  </data>
+  <data name="PermissionsTitle" xml:space="preserve">
+    <value>Ενεργοποίηση ειδοποιήσεων, λήψης τοποθεσίας και κάμερας για λήψη φωτογραφιών</value>
+  </data>
+  <data name="PermissionTitleDetails" xml:space="preserve">
+    <value>Η εφαρμογή χρειάζεται την άδεια σας για την ενεργοποίηση όλων των παρακάτω ώστε να είναι πλήρως λειτουργική</value>
+  </data>
+  <data name="ContinueText" xml:space="preserve">
+    <value>Συνέχεια</value>
+  </data>
+  <data name="ExitText" xml:space="preserve">
+    <value>Έξοδος</value>
+  </data>
+  <data name="GoToSetttingsText" xml:space="preserve">
+    <value>Συνέχεια στις Ρυθμίσεις</value>
+  </data>
+  <data name="PermissionsNotGrandedText" xml:space="preserve">
+    <value>Εάν δεν ενεργοποιηθούν οι "Ειδοποιήσεις" δεν θα μπορέσει να λειτουργήσει η εφαρμογή</value>
+  </data>
+  <data name="TokenExpiredText" xml:space="preserve">
+    <value>Έχουν απενεργοποιηθεί οι προσβάσεις και δεν μπορεί να δουλέψει η εφαρμογή. Ενεργοποιήστε τις χειροκίνητα και προσπαθήστε ξανά</value>
   </data>
   <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
     <value>Υπάρχει άλλος λογιαριασμός με αυτά τα στοιχεία</value>
@@ -255,224 +423,62 @@
   <data name="ERROR_WRONG_PASSWORD" xml:space="preserve">
     <value>Ο κωδικός δεν είναι σωστός</value>
   </data>
-  <data name="ExitText" xml:space="preserve">
-    <value>Έξοδος</value>
-  </data>
   <data name="EXPIRED_ACTION_CODE" xml:space="preserve">
     <value>Έχει λήξει ο χρόνος ανάκτησης του κωδικού</value>
-  </data>
-  <data name="FacebookLogin" xml:space="preserve">
-    <value>Με Facebook</value>
-  </data>
-  <data name="Fixed" xml:space="preserve">
-    <value>Έχει αποκατασταθεί αυτό?</value>
-  </data>
-  <data name="ForgetPasswordText" xml:space="preserve">
-    <value>Ξέχασα τον κωδικό μου</value>
-  </data>
-  <data name="ForgotPasswordPage" xml:space="preserve">
-    <value>Οι ακριβείς οδηγίες ανάκτησης του κωδικού θα αποσταλλούν στο email σου. Ακολούθησέ τις και σε χρόνο μηδέν θα είσαι πάλι στο παιχνίδι</value>
-  </data>
-  <data name="ForgotPasswordPageText1" xml:space="preserve">
-    <value>Ξέχασες τον κωδικό σου?</value>
-  </data>
-  <data name="ForgotPasswordPageText2" xml:space="preserve">
-    <value>Συμπλήρωσε το email σου</value>
-  </data>
-  <data name="GenderText" xml:space="preserve">
-    <value>Φύλο</value>
-  </data>
-  <data name="GetCatagoryText" xml:space="preserve">
-    <value>Λήψη κατηγοριών</value>
-  </data>
-  <data name="GoogleLogin" xml:space="preserve">
-    <value>Με Google</value>
-  </data>
-  <data name="GoToSetttingsText" xml:space="preserve">
-    <value>Συνέχεια στις Ρυθμίσεις</value>
-  </data>
-  <data name="HaveAccountText" xml:space="preserve">
-    <value>Έχετε ήδη λογαριασμο?</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Αρχική</value>
-  </data>
-  <data name="HomeItemText" xml:space="preserve">
-    <value>Αρχή</value>
-  </data>
-  <data name="HomeScreenMobileLink" xml:space="preserve">
-    <value>https://destopesto.blob.core.windows.net/destopesto/docs/homescreenmob.txt</value>
-  </data>
-  <data name="HowItWorks" xml:space="preserve">
-    <value>Πως λειτουργεί</value>
-  </data>
-  <data name="HowItWorksLink" xml:space="preserve">
-    <value>https://destopesto.gr/info/how_it_works</value>
-  </data>
-  <data name="InstructionsMessage" xml:space="preserve">
-    <value>Είναι εύκολο και εντελώς ανώνυμο. Διάλεξε από τις κατηγορίες που φαίνονται παρακάτω τι θέλεις να αναφέρεις πατώντας το αντίστοιχο κουμπί, φωτογράφισέ το και ανάρτησέ το. Τα στοιχεία σου δεν θα εμφανιστούν πουθενά</value>
-  </data>
-  <data name="InvalidEntryStyle" xml:space="preserve">
-    <value>InvalidEntryStyle</value>
   </data>
   <data name="INVALID_ACTION_CODE" xml:space="preserve">
     <value>Ο κωδικός δεν είναι καλός ή έχει ξανά χρησιμοποιηθεί στο παρελθόν</value>
   </data>
-  <data name="LetsRegisterLineOneText" xml:space="preserve">
-    <value>Καλώς όρισες </value>
+  <data name="USER_DISABLED" xml:space="preserve">
+    <value>Έχει απενεργοποιηθεί ο λογαριασμός. Επικοινωνήστε με τον διαχειριστή</value>
   </data>
-  <data name="LetsRegisterLineTwoText" xml:space="preserve">
-    <value>Κάνε εγγραφή</value>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>Δεν βρέθηκε ο λογαριασμός</value>
   </data>
-  <data name="LocalNotificationDec" xml:space="preserve">
-    <value>Υπάρχει κοντά σας δηλωμένη εγγραφή. Παρακαλώ ελέγξτε</value>
+  <data name="WEAK_PASSWORD" xml:space="preserve">
+    <value>Αδύναμος κωδικός</value>
   </data>
-  <data name="LocalNotificationTitle" xml:space="preserve">
-    <value>Μήνυμα από "Δες το πες το" </value>
+  <data name="Accuracy_disclaimerLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/Accuracy_disclaimer</value>
   </data>
-  <data name="LocationPermission" xml:space="preserve">
-    <value>Όταν ερωτηθείτε πατήστε 'Κατά την χρήση της εφαρμογής' ώστε να δουλέψει η εφαρμογή χωρίς προβλήματα</value>
+  <data name="CookiesPolicyLInk" xml:space="preserve">
+    <value>https://destopesto.gr/info/cookies_policy</value>
   </data>
-  <data name="LocationPrompt" xml:space="preserve">
-    <value>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </value>
-  </data>
-  <data name="LocationServicesOff" xml:space="preserve">
-    <value>Η υπηρεσία εύρεσης τοποθεσίας δεν είναι ενεργή. Επειδή η λήψη της τοποθεσίας είναι απαραίτητη για την σωστή λειτουργία η εφαρμογή δεν θα δουλέψει. Παρακαλώ ενεργοποιήστε την υπηρεσία τοποθεσίας και προσπαθήσετε ξανά</value>
-  </data>
-  <data name="LocationTitle" xml:space="preserve">
-    <value>Λήψη τοποθεσίας</value>
-  </data>
-  <data name="LoginScreenMobileLink" xml:space="preserve">
-    <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
-  </data>
-  <data name="LogoutItemText" xml:space="preserve">
-    <value>Έξοδος </value>
-  </data>
-  <data name="MapHeaderText" xml:space="preserve">
-    <value>Δες το, Πες το</value>
-  </data>
-  <data name="MobilePhoneLabel" xml:space="preserve">
-    <value>Κινητό τηλέφωνο</value>
-  </data>
-  <data name="MobilePhonePlaceHolder" xml:space="preserve">
-    <value>Συμπλήρωσε το κινητό σου</value>
-  </data>
-  <data name="NoInternetText" xml:space="preserve">
-    <value>Η εφαρμογή δεν ανταποκρίνεται γιατί έχει χαθεί η σύνδεση με το Internet ή έχει σταματήσει ο server. Κλείστε την εφαρμογή και ξανά προσπαθήστε σε λίγο</value>
-  </data>
-  <data name="NoText" xml:space="preserve">
-    <value>Όχι</value>
-  </data>
-  <data name="NotificationContentText" xml:space="preserve">
-    <value>Επειδή δεν έχουν αποσταλλεί ανέβει όλες οι φωτογραφίες η εφαρμογή θα συνεχίσει να τρέχει στο παρασκήνιο μέχρι να ολοκληρωθεί η διαδικασία και μετά θα κλείσει αυτόματα </value>
-  </data>
-  <data name="NotificationDetails" xml:space="preserve">
-    <value>Στο ανάλογο παράθυρο πατήσετε 'Αποδοχή' ώστε η εφαρμογή να σας ενημερώνει για νέα όπως την ολοκλήρωση αποστολής των φωτογραφιών</value>
-  </data>
-  <data name="NotificationsTitle" xml:space="preserve">
-    <value>Ειδοποιήσεις</value>
-  </data>
-  <data name="NumUserText" xml:space="preserve">
-    <value>Αριθμός πολιτών που το έχουν αναφέρει : </value>
-  </data>
-  <data name="Oktext" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="PasswordPlaceHolder" xml:space="preserve">
-    <value>Κωδικός</value>
-  </data>
-  <data name="PermissionsNotGrandedText" xml:space="preserve">
-    <value>Εάν δεν ενεργοποιηθούν οι "Ειδοποιήσεις" δεν θα μπορέσει να λειτουργήσει η εφαρμογή</value>
-  </data>
-  <data name="PermissionsTitle" xml:space="preserve">
-    <value>Ενεργοποίηση ειδοποιήσεων, λήψης τοποθεσίας και κάμερας για λήψη φωτογραφιών</value>
-  </data>
-  <data name="PermissionTitleDetails" xml:space="preserve">
-    <value>Η εφαρμογή χρειάζεται την άδεια σας για την ενεργοποίηση όλων των παρακάτω ώστε να είναι πλήρως λειτουργική</value>
-  </data>
-  <data name="PersonNameLabel" xml:space="preserve">
-    <value>Ονοματεπώνυμο</value>
-  </data>
-  <data name="PersonNamePlaceHolder" xml:space="preserve">
-    <value>Συμπλήρωσε το ονοματεπώνυμο σου</value>
-  </data>
-  <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Πολιτική απορρήτου</value>
+  <data name="HowItWorksLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/how_it_works</value>
   </data>
   <data name="PrivacyPolicyLInk" xml:space="preserve">
     <value>https://destopesto.gr/info/PrivacyPolicy</value>
   </data>
-  <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο ακυρωμένων φωτογραφιών</value>
+  <data name="VisionLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/vision</value>
   </data>
-  <data name="RePasswordPlaceHolder" xml:space="preserve">
-    <value>Επανάληψη κωδικού</value>
+  <data name="HomeScreenMobileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/homescreenmob.txt</value>
   </data>
-  <data name="ReportDamageClick" xml:space="preserve">
-    <value>Δηλώστε την βλάβη</value>
+  <data name="DeleteAccountInfoText" xml:space="preserve">
+    <value>Διαγραφή λογαριασμού γίνεται από το μενού με την επιλογή 'Διαγραφή Λογαριασμού' </value>
   </data>
-  <data name="ReportFailed" xml:space="preserve">
-    <value>Η δήλωση απέτυχε</value>
+  <data name="DeleteAccountText" xml:space="preserve">
+    <value>Διαγραφή λογαριασμού</value>
   </data>
-  <data name="ReportFix" xml:space="preserve">
-    <value>Αυτό διορθώθηκε</value>
+  <data name="WelcomeEmailPasswordLogin" xml:space="preserve">
+    <value>Συμπλήρωσε το email και τον κωδικό σου</value>
   </data>
-  <data name="ReportSuccess" xml:space="preserve">
-    <value>Η δήλωση έγινε επιτυχώς</value>
+  <data name="LocationServicesOff" xml:space="preserve">
+    <value>Η υπηρεσία εύρεσης τοποθεσίας δεν είναι ενεργή. Επειδή η λήψη της τοποθεσίας είναι απαραίτητη για την σωστή λειτουργία η εφαρμογή δεν θα δουλέψει. Παρακαλώ ενεργοποιήστε την υπηρεσία τοποθεσίας και προσπαθήσετε ξανά</value>
   </data>
-  <data name="ResetPassword" xml:space="preserve">
-    <value>Συνέχεια</value>
+  <data name="WarningForUserBanMessage" xml:space="preserve">
+    <value>Έχει σίγουρα αποκατασταθεί το πρόβλημα ?</value>
   </data>
-  <data name="sendDataWifi" xml:space="preserve">
-    <value>Μεταφορά δεδομένων μόνο μέσω WiFi</value>
+  <data name="ContestTitle" xml:space="preserve">
+    <value>Διαγωνισμός</value>
   </data>
-  <data name="seprationSignupText" xml:space="preserve">
-    <value>ή Εγγραφή με</value>
+  <data name="MobilePhonePlaceHolder" xml:space="preserve">
+    <value>Συμπλήρωσε το κινητό σου</value>
   </data>
-  <data name="seprationSimpleText" xml:space="preserve">
-    <value>Ή</value>
-  </data>
-  <data name="SettingItemText" xml:space="preserve">
-    <value>Ρυθμίσεις</value>
-  </data>
-  <data name="SigninText" xml:space="preserve">
-    <value>Είσοδος</value>
-  </data>
-  <data name="SignupFail" xml:space="preserve">
-    <value>Αποτυχία εισόδου</value>
-  </data>
-  <data name="SignupSuccess" xml:space="preserve">
-    <value>Επιτυχής είσοδος</value>
-  </data>
-  <data name="SignUpText" xml:space="preserve">
-    <value>Εγγραφή</value>
-  </data>
-  <data name="SomethingIsNotRightEmail" xml:space="preserve">
-    <value>Δεν έχεις συμπληρώσει το email σου</value>
-  </data>
-  <data name="SomethingIsNotRightPassword" xml:space="preserve">
-    <value>Δεν έχεις συμπληρώσει τον κωδικό σου</value>
-  </data>
-  <data name="StopServiceCommandTitle" xml:space="preserve">
-    <value>Κλείσιμο τώρα</value>
-  </data>
-  <data name="SubmisionsText" xml:space="preserve">
-    <value>Οι αναρτήσεις μου</value>
-  </data>
-  <data name="TermsConditions" xml:space="preserve">
-    <value>Όροι και προϋποθέσεις</value>
-  </data>
-  <data name="TokenExpiredText" xml:space="preserve">
-    <value>Έχουν απενεργοποιηθεί οι προσβάσεις και δεν μπορεί να δουλέψει η εφαρμογή. Ενεργοποιήστε τις χειροκίνητα και προσπαθήστε ξανά</value>
-  </data>
-  <data name="TurnOff" xml:space="preserve">
-    <value>Δεν συμφωνώ</value>
-  </data>
-  <data name="TurnOn" xml:space="preserve">
-    <value>Συμφωνώ</value>
-  </data>
-  <data name="UserNameText" xml:space="preserve">
-    <value>Ονοματεπώνυμο</value>
+  <data name="PersonNamePlaceHolder" xml:space="preserve">
+    <value>Συμπλήρωσε το ονοματεπώνυμο σου</value>
   </data>
   <data name="UserProfile" xml:space="preserve">
     <value>Προφίλ χρήστη</value>
@@ -483,40 +489,49 @@
   <data name="UserProfileText_2" xml:space="preserve">
     <value>Συμπλήρωσε τα στοιχεία σου</value>
   </data>
-  <data name="USER_DISABLED" xml:space="preserve">
-    <value>Έχει απενεργοποιηθεί ο λογαριασμός. Επικοινωνήστε με τον διαχειριστή</value>
+  <data name="ContestTermsLabel" xml:space="preserve">
+    <value>Terms and conditions</value>
   </data>
-  <data name="USER_NOT_FOUND" xml:space="preserve">
-    <value>Δεν βρέθηκε ο λογαριασμός</value>
+  <data name="EnterCompetition" xml:space="preserve">
+    <value>Θα πάρεις μέρος?</value>
   </data>
-  <data name="Version" xml:space="preserve">
-    <value>v</value>
+  <data name="AcceptedPhotosLabel" xml:space="preserve">
+    <value>Σύνολο επικυρωμένων φωτογραφίων</value>
   </data>
-  <data name="Vision" xml:space="preserve">
-    <value>Όραμα</value>
+  <data name="BirthDateLabel" xml:space="preserve">
+    <value>Ημερομηνία Γέννησης</value>
   </data>
-  <data name="VisionLink" xml:space="preserve">
-    <value>https://destopesto.gr/info/vision</value>
+  <data name="BirthDatePlaceHolder" xml:space="preserve">
+    <value>Συμπλήρωσε την ημερομηνία γέννησης σου</value>
   </data>
-  <data name="WarningForUserBanMessage" xml:space="preserve">
-    <value>Έχει σίγουρα αποκατασταθεί το πρόβλημα ?</value>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="WEAK_PASSWORD" xml:space="preserve">
-    <value>Αδύναμος κωδικός</value>
+  <data name="MobilePhoneLabel" xml:space="preserve">
+    <value>Κινητό τηλέφωνο</value>
   </data>
-  <data name="WelcomeEmailPasswordLogin" xml:space="preserve">
-    <value>Συμπλήρωσε το email και τον κωδικό σου</value>
+  <data name="PersonNameLabel" xml:space="preserve">
+    <value>Ονοματεπώνυμο</value>
   </data>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Σχετικά με την εφαρμογή</value>
+  <data name="ContestPhotosLabel" xml:space="preserve">
+    <value>Σύνολο επικυρωμένων φωτογραφιών διαγωνισμού</value>
   </data>
-  <data name="WelcomeText" xml:space="preserve">
-    <value>Καλώς ήρθες </value>
+  <data name="LoginScreenMobileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
   </data>
-  <data name="WelcomeText_2" xml:space="preserve">
-    <value>Διάλεξε πως θα συνεχίσεις </value>
+  <data name="RejectedPhotosLabel" xml:space="preserve">
+    <value>Σύνολο ακυρωμένων φωτογραφιών</value>
   </data>
-  <data name="YesText" xml:space="preserve">
-    <value>Ναι</value>
+  <data name="EmailAddressPlaceHolder" xml:space="preserve">
+    <value>Γράψτε το email σας</value>
+  </data>
+  <data name="PasswordPlaceHolder1" xml:space="preserve">
+    <value>Κωδικός</value>
+  </data>
+  <data name="ConfirmPasswordLabel" xml:space="preserve">
+    <value>Επιβεβαίωση κωδικού</value>
+  </data>
+  <data name="UserNameInputLabel" xml:space="preserve">
+    <value>Ονομα χρήστη</value>
   </data>
 </root>

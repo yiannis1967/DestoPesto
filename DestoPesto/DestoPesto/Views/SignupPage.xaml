@@ -59,7 +59,7 @@
                         </StackLayout>
                     </Grid>
                     <StackLayout Padding="0" Margin="15,10">
-                        <Frame BackgroundColor="White"    Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <!--<Frame BackgroundColor="White"    Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  BackgroundColor="White"  CornerRadius="6" Padding="0" Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" />
@@ -75,10 +75,19 @@
                                     </Entry.Behaviors>
                                 </Entry>
                             </StackLayout>
-                        </Frame>
+                        </Frame>-->
 
+                        <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.EmailLabel}" ></Label>
+                        <extensions:EntryEx  PlaceholderColor="LightGray" BorderColor="LightGray" BackgroundColor="White" TextColor="Black" Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" Keyboard="Email" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                            <extensions:EntryEx.Behaviors>
+                                <xct:MultiValidationBehavior x:Name="EmailMultiValidator" InvalidStyle="{StaticResource  InvalidEntryStyle}"  Flags="ValidateOnValueChanging">
+                                    <xct:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" />
+                                    <xct:TextValidationBehavior x:Name="EmailTextLenghtValidator" MinimumLength="1" DecorationFlags="Trim"/>
+                                </xct:MultiValidationBehavior>
+                            </extensions:EntryEx.Behaviors>
+                        </extensions:EntryEx>
 
-                        <Frame BackgroundColor="White"     Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <!--<Frame BackgroundColor="White"     Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame BackgroundColor="White"   HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0"  Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
@@ -89,9 +98,15 @@
                                     </Entry.Behaviors>
                                 </Entry>
                             </StackLayout>
-                        </Frame>
+                        </Frame>-->
+                        <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PasswordLabel}" ></Label>
+                        <extensions:EntryEx  PlaceholderColor="LightGray" BorderColor="LightGray" TextColor="Black" BackgroundColor="White"   Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}" x:Name="txtPassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                            <extensions:EntryEx.Behaviors>
+                                <xct:TextValidationBehavior x:Name="PasswordValidator" MinimumLength="6" InvalidStyle="{StaticResource InvalidEntryStyle}"  Flags="ValidateOnValueChanging"/>
+                            </extensions:EntryEx.Behaviors>
+                        </extensions:EntryEx>
 
-                        <Frame BackgroundColor="White"     Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <!--<Frame BackgroundColor="White"     Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame BackgroundColor="White"  HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0"  Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" />
@@ -102,9 +117,16 @@
                                     </Entry.Behaviors>
                                 </Entry>
                             </StackLayout>
-                        </Frame>
+                        </Frame>-->
 
-                        <Frame BackgroundColor="White"    Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.ConfirmPasswordLabel}" ></Label>
+                        <extensions:EntryEx  PlaceholderColor="LightGray" BorderColor="LightGray" TextColor="Black" BackgroundColor="White"  Placeholder="{x:Static resources:Properties.Resources.RePasswordPlaceHolder}" x:Name="txtReTypePassword"  IsPassword="True" HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                            <extensions:EntryEx.Behaviors>
+                                <xct:RequiredStringValidationBehavior x:Name="RePasswordValidator" InvalidStyle="{StaticResource InvalidEntryStyle}"   RequiredString="{Binding Source={x:Reference txtPassword}, Path=Text}" Flags="ValidateOnValueChanging"/>
+                            </extensions:EntryEx.Behaviors>
+                        </extensions:EntryEx>
+
+                        <!--<Frame BackgroundColor="White"    Padding="0"  HorizontalOptions="FillAndExpand" CornerRadius="6">
                             <StackLayout Orientation="Horizontal">
                                 <Frame BackgroundColor="White"  HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0"  Margin="5">
                                     <Image Source="{extensions:ImageResource DestoPesto.Images.user.png}" />
@@ -116,7 +138,13 @@
                                     </Entry.Behaviors>
                                 </Entry>
                             </StackLayout>
-                        </Frame>
+                        </Frame>-->
+                        <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.UserNameInputLabel}" ></Label>
+                        <extensions:EntryEx  PlaceholderColor="LightGray" BorderColor="LightGray" TextColor="Black" BackgroundColor="White"  Placeholder="{x:Static resources:Properties.Resources.UserNameText}" x:Name="txtDOB"  HorizontalOptions="FillAndExpand" TextChanged="txt_TextChanged">
+                            <extensions:EntryEx.Behaviors >
+                                <xct:TextValidationBehavior x:Name="UserValidator" MinimumLength="1"/>
+                            </extensions:EntryEx.Behaviors>
+                        </extensions:EntryEx>
 
                         <!--<StackLayout Orientation="Horizontal">
 
