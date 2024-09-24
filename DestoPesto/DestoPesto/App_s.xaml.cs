@@ -115,6 +115,8 @@ namespace DestoPesto
             }
         }
 
+        public Dictionary<string, object> Options { get; set; }
+
         protected override void OnStart()
         {
 
@@ -137,7 +139,7 @@ namespace DestoPesto
 
         public void StartFGService()
         {
-
+            JsonHandler.SubmitTripFilesTask();
         }
         internal System.Collections.ObjectModel.ObservableCollection<DamageData> SubmittedDamage;
         internal System.Collections.ObjectModel.ObservableCollection<DamageData> SubmittedDamageUser;

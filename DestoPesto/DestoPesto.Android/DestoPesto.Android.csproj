@@ -127,6 +127,7 @@
     <Compile Include="AndroidNotificationManager.cs" />
     <Compile Include="AppTerminate.cs" />
     <Compile Include="BaseUrl_Android.cs" />
+    <Compile Include="CustomEntryRenderer.cs" />
     <Compile Include="ForeGroundService.cs" />
     <Compile Include="ImageResizerNative.cs" />
     <Compile Include="ImageResizer.cs" />

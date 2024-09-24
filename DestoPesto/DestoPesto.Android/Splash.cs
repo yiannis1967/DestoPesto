@@ -40,9 +40,11 @@ namespace DestoPesto.Droid
                     }
                 }
             }
+         
             catch (Exception error)
             {
             }
+         
 
 
             // Create your application here

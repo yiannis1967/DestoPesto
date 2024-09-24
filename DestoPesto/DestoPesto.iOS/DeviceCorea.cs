@@ -65,6 +65,8 @@ namespace DestoPesto.iOS
                 if (settings.AlertSetting == UNNotificationSetting.Enabled)
                 {
                     taskCompletionSource.SetResult(PermissionStatus.Granted);
+                    UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
                 }
                 else if (settings.AlertSetting == UNNotificationSetting.NotSupported)
                 {

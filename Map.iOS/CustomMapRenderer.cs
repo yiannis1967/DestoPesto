@@ -119,7 +119,7 @@ namespace Maps.iOS
 
         void OnDidDeselectAnnotationView(object sender, MKAnnotationViewEventArgs e)
         {
-            if (!e.View.Selected)
+            if (!e.View.Selected&& customPinView!=null)
             {
                 customPinView.RemoveFromSuperview();
                 customPinView.Dispose();

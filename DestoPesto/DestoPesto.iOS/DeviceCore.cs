@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using UIKit;
 using UserNotifications;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 
 [assembly: Xamarin.Forms.Dependency(typeof(DestoPesto.iOS.DeviceCore))]
@@ -80,6 +81,8 @@ namespace DestoPesto.iOS
                 if (settings.AlertSetting == UNNotificationSetting.Enabled)
                 {
                     taskCompletionSource.SetResult(PermissionStatus.Granted);
+                    AppDelegate.RegisterForRemoteNotifications();
+
                 }
                 else if (settings.AlertSetting == UNNotificationSetting.NotSupported)
                 {
@@ -117,6 +120,7 @@ namespace DestoPesto.iOS
                         taskCompletionSource.SetResult(PermissionStatus.Granted);
                     else
                         taskCompletionSource.SetResult(PermissionStatus.Disabled);
+                    AppDelegate.RegisterForRemoteNotifications();
 
 
                     Console.WriteLine(granted);
@@ -133,15 +137,19 @@ namespace DestoPesto.iOS
             else
             {
                 taskCompletionSource.SetResult(PermissionStatus.Granted);
+                
+
 
                 // iOS 9 or before
                 var allNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound;
                 var settings = UIUserNotificationSettings.GetSettingsForTypes(allNotificationTypes, null);
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
                 taskCompletionSource.SetResult(PermissionStatus.Granted);
+                AppDelegate.RegisterForRemoteNotifications();
             }
 
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
             return taskCompletionSource.Task;
         }
 

@@ -54,8 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Map\Map.csproj">
-      <Project>{3A806423-7C5A-4292-8E0B-0A85C620259A}</Project>
+      <Project>{C823DE42-0CB2-497E-89F4-99F060082CE2}</Project>
       <Name>Map</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DebugLog\DebugLog.csproj">
+      <Name>DebugLog</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

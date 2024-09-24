@@ -45,24 +45,91 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
 
-                    <!--<hpl:HyperlinkLabel x:Name="howto" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.HowItWorks}" Clicked="howto_Clicked" />
+                    <hpl:HyperlinkLabel x:Name="howto" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.HowItWorks}" Clicked="howto_Clicked" />
                     <hpl:HyperlinkLabel Grid.Row="1" x:Name="vision" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.Vision}" Clicked="vision_Clicked" />
                     <hpl:HyperlinkLabel Grid.Row="2"  x:Name="disclaimer" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.TermsConditions}" Clicked="disclaimer_Clicked" />
                     <hpl:HyperlinkLabel Grid.Row="3" x:Name="PrivacyPolicy" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.PrivacyPolicy}" Clicked="PrivacyPolicy_Clicked" />
-                    <hpl:HyperlinkLabel Grid.Row="4" x:Name="CookiesPolicy" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.CookiesPolicy}" Clicked="CookiesPolicy_Clicked" />-->
-                    
-                    
-                    <!--<hpl:HyperlinkLabel Grid.Row="4" x:Name="CookiesPolicy" Grid.ColumnSpan="2" Text="{Binding CookiesPolicy}" Clicked="CookiesPolicy_Clicked" />-->
                     <hpl:HyperlinkLabel Grid.Row="4" x:Name="CookiesPolicy" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.CookiesPolicy}" Clicked="CookiesPolicy_Clicked" />
 
 
-                    <!--<Image Grid.Row="5" BackgroundColor="White" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="5,5,5,5"/>
-                    <Label Grid.Row="5" BackgroundColor="White" Grid.Column="1" Text="{Binding AppVersion}" TextColor="{extensions:AppMode Color=TextDefault}" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>-->
+
+                    <Image Grid.Row="5" BackgroundColor="White" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="5,5,5,5"/>
+                    <Label Grid.Row="5" BackgroundColor="White" Grid.Column="1" Text="{Binding AppVersion}" TextColor="{extensions:AppMode Color=TextDefault}" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>
+
                 </Grid>
             </ContentView>
         </DataTemplate>
 
     </Shell.FlyoutFooterTemplate>
+
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <!--
+            -->
+            <!--
+            Default Styles for all Flyout Items
+            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
+            -->
+
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#0D6EFD"></Setter>
+            </Style>
+            <!--      <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            -->
+            <!--
+            Custom Style you can apply to any Flyout Item
+            -->
+            <!--
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>-->
+        </ResourceDictionary>
+    </Shell.Resources>
+
+
     <!--
 
     --><!--
