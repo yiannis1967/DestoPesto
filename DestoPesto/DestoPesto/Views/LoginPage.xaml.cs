@@ -163,8 +163,17 @@ namespace DestoPesto.Views
         }
 
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
-     
+            GoogleSignInVisible = JsonHandler.GoogleSignInMethod;
+            AppleSignInVisible = JsonHandler.AppleSignInMethod;
+            FacebookSignInVisible = JsonHandler.FacebookSignInMethod;
+            EmailSignInVisible = JsonHandler.EmailSignInMethod;
+
+        }
+
         private string _LoginHomePage = null;
         public string LoginHomePage
         {
