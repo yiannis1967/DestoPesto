@@ -171,6 +171,10 @@ namespace DestoPesto.Views
             AppleSignInVisible = JsonHandler.AppleSignInMethod;
             FacebookSignInVisible = JsonHandler.FacebookSignInMethod;
             EmailSignInVisible = JsonHandler.EmailSignInMethod;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GoogleSignInVisible)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AppleSignInVisible)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FacebookSignInVisible)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EmailSignInVisible)));
 
         }
 

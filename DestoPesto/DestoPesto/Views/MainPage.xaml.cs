@@ -969,6 +969,19 @@ namespace DestoPesto.Views
             }
 
         }
+
+        private async void ShareBtn_Clicked(object sender, EventArgs e)
+        {
+
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Subject = "Gerald's YouTube",
+                Text = "Please subscribe",
+                Title = "Gerald's YouTube",
+                Uri = "https://youtube.com/GeraldVersluis"
+            });
+
+        }
     }
 
 
