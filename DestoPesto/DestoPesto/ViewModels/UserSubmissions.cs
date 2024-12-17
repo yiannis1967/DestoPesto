@@ -12,6 +12,7 @@ using Xamarin.Forms;
 
 namespace DestoPesto
 {
+    /// <MetaDataID>{7d954cf8-7123-4be8-85cf-79b2a44d93ee}</MetaDataID>
     public class UserSubmissions : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
