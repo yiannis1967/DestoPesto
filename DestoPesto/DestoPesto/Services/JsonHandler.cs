@@ -26,13 +26,14 @@ using Authentication;
 
 namespace DestoPesto.Services
 {
+    /// <MetaDataID>{7496869d-b312-4c2c-a485-9092d38dfce4}</MetaDataID>
     public static class JsonHandler
     {
         static HttpClient httpClient;
         public static ObservableCollection<Catagories> catagories;
         public static ObservableCollection<DamageData> damageData;
         public static String URLString = "https://asfameazure.blob.core.windows.net/applications/arionapps/destopesto.xml";
-        
+
         static String FileData = "";
         public static async Task CreateFolder()
         {
@@ -651,16 +652,16 @@ namespace DestoPesto.Services
 
                         var page = (Shell.Current?.CurrentItem?.CurrentItem as IShellSectionController)?.PresentedPage;
 
-                        if (page is MainPage )
+                        if (page is MainPage)
                         {
                             (page as MainPage).UserSignedIn();
 
                         }
 
-                            if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
+                        if (await ContestIntroPage.DisplayPopUp(user.PromoContest))
                             await Shell.Current.Navigation.PushAsync(new UserProfilePage());// Code to run on the main thread
 
-                        
+
 
                     });
 
@@ -743,7 +744,7 @@ namespace DestoPesto.Services
         public static int MaxDistanceForFixed_meters = 100;
         public static int MaxRadToMapinMeters = 3000;
 
-        
+
 
 
 
@@ -957,7 +958,7 @@ namespace DestoPesto.Services
                 //   var content = await response.Content.ReadAsStringAsync();
 
 
-                
+
                 try
                 {
                     var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
@@ -966,7 +967,7 @@ namespace DestoPesto.Services
                 catch (Exception error)
                 {
 
-                    
+
                 }
                 return damageData;
 

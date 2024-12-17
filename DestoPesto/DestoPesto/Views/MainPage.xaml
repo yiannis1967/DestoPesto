@@ -32,6 +32,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -84,7 +85,73 @@
                     </ContentView>
                     <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
                 </AbsoluteLayout>
-                <ScrollView Grid.Row="1">
+                <Grid Grid.Row="1" Margin="2,0,4,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame CornerRadius="6"  Padding="2" HeightRequest="25" BackgroundColor="#F39A4A" Grid.ColumnSpan="3" >
+                        <Label HorizontalOptions="End" Text="{Binding MunicipalityStats.ranking}" TextColor="White" FontSize="20"  Margin="0,0,10,0">
+                        </Label>
+                    </Frame>
+                    <Frame  CornerRadius="6"  Padding="0" HeightRequest="20" BackgroundColor="#039ece" Grid.ColumnSpan="2" >
+                        <StackLayout VerticalOptions="Center"   Orientation="Horizontal">
+                            <Label VerticalOptions="Center" Margin="20,0,0,0" FontSize="19" TextColor="White" Text="ΣΤΑΤΙΣΤΙΚΑ - "/>
+                            <Label  VerticalOptions="Center" TextColor="White" FontSize="17"  Text="Κατάταξη δήμου / θεση:"/>
+                            
+                        </StackLayout>
+                    </Frame>
+                    <Grid  Grid.Row="1" Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Εκκρεμείς κατεχνίες¨:"></Label>
+                        <Label BackgroundColor="#039ece" HorizontalTextAlignment="End"  TextColor="White" Grid.Column="1" Text="{Binding MunicipalityStats.unfixed}"></Label>
+                    </Grid>
+                    <Grid Grid.Row="2"  Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Διορθωμένες "></Label>
+                        <Label BackgroundColor="#039ece" HorizontalTextAlignment="End" TextColor="White" Grid.Column="1" Text="{Binding MunicipalityStats._fixed}"></Label>
+                    </Grid>
+                    <Grid  Grid.Row="3"  Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Μέσσος χρόνος αποκατάστασης :"></Label>
+                        <Label BackgroundColor="#039ece" HorizontalTextAlignment="End"  TextColor="White" Grid.Column="1" Text="{Binding MunicipalityStats.average_repair_days}"></Label>
+                    </Grid>
+                    <Grid Margin="2,0,2,0" Grid.Row="4"  Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Παλαιότερη εκκρεμής κακοτεχνιά :"></Label>
+                        <Label BackgroundColor="#039ece" HorizontalTextAlignment="End" TextColor="White" Grid.Column="1" Text="{Binding MunicipalityStats.Unfixed_days}"></Label>
+
+                    </Grid>
+                    
+
+                    <Button Grid.Row="5" Grid.Column="0" x:Name="ShareBtn" Clicked="ShareBtn_Clicked" Image="{extensions:ImageResource DestoPesto.Images.settings.png}">
+                        
+                    </Button>
+                    
+                </Grid>
+                <ScrollView Grid.Row="2">
                     <Grid   x:Name="GridBtn" BackgroundColor="White"></Grid>
                 </ScrollView>
 
