@@ -31,6 +31,7 @@
             <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" x:Name="GridMain">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -84,7 +85,17 @@
                     </ContentView>
                     <!--<Image Source="logoback.png" HeightRequest="30"  Margin="10,0,0,0" VerticalOptions="EndAndExpand"  AbsoluteLayout.LayoutBounds="0.8, 0.02, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
                 </AbsoluteLayout>
-                <ScrollView Grid.Row="1">
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="ShareBtn" Clicked="ShareBtn_Clicked" Image="{extensions:ImageResource DestoPesto.Images.settings.png}">
+                        
+                    </Button>
+                    
+                </Grid>
+                <ScrollView Grid.Row="2">
                     <Grid   x:Name="GridBtn" BackgroundColor="White"></Grid>
                 </ScrollView>
 

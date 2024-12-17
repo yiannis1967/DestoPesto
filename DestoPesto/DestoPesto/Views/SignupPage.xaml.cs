@@ -164,6 +164,8 @@ namespace DestoPesto.Views
         private void txt_TextChanged(object sender, TextChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsValidInfo)));
+
+            
         }
     }
 }
