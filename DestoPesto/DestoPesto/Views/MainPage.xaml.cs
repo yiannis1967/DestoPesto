@@ -21,12 +21,16 @@ using Xamarin.Forms.Xaml;
 
 namespace DestoPesto.Views
 {
+    /// <MetaDataID>{65a085db-d7f3-4dbc-a6b9-889368b766eb}</MetaDataID>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
         public MainPage()
         {
             InitializeComponent();
+
+
+           MunicipalityStats = new MunicipalityStatsVM( Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50\r\n}}"));
 
             BindingContext = this;
 
@@ -169,7 +173,7 @@ namespace DestoPesto.Views
                    }
 
 
-            
+
 
                    try
                    {
@@ -356,7 +360,7 @@ namespace DestoPesto.Views
 
 
         double prevRad = 0;
-        private  void GetDamages(double rad)
+        private void GetDamages(double rad)
         {
             if (rad > prevRad && rad < JsonHandler.MaxRadToMapinMeters)
             {
@@ -982,9 +986,32 @@ namespace DestoPesto.Views
             });
 
         }
+
+        public MunicipalityStatsVM MunicipalityStats { get; set; } = new MunicipalityStatsVM(new Services.MunicipalityStats() { ranking = 123 });
     }
 
 
 
+    /// <MetaDataID>{e9ee6fc6-1642-4649-8340-b329b44de7e1}</MetaDataID>
+    public class MunicipalityStatsVM
+    {
+        MunicipalityStats MunicipalityStats;
+        public MunicipalityStatsVM(MunicipalityStats municipalityStats)
+        {
+            MunicipalityStats = municipalityStats;
+        }
+        public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
+        public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
+
+        public string unfixed { get => (MunicipalityStats.Subs-MunicipalityStats._fixed).ToString(); set { } }
+
+        public string perc { get => MunicipalityStats.perc.ToString(); set { } }
+        public string average_repair_days { get => MunicipalityStats.average_repair_days.ToString(); set { } }
+        public string unfixed_since { get => MunicipalityStats.unfixed_since.ToString(); set { } }
+        public string Unfixed_days { get => MunicipalityStats.Unfixed_days.ToString(); set { } }
+        public string email { get => MunicipalityStats.email; set { } }
+        public string date { get => MunicipalityStats.date.ToString(); set { } }
+        public string ranking { get => MunicipalityStats.ranking.ToString(); set { } }
+    }
 
 }
