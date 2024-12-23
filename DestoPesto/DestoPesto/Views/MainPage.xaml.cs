@@ -1005,7 +1005,7 @@ namespace DestoPesto.Views
 
         public string unfixed { get => (MunicipalityStats.Subs-MunicipalityStats._fixed).ToString(); set { } }
 
-        public string perc { get => MunicipalityStats.perc.ToString(); set { } }
+        public string perc { get => MunicipalityStats.perc.ToString()+"%"; set { } }
         public string average_repair_days { get => MunicipalityStats.average_repair_days.ToString(); set { } }
         public string unfixed_since { get => MunicipalityStats.unfixed_since.ToString(); set { } }
         public string Unfixed_days { get => MunicipalityStats.Unfixed_days.ToString(); set { } }
