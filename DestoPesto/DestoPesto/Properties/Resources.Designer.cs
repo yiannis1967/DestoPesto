@@ -808,6 +808,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Municipality score.
+        /// </summary>
+        public static string MunicipalityScore {
+            get {
+                return ResourceManager.GetString("MunicipalityScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The system is not responding because internet connection is lost or the server is down. Close the app and try again in a minute.
         /// </summary>
         public static string NoInternetText {
@@ -1029,6 +1038,15 @@ namespace DestoPesto.Properties {
         public static string ResetPassword {
             get {
                 return ResourceManager.GetString("ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smaller score is better.
+        /// </summary>
+        public static string ScoreExplain {
+            get {
+                return ResourceManager.GetString("ScoreExplain", resourceCulture);
             }
         }
         
