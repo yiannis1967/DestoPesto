@@ -30,7 +30,7 @@ namespace DestoPesto.Views
             InitializeComponent();
 
 
-           MunicipalityStats = new MunicipalityStatsVM( Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50\r\n}}"));
+            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 80\r\n}}"));
 
             BindingContext = this;
 
@@ -1003,15 +1003,15 @@ namespace DestoPesto.Views
         public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
         public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
 
-        public string unfixed { get => (MunicipalityStats.Subs-MunicipalityStats._fixed).ToString(); set { } }
+        public string unfixed { get => (MunicipalityStats.Subs - MunicipalityStats._fixed).ToString(); set { } }
 
-        public string perc { get => MunicipalityStats.perc.ToString()+"%"; set { } }
+        public string perc { get => MunicipalityStats.perc.ToString() + "%"; set { } }
         public string average_repair_days { get => MunicipalityStats.average_repair_days.ToString(); set { } }
         public string unfixed_since { get => MunicipalityStats.unfixed_since.ToString(); set { } }
         public string Unfixed_days { get => MunicipalityStats.Unfixed_days.ToString(); set { } }
         public string email { get => MunicipalityStats.email; set { } }
         public string date { get => MunicipalityStats.date.ToString(); set { } }
-        public string ranking { get => MunicipalityStats.ranking.ToString(); set { } }
+        public string ranking { get =>  MunicipalityStats.ranking.ToString() ; set { } }
     }
 
 }

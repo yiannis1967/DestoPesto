@@ -808,7 +808,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Municipality score.
+        ///   Looks up a localized string similar to scores out of 332 municipalities at position.
         /// </summary>
         public static string MunicipalityScore {
             get {
@@ -1173,6 +1173,15 @@ namespace DestoPesto.Properties {
         public static string TokenExpiredText {
             get {
                 return ResourceManager.GetString("TokenExpiredText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to / 335.
+        /// </summary>
+        public static string TotalMunicipalities {
+            get {
+                return ResourceManager.GetString("TotalMunicipalities", resourceCulture);
             }
         }
         

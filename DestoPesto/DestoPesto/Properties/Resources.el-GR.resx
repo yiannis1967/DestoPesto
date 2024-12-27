@@ -535,9 +535,12 @@
     <value>Ονομα χρήστη</value>
   </data>
   <data name="MunicipalityScore" xml:space="preserve">
-    <value>Κατάταξη δήμου</value>
+    <value>σε σύνολο 332 δήμων βρίσκεται στην θέση</value>
   </data>
   <data name="ScoreExplain" xml:space="preserve">
     <value>Μικρότερη κατάταξη καλύτερη θέση</value>
+  </data>
+  <data name="TotalMunicipalities" xml:space="preserve">
+    <value>/ 335</value>
   </data>
 </root>

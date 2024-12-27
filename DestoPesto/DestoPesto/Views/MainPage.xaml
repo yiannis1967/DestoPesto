@@ -102,27 +102,28 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <!--<RowDefinition Height="Auto"/>-->
                         
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="7*"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                         
                     </Grid.ColumnDefinitions>
 
+                    <Label  Grid.Column="1" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" FontSize="Header"  Text="Βούλα Βάρη Βουλιαγμένη Ορχομενός"/>
 
-                    <Label  Grid.Column="1" VerticalOptions="Center" TextColor="White" FontSize="Large"  Text="{x:Static resources:Properties.Resources.MunicipalityScore}"/>
-                    <Label  Grid.Column="2"  Grid.RowSpan="3" VerticalOptions="Center" HorizontalTextAlignment="Center" TextColor="White" VerticalTextAlignment="Center" Text="{Binding MunicipalityStats.ranking}" FontSize="Title" />
-                    <Button  Grid.Column="3" Grid.RowSpan="3" x:Name="MoreBtn" BorderColor="black" BorderWidth="1" CornerRadius="10" VerticalOptions="Center" Image="{extensions:ImageResource DestoPesto.Images.more-50.png}"  HorizontalOptions="End" Margin="2"/>
-                    <Button Grid.Column="0" Grid.RowSpan="3" x:Name="ShareBtn" VerticalOptions="Center" Clicked="ShareBtn_Clicked" Image="{extensions:ImageResource DestoPesto.Images.share-60.png}" BorderColor="Black" BorderWidth="1" Margin="2" CornerRadius="10"/>
+                    <Label  Grid.Column="2"  Grid.Row="0" Grid.RowSpan="2"  VerticalOptions="Center" HorizontalTextAlignment="End" TextColor="White" VerticalTextAlignment="Center" Text="{Binding MunicipalityStats.ranking}" FontSize="Large" />
                     
-                    <Label  Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" FontSize="Header"  Text="Βούλα Βάρη Βουλιαγμένη"/>
-                    
-                    <Label  Grid.Column="1" Grid.Row="2" VerticalOptions="Center" TextColor="White" FontSize="Micro"  Text="{x:Static resources:Properties.Resources.ScoreExplain}" />
+                    <Button  Grid.Column="3" Grid.RowSpan="2" x:Name="MoreBtn" BorderColor="black" BorderWidth="1" CornerRadius="10" VerticalOptions="Center" Image="{extensions:ImageResource DestoPesto.Images.more-50.png}"  HorizontalOptions="End" Margin="2"/>
+                    <Button Grid.Column="0" Grid.RowSpan="2" x:Name="ShareBtn" VerticalOptions="Center" Clicked="ShareBtn_Clicked" Image="{extensions:ImageResource DestoPesto.Images.share-60.png}" BorderColor="Black" BorderWidth="1" Margin="2" CornerRadius="10"/>
+
+                    <Label  Grid.Column="1" Grid.Row="1" VerticalOptions="Center" TextColor="White" FontSize="Header"  Text="{x:Static resources:Properties.Resources.MunicipalityScore}"/>
+
+                    <!--<Label  Grid.Column="1" Grid.Row="2" VerticalOptions="Center" TextColor="White" FontSize="Micro"  Text="{x:Static resources:Properties.Resources.ScoreExplain}" />-->
 
                     
 
