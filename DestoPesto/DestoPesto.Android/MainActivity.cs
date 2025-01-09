@@ -52,14 +52,36 @@ namespace DestoPesto.Droid
 
             base.OnCreate(savedInstanceState);
 
+
             try
             {
+            
 
-                //  var sds = LogDebug.Current.ReadLog();
 
                 Xamarin.Essentials.Platform.Init(this, savedInstanceState);
                 global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
                 Xamarin.FormsMaps.Init(this, savedInstanceState);
+                var uri = DestoPesto.Services.JsonHandler.getUri();
+                DebugLog.AppEventLog.Log("OnCreate(Bundle savedInstanceState)");
+
+
+                if (App.IntentExtras == null)
+                    DebugLog.AppEventLog.Log("IntentExtras = null");
+                else 
+                    DebugLog.AppEventLog.Log($"App.IntentExtras entries {App.IntentExtras.Count}");
+
+                //if (Intent?.Extras?.KeySet() != null)
+                //{
+                //    DebugLog.AppEventLog.Log("Intent.Extras.KeySet");
+                //    foreach (var key in Intent.Extras.KeySet())
+                //    {
+                //        LogDebug.Current.Log(new List<string>() { key });
+                //        var value = Intent.Extras.GetString(key);
+
+                //    }
+                //}
+                //else
+                //    DebugLog.AppEventLog.Log("Intent.Extras.KeySet() = null");
 
 
 
@@ -87,6 +109,7 @@ namespace DestoPesto.Droid
                             App.IntentExtras = new Dictionary<string, string>();
                         foreach (var key in Intent.Extras.KeySet())
                         {
+                            LogDebug.Current.Log(new List<string>() { key });
                             var value = Intent.Extras.GetString(key);
                             App.IntentExtras[key] = value;
                         }
@@ -183,6 +206,7 @@ namespace DestoPesto.Droid
             }
         }
 
+
         public void InitAfterPermissionsGranted()
         {
             IsPlayServicesAvailable();
@@ -194,8 +218,10 @@ namespace DestoPesto.Droid
         public static Activity mainLauncher = null;
         protected override void OnNewIntent(Intent intent)
         {
+            DebugLog.AppEventLog.Log($"OnNewIntent(Intent intent) intent:{intent!=null} intent.Extras:{intent.Extras != null}");
             CreateNotificationFromIntent(intent);
         }
+        
         protected override void OnStart()
         {
             try

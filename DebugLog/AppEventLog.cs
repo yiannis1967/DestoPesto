@@ -45,6 +45,10 @@ namespace DebugLog
                     }
                 }
             }
+
+#if DEBUG
+            Active = true;
+#endif
         }
 
 
