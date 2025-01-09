@@ -574,6 +574,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to of.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
         public static string GenderText {
@@ -808,6 +817,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The municipality is at position .
+        /// </summary>
+        public static string MunicipalityScore {
+            get {
+                return ResourceManager.GetString("MunicipalityScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The system is not responding because internet connection is lost or the server is down. Close the app and try again in a minute.
         /// </summary>
         public static string NoInternetText {
@@ -1033,6 +1051,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Smaller score is better.
+        /// </summary>
+        public static string ScoreExplain {
+            get {
+                return ResourceManager.GetString("ScoreExplain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Upload photos only over Wifi.
         /// </summary>
         public static string sendDataWifi {
@@ -1155,6 +1182,15 @@ namespace DestoPesto.Properties {
         public static string TokenExpiredText {
             get {
                 return ResourceManager.GetString("TokenExpiredText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 335.
+        /// </summary>
+        public static string TotalMunicipalities {
+            get {
+                return ResourceManager.GetString("TotalMunicipalities", resourceCulture);
             }
         }
         

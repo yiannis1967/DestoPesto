@@ -19,6 +19,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
+
 namespace DestoPesto.Views
 {
     /// <MetaDataID>{65a085db-d7f3-4dbc-a6b9-889368b766eb}</MetaDataID>
@@ -30,7 +31,7 @@ namespace DestoPesto.Views
             InitializeComponent();
 
 
-           MunicipalityStats = new MunicipalityStatsVM( Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50\r\n}}"));
+            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50, \r\n\"validMunicipalities\":150, \r\n}}"));
 
             BindingContext = this;
 
@@ -1003,15 +1004,63 @@ namespace DestoPesto.Views
         public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
         public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
 
-        public string unfixed { get => (MunicipalityStats.Subs-MunicipalityStats._fixed).ToString(); set { } }
+        public string unfixed { get => (MunicipalityStats.Subs - MunicipalityStats._fixed).ToString(); set { } }
 
-        public string perc { get => MunicipalityStats.perc.ToString(); set { } }
+        public string perc { get => MunicipalityStats.perc.ToString() + "%"; set { } }
         public string average_repair_days { get => MunicipalityStats.average_repair_days.ToString(); set { } }
         public string unfixed_since { get => MunicipalityStats.unfixed_since.ToString(); set { } }
         public string Unfixed_days { get => MunicipalityStats.Unfixed_days.ToString(); set { } }
         public string email { get => MunicipalityStats.email; set { } }
         public string date { get => MunicipalityStats.date.ToString(); set { } }
-        public string ranking { get => MunicipalityStats.ranking.ToString(); set { } }
+        public string ranking { get => Properties.Resources.MunicipalityScore + " " + MunicipalityStats.ranking.ToString() + " " + Properties.Resources.From + " " + totalMunicipalities.ToString(); set { } }
+
+        public int totalMunicipalities { get => MunicipalityStats.validMunicipalities; set { } }
+
+        public string rating
+        {
+            get
+            {
+
+                List<double> array = new List<double>();
+
+                for (int i = 1; i < 151; i++)
+                {
+                    array.Add(i);
+                }
+
+                double[] arr = array.ToArray();
+                int min = 5;
+                int max = 1;
+
+                double[] rates = GetScaling(arr, min, max);
+
+                int rank = MunicipalityStats.ranking;
+
+                double StarPos = rates[rank - 1];
+
+                return StarPos.ToString();
+
+
+
+                return MunicipalityStats.ranking.ToString();
+            }
+            set { }
+        }
+
+
+        public double[] GetScaling(double[] arr, double min, double max)
+        {
+            double m = (max - min) / (arr.Max() - arr.Min());
+            double c = min - arr.Min() * m;
+            var newarr = new double[arr.Length];
+            for (int i = 0; i < newarr.Length; i++)
+            {
+                newarr[i] = m * arr[i] + c;
+                newarr[i] = Math.Round(newarr[i], 2);
+            }
+            return newarr;
+        }
+
     }
 
 }
