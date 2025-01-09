@@ -19,6 +19,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
+
 namespace DestoPesto.Views
 {
     /// <MetaDataID>{65a085db-d7f3-4dbc-a6b9-889368b766eb}</MetaDataID>
@@ -30,7 +31,7 @@ namespace DestoPesto.Views
             InitializeComponent();
 
 
-            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 5\r\n}}"));
+            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50, \r\n\"validMunicipalities\":150, \r\n}}"));
 
             BindingContext = this;
 
@@ -1011,6 +1012,10 @@ namespace DestoPesto.Views
         public string Unfixed_days { get => MunicipalityStats.Unfixed_days.ToString(); set { } }
         public string email { get => MunicipalityStats.email; set { } }
         public string date { get => MunicipalityStats.date.ToString(); set { } }
+        public string ranking { get => Properties.Resources.MunicipalityScore + " " + MunicipalityStats.ranking.ToString() + " " + Properties.Resources.From + " " + totalMunicipalities.ToString(); set { } }
+
+        public int totalMunicipalities { get => MunicipalityStats.validMunicipalities; set { } }
+
         public string rating
         {
             get
@@ -1041,7 +1046,7 @@ namespace DestoPesto.Views
             }
             set { }
         }
-        public string ranking { get => Properties.Resources.MunicipalityScore + " " + MunicipalityStats.ranking.ToString() + " " + Properties.Resources.From + " " + Properties.Resources.TotalMunicipalities; set { } }
+
 
         public double[] GetScaling(double[] arr, double min, double max)
         {
