@@ -462,6 +462,9 @@
   <data name="DeleteAccountText" xml:space="preserve">
     <value>Διαγραφή λογαριασμού</value>
   </data>
+  <data name="PendingPhotosToUpload" xml:space="preserve">
+    <value>Υπάρχουν σε εκκρεμότητα φωτογρασφίες για να ανέβουν στον server</value>
+  </data>
   <data name="WelcomeEmailPasswordLogin" xml:space="preserve">
     <value>Συμπλήρωσε το email και τον κωδικό σου</value>
   </data>
@@ -535,12 +538,15 @@
     <value>Ονομα χρήστη</value>
   </data>
   <data name="MunicipalityScore" xml:space="preserve">
-    <value>σε σύνολο 332 δήμων βρίσκεται στην θέση</value>
+    <value>Ο δήμος είναι στην θέση </value>
   </data>
   <data name="ScoreExplain" xml:space="preserve">
     <value>Μικρότερη κατάταξη καλύτερη θέση</value>
   </data>
   <data name="TotalMunicipalities" xml:space="preserve">
-    <value>/ 335</value>
+    <value>335</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>από</value>
   </data>
 </root>

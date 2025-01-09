@@ -30,7 +30,7 @@ namespace DestoPesto.Views
             InitializeComponent();
 
 
-            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 80\r\n}}"));
+            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 5\r\n}}"));
 
             BindingContext = this;
 
@@ -1011,7 +1011,51 @@ namespace DestoPesto.Views
         public string Unfixed_days { get => MunicipalityStats.Unfixed_days.ToString(); set { } }
         public string email { get => MunicipalityStats.email; set { } }
         public string date { get => MunicipalityStats.date.ToString(); set { } }
-        public string ranking { get =>  MunicipalityStats.ranking.ToString() ; set { } }
+        public string rating
+        {
+            get
+            {
+
+                List<double> array = new List<double>();
+
+                for (int i = 1; i < 151; i++)
+                {
+                    array.Add(i);
+                }
+
+                double[] arr = array.ToArray();
+                int min = 5;
+                int max = 1;
+
+                double[] rates = GetScaling(arr, min, max);
+
+                int rank = MunicipalityStats.ranking;
+
+                double StarPos = rates[rank - 1];
+
+                return StarPos.ToString();
+
+
+
+                return MunicipalityStats.ranking.ToString();
+            }
+            set { }
+        }
+        public string ranking { get => Properties.Resources.MunicipalityScore + " " + MunicipalityStats.ranking.ToString() + " " + Properties.Resources.From + " " + Properties.Resources.TotalMunicipalities; set { } }
+
+        public double[] GetScaling(double[] arr, double min, double max)
+        {
+            double m = (max - min) / (arr.Max() - arr.Min());
+            double c = min - arr.Min() * m;
+            var newarr = new double[arr.Length];
+            for (int i = 0; i < newarr.Length; i++)
+            {
+                newarr[i] = m * arr[i] + c;
+                newarr[i] = Math.Round(newarr[i], 2);
+            }
+            return newarr;
+        }
+
     }
 
 }

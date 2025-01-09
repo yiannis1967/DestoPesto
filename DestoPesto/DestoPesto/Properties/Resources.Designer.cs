@@ -574,6 +574,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to of.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
         public static string GenderText {
@@ -808,7 +817,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to scores out of 332 municipalities at position.
+        ///   Looks up a localized string similar to The municipality is at position .
         /// </summary>
         public static string MunicipalityScore {
             get {
@@ -1177,7 +1186,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to / 335.
+        ///   Looks up a localized string similar to 335.
         /// </summary>
         public static string TotalMunicipalities {
             get {

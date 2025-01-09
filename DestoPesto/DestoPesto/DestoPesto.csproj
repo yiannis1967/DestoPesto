@@ -175,6 +175,7 @@
     <None Remove="Images\share-120.png" />
     <None Remove="Images\share-60.png" />
     <None Remove="Images\share.png" />
+    <None Remove="Images\star.png" />
     <None Remove="Images\twitter.png" />
     <None Remove="Images\user.png" />
     <None Remove="Images\user_blue.png" />
@@ -225,6 +226,7 @@
     <EmbeddedResource Include="Images\settings.png" />
     <EmbeddedResource Include="Images\share-60.png" />
     <EmbeddedResource Include="Images\share.png" />
+    <EmbeddedResource Include="Images\star.png" />
     <EmbeddedResource Include="Images\twitter.png" />
     <EmbeddedResource Include="Images\user.png" />
     <EmbeddedResource Include="Images\user_blue.png" />

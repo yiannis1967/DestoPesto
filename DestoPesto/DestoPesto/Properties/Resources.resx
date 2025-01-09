@@ -541,12 +541,15 @@
     <value>User name</value>
   </data>
   <data name="MunicipalityScore" xml:space="preserve">
-    <value>scores out of 332 municipalities at position</value>
+    <value>The municipality is at position </value>
   </data>
   <data name="ScoreExplain" xml:space="preserve">
     <value>Smaller score is better</value>
   </data>
   <data name="TotalMunicipalities" xml:space="preserve">
-    <value>/ 335</value>
+    <value>335</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>of</value>
   </data>
 </root>
