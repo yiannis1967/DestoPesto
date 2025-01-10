@@ -17,6 +17,7 @@ namespace DestoPesto.Services
         public DateTime date { get; set; }
         public int ranking { get; set; }
         public int validMunicipalities { get;set; }
+      
     }
 
 }

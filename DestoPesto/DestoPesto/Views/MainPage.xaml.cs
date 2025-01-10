@@ -31,7 +31,7 @@ namespace DestoPesto.Views
             InitializeComponent();
 
 
-            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50, \r\n\"validMunicipalities\":150, \r\n}}"));
+            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50, \r\n\"validMunicipalities\":130, \r\n}}"));
 
             BindingContext = this;
 
@@ -975,15 +975,18 @@ namespace DestoPesto.Views
 
         }
 
+
+
         private async void ShareBtn_Clicked(object sender, EventArgs e)
         {
 
             await Share.RequestAsync(new ShareTextRequest
             {
-                Subject = "Gerald's YouTube",
-                Text = "Please subscribe",
-                Title = "Gerald's YouTube",
-                Uri = "https://youtube.com/GeraldVersluis"
+                Title = "Το Δες το Πες το",
+                Subject = "Αυτό διορθώθηκε μέσα σε 5 ημέρες",
+
+                Text = "Αυτό διορθώθηκε μέσα σε 3 ημέρες",
+                Uri = "https://destopesto.blob.core.windows.net/destopesto/images/thumb/0a0e0a88e2c34775bada7e1fef49f8fb.jpg"
             });
 
         }
@@ -1016,6 +1019,35 @@ namespace DestoPesto.Views
 
         public int totalMunicipalities { get => MunicipalityStats.validMunicipalities; set { } }
 
+        public ImageSource ratingStars
+        {
+            get
+            {
+
+
+                double ratestar = 0;
+                double.TryParse(rating, out ratestar);
+                ratestar = Math.Round(ratestar, 0);
+                switch (ratestar)
+                {
+                    case 1:
+
+                        return ImageSource.FromResource("DestoPesto.Images.1stars.png"); 
+                    case 2:
+                        return ImageSource.FromResource("DestoPesto.Images.2stars.png"); 
+                    case 3:
+                        return ImageSource.FromResource("DestoPesto.Images.3stars.png"); 
+                    case 4:
+                        return ImageSource.FromResource("DestoPesto.Images.4stars.png"); 
+                    case 5:
+                        return ImageSource.FromResource("DestoPesto.Images.5stars.png"); 
+                    default:
+                        return null;
+                }
+            }
+            set { }
+        }
+
         public string rating
         {
             get
@@ -1023,7 +1055,7 @@ namespace DestoPesto.Views
 
                 List<double> array = new List<double>();
 
-                for (int i = 1; i < 151; i++)
+                for (int i = 1; i < totalMunicipalities + 1; i++)
                 {
                     array.Add(i);
                 }
