@@ -27,16 +27,13 @@ namespace DestoPesto.Droid
             base.OnCreate(savedInstanceState);
             try
             {
-
                 if (Intent?.Extras?.KeySet() != null)
                 {
-                    if (App.Current is App && (App.Current as App).IntentExtras == null)
-                        (App.Current as App).IntentExtras = new Dictionary<string, string>();
+                    App.IntentExtras = new Dictionary<string, string>();
                     foreach (var key in Intent.Extras.KeySet())
                     {
                         var value = Intent.Extras.GetString(key);
-                        (App.Current as App).IntentExtras[key] = value;
-
+                        App.IntentExtras[key] = value;
                     }
                 }
             }

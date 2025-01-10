@@ -353,7 +353,7 @@ namespace DestoPesto.Services
 
         static string _Uri;
 
-        internal static string getUri()
+        public static string getUri()
         {
             try
             {
@@ -379,7 +379,7 @@ namespace DestoPesto.Services
 
                     int.TryParse(doc.Root.Attribute("MaxRadToMapinMeters")?.Value, out MaxRadToMapinMeters);
 
-                    var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                    
 
 
 
@@ -403,9 +403,17 @@ namespace DestoPesto.Services
 
 #endif
                     // _Uri = "http://10.0.0.13:5005/";
-                    var deviceID = device.DeviceID;
-                    DebugLog.AppEventLog.Start(_Uri, deviceID, doc.Root.Element("DebugLogs"));
-                }
+
+                    try
+                    {
+                        var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                        var deviceID = device.DeviceID;
+                        DebugLog.AppEventLog.Start(_Uri, deviceID, doc.Root.Element("DebugLogs"));
+
+                    }
+                    catch (Exception error)
+                    {
+                    }                }
 
             }
             catch (Exception ex)

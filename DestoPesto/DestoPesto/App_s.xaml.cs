@@ -18,7 +18,7 @@ namespace DestoPesto
     {
         private AuthUser user;
 
-        public Dictionary<string, string> IntentExtras { get; set; }
+        public static Dictionary<string, string> IntentExtras { get; set; }
 
         public static DateTime StartTime { get; set; }
 
