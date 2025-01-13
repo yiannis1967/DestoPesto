@@ -27,6 +27,7 @@
     <PackageReference Include="PCLStorage" Version="1.0.2" />
     <PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
     <PackageReference Include="Prism.Plugin.Popups" Version="8.0.76" />
+    <PackageReference Include="RatingBarControl" Version="1.0.0" />
     <PackageReference Include="Xam.Plugin.Media" Version="6.0.2" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
@@ -133,6 +134,11 @@
     <None Remove="ButtonCircleBig.png" />
     <None Remove="DestoPesto-app.7z" />
     <None Remove="DestoPesto.7z" />
+    <None Remove="Images\1stars.png" />
+    <None Remove="Images\2stars.png" />
+    <None Remove="Images\3stars.png" />
+    <None Remove="Images\4stars.png" />
+    <None Remove="Images\5stars.png" />
     <None Remove="Images\AcceptedSub.png" />
     <None Remove="Images\applelogo.png" />
     <None Remove="Images\back_arrow.png" />
@@ -188,6 +194,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ButtonCircleBig.png" />
+    <EmbeddedResource Include="Images\1stars.png" />
+    <EmbeddedResource Include="Images\2stars.png" />
+    <EmbeddedResource Include="Images\3stars.png" />
+    <EmbeddedResource Include="Images\4stars.png" />
+    <EmbeddedResource Include="Images\5stars.png" />
     <EmbeddedResource Include="Images\AcceptedSub.png" />
     <EmbeddedResource Include="Images\applelogo.png" />
     <EmbeddedResource Include="Images\back_arrow.png" />

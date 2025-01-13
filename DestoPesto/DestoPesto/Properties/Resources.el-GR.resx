@@ -171,6 +171,9 @@
   <data name="LocalNotificationTitle" xml:space="preserve">
     <value>Μήνυμα από "Δες το πες το" </value>
   </data>
+  <data name="CancleText" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
   <data name="LocationPrompt" xml:space="preserve">
     <value>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </value>
   </data>
@@ -548,5 +551,18 @@
   </data>
   <data name="From" xml:space="preserve">
     <value>από</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="2stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="3stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="4stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="5stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>
