@@ -271,7 +271,7 @@ namespace DestoPesto
             string comments;
             data.TryGetValue("Comments", out comments);
 
-            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments,null));
 
 
             try

@@ -17,6 +17,7 @@ using System.Timers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+
 using Xamarin.Forms.Xaml;
 
 
@@ -251,9 +252,43 @@ namespace DestoPesto.Views
                                    if (messageID != null && messageID.IndexOf("Contest_") == 0)
                                        return;
 
+                                   string imageUrl;
+                                   App.IntentExtras.TryGetValue("ImageUrl", out imageUrl);
+                                   if (submisionThumb == null)
+                                       submisionThumb = imageUrl;
+
+                                   ShareTextRequest shareTextRequest = null;
+
+                                   string shareText;
+                                   bool share = false;
+                                   App.IntentExtras.TryGetValue("Share", out shareText);
+                                   if (shareText == "true")
+                                   {
+                                       share = true;
+
+                                       string share_Text;
+                                       App.IntentExtras.TryGetValue("Share_Text", out share_Text);
+                                       string share_Subject;
+                                       App.IntentExtras.TryGetValue("Share_Subject", out share_Subject);
+                                       string share_Title;
+                                       App.IntentExtras.TryGetValue("Share_Title", out share_Title);
+                                       string share_Uri;
+                                       App.IntentExtras.TryGetValue("Share_Uri", out share_Uri);
+                                       shareTextRequest = new ShareTextRequest
+                                       {
+                                           Subject = share_Subject,
+                                           Text = share_Text,
+                                           Title = share_Title,
+                                           Uri = share_Uri
+                                       };
+
+                                   }
+
+                                    
+
                                    /*(App.Current as App)*/
                                    App.IntentExtras.Clear();
-                                   await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+                                   await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments, shareTextRequest));
 
                                    break;
                                }
