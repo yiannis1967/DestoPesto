@@ -150,7 +150,11 @@ namespace DestoPesto.Views
                           MapIsVisible = true;
                       }
                       else
-                          MapIsVisible = false;
+                      {
+                          locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                          if (locationInUsePermisions != PermissionStatus.Granted)
+                              MapIsVisible = false;
+                      }
                       // Code to run on the main thread  
 
                   });
@@ -284,7 +288,7 @@ namespace DestoPesto.Views
 
                                    }
 
-                                    
+
 
                                    /*(App.Current as App)*/
                                    App.IntentExtras.Clear();
@@ -1067,15 +1071,15 @@ namespace DestoPesto.Views
                 {
                     case 1:
 
-                        return ImageSource.FromResource("DestoPesto.Images.1stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.1stars.png");
                     case 2:
-                        return ImageSource.FromResource("DestoPesto.Images.2stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.2stars.png");
                     case 3:
-                        return ImageSource.FromResource("DestoPesto.Images.3stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.3stars.png");
                     case 4:
-                        return ImageSource.FromResource("DestoPesto.Images.4stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.4stars.png");
                     case 5:
-                        return ImageSource.FromResource("DestoPesto.Images.5stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.5stars.png");
                     default:
                         return null;
                 }

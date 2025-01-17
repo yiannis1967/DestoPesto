@@ -110,7 +110,7 @@ namespace DestoPesto.Views
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LoginHomePage)));
                     });
 
-
+                    //https://destopesto.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt
 
                     try
                     {
