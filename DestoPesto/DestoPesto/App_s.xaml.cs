@@ -14,6 +14,7 @@ using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto
 {
+    /// <MetaDataID>{45ab586b-8dc8-4695-ba36-6969dec79187}</MetaDataID>
     public partial class App : Application
     {
         private AuthUser user;
@@ -68,7 +69,7 @@ namespace DestoPesto
         private async void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
         {
 
-            
+
             if (Authentication.DeviceAuthentication.AuthUser != null)
             {
                 user = Authentication.DeviceAuthentication.AuthUser;
@@ -122,9 +123,9 @@ namespace DestoPesto
 
         public Dictionary<string, object> Options { get; set; }
 
-        protected override void OnStart()
+        protected async override void OnStart()
         {
-
+            
             //GetLocation();
 
         }
@@ -151,6 +152,8 @@ namespace DestoPesto
 
         internal void RemoveUserSubmittedDamage(DamageData damageData)
         {
+
+            UserSubmissions?.RemoveUserSubmittedDamage(damageData);
             SubmittedDamageUser.Remove(damageData);
 
             OnPropertyChanged(nameof(SubmittedDamageUser));
@@ -271,7 +274,7 @@ namespace DestoPesto
             string comments;
             data.TryGetValue("Comments", out comments);
 
-            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments,null));
+            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments, null));
 
 
             try

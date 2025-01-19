@@ -2,6 +2,7 @@
 using DestoPesto.ViewModels;
 using DestoPesto.Views;
 using Prism.Navigation.Xaml;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using Xamarin.Forms;
 
 namespace DestoPesto
 {
+    /// <MetaDataID>{ccff3266-c30d-45a4-9313-ec459e5617f2}</MetaDataID>
     public partial class AppShell : Xamarin.Forms.Shell
     {
         public AppShell()
@@ -26,6 +28,12 @@ namespace DestoPesto
 
             //Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+        }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            
         }
 
         public String CookiesPolicy
@@ -52,7 +60,7 @@ namespace DestoPesto
             {
                 LoginItem.IsVisible = true;
                 CurrentItem = Items[1];
-                
+
             }
 
             Shell.Current.FlyoutIsPresented = false;
@@ -79,11 +87,11 @@ namespace DestoPesto
             get
             {
                 //if (string.IsNullOrWhiteSpace(_AppVersion))
-                    //_AppVersion = Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionCode;
+                //_AppVersion = Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionCode;
 
-                    //Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
+                //Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
 
-                    //_AppVersion =Navigation.InsertPageBefore
+                //_AppVersion =Navigation.InsertPageBefore
 
 
                 return _AppVersion;
@@ -102,7 +110,7 @@ namespace DestoPesto
                 if (page is MainPage && Navigation.NavigationStack.Count == 1)
                     CurrentItem = Items[1];
 
-                
+
                 Shell.Current.FlyoutIsPresented = false;
                 Authentication.DeviceAuthentication.SignedOut();
 

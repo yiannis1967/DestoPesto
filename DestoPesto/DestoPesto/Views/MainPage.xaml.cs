@@ -2,6 +2,7 @@
 using DestoPesto.Models;
 using DestoPesto.Services;
 using Maps;
+using Plugin.Media.Abstractions;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -58,9 +59,11 @@ namespace DestoPesto.Views
         public bool NoInternetConnection { get; private set; }
 
 
-        protected override void OnAppearing()
+        protected async override void  OnAppearing()
         {
             base.OnAppearing();
+
+            //await PopupNavigation.Instance.PushAsync(new PermissionsPage());
 
 
             //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
@@ -114,8 +117,8 @@ namespace DestoPesto.Views
                           try
                           {
                               var location = await Geolocation.GetLastKnownLocationAsync();
-#if _DEBUG
-                              location = new Location(37.942942, 23.649365);
+#if DEBUG
+                              location = new Xamarin.Essentials.Location(37.943341, 23.648707);
 #endif
                               if (location != null && map != null)
                               {
@@ -412,13 +415,20 @@ namespace DestoPesto.Views
                  {
                      var location = await Geolocation.GetLastKnownLocationAsync();
 
-#if _DEBUG
-                     location = new Location(37.942942, 23.649365);
+#if DEBUG
+                     location = new Xamarin.Essentials.Location(37.943341, 23.648707);
 #endif
                      //Call GetSubmission
                      try
                      {
                          (App.Current as App).SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, rad);
+                         if (JsonHandler.MunicipalityStats != null)
+                         {
+                             var tt = MunicipalityStats.ranking;
+                             var sds= JsonHandler.MunicipalityStats;
+                             MunicipalityStats = new MunicipalityStatsVM(JsonHandler.MunicipalityStats);
+                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MunicipalityStats)));
+                         }
                      }
                      catch (Exception ex)
                      {
@@ -624,7 +634,7 @@ namespace DestoPesto.Views
 
                         var location = await Geolocation.GetLocationAsync();
 #if _DEBUG
-                        location = new Location(37.942942, 23.649365);
+                        location = new Location(37.943341, 23.648707);
 #endif
 
                         if (location != null)
@@ -812,7 +822,7 @@ namespace DestoPesto.Views
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
 #if _DEBUG
-                location = new Location(37.942942, 23.649365);
+                location = new Location(37.943341, 23.648707);
 #endif
 
 
@@ -980,8 +990,11 @@ namespace DestoPesto.Views
 
             if (damage != null)
             {
-                var locaion = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
-                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, locaion));
+                var location = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
+#if DEBUG
+                location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+#endif
+                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, location));
             }
         }
         bool Execute = true;
@@ -1031,6 +1044,11 @@ namespace DestoPesto.Views
         }
 
         public MunicipalityStatsVM MunicipalityStats { get; set; } = new MunicipalityStatsVM(new Services.MunicipalityStats() { ranking = 123 });
+
+        private void MoreBtn_Clicked(object sender, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new MunicipalityStatsPopUp(MunicipalityStats.MunicipalityStats));
+        }
     }
 
 
@@ -1038,7 +1056,7 @@ namespace DestoPesto.Views
     /// <MetaDataID>{e9ee6fc6-1642-4649-8340-b329b44de7e1}</MetaDataID>
     public class MunicipalityStatsVM
     {
-        MunicipalityStats MunicipalityStats;
+       public readonly MunicipalityStats MunicipalityStats;
         public MunicipalityStatsVM(MunicipalityStats municipalityStats)
         {
             MunicipalityStats = municipalityStats;
@@ -1061,7 +1079,7 @@ namespace DestoPesto.Views
         public ImageSource ratingStars
         {
             get
-            {
+            { 
 
 
                 double ratestar = 0;
@@ -1098,6 +1116,7 @@ namespace DestoPesto.Views
                 {
                     array.Add(i);
                 }
+                
 
                 double[] arr = array.ToArray();
                 int min = 5;
