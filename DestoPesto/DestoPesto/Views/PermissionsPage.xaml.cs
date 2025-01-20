@@ -44,9 +44,9 @@ namespace DestoPesto.Views
                     WebClient client = new WebClient();
 
                     string mainIntroHtml = null;
-                    const string errorFileName = "MainIntro.json";
+                    const string FileName = "Permissions.json";
                     var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
-                    var filePath = Path.Combine(libraryPath, errorFileName);
+                    var filePath = Path.Combine(libraryPath, FileName);
 
                     if (File.Exists(filePath))
                         _MobileHomePage = File.ReadAllText(filePath);
@@ -64,7 +64,7 @@ namespace DestoPesto.Views
                     {
                         if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                         {
-                            _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+                            _MobileHomePage = client.DownloadString(Properties.Resources.PermissionsScreenFileLink);
 
                             File.WriteAllText(filePath, _MobileHomePage);
                             MainThread.BeginInvokeOnMainThread(async () =>

@@ -564,4 +564,19 @@
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
     <value>Παλαιότερη εκκρεμής κακοτεχνιά :</value>
   </data>
+  <data name="2stars" xml:space="preserve">
+    <value />
+  </data>
+  <data name="3stars" xml:space="preserve">
+    <value />
+  </data>
+  <data name="4stars" xml:space="preserve">
+    <value />
+  </data>
+  <data name="5stars" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PermissionsScreenFileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
+  </data>
 </root>

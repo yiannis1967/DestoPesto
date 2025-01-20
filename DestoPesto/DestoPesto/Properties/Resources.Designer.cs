@@ -61,6 +61,42 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string _2stars {
+            get {
+                return ResourceManager.GetString("2stars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string _3stars {
+            get {
+                return ResourceManager.GetString("3stars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string _4stars {
+            get {
+                return ResourceManager.GetString("4stars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string _5stars {
+            get {
+                return ResourceManager.GetString("5stars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total qualified photos.
         /// </summary>
         public static string AcceptedPhotosLabel {
@@ -966,6 +1002,15 @@ namespace DestoPesto.Properties {
         public static string PermissionsNotGrandedText {
             get {
                 return ResourceManager.GetString("PermissionsNotGrandedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt.
+        /// </summary>
+        public static string PermissionsScreenFileLink {
+            get {
+                return ResourceManager.GetString("PermissionsScreenFileLink", resourceCulture);
             }
         }
         

@@ -552,19 +552,6 @@
   <data name="From" xml:space="preserve">
     <value>από</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="2stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="3stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="4stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="5stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="MunicipalityAvrgRepairDays" xml:space="preserve">
     <value>Μέσσος χρόνος αποκατάστασης :</value>
   </data>
@@ -576,5 +563,8 @@
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
     <value>Παλαιότερη εκκρεμής κακοτεχνιά :</value>
+  </data>
+  <data name="PermissionsScreenFileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
   </data>
 </root>

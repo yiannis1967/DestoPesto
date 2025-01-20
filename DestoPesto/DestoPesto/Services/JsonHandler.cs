@@ -390,7 +390,7 @@ namespace DestoPesto.Services
                     string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                     _Uri = uri;
-#if DEBUG
+#if _DEBUG
                     var profiles = Connectivity.ConnectionProfiles;
                     //if(profiles.Contains(ConnectionProfile.WiFi))
                     _Uri = "http://192.168.1.71:5005/";
@@ -947,6 +947,7 @@ namespace DestoPesto.Services
             if (Connectivity.NetworkAccess != NetworkAccess.Internet && !string.IsNullOrWhiteSpace(Authentication.DeviceAuthentication.IDToken))
             {
 
+
                 return new ObservableCollection<DamageData>();
 
             }
@@ -993,6 +994,10 @@ namespace DestoPesto.Services
                     var response = await httpClient.GetStringAsync(uri);
                     MunicipalityStats = JsonConvert.DeserializeObject<MunicipalityStats>(response);
                     
+                    if (MunicipalityStats.validMunicipalities == 0)
+                        MunicipalityStats.validMunicipalities = 150;
+
+
                 }
                 catch (Exception error)
                 {
