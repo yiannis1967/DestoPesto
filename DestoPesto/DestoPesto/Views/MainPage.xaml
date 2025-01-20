@@ -121,7 +121,7 @@
                     <!--<Image Grid.Column="2" Grid.RowSpan="2" Source="{extensions:ImageResource DestoPesto.Images.star.png}" HeightRequest="12" WidthRequest="12" VerticalOptions="Center"/>-->
 
                     <Button Grid.Column="0" Grid.RowSpan="2" x:Name="ShareBtn" BorderColor="White" BorderWidth="0"  VerticalOptions="Center" Clicked="ShareBtn_Clicked" Image="{extensions:ImageResource DestoPesto.Images.share-60.png}" HeightRequest="50" WidthRequest="50"  Margin="2" CornerRadius="10"/>
-                    <Button  Grid.Column="3" Grid.RowSpan="2" x:Name="MoreBtn" BorderColor="Gray" BorderWidth="0" CornerRadius="10" VerticalOptions="Center" Image="{extensions:ImageResource DestoPesto.Images.more-50.png}"  HorizontalOptions="End" Margin="2"/>
+                    <Button  Grid.Column="3" Grid.RowSpan="2" x:Name="MoreBtn" BorderColor="Gray" BorderWidth="0" CornerRadius="10" VerticalOptions="Center" Image="{extensions:ImageResource DestoPesto.Images.more-50.png}"  HorizontalOptions="End" Clicked="MoreBtn_Clicked" Margin="2"/>
 
                     <Label  Grid.Column="2"  Grid.Row="0" Grid.RowSpan="2"  VerticalOptions="Start" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" VerticalTextAlignment="Center" Text="{Binding MunicipalityStats.rating}" FontSize="Large" />
                     <Image Grid.Column="2" Grid.Row="1"   WidthRequest="50" HeightRequest="20" HorizontalOptions="Center" Source="{Binding MunicipalityStats.ratingStars}"/>
@@ -180,3 +180,9 @@
         </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
+
+
+
+
+
+

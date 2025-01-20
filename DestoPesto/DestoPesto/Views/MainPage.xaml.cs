@@ -2,6 +2,7 @@
 using DestoPesto.Models;
 using DestoPesto.Services;
 using Maps;
+using Plugin.Media.Abstractions;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ using System.Timers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+
 using Xamarin.Forms.Xaml;
 
 
@@ -57,10 +59,11 @@ namespace DestoPesto.Views
         public bool NoInternetConnection { get; private set; }
 
 
-        protected override void OnAppearing()
+        protected async override void  OnAppearing()
         {
             base.OnAppearing();
 
+           
 
             //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
 
@@ -113,8 +116,8 @@ namespace DestoPesto.Views
                           try
                           {
                               var location = await Geolocation.GetLastKnownLocationAsync();
-#if _DEBUG
-                              location = new Location(37.942942, 23.649365);
+#if DEBUG
+                              location = new Xamarin.Essentials.Location(37.943341, 23.648707);
 #endif
                               if (location != null && map != null)
                               {
@@ -149,7 +152,11 @@ namespace DestoPesto.Views
                           MapIsVisible = true;
                       }
                       else
-                          MapIsVisible = false;
+                      {
+                          locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                          if (locationInUsePermisions != PermissionStatus.Granted)
+                              MapIsVisible = false;
+                      }
                       // Code to run on the main thread  
 
                   });
@@ -251,9 +258,43 @@ namespace DestoPesto.Views
                                    if (messageID != null && messageID.IndexOf("Contest_") == 0)
                                        return;
 
+                                   string imageUrl;
+                                   App.IntentExtras.TryGetValue("ImageUrl", out imageUrl);
+                                   if (submisionThumb == null)
+                                       submisionThumb = imageUrl;
+
+                                   ShareTextRequest shareTextRequest = null;
+
+                                   string shareText;
+                                   bool share = false;
+                                   App.IntentExtras.TryGetValue("Share", out shareText);
+                                   if (shareText == "true")
+                                   {
+                                       share = true;
+
+                                       string share_Text;
+                                       App.IntentExtras.TryGetValue("Share_Text", out share_Text);
+                                       string share_Subject;
+                                       App.IntentExtras.TryGetValue("Share_Subject", out share_Subject);
+                                       string share_Title;
+                                       App.IntentExtras.TryGetValue("Share_Title", out share_Title);
+                                       string share_Uri;
+                                       App.IntentExtras.TryGetValue("Share_Uri", out share_Uri);
+                                       shareTextRequest = new ShareTextRequest
+                                       {
+                                           Subject = share_Subject,
+                                           Text = share_Text,
+                                           Title = share_Title,
+                                           Uri = share_Uri
+                                       };
+
+                                   }
+
+
+
                                    /*(App.Current as App)*/
                                    App.IntentExtras.Clear();
-                                   await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments));
+                                   await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments, shareTextRequest));
 
                                    break;
                                }
@@ -373,13 +414,20 @@ namespace DestoPesto.Views
                  {
                      var location = await Geolocation.GetLastKnownLocationAsync();
 
-#if _DEBUG
-                     location = new Location(37.942942, 23.649365);
+#if DEBUG
+                     location = new Xamarin.Essentials.Location(37.943341, 23.648707);
 #endif
                      //Call GetSubmission
                      try
                      {
                          (App.Current as App).SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, rad);
+                         if (JsonHandler.MunicipalityStats != null)
+                         {
+                             var tt = MunicipalityStats.ranking;
+                             var sds= JsonHandler.MunicipalityStats;
+                             MunicipalityStats = new MunicipalityStatsVM(JsonHandler.MunicipalityStats);
+                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MunicipalityStats)));
+                         }
                      }
                      catch (Exception ex)
                      {
@@ -585,7 +633,7 @@ namespace DestoPesto.Views
 
                         var location = await Geolocation.GetLocationAsync();
 #if _DEBUG
-                        location = new Location(37.942942, 23.649365);
+                        location = new Location(37.943341, 23.648707);
 #endif
 
                         if (location != null)
@@ -773,7 +821,7 @@ namespace DestoPesto.Views
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
 #if _DEBUG
-                location = new Location(37.942942, 23.649365);
+                location = new Location(37.943341, 23.648707);
 #endif
 
 
@@ -941,8 +989,11 @@ namespace DestoPesto.Views
 
             if (damage != null)
             {
-                var locaion = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
-                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, locaion));
+                var location = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
+#if DEBUG
+                location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+#endif
+                await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, location));
             }
         }
         bool Execute = true;
@@ -992,6 +1043,11 @@ namespace DestoPesto.Views
         }
 
         public MunicipalityStatsVM MunicipalityStats { get; set; } = new MunicipalityStatsVM(new Services.MunicipalityStats() { ranking = 123 });
+
+        private void MoreBtn_Clicked(object sender, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new MunicipalityStatsPopUp(MunicipalityStats.MunicipalityStats));
+        }
     }
 
 
@@ -999,7 +1055,7 @@ namespace DestoPesto.Views
     /// <MetaDataID>{e9ee6fc6-1642-4649-8340-b329b44de7e1}</MetaDataID>
     public class MunicipalityStatsVM
     {
-        MunicipalityStats MunicipalityStats;
+       public readonly MunicipalityStats MunicipalityStats;
         public MunicipalityStatsVM(MunicipalityStats municipalityStats)
         {
             MunicipalityStats = municipalityStats;
@@ -1022,7 +1078,9 @@ namespace DestoPesto.Views
         public ImageSource ratingStars
         {
             get
-            {
+            { 
+
+
                 double ratestar = 0;
                 double.TryParse(rating, out ratestar);
                 ratestar = Math.Round(ratestar, 0);
@@ -1030,15 +1088,15 @@ namespace DestoPesto.Views
                 {
                     case 1:
 
-                        return ImageSource.FromResource("DestoPesto.Images.1stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.1stars.png");
                     case 2:
-                        return ImageSource.FromResource("DestoPesto.Images.2stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.2stars.png");
                     case 3:
-                        return ImageSource.FromResource("DestoPesto.Images.3stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.3stars.png");
                     case 4:
-                        return ImageSource.FromResource("DestoPesto.Images.4stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.4stars.png");
                     case 5:
-                        return ImageSource.FromResource("DestoPesto.Images.5stars.png"); 
+                        return ImageSource.FromResource("DestoPesto.Images.5stars.png");
                     default:
                         return null;
                 }
@@ -1057,6 +1115,7 @@ namespace DestoPesto.Views
                 {
                     array.Add(i);
                 }
+                
 
                 double[] arr = array.ToArray();
                 int min = 5;

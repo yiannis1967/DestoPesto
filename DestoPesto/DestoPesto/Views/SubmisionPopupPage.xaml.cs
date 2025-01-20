@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,20 +13,21 @@ namespace DestoPesto.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SubmisionPopupPage : Rg.Plugins.Popup.Pages.PopupPage
     {
-        public SubmisionPopupPage(string description, string submisionThumb, string comments)
+        public SubmisionPopupPage(string description, string submisionThumb, string comments, Xamarin.Essentials.ShareTextRequest shareTextRequest)
         {
-            Description= description;
-            SubmisionThumb=submisionThumb;
-            Comments= comments;
+            Description = description;
+            SubmisionThumb = submisionThumb;
+            Comments = comments;
             InitializeComponent();
             //IsRepairedHyperlink.Clicked+=IsRepairedHyperlink_Clicked;
 
-            BindingContext=this;
-            
-
-
+            ShareTextRequest = shareTextRequest;
+            ShareVisible = shareTextRequest != null;
+            BindingContext = this;
         }
-    
+
+       public bool ShareVisible { get; set; }
+
         async void OnImageNameTapped(object sender, EventArgs args)
         {
             try
@@ -53,7 +54,17 @@ namespace DestoPesto.Views
         public string Description { get; set; }
 
         public string Comments { get; set; }
+        public ShareTextRequest ShareTextRequest { get; private set; }
 
-
+        private async void ShareBtn_Clicked(object sender, EventArgs e)
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Subject = ShareTextRequest?.Subject,
+                Text = ShareTextRequest?.Uri,
+                Title = ShareTextRequest?.Title,
+                Uri = ShareTextRequest?.Uri,
+            });
+        }
     }
 }

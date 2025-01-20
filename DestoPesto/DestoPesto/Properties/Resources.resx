@@ -552,4 +552,16 @@
   <data name="From" xml:space="preserve">
     <value>of</value>
   </data>
+  <data name="MunicipalityAvrgRepairDays" xml:space="preserve">
+    <value>Μέσσος χρόνος αποκατάστασης :</value>
+  </data>
+  <data name="MunicipalityFixed" xml:space="preserve">
+    <value>Διορθωμένες :</value>
+  </data>
+  <data name="MunicipalityUnfixed" xml:space="preserve">
+    <value>Εκκρεμείς κατεχνίες :</value>
+  </data>
+  <data name="MunicipalityUnfixedDays" xml:space="preserve">
+    <value>Παλαιότερη εκκρεμής κακοτεχνιά :</value>
+  </data>
 </root>

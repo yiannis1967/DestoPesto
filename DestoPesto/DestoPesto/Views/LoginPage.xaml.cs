@@ -19,6 +19,7 @@ using DestoPesto.Services;
 using System.Net;
 using System.IO;
 using System.ComponentModel;
+using Rg.Plugins.Popup.Services;
 
 namespace DestoPesto.Views
 {
@@ -89,7 +90,8 @@ namespace DestoPesto.Views
 
             this.BindingContext = this;// new LoginViewModel(Navigation);
 
-            Task.Run(() => {
+            Task.Run(() =>
+            {
 
 
 
@@ -110,7 +112,7 @@ namespace DestoPesto.Views
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LoginHomePage)));
                     });
 
-
+                    //https://destopesto.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt
 
                     try
                     {
@@ -163,9 +165,12 @@ namespace DestoPesto.Views
         }
 
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
+            if (await PermissionsPage.ShowPermissionsRequest())
+                await PopupNavigation.Instance.PushAsync(new PermissionsPage());
+
 
             GoogleSignInVisible = JsonHandler.GoogleSignInMethod;
             AppleSignInVisible = JsonHandler.AppleSignInMethod;

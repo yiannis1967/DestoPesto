@@ -817,11 +817,47 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Μέσσος χρόνος αποκατάστασης :.
+        /// </summary>
+        public static string MunicipalityAvrgRepairDays {
+            get {
+                return ResourceManager.GetString("MunicipalityAvrgRepairDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Διορθωμένες :.
+        /// </summary>
+        public static string MunicipalityFixed {
+            get {
+                return ResourceManager.GetString("MunicipalityFixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Municipality&apos;s score is.
         /// </summary>
         public static string MunicipalityScore {
             get {
                 return ResourceManager.GetString("MunicipalityScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Εκκρεμείς κατεχνίες :.
+        /// </summary>
+        public static string MunicipalityUnfixed {
+            get {
+                return ResourceManager.GetString("MunicipalityUnfixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Παλαιότερη εκκρεμής κακοτεχνιά :.
+        /// </summary>
+        public static string MunicipalityUnfixedDays {
+            get {
+                return ResourceManager.GetString("MunicipalityUnfixedDays", resourceCulture);
             }
         }
         

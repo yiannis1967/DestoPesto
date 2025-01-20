@@ -31,6 +31,9 @@ namespace DestoPesto.Services
     {
         static HttpClient httpClient;
         public static ObservableCollection<Catagories> catagories;
+
+        public static MunicipalityStats MunicipalityStats { get; private set; }
+
         public static ObservableCollection<DamageData> damageData;
         public static String URLString = "https://asfameazure.blob.core.windows.net/applications/arionapps/destopesto.xml";
 
@@ -379,7 +382,7 @@ namespace DestoPesto.Services
 
                     int.TryParse(doc.Root.Attribute("MaxRadToMapinMeters")?.Value, out MaxRadToMapinMeters);
 
-                    
+
 
 
 
@@ -387,18 +390,18 @@ namespace DestoPesto.Services
                     string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                     _Uri = uri;
-#if _DEBUG
-                var profiles = Connectivity.ConnectionProfiles;
-                //if(profiles.Contains(ConnectionProfile.WiFi))
-                _Uri = "http://192.168.1.71:5005/";
-                //_Uri = "http://10.0.0.10:5005/";
-                _Uri = "http://62.169.215.49:5005/";
-                //_Uri = "http://192.168.1.1:5005/";
-                _Uri = "http://10.0.0.10:5005/";
-                //_Uri = "http://62.169.215.49:5005/";
-                //_Uri = "https://destopesto.azurewebsites.net/";
-                //_Uri = "http://192.168.1.71:5005/";
-                _Uri = "http://10.0.0.13:5005/";
+#if DEBUG
+                    var profiles = Connectivity.ConnectionProfiles;
+                    //if(profiles.Contains(ConnectionProfile.WiFi))
+                    _Uri = "http://192.168.1.71:5005/";
+                    //_Uri = "http://10.0.0.10:5005/";
+                    _Uri = "http://62.169.215.49:5005/";
+                    //_Uri = "http://192.168.1.1:5005/";
+                    _Uri = "http://10.0.0.10:5005/";
+                    //_Uri = "http://62.169.215.49:5005/";
+                    //_Uri = "https://destopesto.azurewebsites.net/";
+                    _Uri = "http://192.168.1.71:5005/";
+                    //_Uri = "http://10.0.0.13:5005/";
 
 
 #endif
@@ -413,7 +416,8 @@ namespace DestoPesto.Services
                     }
                     catch (Exception error)
                     {
-                    }                }
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -688,49 +692,55 @@ namespace DestoPesto.Services
 
         public static async Task<bool> PutSubmission(FixdDamage post)
         {
-            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            try
+            {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    return false;
+                }
+                var client = new HttpClient();
+                Uri uri = new Uri(getUri() + "api/Submissions");
+
+
+
+                string serializedObject = JsonConvert.SerializeObject(post);
+                var content = new StringContent(serializedObject, Encoding.UTF8, "application/json");
+                await getUserData();
+                //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+
+                //client.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
+                client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
+
+                HttpResponseMessage response = await client.PutAsync(uri, content);
+
+                // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+
+                var result = await response.Content.ReadAsStringAsync();
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+
+                {
+                    // await App.Current.MainPage.DisplayAlert(Properties.Resources.AlertText,  Properties.Resources.DamageSatusSuccess,Properties.Resources.Oktext);
+                    // DependencyService.Get<INotification>().ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusSuccess);
+                    ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusSuccess);
+
+                    MessagingCenter.Send<string>("1", "GetData");
+                    return true;
+                }
+                else
+
+                {
+                    //  await App.Current.MainPage.DisplayAlert(Properties.Resources.AlertText,  Properties.Resources.DamageSatusFail, Properties.Resources.Oktext);
+                    //  DependencyService.Get<INotification>().ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusFail);
+                    ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusFail);
+                    return false;
+                }
+
+            }
+            catch (Exception error)
             {
 
                 return false;
-
             }
-            var client = new HttpClient();
-            Uri uri = new Uri(getUri() + "api/Submissions");
-
-
-
-            string serializedObject = JsonConvert.SerializeObject(post);
-            var content = new StringContent(serializedObject, Encoding.UTF8, "application/json");
-            await getUserData();
-            //var savedfirebaseauth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
-
-            //client.DefaultRequestHeaders.Add("Authorization", savedfirebaseauth.FirebaseToken);
-            client.DefaultRequestHeaders.Add("Authorization", Authentication.DeviceAuthentication.IDToken);
-
-            HttpResponseMessage response = await client.PutAsync(uri, content);
-
-            // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
-
-            var result = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-
-            {
-                // await App.Current.MainPage.DisplayAlert(Properties.Resources.AlertText,  Properties.Resources.DamageSatusSuccess,Properties.Resources.Oktext);
-                // DependencyService.Get<INotification>().ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusSuccess);
-                ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusSuccess);
-
-                MessagingCenter.Send<string>("1", "GetData");
-                return true;
-            }
-            else
-
-            {
-                //  await App.Current.MainPage.DisplayAlert(Properties.Resources.AlertText,  Properties.Resources.DamageSatusFail, Properties.Resources.Oktext);
-                //  DependencyService.Get<INotification>().ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusFail);
-                ShowNotification(Properties.Resources.AlertText, Properties.Resources.DamageSatusFail);
-                return false;
-            }
-
 
         }
 
@@ -944,6 +954,9 @@ namespace DestoPesto.Services
 
             using (httpClient = new HttpClient())
             {
+                //37.943341, 23.648707
+
+
                 String Parameters = "?lat=" + lat.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) + "&lng=" + lng.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) + "&rad=" + rad;
 
                 Uri uri = new Uri(getUri() + "api/Submissions" + Parameters);
@@ -961,22 +974,30 @@ namespace DestoPesto.Services
                     uri = new Uri(getUri() + "api/Submissions/UserAll");
                 }
 
-                var response = await httpClient.GetStringAsync(uri);
-
-                //   var content = await response.Content.ReadAsStringAsync();
-
-
-
                 try
                 {
+                    var response = await httpClient.GetStringAsync(uri);
                     var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
                     damageData = new ObservableCollection<DamageData>(Damages);
                 }
                 catch (Exception error)
                 {
-
-
                 }
+
+                try
+                {
+                    var _params = "?lat=" + lat.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) + "&lng=" + lng.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) ;
+
+                     uri = new Uri(getUri() + "api/Submissions/MunicipalityStats" + _params);
+                    
+                    var response = await httpClient.GetStringAsync(uri);
+                    MunicipalityStats = JsonConvert.DeserializeObject<MunicipalityStats>(response);
+                    
+                }
+                catch (Exception error)
+                {
+                }
+
                 return damageData;
 
                 //             
