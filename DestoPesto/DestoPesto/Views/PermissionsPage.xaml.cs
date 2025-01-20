@@ -39,7 +39,7 @@ namespace DestoPesto.Views
 
             InitTask = Task.Run(async () =>
             {
-                if (_MobileHomePage == null)
+                if (_PermissionsHomePage == null)
                 {
                     WebClient client = new WebClient();
 
@@ -49,13 +49,13 @@ namespace DestoPesto.Views
                     var filePath = Path.Combine(libraryPath, FileName);
 
                     if (File.Exists(filePath))
-                        _MobileHomePage = File.ReadAllText(filePath);
+                        _PermissionsHomePage = File.ReadAllText(filePath);
 
 
 
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
-                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MobileHomePage)));
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PermissionsHomePage)));
                     });
 
 
@@ -64,12 +64,12 @@ namespace DestoPesto.Views
                     {
                         if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                         {
-                            _MobileHomePage = client.DownloadString(Properties.Resources.PermissionsScreenFileLink);
+                            _PermissionsHomePage = client.DownloadString(Properties.Resources.PermissionsScreenFileLink);
 
-                            File.WriteAllText(filePath, _MobileHomePage);
+                            File.WriteAllText(filePath, _PermissionsHomePage);
                             MainThread.BeginInvokeOnMainThread(async () =>
                             {
-                                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MobileHomePage)));
+                                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PermissionsHomePage)));
 
                             });
 
@@ -146,13 +146,13 @@ namespace DestoPesto.Views
 
         }
 
-        private string _MobileHomePage;
-        public string MobileHomePage
+        private string _PermissionsHomePage;
+        public string PermissionsHomePage
         {
             get
             {
 
-                return _MobileHomePage;
+                return _PermissionsHomePage;
             }
             set
             {
