@@ -17,7 +17,7 @@ namespace DestoPesto.Views
     public partial class PermissionsPage : Rg.Plugins.Popup.Pages.PopupPage, INotifyPropertyChanged
     {
         private bool LocationPermisionsChecked;
-
+        public event PropertyChangedEventHandler PropertyChanged;
         public PermissionsPage()
         {
             InitializeComponent();
@@ -32,6 +32,8 @@ namespace DestoPesto.Views
 
 
 
+
+            this.BindingContext = this;// new LoginViewModel(Navigation);
 
 
 
@@ -53,7 +55,7 @@ namespace DestoPesto.Views
 
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
-                        OnPropertyChanging(nameof(MobileHomePage));
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MobileHomePage)));
                     });
 
 
@@ -67,8 +69,8 @@ namespace DestoPesto.Views
                             File.WriteAllText(filePath, _MobileHomePage);
                             MainThread.BeginInvokeOnMainThread(async () =>
                             {
-                                OnPropertyChanging(nameof(MobileHomePage));
-                                
+                                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MobileHomePage)));
+
                             });
 
                         }
@@ -82,6 +84,8 @@ namespace DestoPesto.Views
                 }
 
             });
+
+
 
             // var htmlSource = new HtmlWebViewSource();
 
@@ -113,6 +117,34 @@ namespace DestoPesto.Views
             //browser.Source = htmlSource;
         }
 
+        public static async Task<bool> ShowPermissionsRequest()
+        {
+
+
+            var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermissions != PermissionStatus.Granted)
+                return true;
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+                return false;
+            return false;
+        }
+
+        protected override async void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermissions != PermissionStatus.Granted)
+                locationInUsePermissions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+            {
+                var result = await device.RemoteNotificationsPermissionsRequest();
+            }
+
+        }
 
         private string _MobileHomePage;
         public string MobileHomePage
@@ -122,7 +154,13 @@ namespace DestoPesto.Views
 
                 return _MobileHomePage;
             }
+            set
+            {
+
+            }
         }
+
+
 
         public object InitTask { get; }
 

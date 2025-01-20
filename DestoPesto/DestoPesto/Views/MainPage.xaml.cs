@@ -63,8 +63,7 @@ namespace DestoPesto.Views
         {
             base.OnAppearing();
 
-            //await PopupNavigation.Instance.PushAsync(new PermissionsPage());
-
+           
 
             //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
 
