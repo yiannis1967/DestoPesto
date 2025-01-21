@@ -171,9 +171,6 @@
   <data name="LocalNotificationTitle" xml:space="preserve">
     <value>Μήνυμα από "Δες το πες το" </value>
   </data>
-  <data name="CancleText" xml:space="preserve">
-    <value>Ακύρωση</value>
-  </data>
   <data name="LocationPrompt" xml:space="preserve">
     <value>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </value>
   </data>
@@ -553,18 +550,24 @@
     <value>από</value>
   </data>
   <data name="MunicipalityAvrgRepairDays" xml:space="preserve">
-    <value>Μέσσος χρόνος αποκατάστασης :</value>
+    <value>Μέσος χρόνος αποκατάστασης </value>
   </data>
   <data name="MunicipalityFixed" xml:space="preserve">
-    <value>Διορθωμένες :</value>
+    <value>Αποκαταστημένες κακοτεχνίες</value>
   </data>
   <data name="MunicipalityUnfixed" xml:space="preserve">
-    <value>Εκκρεμείς κατεχνίες :</value>
+    <value>Κακοτεχνίες σε εκκρεμότητα</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Παλαιότερη εκκρεμής κακοτεχνιά :</value>
+    <value>Παλαιότερη κακοτεχνία σε εκκρεμότητα</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
-    <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
+  </data>
+  <data name="DaysText" xml:space="preserve">
+    <value>μέρες</value>
+  </data>
+  <data name="PercentageOfRestoredDefects" xml:space="preserve">
+    <value>Ποσοστό διορθωμένων κακοτεχνιών</value>
   </data>
 </root>

@@ -59,7 +59,6 @@ namespace DestoPesto.Views
                     });
 
 
-
                     try
                     {
                         if (Connectivity.NetworkAccess == NetworkAccess.Internet)

@@ -1,4 +1,5 @@
 ﻿using DestoPesto.Services;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,5 +27,11 @@ namespace DestoPesto.Views
         }
 
         public MunicipalityStatsVM MunicipalityStats { get; }
+
+        private void RightBtn_Clicked(object sender, EventArgs e)
+        {
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
+        }
     }
 }

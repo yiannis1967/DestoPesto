@@ -187,15 +187,6 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
-        /// </summary>
-        public static string CancleText {
-            get {
-                return ResourceManager.GetString("CancleText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Catagory.
         /// </summary>
         public static string CatagoryText {
@@ -291,6 +282,15 @@ namespace DestoPesto.Properties {
         public static string DamageSatusSuccess {
             get {
                 return ResourceManager.GetString("DamageSatusSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to days.
+        /// </summary>
+        public static string DaysText {
+            get {
+                return ResourceManager.GetString("DaysText", resourceCulture);
             }
         }
         
@@ -853,7 +853,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Μέσσος χρόνος αποκατάστασης :.
+        ///   Looks up a localized string similar to Average repair time.
         /// </summary>
         public static string MunicipalityAvrgRepairDays {
             get {
@@ -862,7 +862,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Διορθωμένες :.
+        ///   Looks up a localized string similar to Total restored.
         /// </summary>
         public static string MunicipalityFixed {
             get {
@@ -880,7 +880,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Εκκρεμείς κατεχνίες :.
+        ///   Looks up a localized string similar to Total unrestored defects.
         /// </summary>
         public static string MunicipalityUnfixed {
             get {
@@ -889,7 +889,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Παλαιότερη εκκρεμής κακοτεχνιά :.
+        ///   Looks up a localized string similar to Oldest unrestored defect.
         /// </summary>
         public static string MunicipalityUnfixedDays {
             get {
@@ -993,6 +993,15 @@ namespace DestoPesto.Properties {
         public static string PendingPhotosToUpload {
             get {
                 return ResourceManager.GetString("PendingPhotosToUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Percentage of restored defects.
+        /// </summary>
+        public static string PercentageOfRestoredDefects {
+            get {
+                return ResourceManager.GetString("PercentageOfRestoredDefects", resourceCulture);
             }
         }
         
