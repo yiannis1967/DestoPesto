@@ -52,7 +52,6 @@ namespace DestoPesto.Views
                         _PermissionsHomePage = File.ReadAllText(filePath);
 
 
-
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PermissionsHomePage)));

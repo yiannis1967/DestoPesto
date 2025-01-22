@@ -38,7 +38,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid HorizontalOptions="FillAndExpand" HeightRequest="200" BackgroundColor="Red">
+                <Grid HorizontalOptions="FillAndExpand" HeightRequest="350" BackgroundColor="Red">
                     <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                         <WebView.Source>
                         <HtmlWebViewSource Html="{Binding PermissionsHomePage}" />
