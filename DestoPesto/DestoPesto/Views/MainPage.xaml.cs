@@ -1036,8 +1036,8 @@ namespace DestoPesto.Views
                 Title = "Το Δες το Πες το",
                 Subject = "Αυτό διορθώθηκε μέσα σε 5 ημέρες",
 
-                Text = "Κατέβασε το 'Δες το Πες το' από το link και δες την αξιολόγηση του δήμου που βρίσκεσαι ",
-                Uri = "https://destopesto.blob.core.windows.net/destopesto/download_destopesto.html"
+                Text = "Ήξερες ότι το 'Δες το Πες το' αξιολογεί τον κάθε δήμο? Κατέβασε το να δεις",
+                Uri = "https://rb.gy/fyms9s"
             });
 
         }

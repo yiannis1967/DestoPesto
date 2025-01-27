@@ -487,7 +487,7 @@
     <value>Προφίλ χρήστη</value>
   </data>
   <data name="UserProfileText" xml:space="preserve">
-    <value>Προφίλ χρήστη</value>
+    <value>Το προφίλ μου</value>
   </data>
   <data name="UserProfileText_2" xml:space="preserve">
     <value>Συμπλήρωσε τα στοιχεία σου</value>
@@ -499,7 +499,7 @@
     <value>Θα πάρεις μέρος?</value>
   </data>
   <data name="AcceptedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο επικυρωμένων φωτογραφίων</value>
+    <value>Σύνολο αναρτήσεων</value>
   </data>
   <data name="BirthDateLabel" xml:space="preserve">
     <value>Ημερομηνία Γέννησης</value>
@@ -523,7 +523,7 @@
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
   </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο ακυρωμένων φωτογραφιών</value>
+    <value>Σύνολο ακυρωμένων</value>
   </data>
   <data name="EmailAddressPlaceHolder" xml:space="preserve">
     <value>Γράψτε το email σας</value>
@@ -569,5 +569,8 @@
   </data>
   <data name="PercentageOfRestoredDefects" xml:space="preserve">
     <value>Ποσοστό διορθωμένων κακοτεχνιών</value>
+  </data>
+  <data name="TotalFixedDamages" xml:space="preserve">
+    <value>Σύνολο αποκαταστημένων</value>
   </data>
 </root>

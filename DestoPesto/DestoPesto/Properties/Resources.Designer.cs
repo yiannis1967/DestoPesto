@@ -61,42 +61,6 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string _2stars {
-            get {
-                return ResourceManager.GetString("2stars", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string _3stars {
-            get {
-                return ResourceManager.GetString("3stars", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string _4stars {
-            get {
-                return ResourceManager.GetString("4stars", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string _5stars {
-            get {
-                return ResourceManager.GetString("5stars", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Total qualified photos.
         /// </summary>
         public static string AcceptedPhotosLabel {
@@ -1078,7 +1042,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total number of rejected photos.
+        ///   Looks up a localized string similar to Total rejected posts.
         /// </summary>
         public static string RejectedPhotosLabel {
             get {
@@ -1276,6 +1240,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total fixed .
+        /// </summary>
+        public static string TotalFixedDamages {
+            get {
+                return ResourceManager.GetString("TotalFixedDamages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 335.
         /// </summary>
         public static string TotalMunicipalities {
@@ -1348,7 +1321,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User profile.
+        ///   Looks up a localized string similar to My profile.
         /// </summary>
         public static string UserProfileText {
             get {

@@ -487,7 +487,7 @@
     <value>User profile</value>
   </data>
   <data name="UserProfileText" xml:space="preserve">
-    <value>User profile</value>
+    <value>My profile</value>
   </data>
   <data name="UserProfileText_2" xml:space="preserve">
     <value>Your personal data</value>
@@ -523,7 +523,7 @@
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen_en.txt</value>
   </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Total number of rejected photos</value>
+    <value>Total rejected posts</value>
   </data>
   <data name="EmailAddressPlaceHolder" xml:space="preserve">
     <value>Write your email</value>
@@ -561,18 +561,6 @@
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
     <value>Oldest unrestored defect</value>
   </data>
-  <data name="2stars" xml:space="preserve">
-    <value />
-  </data>
-  <data name="3stars" xml:space="preserve">
-    <value />
-  </data>
-  <data name="4stars" xml:space="preserve">
-    <value />
-  </data>
-  <data name="5stars" xml:space="preserve">
-    <value />
-  </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
   </data>
@@ -581,5 +569,8 @@
   </data>
   <data name="PercentageOfRestoredDefects" xml:space="preserve">
     <value>Percentage of restored defects</value>
+  </data>
+  <data name="TotalFixedDamages" xml:space="preserve">
+    <value>Total fixed </value>
   </data>
 </root>
