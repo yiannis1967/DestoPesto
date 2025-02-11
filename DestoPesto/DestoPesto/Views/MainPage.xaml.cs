@@ -1061,6 +1061,8 @@ namespace DestoPesto.Views
         {
             MunicipalityStats = municipalityStats;
         }
+
+        public string MunicipalityName { get => MunicipalityStats.municipalityName; set { } }
         public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
         public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
 
@@ -1110,29 +1112,30 @@ namespace DestoPesto.Views
             get
             {
 
-                List<double> array = new List<double>();
+                return MunicipalityStats.rating;
+                //List<double> array = new List<double>();
 
-                for (int i = 1; i < totalMunicipalities + 1; i++)
-                {
-                    array.Add(i);
-                }
+                //for (int i = 1; i < totalMunicipalities + 1; i++)
+                //{
+                //    array.Add(i);
+                //}
                 
 
-                double[] arr = array.ToArray();
-                int min = 5;
-                int max = 1;
+                //double[] arr = array.ToArray();
+                //int min = 5;
+                //int max = 1;
 
-                double[] rates = GetScaling(arr, min, max);
+                //double[] rates = GetScaling(arr, min, max);
 
-                int rank = MunicipalityStats.ranking;
+                //int rank = MunicipalityStats.ranking;
 
-                double StarPos = rates[rank - 1];
+                //double StarPos = rates[rank - 1];
 
-                return StarPos.ToString();
+                //return StarPos.ToString();
 
 
 
-                return MunicipalityStats.ranking.ToString();
+                //return MunicipalityStats.ranking.ToString();
             }
             set { }
         }
