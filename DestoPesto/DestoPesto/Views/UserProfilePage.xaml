@@ -26,7 +26,7 @@
         <StackLayout BackgroundColor="White" Grid.Row="1" VerticalOptions="Start" Padding="0,50,0,0">
 
             <Label Text="{x:Static resources:Properties.Resources.UserProfileText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
-            <Label  Text="{x:Static resources:Properties.Resources.UserProfileText_2}" TextColor="#0D6EFD"  HorizontalOptions="CenterAndExpand" FontSize="Header" />
+            <!--<Label  Text="{x:Static resources:Properties.Resources.UserProfileText_2}" TextColor="#0D6EFD"  HorizontalOptions="CenterAndExpand" FontSize="Header" />-->
 
             <!--<Image Source="{AppThemeBinding Light={extensions:ImageResource DestoPesto.Images.login_header.png}, Dark={extensions:ImageResource DestoPesto.Images.login_header.png}}"  />-->
 
@@ -133,6 +133,17 @@
                     <extensions:EntryEx BorderColor="LightGray" Text="{Binding RejectedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
 
+                <StackLayout  BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalFixedDamages}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <extensions:EntryEx BorderColor="LightGray" Text="{Binding RejectedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                        <extensions:EntryEx Grid.Column="1" BorderColor="LightGray" Text="{Binding RejectedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                    </Grid>
+                </StackLayout>
 
 
                 <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >

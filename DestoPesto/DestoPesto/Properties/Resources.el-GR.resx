@@ -171,9 +171,6 @@
   <data name="LocalNotificationTitle" xml:space="preserve">
     <value>Μήνυμα από "Δες το πες το" </value>
   </data>
-  <data name="CancleText" xml:space="preserve">
-    <value>Ακύρωση</value>
-  </data>
   <data name="LocationPrompt" xml:space="preserve">
     <value>Η εφαρμογή μαζεύει τα δεδομένα της τοποθεσίας στο παρασκήνιο όταν βγάζετε μία φωτογραφία για να διασφαλιστεί η εγκυρότητα της πληροφορίας. Τα δεδομένα τοποθεσίας αποθηκεύονται για να εμφανίζεται στον χάρτη με καρφίτσα το ακριβές σημείο της φωτογραφίας. </value>
   </data>
@@ -490,7 +487,7 @@
     <value>Προφίλ χρήστη</value>
   </data>
   <data name="UserProfileText" xml:space="preserve">
-    <value>Προφίλ χρήστη</value>
+    <value>Το προφίλ μου</value>
   </data>
   <data name="UserProfileText_2" xml:space="preserve">
     <value>Συμπλήρωσε τα στοιχεία σου</value>
@@ -502,7 +499,7 @@
     <value>Θα πάρεις μέρος?</value>
   </data>
   <data name="AcceptedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο επικυρωμένων φωτογραφίων</value>
+    <value>Σύνολο αναρτήσεων</value>
   </data>
   <data name="BirthDateLabel" xml:space="preserve">
     <value>Ημερομηνία Γέννησης</value>
@@ -526,7 +523,7 @@
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
   </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο ακυρωμένων φωτογραφιών</value>
+    <value>Σύνολο ακυρωμένων</value>
   </data>
   <data name="EmailAddressPlaceHolder" xml:space="preserve">
     <value>Γράψτε το email σας</value>
@@ -552,29 +549,28 @@
   <data name="From" xml:space="preserve">
     <value>από</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="2stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="3stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="4stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="5stars" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="MunicipalityAvrgRepairDays" xml:space="preserve">
-    <value>Μέσσος χρόνος αποκατάστασης :</value>
+    <value>Μέσος χρόνος αποκατάστασης </value>
   </data>
   <data name="MunicipalityFixed" xml:space="preserve">
-    <value>Διορθωμένες :</value>
+    <value>Αποκαταστημένες κακοτεχνίες</value>
   </data>
   <data name="MunicipalityUnfixed" xml:space="preserve">
-    <value>Εκκρεμείς κατεχνίες :</value>
+    <value>Κακοτεχνίες σε εκκρεμότητα</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Παλαιότερη εκκρεμής κακοτεχνιά :</value>
+    <value>Παλαιότερη κακοτεχνία σε εκκρεμότητα</value>
+  </data>
+  <data name="PermissionsScreenFileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
+  </data>
+  <data name="DaysText" xml:space="preserve">
+    <value>μέρες</value>
+  </data>
+  <data name="PercentageOfRestoredDefects" xml:space="preserve">
+    <value>Ποσοστό διορθωμένων κακοτεχνιών</value>
+  </data>
+  <data name="TotalFixedDamages" xml:space="preserve">
+    <value>Σύνολο αποκαταστημένων</value>
   </data>
 </root>

@@ -56,6 +56,7 @@
     <AndroidSigningStorePass>Patrikiadis1967</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>DestoPesto</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Patrikiadis1967</AndroidSigningKeyPass>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

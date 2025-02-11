@@ -171,9 +171,6 @@
   <data name="LocalNotificationTitle" xml:space="preserve">
     <value>Damage Report Alert</value>
   </data>
-  <data name="CancleText" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
   <data name="LocationPrompt" xml:space="preserve">
     <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken. </value>
   </data>
@@ -490,7 +487,7 @@
     <value>User profile</value>
   </data>
   <data name="UserProfileText" xml:space="preserve">
-    <value>User profile</value>
+    <value>My profile</value>
   </data>
   <data name="UserProfileText_2" xml:space="preserve">
     <value>Your personal data</value>
@@ -526,7 +523,7 @@
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen_en.txt</value>
   </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Total number of rejected photos</value>
+    <value>Total rejected posts</value>
   </data>
   <data name="EmailAddressPlaceHolder" xml:space="preserve">
     <value>Write your email</value>
@@ -553,15 +550,27 @@
     <value>of</value>
   </data>
   <data name="MunicipalityAvrgRepairDays" xml:space="preserve">
-    <value>Μέσσος χρόνος αποκατάστασης :</value>
+    <value>Average repair time</value>
   </data>
   <data name="MunicipalityFixed" xml:space="preserve">
-    <value>Διορθωμένες :</value>
+    <value>Total restored</value>
   </data>
   <data name="MunicipalityUnfixed" xml:space="preserve">
-    <value>Εκκρεμείς κατεχνίες :</value>
+    <value>Total unrestored defects</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Παλαιότερη εκκρεμής κακοτεχνιά :</value>
+    <value>Oldest unrestored defect</value>
+  </data>
+  <data name="PermissionsScreenFileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
+  </data>
+  <data name="DaysText" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="PercentageOfRestoredDefects" xml:space="preserve">
+    <value>Percentage of restored defects</value>
+  </data>
+  <data name="TotalFixedDamages" xml:space="preserve">
+    <value>Total fixed </value>
   </data>
 </root>

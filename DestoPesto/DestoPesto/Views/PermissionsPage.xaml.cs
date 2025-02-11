@@ -17,7 +17,7 @@ namespace DestoPesto.Views
     public partial class PermissionsPage : Rg.Plugins.Popup.Pages.PopupPage, INotifyPropertyChanged
     {
         private bool LocationPermisionsChecked;
-
+        public event PropertyChangedEventHandler PropertyChanged;
         public PermissionsPage()
         {
             InitializeComponent();
@@ -33,42 +33,42 @@ namespace DestoPesto.Views
 
 
 
+            this.BindingContext = this;// new LoginViewModel(Navigation);
+
 
 
             InitTask = Task.Run(async () =>
             {
-                if (_MobileHomePage == null)
+                if (_PermissionsHomePage == null)
                 {
                     WebClient client = new WebClient();
 
                     string mainIntroHtml = null;
-                    const string errorFileName = "MainIntro.json";
+                    const string FileName = "Permissions.json";
                     var libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
-                    var filePath = Path.Combine(libraryPath, errorFileName);
+                    var filePath = Path.Combine(libraryPath, FileName);
 
                     if (File.Exists(filePath))
-                        _MobileHomePage = File.ReadAllText(filePath);
-
+                        _PermissionsHomePage = File.ReadAllText(filePath);
 
 
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
-                        OnPropertyChanging(nameof(MobileHomePage));
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PermissionsHomePage)));
                     });
-
 
 
                     try
                     {
                         if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                         {
-                            _MobileHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+                            _PermissionsHomePage = client.DownloadString(Properties.Resources.PermissionsScreenFileLink);
 
-                            File.WriteAllText(filePath, _MobileHomePage);
+                            File.WriteAllText(filePath, _PermissionsHomePage);
                             MainThread.BeginInvokeOnMainThread(async () =>
                             {
-                                OnPropertyChanging(nameof(MobileHomePage));
-                                
+                                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PermissionsHomePage)));
+
                             });
 
                         }
@@ -82,6 +82,8 @@ namespace DestoPesto.Views
                 }
 
             });
+
+
 
             // var htmlSource = new HtmlWebViewSource();
 
@@ -113,16 +115,50 @@ namespace DestoPesto.Views
             //browser.Source = htmlSource;
         }
 
+        public static async Task<bool> ShowPermissionsRequest()
+        {
 
-        private string _MobileHomePage;
-        public string MobileHomePage
+
+            var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermissions != PermissionStatus.Granted)
+                return true;
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+                return false;
+            return false;
+        }
+
+        protected override async void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermissions != PermissionStatus.Granted)
+                locationInUsePermissions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+
+            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+            {
+                var result = await device.RemoteNotificationsPermissionsRequest();
+            }
+
+        }
+
+        private string _PermissionsHomePage;
+        public string PermissionsHomePage
         {
             get
             {
 
-                return _MobileHomePage;
+                return _PermissionsHomePage;
+            }
+            set
+            {
+
             }
         }
+
+
 
         public object InitTask { get; }
 

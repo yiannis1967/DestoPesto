@@ -120,9 +120,7 @@
   <data name="AlertText" xml:space="preserve">
     <value>Alert</value>
   </data>
-  <data name="CancleText" xml:space="preserve">
-    <value>Cancle</value>
-  </data>
+ 
   <data name="CatagoryText" xml:space="preserve">
     <value>Catagory</value>
   </data>

@@ -7,8 +7,7 @@
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"    
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:resources="clr-namespace:DestoPesto"
-             x:Class="DestoPesto.Views.PermissionsPage" 
-                 CloseWhenBackgroundIsClicked="True">
+             x:Class="DestoPesto.Views.PermissionsPage" >
 
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation DurationIn="400"
@@ -23,9 +22,10 @@
     </pages:PopupPage.Animation>
 
 
+    
 
-    <Frame Margin="5" 
-           CornerRadius="5"
+        <Frame Margin="5" 
+           CornerRadius="10"
            HorizontalOptions="Fill" 
            VerticalOptions="Center"
            HasShadow="True"
@@ -33,20 +33,20 @@
            IsClippedToBounds="True"
            BackgroundColor="White"
            Padding="5">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid HorizontalOptions="FillAndExpand" HeightRequest="200" BackgroundColor="Red">
-                <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-                    <WebView.Source>
-                        <HtmlWebViewSource Html="{Binding MobileHomePage}" />
-                    </WebView.Source>
-                    <!--https://destopesto.blob.core.windows.net/destopesto/docs/homescreentext.txt-->
-                </WebView>
-            </Grid>
-            <!--<StackLayout IsVisible="false" x:Name="TitleBar" Orientation="Vertical" Grid.Column="0" BackgroundColor="#0D6EFD" VerticalOptions="CenterAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid HorizontalOptions="FillAndExpand" HeightRequest="350" BackgroundColor="Red">
+                    <WebView x:Name="browser" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding PermissionsHomePage}" />
+                        </WebView.Source>
+                        <!--https://destopesto.blob.core.windows.net/destopesto/docs/homescreentext.txt-->
+                    </WebView>
+                </Grid>
+                <!--<StackLayout IsVisible="false" x:Name="TitleBar" Orientation="Vertical" Grid.Column="0" BackgroundColor="#0D6EFD" VerticalOptions="CenterAndExpand">
                 <Image HorizontalOptions="Start" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
             </StackLayout>
             <ScrollView IsVisible="false"  Grid.Row="1"  HorizontalScrollBarVisibility="Never" HorizontalOptions="FillAndExpand">
@@ -95,7 +95,7 @@
 
                 </Grid>
             </ScrollView>-->
-        </Grid>
-    </Frame>
-
+            </Grid>
+        </Frame>
+    
 </pages:PopupPage>

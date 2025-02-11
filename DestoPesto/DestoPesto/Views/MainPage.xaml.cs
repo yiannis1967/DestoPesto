@@ -33,7 +33,7 @@ namespace DestoPesto.Views
             InitializeComponent();
 
 
-            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 50, \r\n\"validMunicipalities\":130, \r\n}}"));
+            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 12, \r\n\"validMunicipalities\":150, \r\n}}"));
 
             BindingContext = this;
 
@@ -63,8 +63,7 @@ namespace DestoPesto.Views
         {
             base.OnAppearing();
 
-            //await PopupNavigation.Instance.PushAsync(new PermissionsPage());
-
+           
 
             //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
 
@@ -1037,8 +1036,8 @@ namespace DestoPesto.Views
                 Title = "Το Δες το Πες το",
                 Subject = "Αυτό διορθώθηκε μέσα σε 5 ημέρες",
 
-                Text = "Αυτό διορθώθηκε μέσα σε 3 ημέρες",
-                Uri = "https://destopesto.blob.core.windows.net/destopesto/images/thumb/0a0e0a88e2c34775bada7e1fef49f8fb.jpg"
+                Text = "Ήξερες ότι το 'Δες το Πες το' αξιολογεί τον κάθε δήμο? Κατέβασε το να δεις",
+                Uri = "https://rb.gy/fyms9s"
             });
 
         }
