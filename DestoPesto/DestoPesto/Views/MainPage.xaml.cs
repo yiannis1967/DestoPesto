@@ -33,7 +33,7 @@ namespace DestoPesto.Views
             InitializeComponent();
 
 
-            MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 12, \r\n\"validMunicipalities\":150, \r\n}}"));
+            //MunicipalityStats = new MunicipalityStatsVM(Newtonsoft.Json.JsonConvert.DeserializeObject<MunicipalityStats>($"{{\r\n  \"subs\": 261,\r\n  \"_fixed\": 9,\r\n  \"perc\": 3,\r\n  \"average_repair_days\": 56,\r\n  \"unfixed_since\": \"2024-02-02T00:00:00\",\r\n  \"unfixed_days\": 318,\r\n  \"email\": \"mayor@piraeus.gov.gr\",\r\n  \"date\": \"2024-12-16T00:00:00\",\r\n  \"ranking\": 12, \r\n\"validMunicipalities\":150, \r\n}}"));
 
             BindingContext = this;
 
@@ -59,11 +59,11 @@ namespace DestoPesto.Views
         public bool NoInternetConnection { get; private set; }
 
 
-        protected async override void  OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
 
-           
+
 
             //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
 
@@ -373,6 +373,27 @@ namespace DestoPesto.Views
 
             if (e.PropertyName == "VisibleRegion")
             {
+
+                try
+                {
+                    if (MunicipalityStats == null)
+                    {
+                        var location = await Geolocation.GetLastKnownLocationAsync();
+#if DEBUG
+                        location = new Xamarin.Essentials.Location(37.985871, 23.724270);// (37.943341, 23.648707);
+#endif
+                        var municipalityStats = await JsonHandler.GetMunicipalityStats(location.Latitude, location.Longitude);
+                        if (municipalityStats != null && municipalityStats.Subs > 0)
+                        {
+                            MunicipalityStats = new MunicipalityStatsVM(municipalityStats);
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MunicipalityStats)));
+                        }
+                    }
+                }
+                catch (Exception error)
+                {
+                }
+
                 tokenSource?.Cancel();
 
                 tokenSource = new CancellationTokenSource();
@@ -421,13 +442,13 @@ namespace DestoPesto.Views
                      try
                      {
                          (App.Current as App).SubmittedDamage = await JsonHandler.GetDamages(false, location.Latitude, location.Longitude, rad);
-                         if (JsonHandler.MunicipalityStats != null)
-                         {
-                             var tt = MunicipalityStats.ranking;
-                             var sds= JsonHandler.MunicipalityStats;
-                             MunicipalityStats = new MunicipalityStatsVM(JsonHandler.MunicipalityStats);
-                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MunicipalityStats)));
-                         }
+                         //if (JsonHandler.MunicipalityStats != null)
+                         //{
+
+
+                         //    MunicipalityStats = new MunicipalityStatsVM(JsonHandler.MunicipalityStats);
+                         //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MunicipalityStats)));
+                         //}
                      }
                      catch (Exception ex)
                      {
@@ -1042,11 +1063,12 @@ namespace DestoPesto.Views
 
         }
 
-        public MunicipalityStatsVM MunicipalityStats { get; set; } = new MunicipalityStatsVM(new Services.MunicipalityStats() { ranking = 123 });
+        public MunicipalityStatsVM MunicipalityStats { get; set; }
 
         private void MoreBtn_Clicked(object sender, EventArgs e)
         {
-            PopupNavigation.Instance.PushAsync(new MunicipalityStatsPopUp(MunicipalityStats.MunicipalityStats));
+            if(MunicipalityStats!=null)
+                PopupNavigation.Instance.PushAsync(new MunicipalityStatsPopUp(MunicipalityStats.MunicipalityStats));
         }
     }
 
@@ -1055,7 +1077,7 @@ namespace DestoPesto.Views
     /// <MetaDataID>{e9ee6fc6-1642-4649-8340-b329b44de7e1}</MetaDataID>
     public class MunicipalityStatsVM
     {
-       public readonly MunicipalityStats MunicipalityStats;
+        public readonly MunicipalityStats MunicipalityStats;
         public MunicipalityStatsVM(MunicipalityStats municipalityStats)
         {
             MunicipalityStats = municipalityStats;
@@ -1080,11 +1102,11 @@ namespace DestoPesto.Views
         public ImageSource ratingStars
         {
             get
-            { 
+            {
 
 
                 double ratestar = 0;
-                double.TryParse(rating, out ratestar);
+                double.TryParse(rating?.Replace(",", "."), System.Globalization.NumberStyles.Number, System.Globalization.CultureInfo.GetCultureInfo(1033), out ratestar);
                 ratestar = Math.Round(ratestar, 0);
                 switch (ratestar)
                 {
@@ -1118,7 +1140,7 @@ namespace DestoPesto.Views
                 //{
                 //    array.Add(i);
                 //}
-                
+
 
                 //double[] arr = array.ToArray();
                 //int min = 5;

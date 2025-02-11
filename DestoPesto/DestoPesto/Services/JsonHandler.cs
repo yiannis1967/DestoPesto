@@ -390,7 +390,7 @@ namespace DestoPesto.Services
                     string uri = doc.Root.Attribute("ServiceUrl")?.Value;
 
                     _Uri = uri;
-#if _DEBUG
+#if DEBUG
                     var profiles = Connectivity.ConnectionProfiles;
                     //if(profiles.Contains(ConnectionProfile.WiFi))
                     _Uri = "http://192.168.1.71:5005/";
@@ -939,7 +939,34 @@ namespace DestoPesto.Services
         }
 
 
+        public static async Task<MunicipalityStats> GetMunicipalityStats(double lat, double lng)
+        {
 
+            try
+            {
+                using (httpClient = new HttpClient())
+                {
+                    var _params = "?lat=" + lat.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) + "&lng=" + lng.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033));
+
+                    var uri = new Uri(getUri() + "api/Submissions/MunicipalityStats" + _params);
+
+                    var response = await httpClient.GetStringAsync(uri);
+                    MunicipalityStats = JsonConvert.DeserializeObject<MunicipalityStats>(response);
+
+                    if (MunicipalityStats.validMunicipalities == 0)
+                        MunicipalityStats.validMunicipalities = 150;
+
+                    return MunicipalityStats;
+                }
+
+
+            }
+            catch (Exception error)
+            {
+                return null;
+            }
+
+        }
 
 
         public static async Task<System.Collections.ObjectModel.ObservableCollection<DamageData>> GetDamages(bool isUser, double lat, double lng, double rad)
@@ -980,24 +1007,6 @@ namespace DestoPesto.Services
                     var response = await httpClient.GetStringAsync(uri);
                     var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
                     damageData = new ObservableCollection<DamageData>(Damages);
-                }
-                catch (Exception error)
-                {
-                }
-
-                try
-                {
-                    var _params = "?lat=" + lat.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) + "&lng=" + lng.ToString(System.Globalization.CultureInfo.GetCultureInfo(1033)) ;
-
-                     uri = new Uri(getUri() + "api/Submissions/MunicipalityStats" + _params);
-                    
-                    var response = await httpClient.GetStringAsync(uri);
-                    MunicipalityStats = JsonConvert.DeserializeObject<MunicipalityStats>(response);
-                    
-                    if (MunicipalityStats.validMunicipalities == 0)
-                        MunicipalityStats.validMunicipalities = 150;
-
-
                 }
                 catch (Exception error)
                 {
