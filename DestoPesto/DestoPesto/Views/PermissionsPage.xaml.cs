@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -255,7 +256,9 @@ namespace DestoPesto.Views
 
         private void GoToSettings_Clicked(object sender, EventArgs e)
         {
-            AppInfo.ShowSettingsUI();
+            //AppInfo.ShowSettingsUI();
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
         }
     }
 }
