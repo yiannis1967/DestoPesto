@@ -562,7 +562,7 @@
     <value>Oldest unrestored defect</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
-    <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions_en.txt</value>
   </data>
   <data name="DaysText" xml:space="preserve">
     <value>days</value>
