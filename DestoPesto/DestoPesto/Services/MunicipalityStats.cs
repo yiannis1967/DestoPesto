@@ -16,8 +16,11 @@ namespace DestoPesto.Services
         public string email { get; set; }
         public DateTime date { get; set; }
         public int ranking { get; set; }
-        public int validMunicipalities { get;set; }
-      
+        public string rating { get; set; }
+
+        public int validMunicipalities { get; set; }
+        public string municipalityName { get;  set; }
+
     }
 
 }
