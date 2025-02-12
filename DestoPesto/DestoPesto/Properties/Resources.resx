@@ -538,7 +538,7 @@
     <value>User name</value>
   </data>
   <data name="MunicipalityScore" xml:space="preserve">
-    <value>Municipality positioned at</value>
+    <value>Scored </value>
   </data>
   <data name="ScoreExplain" xml:space="preserve">
     <value>Smaller score is better</value>
@@ -547,7 +547,7 @@
     <value>335</value>
   </data>
   <data name="From" xml:space="preserve">
-    <value>of</value>
+    <value>out of a total of</value>
   </data>
   <data name="MunicipalityAvrgRepairDays" xml:space="preserve">
     <value>Average repair time</value>
@@ -574,6 +574,6 @@
     <value>Total fixed </value>
   </data>
   <data name="MunicialityText" xml:space="preserve">
-    <value>Mun : </value>
+    <value>Municipality </value>
   </data>
 </root>
