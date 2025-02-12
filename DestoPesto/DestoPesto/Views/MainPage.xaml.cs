@@ -117,7 +117,7 @@ namespace DestoPesto.Views
                           {
                               var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                              location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                              location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
 #endif
                               if (location != null && map != null)
                               {
@@ -380,7 +380,7 @@ namespace DestoPesto.Views
                     {
                         var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                        location = new Xamarin.Essentials.Location(37.985871, 23.724270);// (37.943341, 23.648707);
+                        location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);// (37.943341, 23.648707);
 #endif
                         var municipalityStats = await JsonHandler.GetMunicipalityStats(location.Latitude, location.Longitude);
                         if (municipalityStats != null && municipalityStats.Subs > 0)
@@ -436,7 +436,7 @@ namespace DestoPesto.Views
                      var location = await Geolocation.GetLastKnownLocationAsync();
 
 #if DEBUG
-                     location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                     location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
 #endif
                      //Call GetSubmission
                      try
@@ -1012,7 +1012,7 @@ namespace DestoPesto.Views
             {
                 var location = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
 #endif
                 await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, location));
             }
@@ -1067,7 +1067,7 @@ namespace DestoPesto.Views
 
         private void MoreBtn_Clicked(object sender, EventArgs e)
         {
-            if(MunicipalityStats!=null)
+            if (MunicipalityStats != null)
                 PopupNavigation.Instance.PushAsync(new MunicipalityStatsPopUp(MunicipalityStats.MunicipalityStats));
         }
     }
@@ -1083,7 +1083,7 @@ namespace DestoPesto.Views
             MunicipalityStats = municipalityStats;
         }
 
-        public string MunicipalityName { get => MunicipalityStats.municipalityName; set { } }
+        public string MunicipalityName { get => Properties.Resources.MunicialityText + " " + MunicipalityStats.municipalityName; set { } }
         public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
         public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
 

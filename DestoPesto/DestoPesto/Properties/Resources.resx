@@ -573,4 +573,7 @@
   <data name="TotalFixedDamages" xml:space="preserve">
     <value>Total fixed </value>
   </data>
+  <data name="MunicialityText" xml:space="preserve">
+    <value>Municipality</value>
+  </data>
 </root>

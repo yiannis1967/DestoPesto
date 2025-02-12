@@ -573,4 +573,7 @@
   <data name="TotalFixedDamages" xml:space="preserve">
     <value>Σύνολο αποκαταστημένων</value>
   </data>
+  <data name="MunicialityText" xml:space="preserve">
+    <value>Δήμος</value>
+  </data>
 </root>

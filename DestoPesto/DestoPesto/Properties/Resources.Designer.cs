@@ -817,6 +817,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Municipality.
+        /// </summary>
+        public static string MunicialityText {
+            get {
+                return ResourceManager.GetString("MunicialityText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Average repair time.
         /// </summary>
         public static string MunicipalityAvrgRepairDays {
