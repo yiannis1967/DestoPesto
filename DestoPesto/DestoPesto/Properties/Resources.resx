@@ -538,7 +538,7 @@
     <value>User name</value>
   </data>
   <data name="MunicipalityScore" xml:space="preserve">
-    <value>Municipality position is at</value>
+    <value>Municipality positioned at</value>
   </data>
   <data name="ScoreExplain" xml:space="preserve">
     <value>Smaller score is better</value>
