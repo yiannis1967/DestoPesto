@@ -817,7 +817,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Municipality .
+        ///   Looks up a localized string similar to The municipality.
         /// </summary>
         public static string MunicialityText {
             get {
@@ -844,7 +844,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scored .
+        ///   Looks up a localized string similar to scored .
         /// </summary>
         public static string MunicipalityScore {
             get {
