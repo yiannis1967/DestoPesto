@@ -39,7 +39,12 @@ namespace DestoPesto.Models
         public int AcceptedPhotos { get; set; }
 
         public int RejectedPhotos { get; set; }
+
         
+        
+        public int unFixedSubs { get; set; }
+        public int fixedSubs{ get; set; }
+
 
 
     }

@@ -79,12 +79,18 @@
     <CodesignProvision>Automatic</CodesignProvision>
     <ConsolePause>true</ConsolePause>
     <ExternalConsole>false</ExternalConsole>
-    <Commandlineparameters></Commandlineparameters>
-    <Commandlineparameters></Commandlineparameters>
-    <PackagingExtraArgs></PackagingExtraArgs>
-    <EnablePackageSigning></EnablePackageSigning>
-    <BuildIpa></BuildIpa>
-    <MtouchLink></MtouchLink>
+    <Commandlineparameters>
+    </Commandlineparameters>
+    <Commandlineparameters>
+    </Commandlineparameters>
+    <PackagingExtraArgs>
+    </PackagingExtraArgs>
+    <EnablePackageSigning>
+    </EnablePackageSigning>
+    <BuildIpa>
+    </BuildIpa>
+    <MtouchLink>
+    </MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -235,5 +241,8 @@
     <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\upload-file.gif" />
   </ItemGroup>
 </Project>
