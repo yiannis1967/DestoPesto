@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+             xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="DestoPesto.Views.UserProfilePage"
+             BackgroundColor="White">
+    <Shell.TitleView >
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Grid InputTransparent="True"   VerticalOptions="Center" >
+
+                <Image HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+
+            </Grid>
+
+
+        </StackLayout>
+
+        <!--<Image HeightRequest="32" WidthRequest="80"  HorizontalOptions="Start" InputTransparent="True" Source="logo_landscape_blue_back.png" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All"/>-->
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="White" Grid.Row="1" VerticalOptions="Start" Padding="0,50,0,0">
+
+            <Label Text="{x:Static resources:Properties.Resources.UserProfileText}" TextColor="#0D6EFD" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
+            <Label  Text="{x:Static resources:Properties.Resources.UserProfileText_2}" TextColor="#0D6EFD"  HorizontalOptions="CenterAndExpand" FontSize="Header" />
+
+            <!--<Image Source="{AppThemeBinding Light={extensions:ImageResource DestoPesto.Images.login_header.png}, Dark={extensions:ImageResource DestoPesto.Images.login_header.png}}"  />-->
+
+            <StackLayout Padding="0" Margin="15,10" >
+
+
+                <StackLayout  Orientation="Horizontal">
+
+                    <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightEmail}" x:Name="txtWrongEmail" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                </StackLayout>
+
+
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PersonNameLabel}" ></Label>
+                    <extensions:EntryEx BorderColor="LightGray" CornerRadius="10"  BackgroundColor="Transparent" TextColor="#0D6EFD" Text="{Binding Name}" Margin="0,0,0,0" PlaceholderColor="DarkGray"  Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"    HorizontalOptions="FillAndExpand" >
+                    </extensions:EntryEx>
+                </StackLayout>
+
+
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.EmailLabel}" ></Label>
+                    <extensions:EntryEx BorderColor="LightGray" BackgroundColor="Transparent"  Margin="0,0,0,0" PlaceholderColor="DarkGray" TextColor="#0D6EFD" Text="{Binding Email}"  Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand"  Keyboard="Email"  >
+                    </extensions:EntryEx>
+                </StackLayout>
+
+                <StackLayout  BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.MobilePhoneLabel}" ></Label>
+                    <extensions:EntryEx BorderColor="LightGray" BackgroundColor="Transparent"  PlaceholderColor="DarkGray" Margin="0,0,0,0" TextColor="#0D6EFD" Text="{Binding PhoneNumber}"   Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"   HorizontalOptions="FillAndExpand" />
+
+                </StackLayout>
+
+                <!--<Frame BackgroundColor="White"  Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White">
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" Aspect="AspectFill" Margin="0" />
+                        </Frame>
+
+                        <extensions:EntryEx TextColor="#0D6EFD" Text="{Binding Email}"  Margin="4" Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" BackgroundColor="White" Keyboard="Email"  >
+
+                        < /extensions:EntryEx >
+                    </StackLayout>
+                </Frame>-->
+
+                <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.phone.png}" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <extensions:EntryEx TextColor="#0D6EFD" Text="{Binding PhoneNumber}" Margin="4"  Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" />
+
+
+                    </StackLayout>
+                </Frame>-->
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.BirthDateLabel}" ></Label>
+                    <Grid IsVisible="{Binding iOS}" HorizontalOptions="FillAndExpand">
+                        <DatePicker x:Name="iOsBirthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,4,0" Date="{x:Static sys:DateTime.Now}">
+                            <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                        </DatePicker>
+                    </Grid>
+
+                    <Grid IsVisible="{Binding IsAndroid}" HorizontalOptions="FillAndExpand">
+                        <extensions:EntryEx BorderColor="LightGray" x:Name="birthDateEntry" PlaceholderColor="DarkGray" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="#0D6EFD" Placeholder="{x:Static resources:Properties.Resources.BirthDateLabel}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                        </extensions:EntryEx>
+                        <DatePicker BackgroundColor="White" TextColor="#0D6EFD" IsVisible="false" IsEnabled="False" x:Name="birthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
+                            <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                        </DatePicker>
+                    </Grid>
+                </StackLayout>
+
+                <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.date-of-birth-icon.png}" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Grid IsVisible="{Binding iOS}" HorizontalOptions="FillAndExpand">
+                            <DatePicker x:Name="iOsBirthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,4,0" Date="{x:Static sys:DateTime.Now}">
+                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            </DatePicker>
+                        </Grid>
+
+                        <Grid IsVisible="{Binding IsAndroid}" HorizontalOptions="FillAndExpand">
+                            <extensions:EntryEx  x:Name="birthDateEntry" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="#0D6EFD" Placeholder="{x:Static resources:Properties.Resources.BirthDateLabel}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand" >
+                            < /extensions:EntryEx >
+                            <DatePicker IsVisible="false" IsEnabled="False" x:Name="birthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
+                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            </DatePicker>
+                        </Grid>
+                    </StackLayout>
+                </Frame>-->
+
+
+                <StackLayout BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.AcceptedPhotosLabel}" ></Label>
+                    <extensions:EntryEx BorderColor="LightGray"  Text="{Binding AcceptedPhotosText}" IsReadOnly="True" PlaceholderColor="DarkGray" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout  BackgroundColor="White" Padding="10" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.RejectedPhotosLabel}" ></Label>
+                    <extensions:EntryEx BorderColor="LightGray" Text="{Binding RejectedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+
+
+                <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6" IsVisible="{Binding ContestParticipation}" >
+                    <StackLayout Orientation="Horizontal">
+                        <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
+                            <Image Source="{extensions:ImageResource DestoPesto.Images.camera.png}" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <extensions:EntryEx Text="{Binding ContestAcceptedPhotosText}" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                </Frame>-->
+
+
+                <!--<Button Text="Open" Clicked="Button_Clicked"></Button>-->
+
+
+                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" />
+                </StackLayout>-->
+
+                <!--<StackLayout Margin="0,25,0,0" Padding="0">
+                    <Grid>
+                        <BoxView BackgroundColor="#828282" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+
+                            <Label Text="{x:Static resources:Properties.Resources.seprationSimpleText}" TextColor="DarkGray" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        </Frame>
+                    </Grid>
+                </StackLayout>-->
+            </StackLayout>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

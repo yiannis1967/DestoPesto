@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DestoPesto.Views.SubmisionsListPageDetail"
+             xmlns:controls="clr-namespace:DestoPesto.Controls"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:hl="clr-namespace:Hyperlink"
+             xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+            Title="{x:Static resources:Properties.Resources.SubmisionsText}">
+
+    <Grid BackgroundColor="White" >
+        
+        <ScrollView>
+            <StackLayout Padding="10">
+                <controls:RepeaterView ItemsSource="{Binding Path=UserSubmissions.AllUserDamages}">
+
+                    <controls:RepeaterView.ItemTemplate>
+                        <DataTemplate>
+
+
+                            <Grid >
+                                <Frame Margin="5" CornerRadius="5"  BackgroundColor="Coral" HorizontalOptions="Fill"  VerticalOptions="Fill" HasShadow="True" IsClippedToBounds="True" Padding="0">
+                                    <Grid Padding="5" BackgroundColor="WhiteSmoke">
+
+                                        <xct:Expander IsExpanded="{Binding IsExpanded}">
+                                            <xct:Expander.Header>
+                                                <Grid >
+
+
+                                                    <Grid Padding="5" BackgroundColor="WhiteSmoke">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="22"/>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="20*"/>
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <StackLayout Grid.Column="1"  Orientation="Horizontal">
+                                                            <Image HeightRequest="16" IsVisible="{Binding IsActivate}" WidthRequest="16" HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.AcceptedSub.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+                                                            <Image HeightRequest="16" IsVisible="{Binding Review}" WidthRequest="16" HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.ReviewSub.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+                                                            <Label  FontSize="Subtitle"  Text="{Binding Path=CategoryName}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+                                                        </StackLayout>
+
+                                                        <Label Grid.Column="1" Grid.Row="1"  Text="{Binding Path=fullAddress}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+                                                        <Label Grid.Column="1" Grid.Row="2"  Text="{Binding Path=SubmissionsNumberPrompt}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+                                                    </Grid>
+
+                                                </Grid>
+                                            </xct:Expander.Header>
+                                            <xct:Expander.ContentTemplate>
+                                                <DataTemplate>
+
+                                                    <Grid HeightRequest="360"  >
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="4*"/>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Image  x:Name="backgroundImage" Source="{Binding Path=photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
+
+
+                                                        <Grid Grid.Row="1"   HorizontalOptions="Fill" IsClippedToBounds="True" >
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="2*"/>
+
+
+
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand" TextColor="{extensions:AppMode Color=TextDefault}"/>
+
+                                                            <!--  Button Control  -->
+
+                                                            <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                                                                <Button Grid.Column="1" Padding="5" BackgroundColor="#CF1F25" VerticalOptions="Center"  HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="5" Command="{Binding CloseCommand}" >
+                                                                    <!--<Button.Margin>
+                                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                                        <On Platform="Android" Value="-4,-6,-4,-5" />
+                                                                        <On Platform="iOS" Value="0" />
+                                                                    </OnPlatform>
+                                                                </Button.Margin>-->
+                                                                </Button>
+
+                                                                <Button Grid.Column="2" Padding="5" BackgroundColor="#5EDD60" VerticalOptions="Center"  HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="5" Command="{Binding FixedCommand}">
+                                                                    <!--<Button.Margin>
+                                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                                        <On Platform="Android" Value="-4,-6,-4,-5" />
+                                                                        <On Platform="iOS" Value="0" />
+                                                                    </OnPlatform>
+                                                                </Button.Margin>-->
+                                                                </Button>
+                                                            </StackLayout>
+
+                                                            <!--  Text Label  -->
+                                                            <!--<Label Margin="10,0,0,0" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" HorizontalTextAlignment="Center" InputTransparent="True" Text="go next" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" />-->
+
+                                                            <!--  Icon Image  -->
+
+                                                        </Grid>
+
+                                                    </Grid>
+                                                    <!--<Grid Padding="10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="{Binding ImageUrl}" 
+                                           Aspect="AspectFill"
+                                           HeightRequest="120" 
+                                           WidthRequest="120" />
+                                            <Label Grid.Column="1"
+                                           Text="{Binding Details}"
+                                           FontAttributes="Italic" />
+                                        </Grid>-->
+                                                </DataTemplate>
+                                            </xct:Expander.ContentTemplate>
+                                        </xct:Expander>
+
+
+
+
+
+                                    </Grid>
+
+
+                                </Frame>
+
+                            </Grid>
+
+
+
+                        </DataTemplate>
+                    </controls:RepeaterView.ItemTemplate>
+                </controls:RepeaterView>
+
+            </StackLayout>
+        </ScrollView>
+
+
+        <Label IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" >Loading... </Label>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DestoPesto.Views.SubmisionPopupPage"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:hl="clr-namespace:Hyperlink"
+                              xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <!--  You can set an animation in the xaml file or in the csharp code behind  -->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <!--  You can use any elements here which are extended from Xamarin.Forms.View  -->
+    <Frame BackgroundColor="White" CornerRadius="5" 
+           HorizontalOptions="Center" 
+           VerticalOptions="Center"
+           HasShadow="True"
+           HeightRequest="400"
+           Padding="0">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout BackgroundColor="#0D6EFD" Grid.ColumnSpan="3">
+                <Image HeightRequest="40" Grid.Column="1" HorizontalOptions="StartAndExpand" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="SizeProportional" />
+            </StackLayout>
+            <Label Grid.Row="1"  Grid.Column="1" Text="{Binding Description}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
+            <!--<Grid Padding="10,20,10,20" Grid.Row="1">-->
+
+            <Image Grid.Row="2" Grid.Column="1" x:Name="backgroundImage" Source="{Binding SubmisionThumb}" AbsoluteLayout.LayoutFlags="PositionProportional"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImageNameTapped" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <!--</Grid>-->
+            <!--<Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid >-->
+            <Label Grid.Row="3" TextColor="#0D6EFD" Grid.Column="1" Text="{Binding Comments}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
+
+                <!--</Grid>
+            </Grid>-->
+        </Grid>
+
+    </Frame> 
+</pages:PopupPage>

@@ -140,8 +140,8 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <extensions:EntryEx BorderColor="LightGray" Text="{Binding RejectedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
-                        <extensions:EntryEx Grid.Column="1" BorderColor="LightGray" Text="{Binding RejectedPhotosText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                        <extensions:EntryEx BorderColor="LightGray" Text="{Binding fixedSubsText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                        <extensions:EntryEx Grid.Column="1" BorderColor="LightGray" Text="{Binding unFixedSubsText}" IsReadOnly="True" TextColor="#0D6EFD" BackgroundColor="White" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
                     </Grid>
                 </StackLayout>
 

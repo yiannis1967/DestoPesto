@@ -66,6 +66,9 @@ namespace DestoPesto.Views
             AcceptedPhotosText = User?.AcceptedPhotos.ToString();
             RejectedPhotosText = User?.RejectedPhotos.ToString();
 
+            unFixedSubsText = User?.unFixedSubs.ToString();
+            fixedSubsText = User?.fixedSubs.ToString();
+
 
             //RejectedPhotosText = User?.RejectedPhotos.ToString();
 
@@ -146,6 +149,10 @@ namespace DestoPesto.Views
         public string ContestAcceptedPhotosText { get; }
         public string AcceptedPhotosText { get; }
         public string RejectedPhotosText { get; }
+
+
+        public string unFixedSubsText { get; }
+        public string fixedSubsText { get; }
 
         private void Button_Clicked(object sender, EventArgs e)
         {

@@ -1,0 +1,221 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ProjectGUID="24702fca-6d87-43e7-867f-01960a610f02">
+  <PropertyGroup Label="Globals">
+    <SccProjectName></SccProjectName>
+    <SccProvider></SccProvider>
+    <SccAuxPath></SccAuxPath>
+    <SccLocalPath></SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+     <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="New folder\**" />
+    <EmbeddedResource Remove="New folder\**" />
+    <None Remove="New folder\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="App.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="App.xaml" />
+    <EmbeddedResource Remove="Views\AboutPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PCLStorage" Version="1.0.2" />
+    <PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
+    <PackageReference Include="Prism.Plugin.Popups" Version="8.0.76" />
+    <PackageReference Include="Xam.Plugin.Media" Version="6.0.2" />
+    <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2622" />
+    <PackageReference Include="Xamarin.Forms.Svg" Version="1.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Map\Map.csproj" />
+    <ProjectReference Include="..\..\Authentication\Authentication.csproj" />
+    <ProjectReference Include="..\..\DebugLog\DebugLog.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="App_s.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="StringResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StringResource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ContestIntroPage.xaml.cs">
+      <DependentUpon>ContestIntroPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubmissionTypeIntro.xaml.cs">
+      <DependentUpon>SubmissionTypeIntro.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubmisionDetailsPopupPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SubmisionDetailsPopupPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="App_s.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPage_s.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="StringResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CategoryButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContestIntroPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ForgotPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\IntroPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MessageDialogPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PasswordResetPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SignInMessagePopUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SignInPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SubmisionDetailsPopupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SubmisionPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SubmisionsListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SubmisionsListPageDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SubmisionsListPageFlyout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ButtonCircleBig.png" />
+    <None Remove="DestoPesto-app.7z" />
+    <None Remove="DestoPesto.7z" />
+    <None Remove="Images\AcceptedSub.png" />
+    <None Remove="Images\applelogo.png" />
+    <None Remove="Images\back_arrow.png" />
+    <None Remove="Images\camera.png" />
+    <None Remove="Images\date-of-birth-icon.png" />
+    <None Remove="Images\delete1.png" />
+    <None Remove="Images\delete_user.png" />
+    <None Remove="Images\destopesto_icon.png" />
+    <None Remove="Images\destopesto_logo_square_blue.png" />
+    <None Remove="Images\destopesto_logo_square_solo_white.png" />
+    <None Remove="Images\email.png" />
+    <None Remove="Images\facebook.png" />
+    <None Remove="Images\google_logo.png" />
+    <None Remove="Images\icon.png" />
+    <None Remove="Images\icon1.png" />
+    <None Remove="Images\iconDark.png" />
+    <None Remove="Images\iconDark1.png" />
+    <None Remove="Images\iconSplash.png" />
+    <None Remove="Images\icon_about.png" />
+    <None Remove="Images\icon_feed.png" />
+    <None Remove="Images\icon_round.png" />
+    <None Remove="Images\ic_launcher.png" />
+    <None Remove="Images\key.png" />
+    <None Remove="Images\Login_Header.png" />
+    <None Remove="Images\logoback.png" />
+    <None Remove="Images\logout.png" />
+    <None Remove="Images\logo_landscape_blue_back.png" />
+    <None Remove="Images\logo_landscape_blue_back1.png" />
+    <None Remove="Images\mail.png" />
+    <None Remove="Images\map.png" />
+    <None Remove="Images\password.png" />
+    <None Remove="Images\phone.png" />
+    <None Remove="Images\pin.png" />
+    <None Remove="Images\pin_drop.png" />
+    <None Remove="Images\ReviewSub.png" />
+    <None Remove="Images\settings.png" />
+    <None Remove="Images\twitter.png" />
+    <None Remove="Images\user.png" />
+    <None Remove="Images\user_blue.png" />
+    <None Remove="Images\wifi.png" />
+    <None Remove="Images\xamarin_logo.png" />
+    <None Remove="New Text Document.txt" />
+    <None Remove="TestPhoto.jpg" />
+    <None Remove="Views\Views.7z" />
+    <None Remove="Xamarin.Forms.Maps" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ButtonCircleBig.png" />
+    <EmbeddedResource Include="Images\AcceptedSub.png" />
+    <EmbeddedResource Include="Images\applelogo.png" />
+    <EmbeddedResource Include="Images\back_arrow.png" />
+    <EmbeddedResource Include="Images\camera.png" />
+    <EmbeddedResource Include="Images\date-of-birth-icon.png" />
+    <EmbeddedResource Include="Images\delete_user.png" />
+    <EmbeddedResource Include="Images\destopesto_icon.png" />
+    <EmbeddedResource Include="Images\destopesto_logo_square_blue.png" />
+    <EmbeddedResource Include="Images\destopesto_logo_square_solo_white.png" />
+    <EmbeddedResource Include="Images\email.png" />
+    <EmbeddedResource Include="Images\facebook.png" />
+    <EmbeddedResource Include="Images\google_logo.png" />
+    <EmbeddedResource Include="Images\icon.png" />
+    <EmbeddedResource Include="Images\iconSplash.png" />
+    <EmbeddedResource Include="Images\icon_about.png" />
+    <EmbeddedResource Include="Images\icon_feed.png" />
+    <EmbeddedResource Include="Images\icon_round.png" />
+    <EmbeddedResource Include="Images\ic_launcher.png" />
+    <EmbeddedResource Include="Images\key.png" />
+    <EmbeddedResource Include="Images\login_header.png" />
+    <EmbeddedResource Include="Images\logoback.png" />
+    <EmbeddedResource Include="Images\logout.png" />
+    <EmbeddedResource Include="Images\logo_landscape_blue_back.png" />
+    <EmbeddedResource Include="Images\mail.png" />
+    <EmbeddedResource Include="Images\map.png" />
+    <EmbeddedResource Include="Images\password.png" />
+    <EmbeddedResource Include="Images\phone.png" />
+    <EmbeddedResource Include="Images\pin.png" />
+    <EmbeddedResource Include="Images\pin_drop.png" />
+    <EmbeddedResource Include="Images\ReviewSub.png" />
+    <EmbeddedResource Include="Images\settings.png" />
+    <EmbeddedResource Include="Images\twitter.png" />
+    <EmbeddedResource Include="Images\user.png" />
+    <EmbeddedResource Include="Images\user_blue.png" />
+    <EmbeddedResource Include="Images\wifi.png" />
+    <EmbeddedResource Include="Images\xamarin_logo.png" />
+  </ItemGroup>
+</Project>

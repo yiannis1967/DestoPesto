@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  x:Class="DestoPesto.Views.MessageDialogPopup"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:pages="http://rotorgames.com" 
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                  xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+                  CloseWhenBackgroundIsClicked="False" >
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame CornerRadius="10"
+           HorizontalOptions="Center" 
+           VerticalOptions="Center"
+           HasShadow="True"
+           HeightRequest="250"
+           BackgroundColor="WhiteSmoke"
+           >
+
+        <StackLayout >
+            <Grid HorizontalOptions="Fill" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout  Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalOptions="Start" >
+                                        <!--<Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>-->
+                    <Frame   HasShadow="False" BackgroundColor="#0D6EFD" Padding="5" CornerRadius="5"  Grid.ColumnSpan="4" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                        <Image  InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" />
+                        <!--<Image   InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" VerticalOptions="Center" />-->
+                    </Frame>
+                    <!--<Label Grid.Column="1" Text="{Binding MessageDialogTitle}" FontSize="Title" HorizontalTextAlignment="Center"  TextColor="#0D6EFD" VerticalOptions="Center"></Label>-->
+                </StackLayout>
+
+                <Label x:Name="MessagePlacement" Grid.Row="1" Grid.ColumnSpan="4" Text="{Binding MessageDialogMessage}" LineBreakMode="WordWrap" FontSize="Medium" TextColor="#0D6EFD" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+
+
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Text="{Binding LeftBtnText}" x:Name="LeftBtn" Clicked="LeftBtn_Clicked"  HorizontalOptions="CenterAndExpand"   BackgroundColor="#CF1F25" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
+                <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RightBtnText}" x:Name="RightBtn" Clicked="RightBtn_Clicked"  HorizontalOptions="CenterAndExpand"   BackgroundColor="#5EDD60" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
+            </Grid>
+        </StackLayout>
+    </Frame>
+
+</pages:PopupPage>
