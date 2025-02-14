@@ -366,7 +366,7 @@ namespace DestoPesto.Services
                     XDocument doc = XDocument.Load(URLString);
 
                     ShareAppElement = doc.Root.Element("ShareApp");
-                    ShareAppTitle = ShareAppElement?.Attribute("ShareAppTitle")?.Value;
+                    ShareAppTitle = ShareAppElement?.Attribute("Title")?.Value;
                     ShareAppSubject = ShareAppElement?.Attribute("Subject")?.Value;
                     ShareAppText = ShareAppElement?.Attribute("Text")?.Value;
                     ShareAppUri = ShareAppElement?.Attribute("Uri")?.Value;
