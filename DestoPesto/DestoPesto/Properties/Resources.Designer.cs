@@ -574,7 +574,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to of.
+        ///   Looks up a localized string similar to out of a total of.
         /// </summary>
         public static string From {
             get {
@@ -817,7 +817,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mun : .
+        ///   Looks up a localized string similar to The municipality.
         /// </summary>
         public static string MunicialityText {
             get {
@@ -844,7 +844,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Municipality positioned at.
+        ///   Looks up a localized string similar to scored .
         /// </summary>
         public static string MunicipalityScore {
             get {
@@ -988,7 +988,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt.
+        ///   Looks up a localized string similar to https://destopesto.blob.core.windows.net/destopesto/docs/permissions_en.txt.
         /// </summary>
         public static string PermissionsScreenFileLink {
             get {

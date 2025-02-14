@@ -1054,8 +1054,8 @@ namespace DestoPesto.Views
 
             await Share.RequestAsync(new ShareTextRequest
             {
-                Title = "Το Δες το Πες το",
-                Subject = "Αυτό διορθώθηκε μέσα σε 5 ημέρες",
+                Title = "Δες το Πες το",
+                Subject = "Αξιολόγηση δήμου βάσει πραγματικών προβλημάτων",
 
                 Text = "Για πρώτη φορά γίνεται αξιολόγηση των δήμων στην Ελλάδα. Κατέβασε το 'Δες το Πες το' από το link για να ξέρεις και εσύ",
                 Uri = "https://rb.gy/fyms9s"
@@ -1083,7 +1083,8 @@ namespace DestoPesto.Views
             MunicipalityStats = municipalityStats;
         }
 
-        public string MunicipalityName { get => Properties.Resources.MunicialityText + " " + MunicipalityStats.municipalityName; set { } }
+        //public string MunicipalityName { get => Properties.Resources.MunicialityText + " " + MunicipalityStats.municipalityName; set { } }
+        public string MunicipalityName { get => MunicipalityStats.municipalityName; set { } }
         public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
         public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
 

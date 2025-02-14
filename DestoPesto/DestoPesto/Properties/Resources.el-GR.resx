@@ -538,7 +538,7 @@
     <value>Ονομα χρήστη</value>
   </data>
   <data name="MunicipalityScore" xml:space="preserve">
-    <value>Ο δήμος είναι στην θέση </value>
+    <value>βρίσκεται στην θέση </value>
   </data>
   <data name="ScoreExplain" xml:space="preserve">
     <value>Μικρότερη κατάταξη καλύτερη θέση</value>
@@ -574,6 +574,6 @@
     <value>Σύνολο αποκαταστημένων</value>
   </data>
   <data name="MunicialityText" xml:space="preserve">
-    <value>Δήμος</value>
+    <value>Ο δήμος</value>
   </data>
 </root>
