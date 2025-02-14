@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+             x:Class="DestoPesto.Views.CategoryButton">
+    <ContentView.Content>
+        <Grid  Grid.Row="1"
+            Grid.Column="0"
+            HeightRequest="80"
+            HorizontalOptions="Fill"
+            IsClippedToBounds="True"
+            VerticalOptions="Center">
+            <!--<Button x:Name="button" x:FieldModifier="public"></Button>-->
+
+            <Button  x:Name="button" x:FieldModifier="public" >
+                <!--<Button.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="-4,-6,-4,-5" />
+                        <On Platform="iOS" Value="0" />
+                    </OnPlatform>
+                </Button.Margin>-->
+            </Button>
+
+            <!--  Text Label  -->
+            <Grid InputTransparent="True"   VerticalOptions="Center">
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Image   x:Name="image" x:FieldModifier="public" HeightRequest="20" WidthRequest="20" InputTransparent="True"  HorizontalOptions="Center" Source="{Binding Path=ImageSource}" VerticalOptions="Center"  />
+                <Label Grid.Row="1" x:Name="label" x:FieldModifier="public" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Grid>
+
+
+
+            <!--<Label Margin="3" x:Name="label" x:FieldModifier="public"></Label>-->
+            <!--<Image WidthRequest="24" HeightRequest="24" x:Name="img" x:FieldModifier="public"></Image>-->
+        </Grid>
+    </ContentView.Content>
+</ContentView>

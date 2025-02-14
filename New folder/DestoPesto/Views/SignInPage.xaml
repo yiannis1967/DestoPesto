@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:resources="clr-namespace:DestoPesto"
+             xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+             
+             Shell.BackgroundColor="#0D6EFD"
+             x:Class="DestoPesto.Views.SignInPage">
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+    </ContentPage.Resources>
+    <Shell.TitleView >
+        <Grid InputTransparent="True"   VerticalOptions="Center">
+            <Image HorizontalOptions="Start" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <!--<Grid BackgroundColor="#0D6EFD"  Padding="10,10,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid WidthRequest="18">
+
+                    <Image Source="{extensions:ImageResource DestoPesto.Images.back_arrow.png}" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Image Grid.Column="1" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" BackgroundColor="#0D6EFD"  />
+            </Grid>-->
+
+            <StackLayout Grid.Row="1" VerticalOptions="Center">
+
+                <!--<Image Source="{AppThemeBinding Light={extensions:ImageResource DestoPesto.Images.login_header.png}, Dark={extensions:ImageResource DestoPesto.Images.login_header.png}}"  />-->
+
+                <StackLayout Padding="0" Margin="15,10" >
+
+                    <!--<Frame BackgroundColor="White"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"  CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White">
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.email.png}" Aspect="AspectFill" Margin="0" />
+                            </Frame>
+
+                            <Entry TextColor="Black" Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" BackgroundColor="White" Keyboard="Email"  >
+                                <Entry.Behaviors>
+                                    <xct:MultiValidationBehavior x:Name="EmailMultiValidator" InvalidStyle="{StaticResource  InvalidEntryStyle}"  Flags="ValidateOnValueChanging">
+                                        <xct:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" />
+                                        <xct:TextValidationBehavior x:Name="EmailTextLenghtValidator" MinimumLength="1"/>
+                                    </xct:MultiValidationBehavior>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>-->
+
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.EmailLabel}" ></Label>
+                    <extensions:EntryEx PlaceholderColor="LightGray" BorderColor="LightGray" TextColor="Black" Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand" BackgroundColor="White" Keyboard="Email"  >
+                        <Entry.Behaviors>
+                            <xct:MultiValidationBehavior x:Name="EmailMultiValidator" InvalidStyle="{StaticResource  InvalidEntryStyle}"  Flags="ValidateOnValueChanging">
+                                <xct:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" />
+                                <xct:TextValidationBehavior x:Name="EmailTextLenghtValidator" MinimumLength="1"/>
+                            </xct:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </extensions:EntryEx>
+                    <StackLayout  Orientation="Horizontal">
+
+                        <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightEmail}" x:Name="txtWrongEmail" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                    </StackLayout>
+
+
+                    <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame HeightRequest="40" WidthRequest="40" HasShadow="False"   CornerRadius="6" Padding="0" Margin="5" BackgroundColor="White" >
+                                <Image Source="{extensions:ImageResource DestoPesto.Images.password.png}" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                            <Entry TextColor="Black" Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" IsPassword="True" BackgroundColor="White"  HorizontalOptions="FillAndExpand" TextChanged="txtPassword_TextChanged">
+                                <Entry.Behaviors>
+                                    <xct:TextValidationBehavior x:Name="PasswordValidator"  DecorationFlags="Trim" MinimumLength="1" Flags="ValidateOnValueChanging"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>-->
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PasswordLabel}" ></Label>
+                    <extensions:EntryEx  PlaceholderColor="LightGray" BorderColor="LightGray" TextColor="Black" Placeholder="{x:Static resources:Properties.Resources.PasswordPlaceHolder}"  x:Name="txtPassword" IsPassword="True" BackgroundColor="White"  HorizontalOptions="FillAndExpand" TextChanged="txtPassword_TextChanged">
+                        <Entry.Behaviors>
+                            <xct:TextValidationBehavior x:Name="PasswordValidator"  DecorationFlags="Trim" MinimumLength="1" Flags="ValidateOnValueChanging"/>
+                        </Entry.Behaviors>
+                    </extensions:EntryEx>
+                    <StackLayout  Orientation="Horizontal">
+                        <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightPassword}" x:Name="txtWrongPass" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+
+
+                    <StackLayout  Orientation="Horizontal">
+
+                        <Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}" TextColor="Blue" TextDecorations="Underline" x:Name="forgoPass">
+
+                        </Label>
+
+
+                        <!--<Label Text="{x:Static resources:Properties.Resources.ForgetPasswordText}"  TextColor="DarkGray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />-->
+
+                    </StackLayout>
+
+                    <Button Text="{x:Static resources:Properties.Resources.SigninText}" x:Name="btnSignIn" Clicked="btnSignIn_Clicked" BackgroundColor="#0D6EFD" TextColor="White" CornerRadius="6" TextTransform="None" IsEnabled="{Binding IsValid, Source={x:Reference  EmailMultiValidator}}" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resources:Properties.Resources.CreateAccountText}" TextColor="DarkGray" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{x:Static resources:Properties.Resources.SignUpText}"  TextColor="#0D6EFD" x:Name="lblSignup"  FontAttributes="Bold" />
+                    </StackLayout>
+
+                    <!--<StackLayout Margin="0,25,0,0" Padding="0">
+                    <Grid>
+                        <BoxView BackgroundColor="#828282" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+
+                            <Label Text="{x:Static resources:Properties.Resources.seprationSimpleText}" TextColor="DarkGray" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        </Frame>
+                    </Grid>
+                </StackLayout>-->
+                </StackLayout>
+
+
+            </StackLayout>
+            <Image Grid.Row="2" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" BackgroundColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

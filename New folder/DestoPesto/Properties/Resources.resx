@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlertText" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Δες το, Πες το</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CatagoryText" xml:space="preserve">
+    <value>Catagory</value>
+  </data>
+  <data name="CreateAccountText" xml:space="preserve">
+    <value>Still Not Connected ?</value>
+  </data>
+  <data name="DamageSatusFail" xml:space="preserve">
+    <value>Damage status updated Fail</value>
+  </data>
+  <data name="DamageSatusSuccess" xml:space="preserve">
+    <value>Damage status updated successfully</value>
+  </data>
+  <data name="DobText" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Type your email</value>
+  </data>
+  <data name="EnableBGToast" xml:space="preserve">
+    <value>Please Set Location Permission: " Allow all the time " in Settings</value>
+  </data>
+  <data name="ForgetPasswordText" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="GenderText" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="GetCatagoryText" xml:space="preserve">
+    <value>Get Catagories</value>
+  </data>
+  <data name="HaveAccountText" xml:space="preserve">
+    <value>Already Have An Account ?</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HomeItemText" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LocalNotificationDec" xml:space="preserve">
+    <value>Damage is Reported Nearby Please Check</value>
+  </data>
+  <data name="LocalNotificationTitle" xml:space="preserve">
+    <value>Damage Report Alert</value>
+  </data>
+  <data name="CancleText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LocationPrompt" xml:space="preserve">
+    <value>The app uses location data when a photo is taken as part of the control on the accuracy of information provided. This data is stored in the application to allow it to determine the exact location that the photo was taken. </value>
+  </data>
+  <data name="LogoutItemText" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MapHeaderText" xml:space="preserve">
+    <value>Δες το, Πες το</value>
+  </data>
+  <data name="NoInternetText" xml:space="preserve">
+    <value>The system is not responding because internet connection is lost or the server is down. Close the app and try again in a minute</value>
+  </data>
+  <data name="NoText" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NumUserText" xml:space="preserve">
+    <value>Total users who reported this : </value>
+  </data>
+  <data name="Oktext" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PasswordPlaceHolder" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RePasswordPlaceHolder" xml:space="preserve">
+    <value>Retype Password</value>
+  </data>
+  <data name="ReportDamageClick" xml:space="preserve">
+    <value>Tap to Report a Damage</value>
+  </data>
+  <data name="ReportFailed" xml:space="preserve">
+    <value>Damage Reported Failed</value>
+  </data>
+  <data name="ReportFix" xml:space="preserve">
+    <value>Report this damage as fixed</value>
+  </data>
+  <data name="ReportSuccess" xml:space="preserve">
+    <value>Damage Reported Successfully</value>
+  </data>
+  <data name="sendDataWifi" xml:space="preserve">
+    <value>Upload photos only over Wifi</value>
+  </data>
+  <data name="seprationSignupText" xml:space="preserve">
+    <value>OR Sign Up With</value>
+  </data>
+  <data name="seprationSimpleText" xml:space="preserve">
+    <value>OR</value>
+  </data>
+  <data name="SettingItemText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SigninText" xml:space="preserve">
+    <value>SIGN IN</value>
+  </data>
+  <data name="SignupFail" xml:space="preserve">
+    <value>Signup Failed </value>
+  </data>
+  <data name="SignupSuccess" xml:space="preserve">
+    <value>Signup Sucessfull</value>
+  </data>
+  <data name="SignUpText" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="SubmisionsText" xml:space="preserve">
+    <value>My submisions</value>
+  </data>
+  <data name="TurnOff" xml:space="preserve">
+    <value>I disagree</value>
+  </data>
+  <data name="TurnOn" xml:space="preserve">
+    <value>I agree</value>
+  </data>
+  <data name="YesText" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="NotificationContentText" xml:space="preserve">
+    <value>It is strongly recommened to keep the app running as there are still pending photos to be uploaded</value>
+  </data>
+  <data name="StopServiceCommandTitle" xml:space="preserve">
+    <value>Quit app now</value>
+  </data>
+  <data name="Fixed" xml:space="preserve">
+    <value>Is this fixed?</value>
+  </data>
+  <data name="AppleLogin" xml:space="preserve">
+    <value>With Apple</value>
+  </data>
+  <data name="EmailLogin" xml:space="preserve">
+    <value>With email / password</value>
+  </data>
+  <data name="FacebookLogin" xml:space="preserve">
+    <value>With Facebook</value>
+  </data>
+  <data name="GoogleLogin" xml:space="preserve">
+    <value>With Google</value>
+  </data>
+  <data name="LetsRegisterLineOneText" xml:space="preserve">
+    <value>It's nice to see you here </value>
+  </data>
+  <data name="LetsRegisterLineTwoText" xml:space="preserve">
+    <value>Let's create an account</value>
+  </data>
+  <data name="UserNameText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Welcome </value>
+  </data>
+  <data name="WelcomeText_2" xml:space="preserve">
+    <value>Choose how to continue</value>
+  </data>
+  <data name="InvalidEntryStyle" xml:space="preserve">
+    <value>InvalidEntryStyle</value>
+  </data>
+  <data name="SomethingIsNotRightEmail" xml:space="preserve">
+    <value>Empty email is forbitten</value>
+  </data>
+  <data name="SomethingIsNotRightPassword" xml:space="preserve">
+    <value>Your password cannot be null</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>Skip this message next time</value>
+  </data>
+  <data name="InstructionsMessage" xml:space="preserve">
+    <value>It’s easy. Choose the category by pressing the appropriate button below, take a photo and send it. Everything you post is anonymous and your data won't be visible anywhere</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>About the app</value>
+  </data>
+  <data name="CookiesPolicy" xml:space="preserve">
+    <value>Cookies Policy</value>
+  </data>
+  <data name="HowItWorks" xml:space="preserve">
+    <value>How it works</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="TermsConditions" xml:space="preserve">
+    <value>Terms and conditions</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>Vision</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ForgotPasswordPage" xml:space="preserve">
+    <value>The exact password recovery instructions will be sent to your email. Follow them and in no time you will be back in the app</value>
+  </data>
+  <data name="ForgotPasswordPageText1" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="ForgotPasswordPageText2" xml:space="preserve">
+    <value>Enter your email </value>
+  </data>
+  <data name="CameraDetails" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow' so that the app can use camera</value>
+  </data>
+  <data name="CameraTitle" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="LocationPermission" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow While Using App' so that your app can work flawlessly</value>
+  </data>
+  <data name="LocationTitle" xml:space="preserve">
+    <value>Location Access</value>
+  </data>
+  <data name="NotificationDetails" xml:space="preserve">
+    <value>When prompted make sure to tap 'Allow' so that the app can notify you at important updates, such as successful uploads</value>
+  </data>
+  <data name="NotificationsTitle" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="PermissionsTitle" xml:space="preserve">
+    <value>Enable Notifications, Camera and Location Access</value>
+  </data>
+  <data name="PermissionTitleDetails" xml:space="preserve">
+    <value>The app needs your permission to access all three in order to be fully functional</value>
+  </data>
+  <data name="ContinueText" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ExitText" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="GoToSetttingsText" xml:space="preserve">
+    <value>Go to Settings</value>
+  </data>
+  <data name="PermissionsNotGrandedText" xml:space="preserve">
+    <value>If notifications are not allowed the app will not run </value>
+  </data>
+  <data name="TokenExpiredText" xml:space="preserve">
+    <value>Permissions have been disabled and the app will not run. You need to enable permissions manually in order to continue</value>
+  </data>
+  <data name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL" xml:space="preserve">
+    <value>There already exists an account with the email address asserted by Google</value>
+  </data>
+  <data name="ERROR_CUSTOM_TOKEN_MISMATCH" xml:space="preserve">
+    <value>Invalid configuration</value>
+  </data>
+  <data name="ERROR_DISABLED" xml:space="preserve">
+    <value>The user's account is disabled</value>
+  </data>
+  <data name="ERROR_EMAIL_ALREADY_IN_USE" xml:space="preserve">
+    <value>The email is already in use by a different account</value>
+  </data>
+  <data name="ERROR_INVALID" xml:space="preserve">
+    <value>The email address is invalid</value>
+  </data>
+  <data name="ERROR_INVALID_ACTION_CODE" xml:space="preserve">
+    <value>The password reset code is invalid. This can happen if the code is malformed or has already been used</value>
+  </data>
+  <data name="ERROR_INVALID_CREDENTIAL" xml:space="preserve">
+    <value>The [email] address is malformed</value>
+  </data>
+  <data name="ERROR_INVALID_CUSTOM_TOKEN" xml:space="preserve">
+    <value>The custom token format is incorrect</value>
+  </data>
+  <data name="ERROR_INVALID_EMAIL" xml:space="preserve">
+    <value>The email address is malformed</value>
+  </data>
+  <data name="ERROR_INVALID_VERIFICATION_CODE" xml:space="preserve">
+    <value>The code is invalid</value>
+  </data>
+  <data name="ERROR_NOT_ALLOWED" xml:space="preserve">
+    <value>Email and email sign-in link accounts are not enabled</value>
+  </data>
+  <data name="ERROR_OPERATION_NOT_ALLOWED" xml:space="preserve">
+    <value>Anonymous accounts are not enabled</value>
+  </data>
+  <data name="ERROR_TOO_MANY_REQUESTS" xml:space="preserve">
+    <value>There was too many attempts to sign in as this user</value>
+  </data>
+  <data name="ERROR_USER_DISABLED" xml:space="preserve">
+    <value>The user has been disabled</value>
+  </data>
+  <data name="ERROR_USER_NOT_FOUND" xml:space="preserve">
+    <value>There is no user corresponding to the given [email] address, or the user has been deleted</value>
+  </data>
+  <data name="ERROR_WEAK_PASSWORD" xml:space="preserve">
+    <value>The password is not strong enough</value>
+  </data>
+  <data name="ERROR_WRONG_PASSWORD" xml:space="preserve">
+    <value>The password is wrongp</value>
+  </data>
+  <data name="EXPIRED_ACTION_CODE" xml:space="preserve">
+    <value>The password reset code has expired</value>
+  </data>
+  <data name="INVALID_ACTION_CODE" xml:space="preserve">
+    <value>The password reset code is invalid. This can happen if the code is malformed or has already been used</value>
+  </data>
+  <data name="USER_DISABLED" xml:space="preserve">
+    <value>The user corresponding to the given password reset code has been disabled</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>There is no user corresponding to the password reset cod</value>
+  </data>
+  <data name="WEAK_PASSWORD" xml:space="preserve">
+    <value>The new password is not strong enough</value>
+  </data>
+  <data name="Accuracy_disclaimerLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/Accuracy_disclaimer_en</value>
+  </data>
+  <data name="CookiesPolicyLInk" xml:space="preserve">
+    <value>https://destopesto.gr/info/cookies_policy_en</value>
+  </data>
+  <data name="HowItWorksLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/how_it_works_en</value>
+  </data>
+  <data name="PrivacyPolicyLInk" xml:space="preserve">
+    <value>https://destopesto.gr/info/PrivacyPolicy_en</value>
+  </data>
+  <data name="VisionLink" xml:space="preserve">
+    <value>https://destopesto.gr/info/vision_en</value>
+  </data>
+  <data name="HomeScreenMobileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/homescreenmob_en.txt</value>
+  </data>
+  <data name="DeleteAccountInfoText" xml:space="preserve">
+    <value>Account deletion can be done by selecting 'Delete account' at the app's menu</value>
+  </data>
+  <data name="DeleteAccountText" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
+  <data name="PendingPhotosToUpload" xml:space="preserve">
+    <value>There are still photos to be uploaded. If you close the app now upload will continue next time you start the app</value>
+  </data>
+  <data name="WelcomeEmailPasswordLogin" xml:space="preserve">
+    <value>Fill your email and password to login</value>
+  </data>
+  <data name="LocationServicesOff" xml:space="preserve">
+    <value>Location Services are not enabled. This is mandatory as the app in order to upload photos needs the get the location from the device. Please enable the service and try again</value>
+  </data>
+  <data name="WarningForUserBanMessage" xml:space="preserve">
+    <value>Are you sure that this has been fixed?</value>
+  </data>
+  <data name="ContestTitle" xml:space="preserve">
+    <value>Contest</value>
+  </data>
+  <data name="MobilePhonePlaceHolder" xml:space="preserve">
+    <value>Enter your mobile number</value>
+  </data>
+  <data name="PersonNamePlaceHolder" xml:space="preserve">
+    <value>Type your first and last name</value>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>User profile</value>
+  </data>
+  <data name="UserProfileText" xml:space="preserve">
+    <value>User profile</value>
+  </data>
+  <data name="UserProfileText_2" xml:space="preserve">
+    <value>Your personal data</value>
+  </data>
+  <data name="ContestTermsLabel" xml:space="preserve">
+    <value>Terms and conditions</value>
+  </data>
+  <data name="EnterCompetition" xml:space="preserve">
+    <value>Are you in?</value>
+  </data>
+  <data name="AcceptedPhotosLabel" xml:space="preserve">
+    <value>Total qualified photos</value>
+  </data>
+  <data name="BirthDateLabel" xml:space="preserve">
+    <value>Birthdate</value>
+  </data>
+  <data name="BirthDatePlaceHolder" xml:space="preserve">
+    <value>Enter your birthday</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="MobilePhoneLabel" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="PersonNameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ContestPhotosLabel" xml:space="preserve">
+    <value>Total qualified photos for contest</value>
+  </data>
+  <data name="LoginScreenMobileLink" xml:space="preserve">
+    <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen_en.txt</value>
+  </data>
+  <data name="RejectedPhotosLabel" xml:space="preserve">
+    <value>Total number of rejected photos</value>
+  </data>
+  <data name="EmailAddressPlaceHolder" xml:space="preserve">
+    <value>Write your email</value>
+  </data>
+  <data name="PasswordPlaceHolder1" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ConfirmPasswordLabel" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="UserNameInputLabel" xml:space="preserve">
+    <value>User name</value>
+  </data>
+</root>

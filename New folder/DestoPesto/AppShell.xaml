@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:DestoPesto.Views"
+       xmlns:hpl="clr-namespace:Hyperlink"
+       Title="DestoPesto"
+       BackgroundColor="#0D6EFD"
+       FlyoutBackgroundColor="White"
+       xmlns:resources="clr-namespace:DestoPesto"
+       xmlns:extensions="clr-namespace:DestoPesto.Extensions"
+       
+       x:Class="DestoPesto.AppShell">
+
+    <!--<Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            --><!--<Grid BackgroundColor="White" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                
+
+            </Grid>--><!--
+            <Image HeightRequest="50"  HorizontalOptions="Start" Source="{extensions:ImageResource DestoPesto.Images.destopesto_logo_square_blue.png}" BackgroundColor="#0D6EFD"/>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>-->
+
+
+
+    <Shell.FlyoutFooterTemplate >
+        <DataTemplate>
+            <ContentView BackgroundColor="White">
+                <Grid Padding="10,0,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <hpl:HyperlinkLabel x:Name="howto" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.HowItWorks}" Clicked="howto_Clicked" />
+                    <hpl:HyperlinkLabel Grid.Row="1" x:Name="vision" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.Vision}" Clicked="vision_Clicked" />
+                    <hpl:HyperlinkLabel Grid.Row="2"  x:Name="disclaimer" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.TermsConditions}" Clicked="disclaimer_Clicked" />
+                    <hpl:HyperlinkLabel Grid.Row="3" x:Name="PrivacyPolicy" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.PrivacyPolicy}" Clicked="PrivacyPolicy_Clicked" />
+                    <hpl:HyperlinkLabel Grid.Row="4" x:Name="CookiesPolicy" Grid.ColumnSpan="2" Text="{x:Static resources:Properties.Resources.CookiesPolicy}" Clicked="CookiesPolicy_Clicked" />
+
+
+
+                    <Image Grid.Row="5" BackgroundColor="White" Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="30" Margin="5,5,5,5"/>
+                    <Label Grid.Row="5" BackgroundColor="White" Grid.Column="1" Text="{Binding AppVersion}" TextColor="{extensions:AppMode Color=TextDefault}" VerticalTextAlignment="Center"  HorizontalTextAlignment="End" Margin="5,5,5,5"/>
+
+                </Grid>
+            </ContentView>
+        </DataTemplate>
+
+    </Shell.FlyoutFooterTemplate>
+
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <!--
+            -->
+            <!--
+            Default Styles for all Flyout Items
+            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
+            -->
+
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#0D6EFD"></Setter>
+            </Style>
+            <!--      <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            -->
+            <!--
+            Custom Style you can apply to any Flyout Item
+            -->
+            <!--
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>-->
+        </ResourceDictionary>
+    </Shell.Resources>
+
+
+    <!--
+
+    --><!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    --><!--
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            --><!--
+            -->
+            <!--
+            Default Styles for all Flyout Items
+            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
+            --><!--
+
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#0D6EFD"></Setter>
+            </Style>
+            --><!--      <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            -->
+            <!--
+            Custom Style you can apply to any Flyout Item
+            -->
+            <!--
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>--><!--
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    --><!-- 
+        When the Flyout is visible this defines the content to display in the flyout.
+        FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
+        https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
+    -->
+    
+
+
+
+    <!--<FlyoutItem Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}">
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>
+    </FlyoutItem>-->
+
+    <FlyoutItem Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}">
+        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem x:Name="LoginItem"  x:FieldModifier="public" Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}">
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="{x:Static resources:Properties.Resources.SettingItemText}" Icon="{extensions:ImageResource DestoPesto.Images.settings.png}">
+        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="{x:Static resources:Properties.Resources.SubmisionsText}" Icon="{extensions:ImageResource DestoPesto.Images.map.png}">
+        <ShellContent Route="Submisions" ContentTemplate="{DataTemplate local:SubmisionsListPageDetail}" />
+    </FlyoutItem>
+
+    <MenuItem x:Name="UserProfile" Text="{x:Static resources:Properties.Resources.UserProfile}" IconImageSource="{extensions:ImageResource DestoPesto.Images.user_blue.png}" StyleClass="MenuItemLayoutStyle" Clicked="UserProfile_Clicked"></MenuItem>
+
+    
+     <!--When the Flyout is visible this will be a menu item you can tie a click behavior to-->  
+    <MenuItem Text="{x:Static resources:Properties.Resources.DeleteAccountText}" IconImageSource="{extensions:ImageResource DestoPesto.Images.delete_user.png}" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked"></MenuItem>
+
+    <MenuItem Text="{x:Static resources:Properties.Resources.LogoutItemText}" IconImageSource="{extensions:ImageResource DestoPesto.Images.logout.png}" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"></MenuItem>
+
+
+
+
+
+
+
+
+    <!--
+        TabBar lets you define content that won't show up in a flyout menu. When this content is active
+        the flyout menu won't be available. This is useful for creating areas of the application where 
+        you don't want users to be able to navigate away from. If you would like to navigate to this 
+        content you can do so by calling 
+        await Shell.Current.GoToAsync("//LoginPage");
+    -->
+    <!--<TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+
+    </TabBar>-->
+
+    <!-- Optional Templates 
+    // These may be provided inline as below or as separate classes.
+
+    // This header appears at the top of the Flyout.
+    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid>ContentHere</Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    // ItemTemplate is for ShellItems as displayed in a Flyout
+    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Title, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    // MenuItemTemplate is for MenuItems as displayed in a Flyout
+    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-menuitem-appearance
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Text, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    -->
+
+
+</Shell>
