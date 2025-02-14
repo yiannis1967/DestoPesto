@@ -29,10 +29,38 @@ namespace DestoPesto
         {
             InitializeComponent();
 
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+
+                if (MainPage is AppShell)
+                {
+                    if((MainPage as AppShell)?.CurrentPage is MainPage)
+                    {
+
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                        var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                            if (device.IsBackgroundServiceStarted)
+                            {
+                                ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 1;
+                            }
+                            else
+                            {
+
+                                ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 0;
+                            }
+                        });
 
 
-            //DependencyService.Register<MockDataStore>();
-            Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
+                    }
+
+                }
+
+                return true;
+            });
+
+                //DependencyService.Register<MockDataStore>();
+                Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
             //var locationInUsePermisionstask = Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
             //locationInUsePermisionstask.Wait();
             //var locationInUsePermisions = locationInUsePermisionstask.Result;

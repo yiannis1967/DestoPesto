@@ -364,6 +364,13 @@ namespace DestoPesto.Services
                 if (_Uri == null)
                 {
                     XDocument doc = XDocument.Load(URLString);
+
+                    ShareAppElement = doc.Root.Element("ShareApp");
+                    ShareAppTitle = ShareAppElement?.Attribute("ShareAppTitle ")?.Value;
+                    ShareAppSubject = ShareAppElement?.Attribute("Subject")?.Value;
+                    ShareAppText = ShareAppElement?.Attribute("Text")?.Value;
+                    ShareAppUri = ShareAppElement?.Attribute("Uri")?.Value;
+
                     XElement signInElement = null;
                     if (DeviceInfo.Platform == DevicePlatform.iOS)
                         signInElement = doc.Root.Element("SignIn").Element("ios");
@@ -759,6 +766,12 @@ namespace DestoPesto.Services
         public static bool GoogleSignInMethod { get; private set; } = true;
         public static bool AppleSignInMethod { get; private set; } = true;
         public static bool EmailSignInMethod { get; private set; } = true;
+        public static XElement ShareAppElement { get; private set; }
+        public static string ShareAppTitle  { get; private set; }
+        public static string ShareAppSubject { get; private set; }
+        public static string ShareAppText { get; private set; }
+        public static string ShareAppUri { get; private set; }
+
         public static int MaxDistanceForFixed_meters = 100;
         public static int MaxRadToMapinMeters = 3000;
 
@@ -771,7 +784,7 @@ namespace DestoPesto.Services
             //var notification = new NotificationRequest
             //{
             //    BadgeNumber = 1,
-            //    Title = title,
+            //    ShareAppTitle  = title,
             //    Description = message,
 
             //    Android = new AndroidOptions
@@ -923,7 +936,7 @@ namespace DestoPesto.Services
 
 
                     var Damages = JsonConvert.DeserializeObject<List<DamageData>>(response);
-                    var sds = Damages.Where(x => x.IsActivate).ToList();
+                    var sds = Damages.Where(x => x.IsActivate==true).ToList();
                     damageData = new ObservableCollection<DamageData>(Damages);
 
                     return damageData;

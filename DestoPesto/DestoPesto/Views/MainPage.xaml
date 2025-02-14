@@ -66,7 +66,7 @@
                     </Grid.ColumnDefinitions>
                     <Button Opacity="0.5" Text="My" Clicked="My_Clicked" ></Button>
                     <Button Grid.Column="1" Opacity="0.5" Text="All" Clicked="All_Clicked" ></Button>
-                    <Image Grid.Column="2" HorizontalOptions="End" InputTransparent="True" Source="upload.gif" IsAnimationPlaying="True" VerticalOptions="Center" />
+                    <Image Grid.Column="2" Opacity="{Binding UploadOpacity}" HorizontalOptions="Center" InputTransparent="True" Source="upload.gif" IsAnimationPlaying="True" VerticalOptions="Center" />
                 </Grid>
 
                 <AbsoluteLayout IsVisible="{Binding BrowserIsVisible}" Grid.Row="0">

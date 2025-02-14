@@ -133,15 +133,18 @@ namespace DestoPesto.Views
         {
             base.OnDisappearing();
 
-            var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-            if (locationInUsePermissions != PermissionStatus.Granted)
-                locationInUsePermissions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+
 
             var device = Xamarin.Forms.DependencyService.Get<IDevice>();
             if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
             {
                 var result = await device.RemoteNotificationsPermissionsRequest();
             }
+
+            var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+            if (locationInUsePermissions != PermissionStatus.Granted)
+                locationInUsePermissions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+
 
         }
 

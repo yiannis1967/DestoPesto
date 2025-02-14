@@ -365,6 +365,19 @@ namespace DestoPesto.Views
 
         CancellationTokenSource tokenSource;
 
+        double _UploadOpacity;
+
+        public double UploadOpacity
+        {
+            get => _UploadOpacity;
+            set
+            {
+                _UploadOpacity = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UploadOpacity)));
+            }
+        }
+
+
         private async void map_PropertyChangedAsync(object sender, PropertyChangedEventArgs e)
         {
 
@@ -916,7 +929,7 @@ namespace DestoPesto.Views
             if (ShowAll)
             {
                 ShowAll = false;
-
+                UploadOpacity = 0;
                 if (ShowAll)
                     DrawPinsOnMap((App.Current as App).SubmittedDamage);
                 else
@@ -930,6 +943,7 @@ namespace DestoPesto.Views
             if (!ShowAll)
             {
                 ShowAll = true;
+                UploadOpacity = 1;
 
                 if (ShowAll)
                     DrawPinsOnMap((App.Current as App).SubmittedDamage);
@@ -1052,14 +1066,18 @@ namespace DestoPesto.Views
         private async void ShareBtn_Clicked(object sender, EventArgs e)
         {
 
-            await Share.RequestAsync(new ShareTextRequest
+            if (!String.IsNullOrWhiteSpace(JsonHandler.ShareAppTitle))
             {
-                Title = "Δες το Πες το",
-                Subject = "Αξιολόγηση δήμου βάσει πραγματικών προβλημάτων",
 
-                Text = "Για πρώτη φορά γίνεται αξιολόγηση των δήμων στην Ελλάδα. Κατέβασε το 'Δες το Πες το' από το link για να ξέρεις και εσύ",
-                Uri = "https://rb.gy/fyms9s"
-            });
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Title = JsonHandler.ShareAppTitle,
+                    Subject = JsonHandler.ShareAppSubject,
+
+                    Text = JsonHandler.ShareAppText, //"Για πρώτη φορά γίνεται αξιολόγηση των δήμων στην Ελλάδα. Κατέβασε το 'Δες το Πες το' από το link για να ξέρεις και εσύ",
+                    Uri = JsonHandler.ShareAppUri
+                }); ;
+            }
 
         }
 
