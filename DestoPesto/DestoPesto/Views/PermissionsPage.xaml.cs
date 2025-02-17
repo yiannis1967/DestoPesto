@@ -17,6 +17,9 @@ namespace DestoPesto.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PermissionsPage : Rg.Plugins.Popup.Pages.PopupPage, INotifyPropertyChanged
     {
+
+
+        static bool DontShoAgain = false;
         private bool LocationPermisionsChecked;
         public event PropertyChangedEventHandler PropertyChanged;
         public PermissionsPage()
@@ -116,16 +119,25 @@ namespace DestoPesto.Views
             //browser.Source = htmlSource;
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            DontShoAgain = true;
+        }
+
         public static async Task<bool> ShowPermissionsRequest()
         {
 
+            if (!DontShoAgain)
+            {
 
-            var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-            if (locationInUsePermissions != PermissionStatus.Granted)
-                return true;
-            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
-            if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
-                return false;
+                var locationInUsePermissions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+                if (locationInUsePermissions != PermissionStatus.Granted)
+                    return true;
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+                if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
+                    return false;
+            }
             return false;
         }
 
