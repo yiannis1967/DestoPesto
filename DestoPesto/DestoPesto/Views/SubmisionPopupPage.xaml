@@ -5,7 +5,9 @@
                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
                 xmlns:hl="clr-namespace:Hyperlink"
                 xmlns:extensions="clr-namespace:DestoPesto.Extensions"
-                xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+                 xmlns:resources="clr-namespace:DestoPesto"
+                xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 >
     <!--  You can set an animation in the xaml file or in the csharp code behind  -->
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation DurationIn="400"
@@ -24,6 +26,7 @@
            VerticalOptions="Center"
            HasShadow="True"
            HeightRequest="400"
+           
            Padding="0">
         <Grid >
             <Grid.RowDefinitions>
@@ -31,16 +34,19 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
+
+                <RowDefinition Height="50"/>
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackLayout BackgroundColor="#0D6EFD" Grid.ColumnSpan="3">
                 <Image HeightRequest="40" Grid.Column="1" HorizontalOptions="StartAndExpand" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="SizeProportional" />
             </StackLayout>
-            <Button Grid.Column="2"  x:Name="ShareBtn" BorderColor="White" BorderWidth="0" IsVisible="{Binding ShareVisible}"  VerticalOptions="Center" Clicked="ShareBtn_Clicked" Image="{extensions:ImageResource DestoPesto.Images.share-60.png}" HeightRequest="50" WidthRequest="50"  Margin="2" CornerRadius="10"/>
+            <Button Grid.Column="2"  x:Name="ShareBtn" BorderColor="White" BorderWidth="0" IsVisible="{Binding ShareVisible}"  VerticalOptions="Center" Clicked="ShareBtn_Clicked" Image="{extensions:ImageResource DestoPesto.Images.share-60.png}" HeightRequest="40" WidthRequest="60"  Margin="2,2,10,2" CornerRadius="10"/>
             <Label Grid.Row="1"  Grid.Column="1" Text="{Binding Description}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
             <!--<Grid Padding="10,20,10,20" Grid.Row="1">-->
 
@@ -58,7 +64,9 @@
                 <Grid >-->
             <Label Grid.Row="3" TextColor="#0D6EFD" Grid.Column="1" Text="{Binding Comments}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="WordWrap"></Label>
 
-                <!--</Grid>
+            <Button  Grid.Row="4" Grid.ColumnSpan="3"  Text="{x:Static resources:Properties.Resources.Oktext}" x:Name="RightBtn" Clicked="RightBtn_Clicked" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"  Margin="0,0,20,10" BackgroundColor="#0D6EFD" FontSize="Small" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>
+
+            <!--</Grid>
             </Grid>-->
         </Grid>
 

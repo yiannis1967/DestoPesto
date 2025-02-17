@@ -302,7 +302,36 @@ namespace DestoPesto
             string comments;
             data.TryGetValue("Comments", out comments);
 
-            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments, null));
+
+            bool share = false;
+
+            string shareText = null;
+            ShareTextRequest shareTextRequest = null;
+
+            data.TryGetValue("Share", out shareText);
+            if (shareText == "true")
+            {
+                share = true;
+
+                string share_Text;
+                data.TryGetValue("Share_Text", out share_Text);
+                string share_Subject;
+                data.TryGetValue("Share_Subject", out share_Subject);
+                string share_Title;
+                data.TryGetValue("Share_Title", out share_Title);
+                string share_Uri;
+                data.TryGetValue("Share_Uri", out share_Uri);
+                shareTextRequest = new ShareTextRequest
+                {
+                    Subject = share_Subject,
+                    Text = share_Text,
+                    Title = share_Title,
+                    Uri = share_Uri
+                };
+
+            }
+
+            await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments, shareTextRequest));
 
 
             try

@@ -25,8 +25,12 @@ namespace DestoPesto.Views
             ShareVisible = shareTextRequest != null;
             BindingContext = this;
         }
-
-       public bool ShareVisible { get; set; }
+        private void RightBtn_Clicked(object sender, EventArgs e)
+        {
+            if (PopupNavigation.Instance.PopupStack.Count > 0)
+                PopupNavigation.Instance.PopAsync();
+        }
+        public bool ShareVisible { get; set; }
 
         async void OnImageNameTapped(object sender, EventArgs args)
         {
@@ -58,13 +62,21 @@ namespace DestoPesto.Views
 
         private async void ShareBtn_Clicked(object sender, EventArgs e)
         {
-            await Share.RequestAsync(new ShareTextRequest
+            try
             {
-                Subject = ShareTextRequest?.Subject,
-                Text = ShareTextRequest?.Uri,
-                Title = ShareTextRequest?.Title,
-                Uri = ShareTextRequest?.Uri,
-            });
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Subject = ShareTextRequest?.Subject,
+                    Text = ShareTextRequest?.Text,
+                    Title = ShareTextRequest?.Title,
+                    Uri = ShareTextRequest?.Uri,
+                });
+            }
+            catch (Exception error)
+            {
+
+                
+            }
         }
     }
 }

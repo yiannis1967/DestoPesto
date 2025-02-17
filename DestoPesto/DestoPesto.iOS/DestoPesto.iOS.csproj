@@ -243,6 +243,6 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\upload-file.gif" />
+    <BundleResource Include="Resources\upload.gif" />
   </ItemGroup>
 </Project>

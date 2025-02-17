@@ -235,6 +235,7 @@ namespace DestoPesto.Views
                    try
                    {
                        App App = App.Current as App;
+                       //await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage("description", "submisionThumb", "comments", null));
 
                        if (/*(App.Current as App)*/App.IntentExtras != null)
                        {
