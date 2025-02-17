@@ -369,7 +369,7 @@ namespace DestoPesto.Views
 
         public double UploadOpacity
         {
-            get => _UploadOpacity;
+            get => _UploadOpacity; // 1;
             set
             {
                 _UploadOpacity = value;
