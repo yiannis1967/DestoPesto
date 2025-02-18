@@ -499,7 +499,7 @@
     <value>Θα πάρεις μέρος?</value>
   </data>
   <data name="AcceptedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο αναρτήσεων</value>
+    <value>Σύνολο φωτογραφιών</value>
   </data>
   <data name="BirthDateLabel" xml:space="preserve">
     <value>Ημερομηνία Γέννησης</value>
@@ -575,5 +575,20 @@
   </data>
   <data name="MunicialityText" xml:space="preserve">
     <value>Ο δήμος</value>
+  </data>
+  <data name="Oldest_Sub" xml:space="preserve">
+    <value>Παλαιότερη άφτιαχτη κακοτεχνία</value>
+  </data>
+  <data name="PercentageOfFixed" xml:space="preserve">
+    <value>Ποσοστό διορθωμένων</value>
+  </data>
+  <data name="AverageRepairDays" xml:space="preserve">
+    <value>Μέσος όρος ημερών αποκατάστασης</value>
+  </data>
+  <data name="TotalSubs" xml:space="preserve">
+    <value>Σύνολο αναρτήσεων</value>
+  </data>
+  <data name="TotalUnfixedSubs" xml:space="preserve">
+    <value>Σύνολο εκκρεμοτήτων</value>
   </data>
 </root>

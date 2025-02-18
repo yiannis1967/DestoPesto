@@ -37,7 +37,7 @@ namespace DestoPesto.Views
             else
             {
                 App app = App.Current as App;
-                
+
                 if (app.Properties.ContainsKey("FirstName"))
                     Name = app.Properties["FirstName"] as string;
                 if (app.Properties.ContainsKey("Email"))
@@ -52,9 +52,9 @@ namespace DestoPesto.Views
                 if (app.Properties.ContainsKey("BirthDate"))
                 {
                     long ticks = 0;
-                    long.TryParse(app.Properties["BirthDate"] as string,out ticks);
-                    if(ticks!=0)
-                        BirthDate=new DateTime(ticks);
+                    long.TryParse(app.Properties["BirthDate"] as string, out ticks);
+                    if (ticks != 0)
+                        BirthDate = new DateTime(ticks);
                 }
 
 
@@ -68,6 +68,11 @@ namespace DestoPesto.Views
 
             unFixedSubsText = User?.unFixedSubs.ToString();
             fixedSubsText = User?.fixedSubs.ToString();
+
+            percentage = User?.percentage.ToString();
+            totalsubs = User?.Subs.ToString();
+            average_repair_days = User?.average_repair_days.ToString();
+            oldest_sub = User?.unfixed_days.ToString();
 
 
             //RejectedPhotosText = User?.RejectedPhotos.ToString();
@@ -153,6 +158,10 @@ namespace DestoPesto.Views
 
         public string unFixedSubsText { get; }
         public string fixedSubsText { get; }
+        public string percentage { get; }
+        public string totalsubs { get; }
+        public string average_repair_days { get; }
+        public string oldest_sub { get; }
 
         private void Button_Clicked(object sender, EventArgs e)
         {

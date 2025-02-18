@@ -61,7 +61,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total qualified photos.
+        ///   Looks up a localized string similar to Total photos.
         /// </summary>
         public static string AcceptedPhotosLabel {
             get {
@@ -102,6 +102,15 @@ namespace DestoPesto.Properties {
         public static string ApplicationName {
             get {
                 return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average restoration days.
+        /// </summary>
+        public static string AverageRepairDays {
+            get {
+                return ResourceManager.GetString("AverageRepairDays", resourceCulture);
             }
         }
         
@@ -934,6 +943,15 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Longest-standing issue.
+        /// </summary>
+        public static string Oldest_Sub {
+            get {
+                return ResourceManager.GetString("Oldest_Sub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string PasswordLabel {
@@ -966,6 +984,15 @@ namespace DestoPesto.Properties {
         public static string PendingPhotosToUpload {
             get {
                 return ResourceManager.GetString("PendingPhotosToUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Percentage of fixed issues.
+        /// </summary>
+        public static string PercentageOfFixed {
+            get {
+                return ResourceManager.GetString("PercentageOfFixed", resourceCulture);
             }
         }
         
@@ -1263,6 +1290,24 @@ namespace DestoPesto.Properties {
         public static string TotalMunicipalities {
             get {
                 return ResourceManager.GetString("TotalMunicipalities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total posts.
+        /// </summary>
+        public static string TotalSubs {
+            get {
+                return ResourceManager.GetString("TotalSubs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total unrestored issues.
+        /// </summary>
+        public static string TotalUnfixedSubs {
+            get {
+                return ResourceManager.GetString("TotalUnfixedSubs", resourceCulture);
             }
         }
         
