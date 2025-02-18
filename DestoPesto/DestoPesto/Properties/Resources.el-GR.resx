@@ -523,7 +523,7 @@
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen.txt</value>
   </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Σύνολο ακυρωμένων</value>
+    <value>Σύνολο ακυρωμένων φωτογραφιών</value>
   </data>
   <data name="EmailAddressPlaceHolder" xml:space="preserve">
     <value>Γράψτε το email σας</value>
@@ -559,7 +559,7 @@
     <value>Κακοτεχνίες σε εκκρεμότητα</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Παλαιότερη κακοτεχνία σε εκκρεμότητα</value>
+    <value>Παλαιότερη άφτιαχτη κακοτεχνία</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
@@ -571,13 +571,10 @@
     <value>Ποσοστό διορθωμένων κακοτεχνιών</value>
   </data>
   <data name="TotalFixedDamages" xml:space="preserve">
-    <value>Σύνολο αποκαταστημένων</value>
+    <value>Σύνολο διορθωμένων</value>
   </data>
   <data name="MunicialityText" xml:space="preserve">
     <value>Ο δήμος</value>
-  </data>
-  <data name="Oldest_Sub" xml:space="preserve">
-    <value>Παλαιότερη άφτιαχτη κακοτεχνία</value>
   </data>
   <data name="PercentageOfFixed" xml:space="preserve">
     <value>Ποσοστό διορθωμένων</value>
@@ -590,5 +587,8 @@
   </data>
   <data name="TotalUnfixedSubs" xml:space="preserve">
     <value>Σύνολο εκκρεμοτήτων</value>
+  </data>
+  <data name="UserProfileDisclaimer" xml:space="preserve">
+    <value>Όλες οι αναρτήσεις είναι ανώνυμες και τα προσωπικά σας δεδομένα δεν θα αποσταλλούν ποτέ στον Δήμαρχο</value>
   </data>
 </root>
