@@ -63,6 +63,9 @@ namespace DebugLog
                 return false;
 
 
+            return await Task<bool>.Run(async ()=>
+            { 
+
             message= string.Format($"Code line : {lineNumber}  caller  : {caller} file path : {callerFile} {Environment.NewLine}{message}");
 
 
@@ -79,6 +82,7 @@ namespace DebugLog
                 return true;
             else
                 return false;
+            });
 
 
         }

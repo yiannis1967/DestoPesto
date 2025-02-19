@@ -46,10 +46,10 @@ namespace DestoPesto.Models
         public int fixedSubs{ get; set; }
 
 
-        public int percentage { get; }
-        public int Subs { get; }
-        public int average_repair_days { get; }
-        public int unfixed_days { get; }
+        public int percentage { get; set; }
+        public int Subs { get; set; }
+        public int average_repair_days { get; set; }
+        public int unfixed_days { get; set; } 
 
 
 

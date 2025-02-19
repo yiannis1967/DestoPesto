@@ -42,12 +42,13 @@ namespace DestoPesto
                         var device = Xamarin.Forms.DependencyService.Get<IDevice>();
                             if (device.IsBackgroundServiceStarted)
                             {
-                                ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 1;
+                                if ((MainPage as AppShell)?.CurrentPage is MainPage)
+                                    ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 1;
                             }
                             else
                             {
-
-                                ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 0;
+                                if ((MainPage as AppShell)?.CurrentPage is MainPage)
+                                    ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 0;
                             }
                         });
 
