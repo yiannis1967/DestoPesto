@@ -589,6 +589,6 @@
     <value>Total unrestored issues</value>
   </data>
   <data name="UserProfileDisclaimer" xml:space="preserve">
-    <value>All posts are anonymous, and your personal data will never be sent to the Mayor</value>
+    <value>All posts remain anonymous even if you provide your personal data</value>
   </data>
 </root>
