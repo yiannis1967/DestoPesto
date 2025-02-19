@@ -559,7 +559,7 @@
     <value>Total unrestored defects</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Longest-standing issue</value>
+    <value>Longest-standing issue in days</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions_en.txt</value>
@@ -589,6 +589,6 @@
     <value>Total unrestored issues</value>
   </data>
   <data name="UserProfileDisclaimer" xml:space="preserve">
-    <value>All posts are anonymous, and your personal data will never be sent to the Mayor</value>
+    <value>All posts remain anonymous even if you provide your personal data</value>
   </data>
 </root>

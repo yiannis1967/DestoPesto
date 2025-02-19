@@ -559,7 +559,7 @@
     <value>Κακοτεχνίες σε εκκρεμότητα</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Παλαιότερη άφτιαχτη κακοτεχνία</value>
+    <value>Παλαιότερη άφτιαχτη κακοτεχνία σε ημέρες</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>
@@ -589,6 +589,6 @@
     <value>Σύνολο εκκρεμοτήτων</value>
   </data>
   <data name="UserProfileDisclaimer" xml:space="preserve">
-    <value>Όλες οι αναρτήσεις είναι ανώνυμες και τα προσωπικά σας δεδομένα δεν θα αποσταλλούν ποτέ στον Δήμαρχο</value>
+    <value>Όλες οι αναρτήσεις είναι ανώνυμες ακόμα και να συμπληρώσετε τα προσωπικά σας στοιχεία </value>
   </data>
 </root>

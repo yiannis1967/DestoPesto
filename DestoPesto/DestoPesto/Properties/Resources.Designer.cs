@@ -871,7 +871,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Longest-standing issue.
+        ///   Looks up a localized string similar to Longest-standing issue in days.
         /// </summary>
         public static string MunicipalityUnfixedDays {
             get {
@@ -1366,7 +1366,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All posts are anonymous, and your personal data will never be sent to the Mayor.
+        ///   Looks up a localized string similar to All posts remain anonymous even if you provide your personal data.
         /// </summary>
         public static string UserProfileDisclaimer {
             get {
