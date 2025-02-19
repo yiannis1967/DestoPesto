@@ -523,7 +523,7 @@
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/loginScreen_en.txt</value>
   </data>
   <data name="RejectedPhotosLabel" xml:space="preserve">
-    <value>Total rejected posts</value>
+    <value>Total rejected photos</value>
   </data>
   <data name="EmailAddressPlaceHolder" xml:space="preserve">
     <value>Write your email</value>
@@ -559,7 +559,7 @@
     <value>Total unrestored defects</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Oldest unrestored defect</value>
+    <value>Longest-standing issue</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions_en.txt</value>
@@ -576,9 +576,6 @@
   <data name="MunicialityText" xml:space="preserve">
     <value>The municipality</value>
   </data>
-  <data name="Oldest_Sub" xml:space="preserve">
-    <value>Longest-standing issue</value>
-  </data>
   <data name="PercentageOfFixed" xml:space="preserve">
     <value>Percentage of fixed issues</value>
   </data>
@@ -590,5 +587,8 @@
   </data>
   <data name="TotalUnfixedSubs" xml:space="preserve">
     <value>Total unrestored issues</value>
+  </data>
+  <data name="UserProfileDisclaimer" xml:space="preserve">
+    <value>All posts are anonymous, and your personal data will never be sent to the Mayor</value>
   </data>
 </root>

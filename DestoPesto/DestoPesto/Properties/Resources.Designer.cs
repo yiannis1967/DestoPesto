@@ -871,7 +871,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oldest unrestored defect.
+        ///   Looks up a localized string similar to Longest-standing issue.
         /// </summary>
         public static string MunicipalityUnfixedDays {
             get {
@@ -939,15 +939,6 @@ namespace DestoPesto.Properties {
         public static string Oktext {
             get {
                 return ResourceManager.GetString("Oktext", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Longest-standing issue.
-        /// </summary>
-        public static string Oldest_Sub {
-            get {
-                return ResourceManager.GetString("Oldest_Sub", resourceCulture);
             }
         }
         
@@ -1078,7 +1069,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total rejected posts.
+        ///   Looks up a localized string similar to Total rejected photos.
         /// </summary>
         public static string RejectedPhotosLabel {
             get {
@@ -1371,6 +1362,15 @@ namespace DestoPesto.Properties {
         public static string UserProfile {
             get {
                 return ResourceManager.GetString("UserProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All posts are anonymous, and your personal data will never be sent to the Mayor.
+        /// </summary>
+        public static string UserProfileDisclaimer {
+            get {
+                return ResourceManager.GetString("UserProfileDisclaimer", resourceCulture);
             }
         }
         
