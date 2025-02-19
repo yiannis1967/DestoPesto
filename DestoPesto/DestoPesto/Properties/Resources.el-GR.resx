@@ -559,7 +559,7 @@
     <value>Κακοτεχνίες σε εκκρεμότητα</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Παλαιότερη άφτιαχτη κακοτεχνία</value>
+    <value>Παλαιότερη άφτιαχτη κακοτεχνία σε ημέρες</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions.txt</value>

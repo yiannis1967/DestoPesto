@@ -559,7 +559,7 @@
     <value>Total unrestored defects</value>
   </data>
   <data name="MunicipalityUnfixedDays" xml:space="preserve">
-    <value>Longest-standing issue</value>
+    <value>Longest-standing issue in days</value>
   </data>
   <data name="PermissionsScreenFileLink" xml:space="preserve">
     <value>https://destopesto.blob.core.windows.net/destopesto/docs/permissions_en.txt</value>

@@ -871,7 +871,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Longest-standing issue.
+        ///   Looks up a localized string similar to Longest-standing issue in days.
         /// </summary>
         public static string MunicipalityUnfixedDays {
             get {
