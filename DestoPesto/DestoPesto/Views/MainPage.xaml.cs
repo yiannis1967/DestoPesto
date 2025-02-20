@@ -102,60 +102,15 @@ namespace DestoPesto.Views
                       var locationInUsePermisions = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
                       if (locationInUsePermisions == PermissionStatus.Granted && DependencyService.Get<IDevice>().isGPSEnabled())
                       {
-                          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
-                          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
-
-
-                          map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
-                          map.IsVisible = false;
-                          MapContent.Content = map;
-                          //map.MapClicked += map_MapClicked;
-                          map.PropertyChanged += map_PropertyChangedAsync;
-
-
-                          try
-                          {
-                              var location = await Geolocation.GetLastKnownLocationAsync();
-#if DEBUG
-                              location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
-#endif
-                              if (location != null && map != null)
-                              {
-                                  map.HasZoomEnabled = true;
-
-
-                                  var zoomLevel = 15; // between 1 and 18
-                                  var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                                  if (LatVisibleRegion != null)
-                                      latlongdegrees = LatVisibleRegion.LatitudeDegrees;
-
-                                  MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
-                                  var h = map.Height;
-                                  var w = map.Width;
-
-                                  //    map.MoveToRegion(LatVisibleRegion);
-                                  //else
-                                  map.MoveToRegion(mapSpan);
-                                  map.IsVisible = true;
-                                  MapIsVisible = true;
-                                  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
-                                  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
-
-                              }
-                          }
-                          catch (Exception error)
-                          {
-
-
-                          }
-
-                          MapIsVisible = true;
+                          InitMap();
                       }
                       else
                       {
                           locationInUsePermisions = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                           if (locationInUsePermisions != PermissionStatus.Granted)
                               MapIsVisible = false;
+                          else
+                              InitMap();
                       }
                       // Code to run on the main thread  
 
@@ -234,33 +189,33 @@ namespace DestoPesto.Views
 
                    try
                    {
-                       App App = App.Current as App;
+                       App App = DestoPesto.App.Current as App;
                        //await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage("description", "submisionThumb", "comments", null));
 
-                       if (/*(App.Current as App)*/App.IntentExtras != null)
+                       if (/*(App.Current as App)*/DestoPesto.App.IntentExtras != null)
                        {
-                           foreach (var entry in /*(App.Current as App)*/App.IntentExtras)
+                           foreach (var entry in /*(App.Current as App)*/DestoPesto.App.IntentExtras)
                            {
                                if (entry.Key == "MessageID")
                                {
 
                                    string description;
                                    /*(App.Current as App)*/
-                                   App.IntentExtras.TryGetValue("Description", out description);
+                                   DestoPesto.App.IntentExtras.TryGetValue("Description", out description);
                                    string submisionThumb;
                                    /*(App.Current as App)*/
-                                   App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
+                                   DestoPesto.App.IntentExtras.TryGetValue("SubmisionThumb", out submisionThumb);
                                    string comments;
                                    /*(App.Current as App)*/
-                                   App.IntentExtras.TryGetValue("Comments", out comments);
+                                   DestoPesto.App.IntentExtras.TryGetValue("Comments", out comments);
 
                                    string messageID;
-                                   App.IntentExtras.TryGetValue("MessageID", out messageID);
+                                   DestoPesto.App.IntentExtras.TryGetValue("MessageID", out messageID);
                                    if (messageID != null && messageID.IndexOf("Contest_") == 0)
                                        return;
 
                                    string imageUrl;
-                                   App.IntentExtras.TryGetValue("ImageUrl", out imageUrl);
+                                   DestoPesto.App.IntentExtras.TryGetValue("ImageUrl", out imageUrl);
                                    if (submisionThumb == null)
                                        submisionThumb = imageUrl;
 
@@ -268,19 +223,19 @@ namespace DestoPesto.Views
 
                                    string shareText;
                                    bool share = false;
-                                   App.IntentExtras.TryGetValue("Share", out shareText);
+                                   DestoPesto.App.IntentExtras.TryGetValue("Share", out shareText);
                                    if (shareText == "true")
                                    {
                                        share = true;
 
                                        string share_Text;
-                                       App.IntentExtras.TryGetValue("Share_Text", out share_Text);
+                                       DestoPesto.App.IntentExtras.TryGetValue("Share_Text", out share_Text);
                                        string share_Subject;
-                                       App.IntentExtras.TryGetValue("Share_Subject", out share_Subject);
+                                       DestoPesto.App.IntentExtras.TryGetValue("Share_Subject", out share_Subject);
                                        string share_Title;
-                                       App.IntentExtras.TryGetValue("Share_Title", out share_Title);
+                                       DestoPesto.App.IntentExtras.TryGetValue("Share_Title", out share_Title);
                                        string share_Uri;
-                                       App.IntentExtras.TryGetValue("Share_Uri", out share_Uri);
+                                       DestoPesto.App.IntentExtras.TryGetValue("Share_Uri", out share_Uri);
                                        shareTextRequest = new ShareTextRequest
                                        {
                                            Subject = share_Subject,
@@ -294,7 +249,7 @@ namespace DestoPesto.Views
 
 
                                    /*(App.Current as App)*/
-                                   App.IntentExtras.Clear();
+                                   DestoPesto.App.IntentExtras.Clear();
                                    await PopupNavigation.Instance.PushAsync(new SubmisionPopupPage(description, submisionThumb, comments, shareTextRequest));
 
                                    break;
@@ -362,6 +317,58 @@ namespace DestoPesto.Views
 
 
             //this.DisplayAlert("MainPage Loading time", (DateTime.UtcNow - App.StartTime).TotalSeconds.ToString(), "OK");
+        }
+
+        private async Task InitMap()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
+
+
+            map = new MapEx() { HasScrollEnabled = true, MapType = MapType.Street, HasZoomEnabled = true, IsShowingUser = true };
+            map.IsVisible = false;
+            MapContent.Content = map;
+            //map.MapClicked += map_MapClicked;
+            map.PropertyChanged += map_PropertyChangedAsync;
+
+
+            try
+            {
+                var location = await Geolocation.GetLastKnownLocationAsync();
+#if DEBUG
+                location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
+#endif
+                if (location != null && map != null)
+                {
+                    map.HasZoomEnabled = true;
+
+
+                    var zoomLevel = 15; // between 1 and 18
+                    var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+                    if (LatVisibleRegion != null)
+                        latlongdegrees = LatVisibleRegion.LatitudeDegrees;
+
+                    MapSpan mapSpan = new MapSpan(new Position(location.Latitude, location.Longitude), latlongdegrees, latlongdegrees);
+                    var h = map.Height;
+                    var w = map.Width;
+
+                    //    map.MoveToRegion(LatVisibleRegion);
+                    //else
+                    map.MoveToRegion(mapSpan);
+                    map.IsVisible = true;
+                    MapIsVisible = true;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BrowserIsVisible)));
+
+                }
+            }
+            catch (Exception error)
+            {
+
+
+            }
+
+            MapIsVisible = true;
         }
 
         CancellationTokenSource tokenSource;
