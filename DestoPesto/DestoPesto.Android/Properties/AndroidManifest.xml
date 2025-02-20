@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="202409241" package="com.arionsoftware.destopesto" android:installLocation="preferExternal" android:versionName="SEP24.2">
-	<uses-sdk android:minSdkVersion="28" android:targetSdkVersion="34" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="202502201" package="com.arionsoftware.destopesto" android:installLocation="preferExternal" android:versionName="FEB25">
+	<uses-sdk android:minSdkVersion="28" android:targetSdkVersion="35" />
 	<application android:label="Δες το Πες το" android:theme="@style/MainTheme" android:usesCleartextTraffic="true" android:icon="@mipmap/ic_launcher">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDJKku7UEvOakL0DEzayNAB_KBp2yIXTP4" />
 		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
