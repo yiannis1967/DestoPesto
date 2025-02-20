@@ -591,4 +591,7 @@
   <data name="UserProfileDisclaimer" xml:space="preserve">
     <value>Όλες οι αναρτήσεις είναι ανώνυμες ακόμα και να συμπληρώσετε τα προσωπικά σας στοιχεία </value>
   </data>
+  <data name="UploadPhoto" xml:space="preserve">
+    <value>Ανεβάζω την φωτογραφία</value>
+  </data>
 </root>

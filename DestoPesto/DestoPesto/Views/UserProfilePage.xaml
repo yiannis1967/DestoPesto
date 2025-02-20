@@ -144,27 +144,27 @@
                         <Label Grid.Column="1" Text="{Binding AcceptedPhotosText}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
 
-                        <Label Grid.Row="1" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.RejectedPhotosLabel}" ></Label>
+                        <Label Grid.Row="1" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.RejectedPhotosLabel}"  VerticalTextAlignment="Center" ></Label>
                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding RejectedPhotosText}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
                         <BoxView Grid.Row="2" Color="LightGray"  HeightRequest="1" Grid.ColumnSpan="2"/>
 
-                        <Label Grid.Row="3" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalSubs}" />
+                        <Label Grid.Row="3" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalSubs}"  VerticalTextAlignment="Center"  />
                         <Label Grid.Row="3" Grid.Column="1" Text="{Binding totalsubs}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="4"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalUnfixedSubs}" />
+                        <Label Grid.Row="4"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalUnfixedSubs}"  VerticalTextAlignment="Center" />
                         <Label Grid.Row="4" Grid.Column="1" Text="{Binding unFixedSubsText}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="5"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalFixedDamages}" />
+                        <Label Grid.Row="5"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalFixedDamages}"  VerticalTextAlignment="Center" />
                         <Label Grid.Row="5" Grid.Column="1" Text="{Binding fixedSubsText}" TextColor="#0D6EFD"  VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="6"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PercentageOfFixed}" />
+                        <Label Grid.Row="6"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PercentageOfFixed}"  VerticalTextAlignment="Center" />
                         <Label Grid.Row="6" Grid.Column="1" Text="{Binding percentage}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="7" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.AverageRepairDays}" />
+                        <Label Grid.Row="7" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.AverageRepairDays}"  VerticalTextAlignment="Center" />
                         <Label Grid.Row="7" Grid.Column="1" Text="{Binding average_repair_days}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="8" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.MunicipalityUnfixedDays}" />
+                        <Label Grid.Row="8" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.MunicipalityUnfixedDays}"  VerticalTextAlignment="Center" />
                         <Label Grid.Row="8"  Grid.Column="1" Text="{Binding oldest_sub}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
 
