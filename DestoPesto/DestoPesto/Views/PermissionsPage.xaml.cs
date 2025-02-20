@@ -24,6 +24,8 @@ namespace DestoPesto.Views
         public event PropertyChangedEventHandler PropertyChanged;
         public PermissionsPage()
         {
+
+            Authentication.DeviceAuthentication.AuthStateChanged += DeviceAuthentication_AuthStateChanged;
             InitializeComponent();
 
             if (Xamarin.Essentials.DeviceInfo.Platform == DevicePlatform.iOS)
@@ -119,10 +121,21 @@ namespace DestoPesto.Views
             //browser.Source = htmlSource;
         }
 
+        private void DeviceAuthentication_AuthStateChanged(object sender, Authentication.AuthUser e)
+        {
+
+            if (Authentication.DeviceAuthentication.AuthUser != null)
+                GoToSettings_Clicked(this, EventArgs.Empty);
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
             DontShoAgain = true;
+
+            if (Authentication.DeviceAuthentication.AuthUser != null)
+                GoToSettings_Clicked(this,EventArgs.Empty);
+
         }
 
         public static async Task<bool> ShowPermissionsRequest()
@@ -145,9 +158,11 @@ namespace DestoPesto.Views
         {
             base.OnDisappearing();
 
-
-
-            var device = Xamarin.Forms.DependencyService.Get<IDevice>();
+            Authentication.DeviceAuthentication.AuthStateChanged -= DeviceAuthentication_AuthStateChanged;
+            if (Authentication.DeviceAuthentication.AuthUser != null)
+                return;
+              
+                var device = Xamarin.Forms.DependencyService.Get<IDevice>();
             if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Denied)
             {
                 var result = await device.RemoteNotificationsPermissionsRequest();
