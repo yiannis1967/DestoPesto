@@ -377,7 +377,7 @@ namespace DestoPesto.Views
 
         public double UploadOpacity
         {
-            get => _UploadOpacity ; // 1;
+            get => _UploadOpacity; // 1;
             set
             {
                 _UploadOpacity = value;
@@ -951,7 +951,7 @@ namespace DestoPesto.Views
             if (!ShowAll)
             {
                 ShowAll = true;
-                UploadOpacity = 1;
+                //UploadOpacity = 0.6;
 
                 if (ShowAll)
                     DrawPinsOnMap((App.Current as App).SubmittedDamage);

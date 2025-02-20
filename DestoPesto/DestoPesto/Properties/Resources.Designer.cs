@@ -1321,15 +1321,6 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uploading photo.
-        /// </summary>
-        public static string UploadPhoto {
-            get {
-                return ResourceManager.GetString("UploadPhoto", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The user corresponding to the given password reset code has been disabled.
         /// </summary>
         public static string USER_DISABLED {

@@ -591,7 +591,4 @@
   <data name="UserProfileDisclaimer" xml:space="preserve">
     <value>All posts remain anonymous even if you provide your personal data</value>
   </data>
-  <data name="UploadPhoto" xml:space="preserve">
-    <value>Uploading photo</value>
-  </data>
 </root>

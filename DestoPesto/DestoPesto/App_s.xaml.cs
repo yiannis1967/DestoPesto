@@ -43,7 +43,7 @@ namespace DestoPesto
                             if (device.IsBackgroundServiceStarted)
                             {
                                 if ((MainPage as AppShell)?.CurrentPage is MainPage)
-                                    ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 1;
+                                    ((MainPage as AppShell)?.CurrentPage as MainPage).UploadOpacity = 0.6;
                             }
                             else
                             {
