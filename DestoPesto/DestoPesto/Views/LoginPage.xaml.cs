@@ -118,9 +118,9 @@ namespace DestoPesto.Views
                     {
                         if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                         {
-                            var url = Properties.Resources.HomeScreenMobileLink;
+                            var url = Properties.Resources.LoginScreenMobileLink;
                             WebClient client = new WebClient();
-                            _LoginHomePage = client.DownloadString(Properties.Resources.HomeScreenMobileLink);
+                            _LoginHomePage = client.DownloadString(Properties.Resources.LoginScreenMobileLink);
 
                             File.WriteAllText(filePath, _LoginHomePage);
                             MainThread.BeginInvokeOnMainThread(async () =>
