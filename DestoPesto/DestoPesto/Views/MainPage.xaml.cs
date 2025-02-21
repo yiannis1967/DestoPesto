@@ -336,7 +336,7 @@ namespace DestoPesto.Views
             {
                 var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
+                location = new Xamarin.Essentials.Location(43.2151237595826, 2.35104261897504);
 #endif
                 if (location != null && map != null)
                 {
@@ -386,6 +386,15 @@ namespace DestoPesto.Views
         }
 
 
+        public bool VisibleMunicipality
+        {
+            get => !string.IsNullOrWhiteSpace(MunicipalityStats?.MunicipalityName);
+        }
+
+        
+
+
+
         private async void map_PropertyChangedAsync(object sender, PropertyChangedEventArgs e)
         {
 
@@ -401,7 +410,7 @@ namespace DestoPesto.Views
                     {
                         var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                        location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);// (37.943341, 23.648707);
+                        location = new Xamarin.Essentials.Location(43.2151237595826, 2.35104261897504);// (37.943341, 23.648707);
 #endif
                         var municipalityStats = await JsonHandler.GetMunicipalityStats(location.Latitude, location.Longitude);
                         if (municipalityStats != null && municipalityStats.Subs > 0)
@@ -457,7 +466,7 @@ namespace DestoPesto.Views
                      var location = await Geolocation.GetLastKnownLocationAsync();
 
 #if DEBUG
-                     location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
+                     location = new Xamarin.Essentials.Location(43.2151237595826, 2.35104261897504);
 #endif
                      //Call GetSubmission
                      try
@@ -1034,7 +1043,7 @@ namespace DestoPesto.Views
             {
                 var location = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                location = new Xamarin.Essentials.Location(37.833615943180824, 23.801470517094025);
+                location = new Xamarin.Essentials.Location(43.2151237595826, 2.35104261897504);
 #endif
                 await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, location));
             }
