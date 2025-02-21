@@ -54,20 +54,19 @@
                 <Grid Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" Padding="5" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
-                        <!--<RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>-->
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
         
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="60" />
                         <ColumnDefinition Width="60" />
                         <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button Opacity="0.5" Text="My" Clicked="My_Clicked" ></Button>
                     <Button Grid.Column="1" Opacity="0.5" Text="All" Clicked="All_Clicked" ></Button>
-                    <Image Grid.Column="2" Opacity="{Binding UploadOpacity}" HorizontalOptions="Center" InputTransparent="True" Source="upload.gif" IsAnimationPlaying="True" VerticalOptions="CenterAndExpand" />
-                    <!--<Label Text="{x:Static resources:Properties.Resources.UploadPhoto}" Grid.Column="3" Opacity="{Binding UploadOpacity}" HorizontalOptions="Center" InputTransparent="True" VerticalOptions="CenterAndExpand" BackgroundColor="#0D6EFD" TextColor="White" />-->
+                    <Image Grid.Column="2" Opacity="{Binding UploadOpacity}"   HorizontalOptions="CenterAndExpand" InputTransparent="True" Source="upload.gif" IsAnimationPlaying="True" VerticalOptions="Center" />
                 </Grid>
 
                 <AbsoluteLayout IsVisible="{Binding BrowserIsVisible}" Grid.Row="0">
