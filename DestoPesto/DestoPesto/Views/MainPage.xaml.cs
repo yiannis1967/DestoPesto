@@ -417,6 +417,7 @@ namespace DestoPesto.Views
                         {
                             MunicipalityStats = new MunicipalityStatsVM(municipalityStats);
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MunicipalityStats)));
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(VisibleMunicipality)));
                         }
                     }
                 }
