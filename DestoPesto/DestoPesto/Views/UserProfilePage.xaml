@@ -33,33 +33,72 @@
             <StackLayout Padding="5" Margin="15,10" >
 
 
-                <StackLayout  Orientation="Horizontal">
+                <!--<StackLayout  Orientation="Horizontal">
 
                     <Label Text="{x:Static resources:Properties.Resources.SomethingIsNotRightEmail}" x:Name="txtWrongEmail" IsVisible="false" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
+                </StackLayout>-->
+
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PersonNameLabel}" VerticalTextAlignment="Center"/>
+                    <extensions:EntryEx Grid.Column="1" BorderColor="LightGray" CornerRadius="10"  BackgroundColor="Transparent" VerticalTextAlignment="Center" TextColor="#0D6EFD" Text="{Binding Name}" Margin="0,0,0,0" PlaceholderColor="DarkGray"  Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"    HorizontalOptions="FillAndExpand" />
+
+                    <Label TextColor="#0D6EFD" Grid.Row="1" Text="{x:Static resources:Properties.Resources.EmailLabel}" VerticalTextAlignment="Center"/>
+                    <extensions:EntryEx Grid.Column="1"  Grid.Row="1" BorderColor="LightGray" BackgroundColor="Transparent"  VerticalTextAlignment="Center" Margin="0,0,0,0" PlaceholderColor="DarkGray" TextColor="#0D6EFD" Text="{Binding Email}"  Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand"  Keyboard="Email"  />
+
+                    <Label TextColor="#0D6EFD"   Grid.Row="2" Text="{x:Static resources:Properties.Resources.MobilePhoneLabel}" VerticalTextAlignment="Center"/>
+                    <extensions:EntryEx Grid.Column="1"  Grid.Row="2" BorderColor="LightGray" BackgroundColor="Transparent" VerticalTextAlignment="Center" PlaceholderColor="DarkGray" Margin="0,0,0,0" TextColor="#0D6EFD" Text="{Binding PhoneNumber}"   Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"   HorizontalOptions="FillAndExpand" />
+
+
+                    <Label Grid.Row="3"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.BirthDateLabel}"  VerticalTextAlignment="Center"/>
+                    <Grid Grid.Row="3" Grid.Column="1" IsVisible="{Binding iOS}" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                        <DatePicker x:Name="iOsBirthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,4,0" Date="{x:Static sys:DateTime.Now}" >
+                            <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                        </DatePicker>
+                    </Grid>
+
+                    <Grid Grid.Row="3"  Grid.Column="1" IsVisible="{Binding IsAndroid}" HorizontalOptions="FillAndExpand"  >
+                        <extensions:EntryEx BorderColor="LightGray" x:Name="birthDateEntry" PlaceholderColor="DarkGray" Focused="birthDateEntry_Focused" Text="{Binding BirthDateText}"  TextColor="#0D6EFD" Placeholder="{x:Static resources:Properties.Resources.BirthDateLabel}"  BackgroundColor="White"  HorizontalOptions="FillAndExpand"  VerticalTextAlignment="Center"/>
+                        <DatePicker BackgroundColor="White" TextColor="#0D6EFD" IsVisible="false" IsEnabled="False" x:Name="birthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Date="{x:Static sys:DateTime.Now}">
+                            <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                        </DatePicker>
+                    </Grid>
+
+                </Grid>
+                
+                
+                <!--<StackLayout BackgroundColor="White" Padding="5" Orientation="Vertical" Spacing="0">
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PersonNameLabel}" />
+                    <extensions:EntryEx BorderColor="LightGray" CornerRadius="10"  BackgroundColor="Transparent" TextColor="#0D6EFD" Text="{Binding Name}" Margin="0,0,0,0" PlaceholderColor="DarkGray"  Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"    HorizontalOptions="FillAndExpand" />
                 </StackLayout>
 
 
 
                 <StackLayout BackgroundColor="White" Padding="5" Orientation="Vertical" Spacing="0">
-                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PersonNameLabel}" ></Label>
-                    <extensions:EntryEx BorderColor="LightGray" CornerRadius="10"  BackgroundColor="Transparent" TextColor="#0D6EFD" Text="{Binding Name}" Margin="0,0,0,0" PlaceholderColor="DarkGray"  Placeholder="{x:Static resources:Properties.Resources.PersonNamePlaceHolder}"  x:Name="txtPassword"    HorizontalOptions="FillAndExpand" >
-                    </extensions:EntryEx>
-                </StackLayout>
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.EmailLabel}" />
+                    <extensions:EntryEx BorderColor="LightGray" BackgroundColor="Transparent"  Margin="0,0,0,0" PlaceholderColor="DarkGray" TextColor="#0D6EFD" Text="{Binding Email}"  Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand"  Keyboard="Email"  />
 
-
-
-                <StackLayout BackgroundColor="White" Padding="5" Orientation="Vertical" Spacing="0">
-                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.EmailLabel}" ></Label>
-                    <extensions:EntryEx BorderColor="LightGray" BackgroundColor="Transparent"  Margin="0,0,0,0" PlaceholderColor="DarkGray" TextColor="#0D6EFD" Text="{Binding Email}"  Placeholder="{x:Static resources:Properties.Resources.EmailPlaceHolder}" x:Name="txtEmail" HorizontalOptions="FillAndExpand"  Keyboard="Email"  >
-                    </extensions:EntryEx>
                 </StackLayout>
 
                 <StackLayout  BackgroundColor="White" Padding="5" Orientation="Vertical" Spacing="0">
-                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.MobilePhoneLabel}" ></Label>
+                    <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.MobilePhoneLabel}" />
                     <extensions:EntryEx BorderColor="LightGray" BackgroundColor="Transparent"  PlaceholderColor="DarkGray" Margin="0,0,0,0" TextColor="#0D6EFD" Text="{Binding PhoneNumber}"   Placeholder="{x:Static resources:Properties.Resources.MobilePhonePlaceHolder}"   HorizontalOptions="FillAndExpand" />
 
-                </StackLayout>
+                </StackLayout>-->
 
                 <!--<Frame BackgroundColor="White"  Margin="0,15,0,0"  Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
@@ -84,7 +123,7 @@
                     </StackLayout>
                 </Frame>-->
 
-                <StackLayout BackgroundColor="White" Padding="5" Orientation="Vertical" Spacing="0">
+                <!--<StackLayout BackgroundColor="White" Padding="5" Orientation="Vertical" Spacing="0">
                     <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.BirthDateLabel}" ></Label>
                     <Grid IsVisible="{Binding iOS}" HorizontalOptions="FillAndExpand">
                         <DatePicker x:Name="iOsBirthDatePicker"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,4,0" Date="{x:Static sys:DateTime.Now}">
@@ -98,7 +137,7 @@
                             <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                         </DatePicker>
                     </Grid>
-                </StackLayout>
+                </StackLayout>-->
 
                 <!--<Frame BackgroundColor="White"   Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="6">
                     <StackLayout Orientation="Horizontal">
@@ -141,30 +180,30 @@
                         </Grid.ColumnDefinitions>
 
                         <Label TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.AcceptedPhotosLabel}" VerticalTextAlignment="Center" />
-                        <Label Grid.Column="1" Text="{Binding AcceptedPhotosText}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
+                        <Label Grid.Column="1" Text="{Binding AcceptedPhotosText}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="Large" />
 
 
-                        <Label Grid.Row="1" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.RejectedPhotosLabel}" ></Label>
+                        <Label Grid.Row="1" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.RejectedPhotosLabel}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding RejectedPhotosText}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
                         <BoxView Grid.Row="2" Color="LightGray"  HeightRequest="1" Grid.ColumnSpan="2"/>
 
-                        <Label Grid.Row="3" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalSubs}" />
+                        <Label Grid.Row="3" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalSubs}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="3" Grid.Column="1" Text="{Binding totalsubs}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="4"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalUnfixedSubs}" />
+                        <Label Grid.Row="4"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalUnfixedSubs}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="4" Grid.Column="1" Text="{Binding unFixedSubsText}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="5"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalFixedDamages}" />
+                        <Label Grid.Row="5"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.TotalFixedDamages}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="5" Grid.Column="1" Text="{Binding fixedSubsText}" TextColor="#0D6EFD"  VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="6"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PercentageOfFixed}" />
+                        <Label Grid.Row="6"  TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.PercentageOfFixed}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="6" Grid.Column="1" Text="{Binding percentage}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="7" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.AverageRepairDays}" />
+                        <Label Grid.Row="7" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.AverageRepairDays}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="7" Grid.Column="1" Text="{Binding average_repair_days}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
-                        <Label Grid.Row="8" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.MunicipalityUnfixedDays}" />
+                        <Label Grid.Row="8" TextColor="#0D6EFD"  Text="{x:Static resources:Properties.Resources.MunicipalityUnfixedDays}" VerticalTextAlignment="Center" />
                         <Label Grid.Row="8"  Grid.Column="1" Text="{Binding oldest_sub}" TextColor="#0D6EFD" VerticalTextAlignment="Center" HorizontalTextAlignment="End" HorizontalOptions="End" FontSize="Large" />
 
 

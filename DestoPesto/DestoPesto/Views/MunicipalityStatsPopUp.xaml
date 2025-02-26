@@ -52,23 +52,23 @@
 
                 <Image Grid.Row="0" Grid.ColumnSpan="3" BackgroundColor="#0D6EFD" HorizontalOptions="Center" InputTransparent="True" Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" VerticalOptions="Center" AbsoluteLayout.LayoutFlags="All" />
 
-                <Label Grid.Row="1"  Text="{x:Static resources:Properties.Resources.MunicipalityUnfixed}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small"/>
-                <Label Grid.Row="1"   HorizontalTextAlignment="Center" FontAttributes="Bold"  Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding MunicipalityStats.unfixed}" FontSize="Large" VerticalTextAlignment="Center" />
+                <Label Grid.Row="1"  Text="{x:Static resources:Properties.Resources.MunicipalityUnfixed}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small" TextColor="{extensions:AppMode Color=Text}"/>
+                <Label Grid.Row="1"   HorizontalTextAlignment="Center" FontAttributes="Bold"  Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding MunicipalityStats.unfixed}" FontSize="Large" VerticalTextAlignment="Center" TextColor="{extensions:AppMode Color=Text}"/>
                 <BoxView Grid.Row="2" Color="LightGray"  HeightRequest="1" Grid.ColumnSpan="3"/>
-                
-                <Label Grid.Row="3" Text="{x:Static resources:Properties.Resources.MunicipalityFixed}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small"/>
-                <Label Grid.Row="3"  HorizontalTextAlignment="End"  FontAttributes="Bold" Grid.Column="1" Text="{Binding MunicipalityStats._fixed}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" />
-                <Label Grid.Row="3" HorizontalTextAlignment="End" FontAttributes="Bold" Grid.Column="2" Text="{Binding MunicipalityStats.perc}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" />
+
+                <Label Grid.Row="3" Text="{x:Static resources:Properties.Resources.MunicipalityFixed}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small" TextColor="{extensions:AppMode Color=Text}"/>
+                <Label Grid.Row="3"  HorizontalTextAlignment="End"  FontAttributes="Bold" Grid.Column="1" Text="{Binding MunicipalityStats._fixed}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" TextColor="{extensions:AppMode Color=Text}"/>
+                <Label Grid.Row="3" HorizontalTextAlignment="End" FontAttributes="Bold" Grid.Column="2" Text="{Binding MunicipalityStats.perc}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" TextColor="{extensions:AppMode Color=Text}"/>
                 <BoxView Grid.Row="4" Color="LightGray"  HeightRequest="1" Grid.ColumnSpan="3"/>
-                
-                <Label Grid.Row="5" Text="{x:Static resources:Properties.Resources.MunicipalityAvrgRepairDays}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small"/>
-                <Label Grid.Row="5"  HorizontalTextAlignment="End" FontAttributes="Bold"  Grid.Column="1" Text="{Binding MunicipalityStats.average_repair_days}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" />
-                <Label Grid.Row="5" Text="{x:Static resources:Properties.Resources.DaysText}" HorizontalTextAlignment="End" Grid.Column="2" Margin="5" VerticalTextAlignment="Center" FontSize="Small"/>
+
+                <Label Grid.Row="5" Text="{x:Static resources:Properties.Resources.MunicipalityAvrgRepairDays}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small" TextColor="{extensions:AppMode Color=Text}"/>
+                <Label Grid.Row="5"  HorizontalTextAlignment="End" FontAttributes="Bold"  Grid.Column="1" Text="{Binding MunicipalityStats.average_repair_days}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" TextColor="{extensions:AppMode Color=Text}"/>
+                <Label Grid.Row="5" Text="{x:Static resources:Properties.Resources.DaysText}" HorizontalTextAlignment="End" Grid.Column="2" Margin="5" VerticalTextAlignment="Center" FontSize="Small" TextColor="{extensions:AppMode Color=Text}"/>
                 <BoxView Grid.Row="6" Color="LightGray"  HeightRequest="1" Grid.ColumnSpan="3"/>
-                
-                <Label Grid.Row="7" Text="{x:Static resources:Properties.Resources.MunicipalityUnfixedDays}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small"/>
-                <Label Grid.Row="7"  HorizontalTextAlignment="End"  FontAttributes="Bold" Grid.Column="1" Text="{Binding MunicipalityStats.Unfixed_days}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" />
-                <Label Grid.Row="7" Text="{x:Static resources:Properties.Resources.DaysText}" HorizontalTextAlignment="End" Grid.Column="2" Margin="5" VerticalTextAlignment="Center" FontSize="Small"/>
+
+                <Label Grid.Row="7" Text="{x:Static resources:Properties.Resources.MunicipalityUnfixedDays}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Small" TextColor="{extensions:AppMode Color=Text}"/>
+                <Label Grid.Row="7"  HorizontalTextAlignment="End"  FontAttributes="Bold" Grid.Column="1" Text="{Binding MunicipalityStats.Unfixed_days}" Margin="5" FontSize="Medium" VerticalTextAlignment="Center" TextColor="{extensions:AppMode Color=Text}"/>
+                <Label Grid.Row="7" Text="{x:Static resources:Properties.Resources.DaysText}" HorizontalTextAlignment="End" Grid.Column="2" Margin="5" VerticalTextAlignment="Center" FontSize="Small" TextColor="{extensions:AppMode Color=Text}"/>
                 <BoxView Grid.Row="8" Color="LightGray"  HeightRequest="1" Grid.ColumnSpan="3"/>
                 
                 <Button Grid.Row="9" Grid.ColumnSpan="3" Text="{x:Static resources:Properties.Resources.Oktext}" x:Name="RightBtn" Clicked="RightBtn_Clicked" HorizontalOptions="EndAndExpand"   BackgroundColor="#0D6EFD" FontSize="Small" TextColor="White" Padding="5" CornerRadius="5" TextTransform="None"/>

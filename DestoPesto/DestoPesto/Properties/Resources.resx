@@ -511,7 +511,7 @@
     <value>Email</value>
   </data>
   <data name="MobilePhoneLabel" xml:space="preserve">
-    <value>Mobile phone</value>
+    <value>Mobile</value>
   </data>
   <data name="PersonNameLabel" xml:space="preserve">
     <value>Name</value>
@@ -590,5 +590,8 @@
   </data>
   <data name="UserProfileDisclaimer" xml:space="preserve">
     <value>All posts remain anonymous even if you provide your personal data</value>
+  </data>
+  <data name="UploadPhoto" xml:space="preserve">
+    <value />
   </data>
 </root>

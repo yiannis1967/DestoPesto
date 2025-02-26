@@ -391,7 +391,7 @@ namespace DestoPesto.Views
             get => !string.IsNullOrWhiteSpace(MunicipalityStats?.MunicipalityName);
         }
 
-        
+
 
 
 

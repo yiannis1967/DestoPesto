@@ -808,7 +808,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mobile phone.
+        ///   Looks up a localized string similar to Mobile.
         /// </summary>
         public static string MobilePhoneLabel {
             get {
@@ -1317,6 +1317,15 @@ namespace DestoPesto.Properties {
         public static string TurnOn {
             get {
                 return ResourceManager.GetString("TurnOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UploadPhoto {
+            get {
+                return ResourceManager.GetString("UploadPhoto", resourceCulture);
             }
         }
         
