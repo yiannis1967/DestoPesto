@@ -1125,9 +1125,9 @@ namespace DestoPesto.Views
         //public string MunicipalityName { get => Properties.Resources.MunicialityText + " " + MunicipalityStats.municipalityName; set { } }
         public string MunicipalityName { get => MunicipalityStats.municipalityName; set { } }
         public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
-        public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
+        public string _fixed { get => MunicipalityStats.Fixed.ToString(); set { } }
 
-        public string unfixed { get => (MunicipalityStats.Subs - MunicipalityStats._fixed).ToString(); set { } }
+        public string unfixed { get => (MunicipalityStats.Subs - MunicipalityStats.Fixed).ToString(); set { } }
 
         public string perc { get => MunicipalityStats.perc.ToString() + "%"; set { } }
         public string average_repair_days { get => MunicipalityStats.average_repair_days.ToString(); set { } }

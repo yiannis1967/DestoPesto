@@ -8,7 +8,7 @@ namespace DestoPesto.Services
     public class MunicipalityStats
     {
         public int Subs { get; set; }
-        public int _fixed { get; set; }
+        public int Fixed { get; set; }
         public double perc { get; set; }
         public int average_repair_days { get; set; }
         public DateTime unfixed_since { get; set; }
