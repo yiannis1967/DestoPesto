@@ -112,6 +112,9 @@ namespace DestoPesto.Views
                           else
                               InitMap();
                       }
+
+                      if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Granted&& locationInUsePermisions==PermissionStatus.Granted)
+                          device.PermissionsGranted();
                       // Code to run on the main thread  
 
                   });
