@@ -339,7 +339,7 @@ namespace DestoPesto.Views
             {
                 var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                location = new Xamarin.Essentials.Location(35.368622, 23.706223);
 #endif
                 if (location != null && map != null)
                 {
@@ -413,7 +413,7 @@ namespace DestoPesto.Views
                     {
                         var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                        location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                        location = new Xamarin.Essentials.Location(35.368622, 23.706223);
 #endif
                         var municipalityStats = await JsonHandler.GetMunicipalityStats(location.Latitude, location.Longitude);
                         if (municipalityStats != null && municipalityStats.Subs > 0)
@@ -470,7 +470,7 @@ namespace DestoPesto.Views
                      var location = await Geolocation.GetLastKnownLocationAsync();
 
 #if DEBUG
-                     location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                     location = new Xamarin.Essentials.Location(35.368622, 23.706223);
 #endif
                      //Call GetSubmission
                      try
@@ -681,6 +681,9 @@ namespace DestoPesto.Views
 
                     MapIsVisible = true;
 
+
+
+
                     try
                     {
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
@@ -875,8 +878,8 @@ namespace DestoPesto.Views
                 var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
-#if _DEBUG
-                location = new Location(37.943341, 23.648707);
+#if DEBUG
+                location = new Xamarin.Essentials.Location(35.368622, 23.706223);
 #endif
 
 
@@ -1047,7 +1050,7 @@ namespace DestoPesto.Views
             {
                 var location = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                location = new Xamarin.Essentials.Location(35.368622, 23.706223);
 #endif
                 await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, location));
             }
