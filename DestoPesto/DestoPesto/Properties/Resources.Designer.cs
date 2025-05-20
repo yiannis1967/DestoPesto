@@ -925,7 +925,7 @@ namespace DestoPesto.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total users who reported this : .
+        ///   Looks up a localized string similar to Total reports : .
         /// </summary>
         public static string NumUserText {
             get {

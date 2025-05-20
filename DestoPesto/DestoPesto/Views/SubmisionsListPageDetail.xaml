@@ -10,7 +10,7 @@
             Title="{x:Static resources:Properties.Resources.SubmisionsText}">
 
     <Grid BackgroundColor="White" >
-        
+
         <ScrollView>
             <StackLayout Padding="10">
                 <controls:RepeaterView ItemsSource="{Binding Path=UserSubmissions.AllUserDamages}">
@@ -54,7 +54,7 @@
                                             <xct:Expander.ContentTemplate>
                                                 <DataTemplate>
 
-                                                    <Grid HeightRequest="360"  >
+                                                    <Grid >
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="4*"/>
                                                             <RowDefinition Height="*"/>
@@ -64,37 +64,61 @@
 
 
                                                         <Grid Grid.Row="1"   HorizontalOptions="Fill" IsClippedToBounds="True" >
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="*"/>
+                                                                <RowDefinition Height="*"/>
+                                                            </Grid.RowDefinitions>
                                                             <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="Auto"/>
-                                                                <ColumnDefinition Width="2*"/>
-
-
-
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
                                                             </Grid.ColumnDefinitions>
 
                                                             <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" VerticalOptions="CenterAndExpand" TextColor="{extensions:AppMode Color=TextDefault}"/>
 
+                                                            <Button Grid.Column="0" Grid.Row="1" Padding="5" BackgroundColor="#CF1F25" VerticalOptions="Center"  HorizontalOptions="Center" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="5" Command="{Binding CloseCommand}" >
+                                                                <!--<Button.Margin>
+      <OnPlatform x:TypeArguments="Thickness">
+          <On Platform="Android" Value="-4,-6,-4,-5" />
+          <On Platform="iOS" Value="0" />
+      </OnPlatform>
+  </Button.Margin>-->
+                                                            </Button>
+
+                                                            <Button Grid.Column="1" Grid.Row="1" Padding="5" BackgroundColor="#5EDD60" VerticalOptions="Center"  HorizontalOptions="Center" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="5" Command="{Binding FixedCommand}">
+                                                                <!--<Button.Margin>
+      <OnPlatform x:TypeArguments="Thickness">
+          <On Platform="Android" Value="-4,-6,-4,-5" />
+          <On Platform="iOS" Value="0" />
+      </OnPlatform>
+  </Button.Margin>-->
+                                                            </Button>
+
                                                             <!--  Button Control  -->
+                                                            <!--
 
                                                             <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
                                                                 <Button Grid.Column="1" Padding="5" BackgroundColor="#CF1F25" VerticalOptions="Center"  HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="5" Command="{Binding CloseCommand}" >
-                                                                    <!--<Button.Margin>
+                                                                    -->
+                                                            <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />
                                                                         <On Platform="iOS" Value="0" />
                                                                     </OnPlatform>
                                                                 </Button.Margin>-->
+                                                            <!--
                                                                 </Button>
 
                                                                 <Button Grid.Column="2" Padding="5" BackgroundColor="#5EDD60" VerticalOptions="Center"  HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="5" Command="{Binding FixedCommand}">
-                                                                    <!--<Button.Margin>
+                                                                    -->
+                                                            <!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />
                                                                         <On Platform="iOS" Value="0" />
                                                                     </OnPlatform>
                                                                 </Button.Margin>-->
+                                                            <!--
                                                                 </Button>
-                                                            </StackLayout>
+                                                            </StackLayout>-->
 
                                                             <!--  Text Label  -->
                                                             <!--<Label Margin="10,0,0,0" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" HorizontalTextAlignment="Center" InputTransparent="True" Text="go next" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" />-->
@@ -142,6 +166,6 @@
         </ScrollView>
 
 
-        <Label IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" >Loading... </Label>
+        <Label IsVisible="{Binding Loading}" HorizontalOptions="Center" VerticalOptions="Center" >Loading...</Label>
     </Grid>
 </ContentPage>

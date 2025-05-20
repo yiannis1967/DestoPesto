@@ -25,15 +25,15 @@
            HorizontalOptions="Center" 
            VerticalOptions="Center"
            HasShadow="True"
-           HeightRequest="400"
+           
            Padding="0">
         <Grid >
             <Frame  CornerRadius="5"   BackgroundColor="WhiteSmoke" HorizontalOptions="Fill"  VerticalOptions="Fill" HasShadow="True" IsClippedToBounds="True" Padding="5">
-                <Grid HeightRequest="180"  >
+                <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="4*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
                     <Grid >
@@ -41,17 +41,13 @@
 
                         <Grid Padding="5" BackgroundColor="WhiteSmoke">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1" FontSize="Subtitle"  Text="{Binding Path=Submission.CategoryName}" TextColor="{extensions:AppMode Color=TextDefault}" ></Label>
-                            <Label Grid.Column="1" Grid.Row="1"  Text="{Binding Path=Submission.fullAddress}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
-                            <Label Grid.Column="1" Grid.Row="2"  Text="{Binding Path=Submission.SubmissionsNumberPrompt}" TextColor="{extensions:AppMode Color=TextDefault}"></Label>
+                            <Label FontSize="Title"  Text="{Binding Path=Submission.CategoryName}" TextColor="{extensions:AppMode Color=TextDefault}" />
+                            <Label Grid.Row="1"  FontSize="Small" Text="{Binding Path=Submission.fullAddress}" TextColor="{extensions:AppMode Color=TextDefault}"/>
+                            <Label Grid.Row="2"  FontSize="Small" Text="{Binding Path=Submission.SubmissionsNumberPrompt}" TextColor="{extensions:AppMode Color=TextDefault}"/>
                         </Grid>
 
                     </Grid>
@@ -59,35 +55,58 @@
                     <Image Grid.Row="1"  x:Name="backgroundImage" Source="{Binding Path=Submission.photoUrl}" AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" />
 
 
-                    <Grid Grid.Row="2"   HorizontalOptions="Fill" IsClippedToBounds="True" Margin="0,0,0,5">
+                    <Grid Grid.Row="2"   >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             
-
                         </Grid.ColumnDefinitions>
-                        <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" TextColor="{extensions:AppMode Color=TextDefault}" VerticalOptions="CenterAndExpand"/>
-                        <!--  Button Control  -->
+                        <Label Padding="5" Text="{x:Static resources:Properties.Resources.Fixed}" TextColor="{extensions:AppMode Color=TextDefault}" VerticalOptions="Center"/>
 
-                        <StackLayout Grid.Column="1" Spacing="15" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button x:Name="Cancel" Grid.Column="0" Grid.Row="1"  VerticalOptions="Center" BackgroundColor="#CF1F25"  HorizontalOptions="Center" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="6" Clicked="Cancel_Clicked" >
+                            <!--<Button.Margin>
+                                           <OnPlatform x:TypeArguments="Thickness">
+                                               <On Platform="Android" Value="-4,-6,-4,-5" />
+                                               <On Platform="iOS" Value="0" />
+                                           </OnPlatform>
+                                       </Button.Margin>-->
+                        </Button>
+
+                        <Button Grid.Column="1" Grid.Row="1"  IsEnabled="{Binding enableFixButton}" VerticalOptions="Center"  BackgroundColor="#5EDD60"  HorizontalOptions="Center" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Clicked="Fixed_Clicked" >
+                            <!--<Button.Margin>
+                                           <OnPlatform x:TypeArguments="Thickness">
+                                               <On Platform="Android" Value="-4,-6,-4,-5" />
+                                               <On Platform="iOS" Value="0" />
+                                           </OnPlatform>
+                                       </Button.Margin>-->
+                        </Button>
+
+                        <!--  Button Control  -->
+                        
+
+                        <!--<StackLayout Grid.Column="1" Spacing="15" Orientation="Horizontal" HorizontalOptions="End">
                             <Button x:Name="Cancel" Grid.Column="1"   Padding="20,5,20,5" VerticalOptions="Center" BackgroundColor="#CF1F25"  HorizontalOptions="Start" Text="{x:Static resources:Properties.Resources.NoText}" CornerRadius="6" Clicked="Cancel_Clicked" >
-                                <!--<Button.Margin>
+                                --><!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />
                                                                         <On Platform="iOS" Value="0" />
                                                                     </OnPlatform>
-                                                                </Button.Margin>-->
+                                                                </Button.Margin>--><!--
                             </Button>
 
                             <Button Grid.Column="2"  IsEnabled="{Binding enableFixButton}" VerticalOptions="Center"  Padding="20,5,20,5" BackgroundColor="#5EDD60"  HorizontalOptions="End" Text="{x:Static resources:Properties.Resources.YesText}" CornerRadius="6" Clicked="Fixed_Clicked" >
-                                <!--<Button.Margin>
+                                --><!--<Button.Margin>
                                                                     <OnPlatform x:TypeArguments="Thickness">
                                                                         <On Platform="Android" Value="-4,-6,-4,-5" />
                                                                         <On Platform="iOS" Value="0" />
                                                                     </OnPlatform>
-                                                                </Button.Margin>-->
+                                                                </Button.Margin>--><!--
                             </Button>
-                        </StackLayout>
+                        </StackLayout>-->
 
                         <!--  Text Label  -->
                         <!--<Label Margin="10,0,0,0" FontAttributes="Bold" FontSize="Small" HorizontalOptions="Start" HorizontalTextAlignment="Center" InputTransparent="True" Text="go next" TextColor="White" VerticalOptions="Center" VerticalTextAlignment="Center" />-->
