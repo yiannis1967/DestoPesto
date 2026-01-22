@@ -48200,23 +48200,20 @@ namespace DestoPesto.Droid
 			// aapt resource value: 0x7F0700EB
 			public const int upload = 2131165419;
 			
-			// aapt resource value: 0x7F0700ED
-			public const int uploadfile = 2131165421;
-			
 			// aapt resource value: 0x7F0700EC
-			public const int upload_in_progress = 2131165420;
+			public const int uploadfile = 2131165420;
+			
+			// aapt resource value: 0x7F0700ED
+			public const int user = 2131165421;
 			
 			// aapt resource value: 0x7F0700EE
-			public const int user = 2131165422;
+			public const int user_blue = 2131165422;
 			
 			// aapt resource value: 0x7F0700EF
-			public const int user_blue = 2131165423;
+			public const int wifi = 2131165423;
 			
 			// aapt resource value: 0x7F0700F0
-			public const int wifi = 2131165424;
-			
-			// aapt resource value: 0x7F0700F1
-			public const int xamarin_logo = 2131165425;
+			public const int xamarin_logo = 2131165424;
 			
 			static Drawable()
 			{

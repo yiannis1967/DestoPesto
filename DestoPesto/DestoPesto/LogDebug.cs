@@ -14,6 +14,7 @@ namespace DestoPesto
         {
             get
             {
+                
                 if(_Current==null)
                     _Current= new LogDebug();
 
