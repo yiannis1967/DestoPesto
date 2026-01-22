@@ -39,10 +39,10 @@
     <Grid BackgroundColor="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
 
 
         </Grid.RowDefinitions>
@@ -146,7 +146,7 @@
         </StackLayout>
         <StackLayout Grid.Row="4" Orientation="Horizontal" Margin="10" BackgroundColor="White">
             <Image Source="{extensions:ImageResource DestoPesto.Images.logoback.png}" HeightRequest="30"  HorizontalOptions="Start" VerticalOptions="End"/>
-            <Label Text="{x:Static resources:Properties.Resources.DeleteAccountInfoText}" TextColor="{extensions:AppMode Color=Text}"  FontSize="Micro" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
+            <Label Text="{x:Static resources:Properties.Resources.DeleteAccountInfoText}" TextColor="{extensions:AppMode Color=Text}" FontSize="Micro" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
         </StackLayout>
     </Grid>
 

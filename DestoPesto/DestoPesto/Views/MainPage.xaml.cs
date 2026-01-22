@@ -112,6 +112,9 @@ namespace DestoPesto.Views
                           else
                               InitMap();
                       }
+
+                      if (await device.RemoteNotificationsPermissionsCheck() == PermissionStatus.Granted&& locationInUsePermisions==PermissionStatus.Granted)
+                          device.PermissionsGranted();
                       // Code to run on the main thread  
 
                   });
@@ -336,7 +339,7 @@ namespace DestoPesto.Views
             {
                 var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                location = new Xamarin.Essentials.Location(35.32476085169625, 25.130670035857452);
 #endif
                 if (location != null && map != null)
                 {
@@ -410,7 +413,7 @@ namespace DestoPesto.Views
                     {
                         var location = await Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                        location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                        location = new Xamarin.Essentials.Location(35.32476085169625, 25.130670035857452);
 #endif
                         var municipalityStats = await JsonHandler.GetMunicipalityStats(location.Latitude, location.Longitude);
                         if (municipalityStats != null && municipalityStats.Subs > 0)
@@ -467,7 +470,7 @@ namespace DestoPesto.Views
                      var location = await Geolocation.GetLastKnownLocationAsync();
 
 #if DEBUG
-                     location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                     location = new Xamarin.Essentials.Location(35.32476085169625, 25.130670035857452);
 #endif
                      //Call GetSubmission
                      try
@@ -678,6 +681,9 @@ namespace DestoPesto.Views
 
                     MapIsVisible = true;
 
+
+
+
                     try
                     {
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MapIsVisible)));
@@ -685,7 +691,7 @@ namespace DestoPesto.Views
 
                         var location = await Geolocation.GetLocationAsync();
 #if _DEBUG
-                        location = new Location(37.943341, 23.648707);
+                        location = new Location(35.32476085169625, 25.130670035857452);
 #endif
 
                         if (location != null)
@@ -872,8 +878,8 @@ namespace DestoPesto.Views
                 var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
-#if _DEBUG
-                location = new Location(37.943341, 23.648707);
+#if DEBUG
+                location = new Xamarin.Essentials.Location(35.32476085169625, 25.130670035857452);
 #endif
 
 
@@ -892,6 +898,7 @@ namespace DestoPesto.Views
 
 
                 }
+
                 string hour = dt.Hour.ToString();
                 if (dt.Hour < 10)
                 {
@@ -1044,7 +1051,7 @@ namespace DestoPesto.Views
             {
                 var location = await Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
 #if DEBUG
-                location = new Xamarin.Essentials.Location(37.943341, 23.648707);
+                location = new Xamarin.Essentials.Location(35.32476085169625, 25.130670035857452);
 #endif
                 await PopupNavigation.Instance.PushAsync(new SubmisionDetailsPopupPage(damage, location));
             }
@@ -1122,9 +1129,9 @@ namespace DestoPesto.Views
         //public string MunicipalityName { get => Properties.Resources.MunicialityText + " " + MunicipalityStats.municipalityName; set { } }
         public string MunicipalityName { get => MunicipalityStats.municipalityName; set { } }
         public string Subs { get => MunicipalityStats.Subs.ToString(); set { } }
-        public string _fixed { get => MunicipalityStats._fixed.ToString(); set { } }
+        public string _fixed { get => MunicipalityStats.Fixed.ToString(); set { } }
 
-        public string unfixed { get => (MunicipalityStats.Subs - MunicipalityStats._fixed).ToString(); set { } }
+        public string unfixed { get => (MunicipalityStats.Subs - MunicipalityStats.Fixed).ToString(); set { } }
 
         public string perc { get => MunicipalityStats.perc.ToString() + "%"; set { } }
         public string average_repair_days { get => MunicipalityStats.average_repair_days.ToString(); set { } }

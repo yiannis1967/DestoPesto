@@ -187,7 +187,7 @@
     <value>Όχι</value>
   </data>
   <data name="NumUserText" xml:space="preserve">
-    <value>Αριθμός πολιτών που το έχουν αναφέρει : </value>
+    <value>Σύνολο αναφορών : </value>
   </data>
   <data name="Oktext" xml:space="preserve">
     <value>OK</value>

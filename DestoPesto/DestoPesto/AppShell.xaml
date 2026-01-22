@@ -26,7 +26,13 @@
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>-->
 
-
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <ContentView BackgroundColor="#0D6EFD">
+                <Image Source="{extensions:ImageResource DestoPesto.Images.logo_landscape_blue_back.png}" />
+            </ContentView>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
 
     <Shell.FlyoutFooterTemplate >
         <DataTemplate>
@@ -68,7 +74,7 @@
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="Blue" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
@@ -217,7 +223,7 @@
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>
     </FlyoutItem>-->
 
-    <FlyoutItem Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}">
+    <FlyoutItem Title="{x:Static resources:Properties.Resources.Home}"  Icon="{extensions:ImageResource DestoPesto.Images.pin_drop.png}" >
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"/>
     </FlyoutItem>
 
